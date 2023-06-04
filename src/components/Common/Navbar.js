@@ -21,7 +21,7 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse justify-content-center align-items-center`}>
+                    <div className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-center align-items-center`}>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <Link className="nav-link active" data-scroll-nav="0" to="/">
