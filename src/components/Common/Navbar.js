@@ -50,7 +50,7 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" data-scroll-nav="0" to="/">
-                                    <button className="btn btn-info">
+                                    <button className="btn registerBtn">
                                         REGISTER
                                     </button>
                                 </Link>
