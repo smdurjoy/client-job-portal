@@ -1,0 +1,14 @@
+.summary {
+    margin-top: 90px;
+    background: #F28A1F;
+    height: 351px;
+    color: white;
+}
+
+.summary .container .row {
+    padding-top: 130px;
+}
+
+.summary .container img {
+    height: 80px;
+}
