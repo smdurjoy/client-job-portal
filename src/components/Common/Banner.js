@@ -12,7 +12,7 @@ const Banner = () => {
                 <div className="wrapper">
                     <div className="container">
                         <h3>9000+ BROWSE JOBS</h3>
-                        <div className="row no-gutters custom-search-input-2">
+                        <div className="row no-gutters custom-search-input-2 mt-4">
                             <div className="col-lg-4">
                                 <div className="form-group">
                                     <input className="form-control" type="text"
@@ -38,7 +38,7 @@ const Banner = () => {
                                 </select>
                             </div>
                             <div className="col-lg-2">
-                                <input type="submit" value="Search"/>
+                                <input type="submit" value="Find Jobs"/>
                             </div>
                         </div>
                     </div>
