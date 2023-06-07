@@ -7,6 +7,7 @@ import Summary from "../components/Home/Summary/Summary";
 import Pricing from "../components/Home/Pricing/Pricing";
 import Jobs from "../components/Home/Jobs/Jobs";
 import Downloads from "../components/Home/Downloads/Downloads";
+import HowItWorks from "../components/Home/HowItWorks/HowItWorks";
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
             <Pricing/>
             <Jobs/>
             <Downloads/>
+            <HowItWorks/>
         </>
     )
 }

@@ -172,3 +172,22 @@
     padding: 10px;
     margin: 0 10px;
 }
+
+.howItWorks {
+    background-color: var(--main1);
+    padding: 90px 0;
+}
+
+.howItWorks h2 {
+    color: white;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.howItWorks .subTitle, .howItWorkDes {
+    color: #f4f4f4;
+}
+
+.howItWorks img {
+    width: 100px;
+}
