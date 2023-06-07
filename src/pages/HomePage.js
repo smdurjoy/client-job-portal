@@ -6,6 +6,7 @@ import Category from "../components/Home/Category/Category";
 import Summary from "../components/Home/Summary/Summary";
 import Pricing from "../components/Home/Pricing/Pricing";
 import Jobs from "../components/Home/Jobs/Jobs";
+import Downloads from "../components/Home/Downloads/Downloads";
 
 const HomePage = () => {
     return (
@@ -16,6 +17,7 @@ const HomePage = () => {
             <Summary/>
             <Pricing/>
             <Jobs/>
+            <Downloads/>
         </>
     )
 }
