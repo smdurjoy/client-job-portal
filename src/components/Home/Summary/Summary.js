@@ -1,7 +1,7 @@
 import React from 'react';
-import user from '../../images/user.svg';
-import monitor from '../../images/monitor.svg';
-import web from '../../images/web.svg';
+import user from '../../../images/user.svg';
+import monitor from '../../../images/monitor.svg';
+import web from '../../../images/web.svg';
 
 const Summary = () => {
     return (
@@ -24,7 +24,7 @@ const Summary = () => {
                             <div>
                                 <img src={monitor} alt="companies"/>
                             </div>
-                            <div>
+                            <div className="">
                                 <h1>956</h1>
                                 <small>Companies</small>
                             </div>

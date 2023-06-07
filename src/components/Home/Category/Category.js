@@ -1,8 +1,8 @@
 import React from 'react';
-import bankingImg from '../../images/bank.svg';
-import construction from '../../images/builder.svg';
-import marketing from '../../images/marketing.svg';
-import creative from '../../images/creative.svg';
+import bankingImg from '../../../images/bank.svg';
+import construction from '../../../images/builder.svg';
+import marketing from '../../../images/marketing.svg';
+import creative from '../../../images/creative.svg';
 
 const Category = () => {
     return (
