@@ -112,3 +112,35 @@
     font-size: 14px;
     border: none;
 }
+
+.jobs {
+    padding: 90px 0;
+    background-color: #0D9CA4;
+}
+
+.jobsTitle {
+    color: white;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.jobs .subTitle {
+    color: #f4f4f4;
+}
+
+.jobs .card {
+    background-color: transparent;
+    border-color: white;
+    color: white;
+}
+
+.jobs img {
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.jobs .card-footer {
+    border: none;
+}
