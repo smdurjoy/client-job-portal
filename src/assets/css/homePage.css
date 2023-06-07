@@ -213,3 +213,19 @@
     font-size: 13px;
     color: #848383;
 }
+
+.icons {
+    padding: 60px 50px;
+    background-color: var(--main2);
+}
+
+.icons img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.icons span {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
