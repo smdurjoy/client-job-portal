@@ -8,6 +8,7 @@ import Pricing from "../components/Home/Pricing/Pricing";
 import Jobs from "../components/Home/Jobs/Jobs";
 import Downloads from "../components/Home/Downloads/Downloads";
 import HowItWorks from "../components/Home/HowItWorks/HowItWorks";
+import Client from "../components/Home/Clients/Client";
 
 const HomePage = () => {
     return (
@@ -20,6 +21,7 @@ const HomePage = () => {
             <Jobs/>
             <Downloads/>
             <HowItWorks/>
+            <Client/>
         </>
     )
 }
