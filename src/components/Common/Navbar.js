@@ -1,13 +1,26 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import brandLogo from '../../images/brandLogo.png';
 
-const Navbar = () => {
+const Navbar = ({navBg = ''}) => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    const [navBackground, setNavBackground] = useState(navBg);
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
+    const onScroll = () => {
+        if (window.scrollY > 600) {
+            setNavBackground('scrolledNav');
+        } else {
+            setNavBackground('');
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll)
+    }, [])
+
     return (
-        <header className="header menu_fixed">
+        <header className={"header menu_fixed " + navBackground}>
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <Link className="logo" to="/">
@@ -21,7 +34,8 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-center align-items-center`}>
+                    <div
+                        className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-center align-items-center`}>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <Link className="nav-link active" data-scroll-nav="0" to="/">
