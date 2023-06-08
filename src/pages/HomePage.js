@@ -10,6 +10,7 @@ import Downloads from "../components/Home/Downloads/Downloads";
 import HowItWorks from "../components/Home/HowItWorks/HowItWorks";
 import Client from "../components/Home/Clients/Client";
 import Icons from "../components/Home/Icons/Icons";
+import Footer from "../components/Common/Footer";
 
 const HomePage = () => {
     return (
@@ -24,6 +25,7 @@ const HomePage = () => {
             <HowItWorks/>
             <Client/>
             <Icons/>
+            <Footer/>
         </>
     )
 }
