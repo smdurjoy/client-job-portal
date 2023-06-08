@@ -43,7 +43,7 @@ const Navbar = ({navBg = ''}) => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/">
+                                <Link className="nav-link" data-scroll-nav="0" to="/jobs">
                                     JOBS
                                 </Link>
                             </li>

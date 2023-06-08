@@ -5,7 +5,7 @@
 
 .scrolledNav {
     background-color: var(--main2);
-    transition:all 0.4s ease-out;
+    transition: all 0.4s ease-out;
 }
 
 .navbar-nav > li {
@@ -30,6 +30,20 @@
 
 .collapseBg .nav-link {
     color: black !important;
+}
+
+.subBanner {
+    margin-top: 99px;
+    min-height: 270px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-bottom: 2px solid var(--main2);
+}
+
+.subBannerContent {
+    padding: 90px 0;
+    color: white;
 }
 
 .footer {
@@ -58,7 +72,7 @@
     padding: 0;
 }
 
-.footer ul li{
+.footer ul li {
     padding-bottom: 7px;
 }
 
@@ -75,6 +89,6 @@
 
 .form-control {
     outline: none;
-    box-shadow:none !important;
-    border:1px solid #ccc !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
 }
