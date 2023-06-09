@@ -23,7 +23,8 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('scroll', onScroll)
+        window.addEventListener('scroll', onScroll);
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [])
 
     return (

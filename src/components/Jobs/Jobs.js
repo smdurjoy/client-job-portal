@@ -2,7 +2,7 @@ import React from 'react';
 import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
 
-const JobFilters = () => {
+const Jobs = () => {
     return (
         <>
             <div className="jobsFilter">
@@ -58,4 +58,4 @@ const JobFilters = () => {
     );
 };
 
-export default JobFilters;
+export default Jobs;
