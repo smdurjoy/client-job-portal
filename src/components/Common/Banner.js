@@ -1,6 +1,11 @@
 import React from 'react';
+import ReactSelect from "./ReactSelect";
 
 const Banner = () => {
+    const options = [
+        {value: 'all', label: 'All Category'}
+    ]
+
     return (
         <main className="pattern">
             <section className="banner version_2">
@@ -22,9 +27,7 @@ const Banner = () => {
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <select name="category_id" className="form-select categorySelect">
-                                    <option value="">All Category</option>
-                                </select>
+                                <ReactSelect options={options}/>
                             </div>
                             <div className="col-lg-2">
                                 <input className="findJobBtn" type="submit" value="Find Jobs"/>

@@ -1,5 +1,8 @@
 /*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
+    .header {
+        width: 100vw !important;
+    }
     .banner h3 {
         margin-top: 90px !important;
         font-size: 60px !important;

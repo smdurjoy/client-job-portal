@@ -6,7 +6,7 @@ const Footer = () => {
         <>
             <div className="footer">
                 <div className="container">
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex justify-content-between align-items-center flex-wrap">
                         <div>
                             <img src={brandLogo} alt="WorkersRus"/>
                         </div>

@@ -1,8 +1,14 @@
 import React from 'react';
 import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
+import ReactSelect from '../Common/ReactSelect';
 
 const Jobs = () => {
+    const options = [
+        {value: 'test', label: 'Test'},
+        {value: 'test2', label: 'Test 2'}
+    ]
+
     return (
         <>
             <div className="jobsFilter">
@@ -15,16 +21,10 @@ const Jobs = () => {
                             />
                         </div>
                         <div className="col">
-                            <select name="category_id" className="form-select">
-                                <option value="">Test</option>
-                                <option value="">Test 2</option>
-                            </select>
+                            <ReactSelect options={options}/>
                         </div>
                         <div className="col">
-                            <select name="category_id" className="form-select">
-                                <option value="">Test</option>
-                                <option value="">Test 2</option>
-                            </select>
+                            <ReactSelect options={options}/>
                         </div>
                         <div className="col">
                             <button className="btn filterBtn">Filter</button>
