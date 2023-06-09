@@ -2,6 +2,7 @@ import React from 'react';
 import {createBrowserRouter} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
+import CandidatesPage from "../pages/CandidatesPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/jobs",
         element: <JobsPage />,
+    },
+    {
+        path: "/candidates",
+        element: <CandidatesPage />,
     },
 ]);
 

@@ -1,0 +1,41 @@
+.candidates {
+    padding: 50px 0;
+}
+
+.candidates .select {
+    display: flex;
+    justify-content: space-between;
+}
+
+.candidates .select .css-b62m3t-container {
+    width: 45%;
+}
+
+.candidates .card {
+    margin-top: 20px;
+}
+
+.candidates img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+}
+
+.candidates .card-title {
+    margin-top: 35px;
+    color: #6B6B6B;
+}
+
+.candidates .skills span {
+    border: 1px solid #e5e5e5;
+    padding: 4px 8px;
+    border-radius: 15px;
+    margin: 4px;
+    color: #6B6B6B;
+}
+
+.candidates .subTitle {
+    color: #00be00;
+    font-weight: 500;
+}

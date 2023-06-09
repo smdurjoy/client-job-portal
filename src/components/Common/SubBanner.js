@@ -1,13 +1,13 @@
 import React from 'react';
 import image from '../../images/meeting.jpg'
 
-const SubBanner = () => {
+const SubBanner = ({title}) => {
     return (
         <div className="subBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
                 <div className="subBannerContent">
-                    <p>Home > Job List - V1</p>
-                    <h1>Job List - V1</h1>
+                    <p>Home > {title}</p>
+                    <h1>{title}</h1>
                 </div>
             </div>
         </div>
