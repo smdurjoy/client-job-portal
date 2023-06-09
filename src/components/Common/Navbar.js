@@ -1,26 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import brandLogo from '../../images/brandLogo.png';
 
 const Navbar = ({navBg = ''}) => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
-    const [navBackground, setNavBackground] = useState(navBg);
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
-    const onScroll = () => {
-        if (window.scrollY > 600) {
-            setNavBackground('scrolledNav');
-        } else {
-            setNavBackground('');
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-    }, [])
-
     return (
-        <header className={"header menu_fixed " + navBackground}>
+        <header className={"header menu_fixed " + navBg}>
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <Link className="logo" to="/">

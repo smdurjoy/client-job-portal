@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../assets/css/homePage.css";
 import Navbar from "../components/Common/Navbar";
 import Banner from "../components/Common/Banner";
@@ -13,9 +13,22 @@ import Icons from "../components/Home/Icons/Icons";
 import Footer from "../components/Common/Footer";
 
 const HomePage = () => {
+    const [navBackground, setNavBackground] = useState('');
+    const onScroll = () => {
+        if (window.scrollY > 600) {
+            setNavBackground('scrolledNav');
+        } else {
+            setNavBackground('');
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll)
+    }, [])
+
     return (
         <>
-            <Navbar/>
+            <Navbar navBg={navBackground}/>
             <Banner/>
             <Category/>
             <Summary/>
