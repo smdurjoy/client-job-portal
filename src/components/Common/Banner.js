@@ -1,18 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 const Banner = () => {
-
-    useEffect(() => {
-
-    }, [])
-
     return (
         <main className="pattern">
-            <section className="hero_single version_2">
+            <section className="banner version_2">
                 <div className="wrapper">
                     <div className="container">
                         <h3 className="bannerTitle">9000+ BROWSE JOBS</h3>
-                        <div className="row no-gutters custom-search-input-2 mt-5">
+                        <div className="row custom-search-input-2 mt-5">
                             <div className="col-lg-4">
                                 <div className="form-group">
                                     <input className="form-control" type="text"
@@ -27,14 +22,8 @@ const Banner = () => {
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <select className="wide">
-                                    <option>All Categories</option>
-                                    <option>Shops</option>
-                                    <option>Hotels</option>
-                                    <option>Restaurants</option>
-                                    <option>Bars</option>
-                                    <option>Events</option>
-                                    <option>Fitness</option>
+                                <select name="category_id" className="form-select categorySelect">
+                                    <option value="">All Category</option>
                                 </select>
                             </div>
                             <div className="col-lg-2">
