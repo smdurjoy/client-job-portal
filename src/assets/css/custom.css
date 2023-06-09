@@ -12,8 +12,16 @@
     padding: 0 15px;
 }
 
+.navbar .active {
+    border-bottom: 1px solid white;
+}
+
 .nav-link {
     color: white !important;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid white;
 }
 
 .collapseBg {

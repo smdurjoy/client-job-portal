@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import brandLogo from '../../images/brandLogo.png';
 
 const Navbar = ({navBg = ''}) => {
@@ -25,36 +25,64 @@ const Navbar = ({navBg = ''}) => {
                         className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-center align-items-center`}>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link active" data-scroll-nav="0" to="/">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0" to="/"
+                                >
                                     HOME
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/jobs">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0" to="/jobs"
+                                >
                                     JOBS
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0"
+                                         to="/candidates"
+                                >
                                     CANDIDATES
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0"
+                                         to="/employees"
+                                >
                                     EMPLOYERS
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0"
+                                         to="/login"
+                                >
                                     LOGIN
-                                </Link>
+                                </NavLink>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" data-scroll-nav="0" to="/">
+                                <NavLink className={({isActive}) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                                         data-scroll-nav="0"
+                                         to="/register"
+                                >
                                     <button className="btn registerBtn">
                                         REGISTER
                                     </button>
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>
