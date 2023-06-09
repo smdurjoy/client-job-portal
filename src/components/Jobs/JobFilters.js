@@ -1,5 +1,6 @@
 import React from 'react';
 import JobsList from "./JobsList";
+import Pagination from "../Common/Pagination";
 
 const JobFilters = () => {
     return (
@@ -52,6 +53,7 @@ const JobFilters = () => {
                 </div>
             </div>
             <JobsList/>
+            <Pagination/>
         </>
     );
 };
