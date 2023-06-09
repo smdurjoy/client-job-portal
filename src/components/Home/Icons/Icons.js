@@ -9,7 +9,7 @@ const Icons = () => {
     return (
         <div className="icons">
             <div className="container">
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between flex-wrap">
                     <div>
                         <div className="d-flex justify-content-center align-items-center">
                             <img src={diamond} alt="daimond"/>

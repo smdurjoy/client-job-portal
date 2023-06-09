@@ -6,7 +6,7 @@ import creative from '../../../images/creative.svg';
 
 const Category = () => {
     return (
-        <div className="container mt-5 pt-5">
+        <div className="container mt-5 pt-5 categoryContainer">
             <div className="text-center">
                 <span className="subTitle">JOBS LIVE TODAY</span>
                 <h1 className="categoryTitle">Browse Jobs by Category</h1>
@@ -41,7 +41,7 @@ const Category = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center mt-5 pt-5">
+            <div className="text-center mt-5 pt-5 moreCategoryLink">
                 <small className="subTitle">Browse More Category >>></small>
             </div>
         </div>

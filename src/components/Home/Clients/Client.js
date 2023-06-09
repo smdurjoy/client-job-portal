@@ -16,7 +16,7 @@ const Client = () => {
                         <img src={client3} alt=""/>
                         <div className="mt-4">
                             <h5>Emily Hazel</h5>
-                            <small>Architect</small>
+                            <small className="clientTitle">Architect</small>
                         </div>
                         <div className="clientMsg">
                             <span>Lorem Ipsum is simply dummy text</span><br/>

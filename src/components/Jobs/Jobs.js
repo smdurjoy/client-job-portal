@@ -5,8 +5,26 @@ import ReactSelect from '../Common/ReactSelect';
 
 const Jobs = () => {
     const options = [
-        {value: 'test', label: 'Test'},
-        {value: 'test2', label: 'Test 2'}
+        {
+            value: 'test',
+            label: 'Test'
+        },
+        {
+            value: 'test2',
+            label: 'Test 2'
+        }
+    ]
+    const filterOptions = [
+        {
+            value: 'Default',
+            label: 'Default'
+        },
+    ]
+    const paginationOptions = [
+        {
+            value: '9',
+            label: '9 Per Page'
+        },
     ]
 
     return (
@@ -14,19 +32,19 @@ const Jobs = () => {
             <div className="jobsFilter">
                 <div className="container">
                     <div className="row">
-                        <div className="col">
+                        <div className="col-md-3">
                             <input type="text"
                                    className="form-control form-control-sm"
                                    placeholder="e.g. web design"
                             />
                         </div>
-                        <div className="col">
-                            <ReactSelect options={options}/>
+                        <div className="col-md-3">
+                            <ReactSelect options={options} placeholder="All Category"/>
                         </div>
-                        <div className="col">
-                            <ReactSelect options={options}/>
+                        <div className="col-md-3">
+                            <ReactSelect options={options} placeholder="All Location"/>
                         </div>
-                        <div className="col">
+                        <div className="col-md-3 filterButtons">
                             <button className="btn filterBtn">Filter</button>
                             <button className="btn advancedBtn">Advanced</button>
                         </div>
@@ -40,13 +58,9 @@ const Jobs = () => {
                                 Showing 1 - 9 of 10 results &nbsp;&nbsp;&nbsp;
                                 <span className="rss">RSS Feed</span>
                             </p>
-                            <div className="d-flex">
-                                <select name="category_id" className="form-select">
-                                    <option value="">Default</option>
-                                </select>
-                                <select name="category_id" className="form-select">
-                                    <option value="">9 Per Page</option>
-                                </select>
+                            <div className="d-flex flex-wrap">
+                                <ReactSelect options={filterOptions} placeholder="Default"/>
+                                <ReactSelect options={paginationOptions} placeholder="9 Per Page"/>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from "react-select";
 
-const ReactSelect = ({options}) => {
+const ReactSelect = ({options, placeholder}) => {
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
@@ -35,6 +35,7 @@ const ReactSelect = ({options}) => {
         <Select
             options={options}
             styles={customStyles}
+            placeholder={placeholder}
         />
     );
 };
