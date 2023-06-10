@@ -204,6 +204,38 @@
         font-size: 18px !important;
     }
 
+    /*profileBanner*/
+    .profileBanner {
+        margin-top: 30px;
+    }
+    .profileBanner .profileBannerContent {
+        padding-top: 60px;
+    }
+    .profileBanner .profileBannerContent .companyInfo {
+        height: 140px;
+    }
+    .profileBanner .profileBannerContent .companyInfo img {
+        height: 70px;
+    }
+    .profileBanner .profileBannerContent .companyInfo .companyDes h3 {
+        font-size: 18px;
+    }
+    .profileBanner .profileBannerContent .companyInfo .companyDes p {
+        font-size: 12px;
+    }
+    .profileBanner .profileBannerContent .deadline {
+        padding-top: 30px;
+    }
+    .profileBanner .profileBannerContent .deadline .applyBtn {
+        font-size: 12px;
+        padding: 5px 15px;
+    }
+    .profileBanner .profileBannerContent .deadline .shortListBtn {
+        font-size: 12px;
+        padding: 5px 15px;
+        margin-left: 10px;
+    }
+
     /*jobsPage*/
     .jobsFilter {
         padding-top: 20px !important;

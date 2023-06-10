@@ -69,7 +69,7 @@ const JobDescription = () => {
                             <span>Media</span>
                         </div>
                         <hr className="mt-5"/>
-                        <div className="socialArea d-flex justify-content-between align-items-center">
+                        <div className="socialArea d-flex flex-wrap justify-content-between align-items-center">
                             <div>
                                 - Share:
                             </div>
