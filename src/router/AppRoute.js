@@ -3,20 +3,25 @@ import {createBrowserRouter} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
 import CandidatesPage from "../pages/CandidatesPage";
+import EmployersPage from "../pages/EmployersPage";
 
 const AppRoute = createBrowserRouter([
     {
         path: "/",
-        element: <HomePage />,
+        element: <HomePage/>,
         // errorElement: <ErrorPage />,
     },
     {
         path: "/jobs",
-        element: <JobsPage />,
+        element: <JobsPage/>,
     },
     {
         path: "/candidates",
-        element: <CandidatesPage />,
+        element: <CandidatesPage/>,
+    },
+    {
+        path: "/employers",
+        element: <EmployersPage/>,
     },
 ]);
 

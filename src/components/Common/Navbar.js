@@ -57,7 +57,7 @@ const Navbar = ({navBg = ''}) => {
                                     isActive ? "nav-link active" : "nav-link"
                                 }
                                          data-scroll-nav="0"
-                                         to="/employees"
+                                         to="/employers"
                                 >
                                     EMPLOYERS
                                 </NavLink>

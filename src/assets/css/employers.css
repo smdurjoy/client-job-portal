@@ -1,0 +1,11 @@
+.employers .featuredTags {
+    background-color: var(--main2);
+}
+
+.employers .card-text {
+    color: #6B6B6B;
+}
+
+.employers .accordion {
+    padding-top: 10px;
+}
