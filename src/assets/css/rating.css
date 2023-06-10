@@ -5,11 +5,11 @@
     cursor: default;
 }
 
-input[type="radio"] {
+.star-rating input[type="radio"] {
     display: none;
 }
 
-label {
+.star-rating label {
     color: #d3d3d3;
     font-size: 22px;
     padding: 2px;
@@ -18,8 +18,8 @@ label {
     transition: all 0.3s ease-in-out;
 }
 
-label:hover,
-label:hover ~ label,
-input[type="radio"]:checked ~ label {
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
     color: #fac51b;
 }

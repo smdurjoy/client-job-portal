@@ -13,6 +13,64 @@
 
 .candidates .card {
     margin-top: 20px;
+    border-color: #e8e8e8;
+}
+
+.candidates .css-1652iut-control {
+    border-color: #e8e8e8;
+}
+
+.candidates .wishList button {
+    border: 1px solid #d0d0d0;
+    color: #b7b7b7;
+    border-radius: 50%;
+    width: 38px;
+    height: 36px;
+    font-size: 14px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.candidates .tags, .candidates .featuredTags {
+    background: salmon;
+    color: #FFF;
+    width: 20%;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    height: 25px;
+}
+
+.candidates .tags:before, .candidates .featuredTags:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    bottom: 0;
+    margin-top: 0;
+    border-top: 0 solid #ff511d;
+    border-bottom: 5px solid #ff511d;
+    border-right: 2em solid #ff511d;
+    z-index: -1;
+}
+
+.candidates .tags h1, .candidates .featuredTags h1 {
+    font-weight: 200;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.candidates .featuredTags {
+    background: #02cc02;
+}
+
+.candidates .featuredTags:before {
+    border-top: 0 solid #00be00;
+    border-bottom: 5px solid #00be00;
+    border-right: 2em solid #00be00;
 }
 
 .candidates img {
@@ -39,3 +97,41 @@
     color: #00be00;
     font-weight: 500;
 }
+
+.candidateAlert span {
+    font-size: 18px;
+}
+
+.candidateAlert form {
+    margin-top: 20px;
+}
+
+.candidateAlert label {
+    font-size: 14px;
+    color: black;
+}
+
+.candidateAlert button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    color: #ffff8d;
+    background-color: var(--main2);
+}
+
+.candidateAlert button:hover {
+    color: white;
+    background-color: var(--main2);
+}
+
+.candidates .rangeLabel {
+    color: #00be00;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.form-check-input {
+    font-size: 14px !important;
+    color: black !important;
+}
+

@@ -99,7 +99,24 @@
     margin-top: 20px;
 }
 
-.form-control, .form-select {
+.accordion {
+    border: 1px solid #e5e5e5;
+}
+
+.accordion .accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.accordion .accordion-button, .accordion .accordion-item {
+    border: none !important;
+}
+
+.accordion .accordion-item .accordion-button:focus {
+    border: none !important;
+}
+
+.form-control, .form-select, .form-check-input, .accordion-button, input[type=range]:focus {
     outline: none;
     box-shadow: none !important;
     border: 1px solid #e1e1e1 !important;
