@@ -168,9 +168,13 @@
 .downloads button {
     background-color: var(--main1);
     color: white;
-    font-size: 12px;
-    padding: 10px;
+    font-size: 14px;
+    padding: 10px 16px;
     margin: 0 10px;
+}
+
+.downloads button i {
+    font-size: 18px;
 }
 
 .howItWorks {
@@ -228,4 +232,12 @@
     font-size: 20px;
     font-weight: 600;
     color: white;
+}
+
+.banner .css-1652iut-control {
+    border: none !important;
+}
+
+.banner .css-1652iut-control:focus {
+    border: none !important;
 }

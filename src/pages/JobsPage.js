@@ -8,6 +8,7 @@ import Footer from "../components/Common/Footer";
 const JobsPage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+        document.title = 'Jobs - workersRUS';
     }, [])
     return (
         <>

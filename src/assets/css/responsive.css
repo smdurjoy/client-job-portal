@@ -325,6 +325,14 @@
     .footer .candidatesCol {
         margin-left: 20px;
     }
+    .social-menu {
+        margin-bottom: 30px !important;
+    }
+    .social-menu ul li a{
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
 
     /*pagination*/
     .pagination {

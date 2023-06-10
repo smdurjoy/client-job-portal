@@ -8,6 +8,7 @@ import Employer from "../components/Employer/Employer";
 const EmployersPage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+        document.title = 'Employers - workersRUS';
     }, [])
     return (
         <>

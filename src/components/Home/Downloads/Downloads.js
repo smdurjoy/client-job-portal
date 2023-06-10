@@ -12,9 +12,11 @@ const Downloads = () => {
                 </div>
                 <div className="mt-3">
                     <button className="btn">
+                        <i className="fa fa-apple"></i> &nbsp;
                         App Store
                     </button>
                     <button className="btn">
+                        <i className="fa fa-play"></i> &nbsp;
                         Google Play
                     </button>
                 </div>

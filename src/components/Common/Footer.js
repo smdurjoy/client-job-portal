@@ -1,5 +1,6 @@
 import React from 'react';
 import brandLogo from '../../images/brandLogo.png';
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -28,6 +29,35 @@ const Footer = () => {
                                 E-mail: info@workersrus.com<br/>
                                 Call: +1 234 567 890
                             </p>
+                            <div className="social-menu">
+                                <ul>
+                                    <li>
+                                        <Link to="https://www.facebook.com" target="blank">
+                                            <i className="fa fa-facebook"></i>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="https://www.instagram.com" target="blank">
+                                            <i className="fa fa-instagram"></i>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="https://www.twitter.com" target="blank">
+                                            <i className="fa fa-twitter"></i>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="https://www.pinterest.com" target="blank">
+                                            <i className="fa fa-pinterest"></i>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="https://www.linkedin.com" target="blank">
+                                            <i className="fa fa-linkedin"></i>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div className="col candidatesCol">
                             <p><b>For Candidates</b></p>

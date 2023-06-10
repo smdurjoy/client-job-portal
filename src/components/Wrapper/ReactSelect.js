@@ -30,6 +30,7 @@ const ReactSelect = ({options, placeholder}) => {
             ...provided,
             height,
         }),
+        fontFamily: 'Poppins, sans-serif, FontAwesome'
     };
 
     useEffect(() => {

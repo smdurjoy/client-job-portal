@@ -99,6 +99,32 @@
     margin-top: 20px;
 }
 
+.social-menu ul{
+    margin: 0;
+    display: flex;
+}
+
+.social-menu ul li{
+    list-style: none;
+    margin: 0 10px;
+}
+
+.social-menu ul li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--main2);
+    color: white;
+    font-size: 26px;
+    text-align: center;
+    transition: .6s;
+}
+
+.social-menu ul li a:hover{
+    transform: translate(0, -10%);
+}
+
 .accordion {
     border: 1px solid #e5e5e5;
 }

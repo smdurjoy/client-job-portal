@@ -8,6 +8,7 @@ import Candidates from "../components/Candidates/Candidates";
 const CandidatesPage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+        document.title = 'Candidates - workersRUS';
     }, [])
     return (
         <>

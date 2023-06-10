@@ -8,6 +8,10 @@
     height: 38px;
 }
 
+.jobsFilter .css-1652iut-control {
+    border-color: #e8e8e8;
+}
+
 .jobsFilter .filterBtn {
     background-color: var(--main2);
     color: white;
@@ -48,7 +52,7 @@
 
 .jobList .list .row {
     height: 150px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #e8e8e8;
 }
 
 .jobList img {
