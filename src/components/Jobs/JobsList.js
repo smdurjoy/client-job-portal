@@ -1,5 +1,6 @@
 import React from 'react';
 import pythonLogo from '../../images/pythonLogo.png'
+import {Link} from "react-router-dom";
 
 const JobsList = () => {
     return (
@@ -19,7 +20,11 @@ const JobsList = () => {
                         <div className="col-md-6 col-sm-12 pull-right">
                             <div className="applyArea">
                                 <span>Application ends October 1, 2025</span>
-                                <button className="btn">Apply Now</button>
+                                <Link to="/jobs/1">
+                                    <button className="btn">
+                                        Apply Now
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -38,7 +43,11 @@ const JobsList = () => {
                         <div className="col-md-6 col-sm-12 pull-right">
                             <div className="applyArea">
                                 <span>Application ends October 1, 2025</span>
-                                <button className="btn">Apply Now</button>
+                                <Link to="/jobs/1">
+                                    <button className="btn">
+                                        Apply Now
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -57,7 +66,11 @@ const JobsList = () => {
                         <div className="col-md-6 col-sm-12 pull-right">
                             <div className="applyArea">
                                 <span>Application ends October 1, 2025</span>
-                                <button className="btn">Apply Now</button>
+                                <Link to="/jobs/1">
+                                    <button className="btn">
+                                        Apply Now
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
