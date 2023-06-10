@@ -202,7 +202,7 @@ const Candidates = () => {
                         </div>
                     </div>
                     <div className="col-md-4">
-                        <div className="row">
+                        <div className="row candidateFilterRow">
                             <div className="col-12">
                                 <div className="card py-3 px-2 mt-0">
                                     <div className="card-body candidateAlert">

@@ -135,3 +135,71 @@
     color: black !important;
 }
 
+@media (max-width: 576px) {
+    .candidates {
+        padding: 30px 0;
+    }
+    .candidates .card {
+        margin-top: 10px;
+    }
+    .candidates .tags, .candidates .featuredTags {
+        height: 20px;
+    }
+    .candidates .tags h1, .candidates .featuredTags h1 {
+        margin-top: 3px;
+        font-size: 12px;
+    }
+    .candidates img {
+        height: 70px;
+        width: 70px;
+    }
+    .candidates .card-title {
+        margin-top: 25px;
+        font-size: 18px;
+    }
+    .candidates .card-text {
+        font-size: 14px;
+    }
+    .candidates .skills span {
+        border: 1px solid #e5e5e5;
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+    .candidates .subTitle {
+        color: #00be00;
+        font-weight: 500;
+        font-size: 12px;
+    }
+    .candidates .candidateFilterRow {
+        margin-top: 20px;
+    }
+    .candidateAlert form {
+        margin-top: 20px;
+    }
+    .candidateAlert span {
+        font-size: 14px;
+    }
+    .candidateAlert label, .candidateAlert input {
+        font-size: 12px;
+    }
+    .candidateAlert button {
+        margin-top: 10px;
+        padding: 5px 0;
+        font-size: 12px;
+    }
+    .candidates .rangeLabel {
+        color: #00be00;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+    .accordion-button {
+        font-size: 14px;
+    }
+    .accordion-body input {
+        font-size: 12px;
+    }
+    .accordion-body label {
+        font-size: 12px;
+    }
+}
+
