@@ -1,0 +1,83 @@
+.jobDescription {
+    padding: 60px 0;
+    color: #7f7f7f;
+}
+
+.jobDescription h4 {
+    font-weight: 600;
+    padding: 10px 0;
+    color: black;
+}
+
+.jobDescription p {
+    line-height: 26px;
+}
+
+.jobDescription ul {
+    padding: 0 20px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+.jobDescription .companyPhoto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jobDescription .companyPhoto img {
+    height: 150px;
+    flex-basis: 30%;
+}
+
+.jobDescription .tags span {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+.jobDescription .socialArea .shortListBtn {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 10px 30px;
+}
+
+.jobDescription .card {
+    border-color: #e8e8e8;
+    color: #5d5d5d;
+}
+
+.jobDescription .card .candidateAlert .apply {
+    margin-top: 40px;
+    color: #5d5d5d;
+}
+
+.jobDescription .card .candidateAlert .apply p span {
+    font-size: 14px;
+    color: #313131;
+}
+
+.jobDescription .card .candidateAlert .apply .applyBtn {
+    background-color: var(--main1);
+    border: none;
+    color: white;
+}
+
+.jobDescription .card .candidateAlert .apply .shortlistBtn {
+    border: none;
+}
+
+.jobDescription .card .candidateAlert .content span {
+    font-size: 15px;
+}
+
+.jobDescription .card .candidateAlert .content .des span {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.jobDescription .card hr {
+    color: #a09d9d;
+}
