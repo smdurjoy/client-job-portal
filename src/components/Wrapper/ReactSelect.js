@@ -1,20 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 
 const ReactSelect = ({options, placeholder}) => {
+    const [height, setHeight] = useState('40px');
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
             background: '#fff',
             borderColor: '#9e9e9e',
-            minHeight: '40px',
-            height: '40px',
+            minHeight: height,
+            height,
             boxShadow: state.isFocused ? null : null,
         }),
 
         valueContainer: (provided, state) => ({
             ...provided,
-            height: '40px',
+            height,
             padding: '0 6px'
         }),
 
@@ -27,15 +28,23 @@ const ReactSelect = ({options, placeholder}) => {
         }),
         indicatorsContainer: (provided, state) => ({
             ...provided,
-            height: '40px',
+            height,
         }),
     };
+
+    useEffect(() => {
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            setHeight('30px');
+        }
+    }, [])
 
     return (
         <Select
             options={options}
             styles={customStyles}
             placeholder={placeholder}
+            isSearchable={false}
+
         />
     );
 };

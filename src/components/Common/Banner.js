@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactSelect from "./ReactSelect";
+import ReactSelect from "../Wrapper/ReactSelect";
 
 const Banner = () => {
     const options = [

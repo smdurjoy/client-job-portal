@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactSelect from "../Common/ReactSelect";
+import ReactSelect from "../Wrapper/ReactSelect";
 import client1 from '../../images/client1.jpeg'
 import client2 from '../../images/client2.webp'
 import client3 from '../../images/client3.jpg'

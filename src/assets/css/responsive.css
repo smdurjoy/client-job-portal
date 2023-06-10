@@ -207,6 +207,7 @@
     /*jobsPage*/
     .jobsFilter {
         padding-top: 20px !important;
+        margin-bottom: 30px !important;
     }
     .jobsFilter input {
         height: 28px !important;
@@ -233,6 +234,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .jobsFilter .listFilter .filterSelect {
+        margin-left: auto !important;
+        margin-right: 20px !important;
+    }
+    .jobsFilter .listFilter .d-flex {
+        flex-basis: 70% !important;
     }
     .rss {
         font-size: 12px !important;

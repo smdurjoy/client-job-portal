@@ -1,7 +1,7 @@
 import React from 'react';
 import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
-import ReactSelect from '../Common/ReactSelect';
+import ReactSelect from '../Wrapper/ReactSelect';
 
 const Jobs = () => {
     const options = [
@@ -59,8 +59,12 @@ const Jobs = () => {
                                 <span className="rss">RSS Feed</span>
                             </p>
                             <div className="d-flex flex-wrap">
-                                <ReactSelect options={filterOptions} placeholder="Default"/>
-                                <ReactSelect options={paginationOptions} placeholder="9 Per Page"/>
+                                <div className="filterSelect">
+                                    <ReactSelect options={filterOptions} placeholder="Default"/>
+                                </div>
+                                <div className="filterSelect">
+                                    <ReactSelect options={paginationOptions} placeholder="9 Per Page"/>
+                                </div>
                             </div>
                         </div>
                     </div>
