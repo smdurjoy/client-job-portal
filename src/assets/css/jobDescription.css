@@ -82,6 +82,51 @@
     color: #a09d9d;
 }
 
+.jobDescription .apply .applyWith {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.jobDescription .apply .applyWith button {
+    width: 47%;
+    color: white;
+}
+
+.jobDescription .apply .applyWith .facebook {
+    background-color: #3b5998;
+}
+
+.jobDescription .apply .applyWith .google {
+    background-color: #DB4437;
+}
+
+.jobDescription .apply .applyWith .linkedin {
+    background-color: #0072b1;
+}
+
+.jobDescription .apply .applyWith .twitter {
+    background-color: #00acee;
+}
+
+.jobDescription .companyInfoArea .headerArea p {
+    color: #00be00;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.jobDescription .companyInfoArea img {
+    height: 120px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.jobDescription .companyInfoArea .content i {
+    font-size: 36px;
+    margin-right: 20px;
+    color: #4ac84a;
+}
+
 @media (max-width: 576px) {
     .jobDescription {
         padding: 30px 0;
@@ -134,5 +179,18 @@
     .jobDescription .card .candidateAlert .content .des span {
         margin-left: 10px;
         text-align: left;
+    }
+    .jobDescription .companyInfoArea img {
+        height: 70px;
+    }
+    .jobDescription .companyInfoArea .content i {
+        font-size: 25px;
+        margin-right: 20px;
+    }
+    .jobDescription .apply .applyWith {
+        margin-top: -25px !important;
+    }
+    .jobDescription .companyInfoArea iframe {
+        width: 100% !important;
     }
 }
