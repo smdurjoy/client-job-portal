@@ -4,6 +4,7 @@ import companyLogo from '../../images/companies/company1.jpg';
 import m1 from '../../images/companies/jobs/m1.jpg';
 import m2 from '../../images/companies/jobs/m2.webp';
 import m3 from '../../images/companies/jobs/m3.jpg';
+import {Link} from "react-router-dom";
 
 const JobDescription = () => {
     return (
@@ -71,8 +72,32 @@ const JobDescription = () => {
                         </div>
                         <hr className="mt-5"/>
                         <div className="socialArea d-flex flex-wrap justify-content-between align-items-center">
-                            <div>
-                                - Share:
+                            <div className="d-flex align-items-center">
+                                <span>- Share:</span>
+                                <div className="social-menu socialIcons">
+                                    <ul>
+                                        <li>
+                                            <Link to="https://www.facebook.com" target="blank" className="facebook">
+                                                <i className="fa fa-facebook"></i>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="https://www.twitter.com" target="blank" className="twitter">
+                                                <i className="fa fa-twitter"></i>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="https://www.linkedin.com" target="blank" className="linkedin">
+                                                <i className="fa fa-linkedin"></i>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to="https://www.pinterest.com" target="blank" className="pinterest">
+                                                <i className="fa fa-pinterest"></i>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                             <button className="btn shortListBtn">
                                 <i className="fa fa-heart-o"></i> &nbsp;

@@ -127,6 +127,27 @@
     color: #4ac84a;
 }
 
+.jobDescription .socialArea .socialIcons ul li a {
+    padding: 6px;
+    font-size: 16px;
+}
+
+.jobDescription .socialArea .socialIcons ul li .facebook {
+    background-color: #3b5998;
+}
+
+.jobDescription .socialArea .socialIcons ul li .twitter {
+    background-color: #00acee;
+}
+
+.jobDescription .socialArea .socialIcons ul li .linkedin {
+    background-color: #0072b1;
+}
+
+.jobDescription .socialArea .socialIcons ul li .pinterest {
+    background-color: #c8232c;
+}
+
 @media (max-width: 576px) {
     .jobDescription {
         padding: 30px 0;
@@ -192,5 +213,15 @@
     }
     .jobDescription .companyInfoArea iframe {
         width: 100% !important;
+    }
+    .jobDescription .socialArea .socialIcons {
+        margin-top: 30px;
+    }
+    .jobDescription .socialArea > .d-flex {
+        margin-top: -20px;
+    }
+    .jobDescription .socialArea .socialIcons ul li a {
+        padding: 3px;
+        font-size: 13px;
     }
 }
