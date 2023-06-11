@@ -72,6 +72,27 @@
     padding-top: 220px;
 }
 
+.companyProfileBanner .profileBannerContent {
+    padding-top: 200px;
+}
+
+.companyProfileBanner .profileBannerContent .companyCounts div {
+    color: white;
+    margin-top: 45px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.companyProfileBanner .profileBannerContent .companyCounts div p {
+    font-size: 40px;
+    color: white;
+    line-height: 10px;
+}
+
+.companyProfileBanner .profileBannerContent .companyCounts div span {
+    text-transform: uppercase;
+}
+
 .profileBanner .profileBannerContent .companyInfo {
     height: 170px;
 }
@@ -80,7 +101,7 @@
     margin-top: 20px;
     margin-right: 20px;
     height: 120px;
-    width: auto;
+    width: 125px;
     border-radius: 50%;
 }
 
@@ -112,7 +133,7 @@
     font-weight: 500;
 }
 
-.profileBanner .profileBannerContent .deadline .applyBtn {
+.profileBanner .profileBannerContent .applyBtn {
     background-color: var(--main2);
     color: #fffdd1;
     border-radius: 50px;
@@ -121,7 +142,7 @@
     padding: 10px 30px;
 }
 
-.profileBanner .profileBannerContent .deadline .shortListBtn {
+.profileBanner .profileBannerContent .shortListBtn {
     background-color: transparent;
     border: 2px solid white;
     border-radius: 50px;

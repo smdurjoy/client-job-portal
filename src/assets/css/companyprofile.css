@@ -1,0 +1,154 @@
+.companyProfile .teamMembers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.companyProfile .teamMembers .card {
+    width: 240px;
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.companyProfile .teamMembers .card img {
+    height: 230px;
+}
+
+.companyProfile .teamMembers .card .card-title {
+    font-size: 16px;
+    color: black;
+}
+
+.companyProfile .teamMembers .card span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.companyProfile .teamMembers .card small {
+    color: #3bba3b;
+    font-size: 12px;
+}
+
+.companyProfile .reviewArea {
+    padding-top: 50px;
+}
+
+.companyProfile .reviewArea p {
+    color: #898989;
+}
+
+.companyProfile .reviewArea h4 {
+    font-weight: 500;
+    color: #454545;
+    margin-bottom: 20px;
+}
+
+.companyProfile .reviewArea .star-rating {
+    padding: 0;
+}
+
+.companyProfile .reviewArea form {
+    color: #898989;
+}
+
+.companyProfile .reviewArea form input:not([type='checkbox']) {
+    height: 45px;
+}
+
+.companyProfile .reviewArea form input::-webkit-input-placeholder {
+    color: #9b9b9b;
+}
+
+.companyProfile .reviewArea form input::-moz-placeholder {
+    color: #9b9b9b;
+}
+
+.companyProfile .reviewArea form textarea::-webkit-input-placeholder {
+    color: #9b9b9b;
+}
+
+.companyProfile .reviewArea form textarea::-moz-placeholder {
+    color: #9b9b9b;
+}
+
+.companyProfile .reviewArea form label {
+    color: #484848;
+}
+
+.companyProfile .reviewArea form button {
+    background-color: var(--main2);
+    color: #ffffd0;
+    font-weight: 500;
+    border-radius: 0;
+    padding: 10px 25px;
+}
+
+.companyProfile table tr {
+    font-size: 14px;
+}
+
+.companyProfile table tr {
+    height: 40px;
+}
+
+.companyProfile table tr td a {
+    margin: 0 5px;
+    font-size: 16px;
+    color: black;
+}
+
+@media (max-width: 576px) {
+    .companyProfile .teamMembers .card {
+        width: 180px;
+        margin-bottom: 5px;
+    }
+    .companyProfile .teamMembers .card img {
+        height: 170px;
+    }
+    .companyProfile .teamMembers .card .card-title {
+        font-size: 14px;
+    }
+    .companyProfile .teamMembers .card span {
+        font-size: 12px;
+    }
+    .companyProfile .teamMembers .card small {
+        font-size: 10px;
+    }
+    .companyProfile .reviewArea {
+        padding-top: 30px;
+    }
+    .companyProfile .reviewArea p {
+        color: #898989;
+    }
+    .companyProfile .reviewArea form input:not([type='checkbox']) {
+        height: 35px;
+        font-size: 12px;
+    }
+    .companyProfile .reviewArea form textarea {
+        font-size: 12px;
+    }
+    .companyProfile .reviewArea form label {
+        font-size: 12px;
+    }
+    .companyProfile .reviewArea form button {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+    .companyProfile .reviewArea .form-check-input {
+        margin-top: 6px;
+    }
+    .companyProfile .reviewArea .form-check-label {
+        font-size: 10px;
+    }
+    .companyProfile table tr {
+        font-size: 12px;
+    }
+    .companyProfile table tr {
+        height: 30px;
+    }
+    .companyProfile table tr td a {
+        margin: 0 5px;
+        font-size: 14px;
+        color: black;
+    }
+}

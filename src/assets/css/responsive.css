@@ -216,6 +216,7 @@
     }
     .profileBanner .profileBannerContent .companyInfo img {
         height: 70px;
+        width: 80px;
     }
     .profileBanner .profileBannerContent .companyInfo .companyDes h3 {
         font-size: 18px;
@@ -326,7 +327,46 @@
         margin-top: -5px !important;
     }
 
+    /*profileBanner*/
+    .companyProfileBanner .profileBannerContent {
+        padding-top: 65px;
+    }
+    .companyProfileBanner .profileBannerContent .companyCounts div {
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .companyProfileBanner .profileBannerContent .companyInfo img {
+        width: 80px;
+    }
+    .companyProfileBanner .profileBannerContent .companyDes {
+        font-size: 12px;
+    }
+    .companyProfileBanner .profileBannerContent .applyBtn {
+        font-size: 12px;
+        padding: 7px 15px;
+    }
+    .companyProfileBanner .profileBannerContent .shortListBtn {
+        font-size: 12px;
+        padding: 7px 15px;
+    }
+    .companyProfileBanner .profileBannerContent .companyCounts div p {
+        font-size: 18px !important;
+        line-height: 2px;
+    }
+    .companyProfileBanner .profileBannerContent .companyCounts div span {
+        font-size: 12px;
+    }
+
+    /*star-rating*/
+    .star-rating label {
+        font-size: 18px !important;
+    }
+
     /*footer*/
+    .footer .container {
+        padding: 0;
+    }
     .footer img {
         width: 130px !important;
     }
@@ -335,7 +375,8 @@
         padding-bottom: 0;
     }
     .footerDes span {
-        margin-right: 10px;
+        margin-right: 17px;
+        font-size: 12px;
     }
     .footerBottom {
         font-size: 12px;

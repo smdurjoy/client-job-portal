@@ -5,6 +5,7 @@ import JobsPage from "../pages/JobsPage";
 import CandidatesPage from "../pages/CandidatesPage";
 import EmployersPage from "../pages/EmployersPage";
 import JobDescriptionPage from "../pages/JobDescriptionPage";
+import CompanyProfilePage from "../pages/CompanyProfilePage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/employers",
         element: <EmployersPage/>,
+    },
+    {
+        path: "/company/:id",
+        element: <CompanyProfilePage/>,
     },
 ]);
 

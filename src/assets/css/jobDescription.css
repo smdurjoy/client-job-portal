@@ -13,7 +13,7 @@
     line-height: 26px;
 }
 
-.jobDescription ul {
+.jobDescription ul, ol {
     padding: 0 20px;
     line-height: 26px;
     font-size: 14px;
@@ -21,13 +21,13 @@
 
 .jobDescription .companyPhoto {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .jobDescription .companyPhoto img {
     height: 150px;
     flex-basis: 30%;
+    margin-right: 20px;
 }
 
 .jobDescription .tags span {
@@ -167,8 +167,9 @@
         flex-wrap: wrap;
     }
     .jobDescription .companyPhoto img {
-        width: 200px;
-        flex-basis: 30%;
+        width: 170px;
+        flex-basis: 20%;
+        margin-bottom: 10px;
     }
     .jobDescription iframe {
         width: 400px;
