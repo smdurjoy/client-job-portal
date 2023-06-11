@@ -10,6 +10,7 @@ import noImage from '../../images/noImage.png'
 import Pagination from "../Common/Pagination";
 import Checkbox from "../Wrapper/Checkbox";
 import InputRange from "../Wrapper/InputRange";
+import {Link} from "react-router-dom";
 
 const Candidates = () => {
     const filterOptions = [
@@ -51,7 +52,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={company1} alt="company"/>
-                                        <h5 className="card-title">Wilfred Owen</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                Wilfred Owen
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Account / Finance</span><br/>
                                         <span className="card-text">Jobs Open: 0</span>
                                     </div>
@@ -69,7 +74,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={company3} alt="company"/>
-                                        <h5 className="card-title">Cadillac</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                Cadillac
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Education Training</span><br/>
                                         <span className="card-text">Jobs Open: 2</span>
                                     </div>
@@ -87,7 +96,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={company2} alt="company"/>
-                                        <h5 className="card-title">Autodesk</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                Autodesk
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Account / Finance</span><br/>
                                         <span className="card-text">Jobs Open: 0</span>
                                     </div>
@@ -102,7 +115,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={noImage} alt="noImage"/>
-                                        <h5 className="card-title">dowe2005</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                dowe2005
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Jobs Open: 0</span>
                                     </div>
                                 </div>
@@ -116,7 +133,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={company4} alt="company"/>
-                                        <h5 className="card-title">Oscar Wilde</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                Oscar Wilde
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Automotive Jobs</span><br/>
                                         <span className="card-text">Jobs Open: 2</span>
                                     </div>
@@ -131,7 +152,11 @@ const Candidates = () => {
                                             </button>
                                         </div>
                                         <img src={company5} alt="company"/>
-                                        <h5 className="card-title">Telegram</h5>
+                                        <h5 className="card-title">
+                                            <Link to="/company/1">
+                                                Telegram
+                                            </Link>
+                                        </h5>
                                         <span className="card-text">Account / Finance</span><br/>
                                         <span className="card-text">Jobs Open: 1</span>
                                     </div>
