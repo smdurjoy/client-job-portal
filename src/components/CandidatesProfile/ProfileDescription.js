@@ -1,21 +1,19 @@
 import React from 'react';
 import '../../assets/css/jobDescription.css';
-import '../../assets/css/companyprofile.css';
+import companyLogo from '../../images/companies/company1.jpg';
 import m1 from '../../images/companies/jobs/m1.jpg';
 import m2 from '../../images/companies/jobs/m2.webp';
+import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
-import client1 from '../../images/client1.jpeg';
-import client2 from '../../images/client2.webp';
-import client3 from '../../images/client3.jpg';
 import Review from "../Common/Review";
 
-const CompanyProfile = () => {
+const ProfileDescription = () => {
     return (
-        <div className="jobDescription companyProfile">
+        <div className="jobDescription profileDescription">
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
-                        <h4>- About Company</h4>
+                        <h4>- About Me</h4>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy
@@ -23,56 +21,49 @@ const CompanyProfile = () => {
                             make a type specimen book.
                             It has survived not only five centuries, but also the leap into electronic typesetting.
                         </p>
-                        <h4>- Basic Steps:</h4>
+                        <h4>- Basic Steps</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus explicabo fugiat id libero,
+                            magnam optio praesentium repellat rerum voluptates. Amet doloribus facilis magnam maxime nisi, omnis quis.
+                        </p>
+                        <ol>
+                            <li>There are many variations of passages of Lorem Ipsum available.</li>
+                            <li>Many desktop publishing packages and web page editors now use</li>
+                            <li>If you are going to use a passage of Lorem Ipsum</li>
+                        </ol>
+                        <h4>- Education</h4>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                            <li>But I must explain to you how all this mistaken</li>
+                            <li>I will give you a complete</li>
+                            <li>At vero eos et accusamus et iusto odio dignissimos ducimus</li>
+                            <li>On the other hand, we denounce with righteous</li>
+                            <li>If you are going to use a passage of Lorem Ipsum</li>
+                        </ul>
+                        <h4>- Work & Experience</h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                             commodo consequat. Duis aute irure
+                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         </p>
-                        <ol>
-                            <li>There are many variations of passages of Lorem Ipsum available.</li>
-                            <li>Many desktop publishing packages and web page editors now use</li>
-                            <li>Various versions have evolved over the years, sometimes by accident, sometimes on
-                                purpose
-                            </li>
-                        </ol>
-                        <p>
-                            Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            seLorem ipsum dolor sit amet, consectetur adipiscing elit, se
-                        </p>
-                        <h4>- Office Photos</h4>
+                        <h4>- Portfolio</h4>
                         <div className="companyPhoto mb-3">
                             <img src={m1} alt="image1"/>
                             <img src={m2} alt="image2"/>
+                            <img src={m3} alt="image3"/>
                         </div>
-                        <h4>- Team Members</h4>
-                        <div className="teamMembers">
-                            <div className="card">
-                                <img src={client1} className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <h5 className="card-title">- Byron</h5>
-                                    <span className="card-text">Florist</span><br/>
-                                    <small>Experience: 3 years</small>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <img src={client2} className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <h5 className="card-title">Theodor Herzi</h5>
-                                    <span className="card-text">Dentist</span><br/>
-                                    <small>Experience: 4 years</small>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <img src={client3} className="card-img-top" alt="..."/>
-                                <div className="card-body">
-                                    <h5 className="card-title">Aristotle</h5>
-                                    <span className="card-text">Veterinarian</span><br/>
-                                    <small>Experience: 5 years</small>
-                                </div>
-                            </div>
+                        <h4>- Skills</h4>
+
+                        <h4>- Awards</h4>
+
+                        <div className="tags mt-4">
+                            Tagged as: &nbsp; &nbsp;
+                            <span>Digital</span>
+                            <span>Interviews</span>
+                            <span>Jobs</span>
+                            <span>Media</span>
                         </div>
                         <hr className="mt-5"/>
                         <div className="socialArea d-flex flex-wrap justify-content-between align-items-center">
@@ -105,25 +96,25 @@ const CompanyProfile = () => {
                             </div>
                             <button className="btn shortListBtn">
                                 <i className="fa fa-heart-o"></i> &nbsp;
-                                Follow Us
+                                Shortlist
                             </button>
                         </div>
 
-                        <Review title='Be the first to review "Cadillac"'/>
-
-                        <h4>- Open Positions</h4>
+                        <div className="mt-4">
+                            <Review title="Add a review"/>
+                        </div>
                     </div>
                     <div className="col-md-4">
                         <div className="card py-3 px-2 mt-0">
                             <div className="card-body candidateAlert">
-                                <h5>Company Information</h5>
+                                <h5>Jobs Overview</h5>
                                 <div className="content mt-4">
                                     <div className="d-flex justify-content-between">
                                         <div className="title">
-                                            <span>Categories</span>
+                                            <span>Category:</span>
                                         </div>
                                         <div className="des">
-                                            <span>Education Training</span>
+                                            <span>Accounting / Finance</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -131,10 +122,65 @@ const CompanyProfile = () => {
                                 <div className="content">
                                     <div className="d-flex justify-content-between">
                                         <div className="title">
-                                            <span>Since</span>
+                                            <span>Offered Salary:</span>
                                         </div>
                                         <div className="des">
-                                            <span>1998</span>
+                                            <span>$1765 / month</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Experience:</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>5 Years</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Languages:</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>English, Turkish, Japanese</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Gender</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>Both</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Age</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>30 - 35</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Qualification</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>Certificate, Associate Degree</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -145,47 +191,15 @@ const CompanyProfile = () => {
                                             <span>Views</span>
                                         </div>
                                         <div className="des">
-                                            <span>28</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Posted Jobs</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Location</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>Washing, Cambodia</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Team Size</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>100-150 Members</span>
+                                            <span>777</span>
                                         </div>
                                     </div>
                                     <hr/>
                                 </div>
 
                                 <div className="apply">
-                                    <button className="applyBtn">Contact Us</button>
+                                    <button className="shortlistBtn">Shortlist</button>
+                                    <button className="applyBtn">Download CV</button>
                                 </div>
                             </div>
                         </div>
@@ -264,4 +278,4 @@ const CompanyProfile = () => {
     );
 };
 
-export default CompanyProfile;
+export default ProfileDescription;

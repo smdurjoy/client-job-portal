@@ -1,0 +1,12 @@
+.candidateProfileBanner .companyInfo img{
+    border: 4px solid white;
+}
+
+.candidateProfileBanner .candidateProfileBannerBtnDiv {
+    margin-top: 40px;
+}
+
+.profileDescription h4 {
+    color: #3a3a3a;
+    font-size: 22px;
+}
