@@ -42,14 +42,24 @@ const Navbar = ({navBg = ''}) => {
                                     JOBS
                                 </NavLink>
                             </li>
+                            {/*<li className="nav-item">*/}
+                            {/*    <NavLink className={({isActive}) =>*/}
+                            {/*        isActive ? "nav-link active" : "nav-link"*/}
+                            {/*    }*/}
+                            {/*             data-scroll-nav="0"*/}
+                            {/*             to="/candidates"*/}
+                            {/*    >*/}
+                            {/*        CANDIDATES*/}
+                            {/*    </NavLink>*/}
+                            {/*</li>*/}
                             <li className="nav-item">
                                 <NavLink className={({isActive}) =>
                                     isActive ? "nav-link active" : "nav-link"
                                 }
                                          data-scroll-nav="0"
-                                         to="/candidates"
+                                         to="/companies"
                                 >
-                                    CANDIDATES
+                                    COMPANIES
                                 </NavLink>
                             </li>
                             <li className="nav-item">
@@ -57,9 +67,9 @@ const Navbar = ({navBg = ''}) => {
                                     isActive ? "nav-link active" : "nav-link"
                                 }
                                          data-scroll-nav="0"
-                                         to="/employers"
+                                         to="/about"
                                 >
-                                    EMPLOYERS
+                                    ABOUT
                                 </NavLink>
                             </li>
                             <li className="nav-item">

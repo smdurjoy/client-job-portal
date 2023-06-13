@@ -31,7 +31,7 @@ const AppRoute = createBrowserRouter([
         element: <CandidateProfilePage/>,
     },
     {
-        path: "/employers",
+        path: "/companies",
         element: <EmployersPage/>,
     },
     {
