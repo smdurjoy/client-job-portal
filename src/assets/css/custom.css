@@ -242,3 +242,13 @@
     box-shadow: none !important;
     border: 1px solid #e1e1e1 !important;
 }
+
+.reviewArea .reviewSubmitBtn {
+    background-color: var(--main2);
+    color: white;
+}
+
+.reviewArea .reviewSubmitBtn:hover {
+    background-color: var(--main2);
+    color: #efefef;
+}

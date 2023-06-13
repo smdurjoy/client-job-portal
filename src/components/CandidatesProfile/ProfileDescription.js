@@ -1,13 +1,70 @@
 import React from 'react';
 import '../../assets/css/jobDescription.css';
-import companyLogo from '../../images/companies/company1.jpg';
 import m1 from '../../images/companies/jobs/m1.jpg';
 import m2 from '../../images/companies/jobs/m2.webp';
 import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
 import Review from "../Common/Review";
+import TimeLine from "../Common/TimeLine";
+import ProgressBar from "../Common/ProgressBar";
 
 const ProfileDescription = () => {
+    const educations = [
+        {
+            title: 'MASTERS IN FINE ARTS',
+            subtitle: 'Walters University',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2012',
+            end_date: '2014'
+        },
+        {
+            title: 'Diploma in fine arts',
+            subtitle: 'Imperial Institute of Art Direction',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2010',
+            end_date: '2012'
+        },
+    ];
+    const experience = [
+        {
+            title: 'Development Manager',
+            subtitle: 'Clothing Store',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2013',
+            end_date: '2015'
+        },
+        {
+            title: 'Store Manager',
+            subtitle: 'Fashion Store',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2008',
+            end_date: '2012'
+        },
+    ];
+    const awards = [
+        {
+            title: 'Distinguished Servicw Awards',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2013'
+        },
+        {
+            title: 'Doctoral Dissertation Award',
+            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
+                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
+                '        Phasellus suscipit porta mattis.',
+            start_date: '2008'
+        },
+    ];
     return (
         <div className="jobDescription profileDescription">
             <div className="container">
@@ -23,40 +80,35 @@ const ProfileDescription = () => {
                         </p>
                         <h4>- Basic Steps</h4>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus explicabo fugiat id libero,
-                            magnam optio praesentium repellat rerum voluptates. Amet doloribus facilis magnam maxime nisi, omnis quis.
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus
+                            explicabo fugiat id libero,
+                            magnam optio praesentium repellat rerum voluptates. Amet doloribus facilis magnam maxime
+                            nisi, omnis quis.
                         </p>
                         <ol>
                             <li>There are many variations of passages of Lorem Ipsum available.</li>
                             <li>Many desktop publishing packages and web page editors now use</li>
                             <li>If you are going to use a passage of Lorem Ipsum</li>
                         </ol>
+
                         <h4>- Education</h4>
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                            <li>But I must explain to you how all this mistaken</li>
-                            <li>I will give you a complete</li>
-                            <li>At vero eos et accusamus et iusto odio dignissimos ducimus</li>
-                            <li>On the other hand, we denounce with righteous</li>
-                            <li>If you are going to use a passage of Lorem Ipsum</li>
-                        </ul>
+                        <TimeLine items={educations}/>
+
                         <h4>- Work & Experience</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
+                        <TimeLine items={experience}/>
+
                         <h4>- Portfolio</h4>
-                        <div className="companyPhoto mb-3">
+                        <div className="companyPhoto mb-5">
                             <img src={m1} alt="image1"/>
                             <img src={m2} alt="image2"/>
                             <img src={m3} alt="image3"/>
                         </div>
+
                         <h4>- Skills</h4>
+                        <ProgressBar/>
 
                         <h4>- Awards</h4>
+                        <TimeLine items={awards}/>
 
                         <div className="tags mt-4">
                             Tagged as: &nbsp; &nbsp;
@@ -111,10 +163,32 @@ const ProfileDescription = () => {
                                 <div className="content mt-4">
                                     <div className="d-flex justify-content-between">
                                         <div className="title">
+                                            <span>Job Type:</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>Fulltime</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content mt-4">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
                                             <span>Category:</span>
                                         </div>
                                         <div className="des">
                                             <span>Accounting / Finance</span>
+                                        </div>
+                                    </div>
+                                    <hr/>
+                                </div>
+                                <div className="content mt-4">
+                                    <div className="d-flex justify-content-between">
+                                        <div className="title">
+                                            <span>Location:</span>
+                                        </div>
+                                        <div className="des">
+                                            <span>1628 2nd Ave New York</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -158,7 +232,7 @@ const ProfileDescription = () => {
                                             <span>Gender</span>
                                         </div>
                                         <div className="des">
-                                            <span>Both</span>
+                                            <span>Male</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -169,7 +243,7 @@ const ProfileDescription = () => {
                                             <span>Age</span>
                                         </div>
                                         <div className="des">
-                                            <span>30 - 35</span>
+                                            <span>30</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -198,8 +272,9 @@ const ProfileDescription = () => {
                                 </div>
 
                                 <div className="apply">
+                                    <button className="applyBtn">Contact Me</button>
                                     <button className="shortlistBtn">Shortlist</button>
-                                    <button className="applyBtn">Download CV</button>
+                                    <button className="shortlistBtn">Download CV</button>
                                 </div>
                             </div>
                         </div>
