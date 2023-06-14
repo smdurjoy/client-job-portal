@@ -8,6 +8,7 @@ import JobDescriptionPage from "../pages/JobDescriptionPage";
 import CompanyProfilePage from "../pages/CompanyProfilePage";
 import CandidateProfilePage from "../pages/CandidateProfilePage";
 import AboutPage from "../pages/AboutPage";
+import LoginPage from "../pages/LoginPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/about",
         element: <AboutPage/>,
+    },
+    {
+        path: "/login",
+        element: <LoginPage/>,
     },
 ]);
 

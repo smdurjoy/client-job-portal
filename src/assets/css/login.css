@@ -1,0 +1,40 @@
+.login {
+    margin: 10rem 0;
+}
+
+.login h4 {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--main2);
+}
+
+.login h4 {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--main2);
+}
+
+.login input {
+    font-size: 14px;
+    height: 45px;
+}
+
+.login button {
+    background-color: var(--main2);
+    color: white;
+    padding: 5px 40px;
+}
+
+.login button:hover {
+    background-color: var(--main2);
+    color: #e8e8e8;
+}
+
+.login input::-webkit-outer-spin-button,
+.login input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
