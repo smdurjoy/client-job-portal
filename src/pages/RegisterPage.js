@@ -6,7 +6,7 @@ import Register from "../components/Register/Register";
 const LoginPage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-        document.title = 'Login - workersRUS';
+        document.title = 'Register - workersRUS';
     }, [])
     return (
         <>

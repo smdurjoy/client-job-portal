@@ -1,6 +1,7 @@
 {
   "name": "job-portal",
   "version": "0.1.0",
+  "proxy": "http://18.208.161.157:8000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -9,6 +10,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "font-awesome": "^4.7.0",
+    "placeholder-loading": "^0.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
