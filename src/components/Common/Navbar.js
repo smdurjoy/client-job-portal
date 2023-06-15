@@ -22,7 +22,7 @@ const Navbar = ({navBg = ''}) => {
                     </button>
 
                     <div
-                        className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-center align-items-center`}>
+                        className={`${isNavCollapsed ? 'collapse' : 'collapseBg'} navbar-collapse justify-content-end align-items-center`}>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <NavLink className={({isActive}) =>
