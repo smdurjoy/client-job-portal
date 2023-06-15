@@ -3,7 +3,7 @@ import {createBrowserRouter} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
 import CandidatesPage from "../pages/CandidatesPage";
-import EmployersPage from "../pages/EmployersPage";
+import CompanyPage from "../pages/CompanyPage";
 import JobDescriptionPage from "../pages/JobDescriptionPage";
 import CompanyProfilePage from "../pages/CompanyProfilePage";
 import CandidateProfilePage from "../pages/CandidateProfilePage";
@@ -34,7 +34,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/companies",
-        element: <EmployersPage/>,
+        element: <CompanyPage/>,
     },
     {
         path: "/company/:id",
