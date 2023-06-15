@@ -30,6 +30,28 @@
     color: #e8e8e8;
 }
 
+.login .form-label {
+    float: left;
+    font-size: 14px;
+    color: #484848;
+}
+
+.login .socialIcons ul li .facebook {
+    background-color: #3b5998;
+}
+
+.login .socialIcons ul li .twitter {
+    background-color: #00acee;
+}
+
+.login .socialIcons ul li .linkedin {
+    background-color: #0072b1;
+}
+
+.login .socialIcons ul li .pinterest {
+    background-color: #c8232c;
+}
+
 .login input::-webkit-outer-spin-button,
 .login input::-webkit-inner-spin-button {
     -webkit-appearance: none;

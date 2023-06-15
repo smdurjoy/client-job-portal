@@ -9,6 +9,7 @@ import CompanyProfilePage from "../pages/CompanyProfilePage";
 import CandidateProfilePage from "../pages/CandidateProfilePage";
 import AboutPage from "../pages/AboutPage";
 import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/login",
         element: <LoginPage/>,
+    },
+    {
+        path: "/register",
+        element: <RegisterPage/>,
     },
 ]);
 
