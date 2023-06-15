@@ -1,6 +1,7 @@
 :root {
     --main1: #F28A1F;
     --main2: #0D9CA4;
+    --secondary: #0D9CA450
 }
 
 .nav-link {
@@ -33,6 +34,12 @@
 
 .categoryTitle {
     color: var(--main2);
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.categoryTitleSuccess {
+    color: var(--main1);
     font-weight: 600;
     font-size: 35px;
 }
@@ -99,8 +106,14 @@
     color: #6B6B6B;
 }
 
-.pricingTitle {
+.featureJobTitle {
     color: var(--main1);
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.pricingTitle {
+    color: var(--main2);
     font-weight: 600;
     font-size: 35px;
 }
@@ -116,6 +129,47 @@
     color: white;
     font-size: 14px;
     border: none;
+}
+
+.pricing .card-footer-secondary {
+    background-color: var(--secondary);
+    color: var(--main2);
+    font-size: 14px;
+    border: none;
+}
+
+.marketing1 {
+    width: 100%;
+    padding: 90px 0;
+    background-color: var(--main2);
+}
+
+.marketing2 {
+    width: 100%;
+    padding: 90px 0;
+    background-color: var(--main1);
+}
+
+.marketing1 p, .marketing2 p {
+    font-size: 10px;
+}
+
+.marketing1 button {
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 2px 12px;
+    margin: 0;
+    color: var(--main2);
+}
+
+.marketing2 button {
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 2px 12px;
+    margin: 0;
+    color: var(--main1);
 }
 
 .jobs {
@@ -155,7 +209,7 @@
 }
 
 .downloadsTitle {
-    color: var(--main2);
+    color: var(--main1);
     font-weight: 600;
     font-size: 40px;
 }
@@ -178,7 +232,7 @@
 }
 
 .howItWorks {
-    background-color: var(--main1);
+    background-color: var(--main2);
     padding: 90px 0;
 }
 
@@ -220,7 +274,7 @@
 
 .icons {
     padding: 60px 50px;
-    background-color: var(--main2);
+    background-color: var(--main1);
 }
 
 .icons img {

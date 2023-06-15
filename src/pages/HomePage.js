@@ -11,6 +11,8 @@ import HowItWorks from "../components/Home/HowItWorks/HowItWorks";
 import Client from "../components/Home/Clients/Client";
 import Icons from "../components/Home/Icons/Icons";
 import Footer from "../components/Common/Footer";
+import FeaturedJobs from '../components/Home/FeaturedJobs/FeaturedJobs';
+import Marketing from '../components/Home/Marketing/Marketing';
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -34,8 +36,10 @@ const HomePage = () => {
             <Banner/>
             <Category/>
             <Summary/>
-            <Pricing/>
+            <FeaturedJobs />
             <Jobs/>
+            <Pricing/>
+            <Marketing />
             <Downloads/>
             <HowItWorks/>
             <Client/>

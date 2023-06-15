@@ -9,7 +9,7 @@ const Client = () => {
             <div className="container">
                 <div className="text-center">
                     <span className="subTitle">WHAT SAY OUR CLIENT</span>
-                    <h1 className="categoryTitle">Our Success Stories</h1>
+                    <h1 className="categoryTitleSuccess">Our Success Stories</h1>
                 </div>
                 <div className="row mt-5 pt-5">
                     <div className="col text-center">

@@ -1,5 +1,6 @@
 import React from 'react';
 import rabbit from '../../../images/rabbit.svg'
+import JobsList from '../../Jobs/JobsList';
 
 const Jobs = () => {
     return (<div className="jobs">
@@ -9,7 +10,7 @@ const Jobs = () => {
                 <span className="subTitle">MOST VIEW JOBS</span>
             </div>
             <div className="row mt-5">
-                <div className="col">
+                {/* <div className="col">
                     <div className="card text-center">
                         <img src={rabbit} alt="--"/>
                         <div className="card-body">
@@ -62,7 +63,8 @@ const Jobs = () => {
                             Apply Now >>>
                         </div>
                     </div>
-                </div>
+                </div> */}
+                <JobsList />
             </div>
         </div>
     </div>
