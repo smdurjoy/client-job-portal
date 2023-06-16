@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import '../../assets/css/login.css';
+import axios from "axios";
 import {Link} from "react-router-dom";
 import {useForm} from 'react-hook-form';
 import {toastError, toastSuccess} from '../../Helpers/Toaster';
-import axios from "axios";
 
 const Register = () => {
     const {
@@ -13,13 +13,18 @@ const Register = () => {
     } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (formData) => {
         setIsSubmitting(true);
         toastSuccess('Registration Success');
         try {
-            await axios.post('/auth/signup/', data);
-            toastSuccess('Registration Success');
-            alert('Registration Success.');
+            const {data} = await axios.post('/auth/signup/', formData);
+            if (data.status === 0) {
+                toastError(data.message);
+            } else {
+                toastSuccess(data.data.message);
+                alert(data.data.message);
+                localStorage.setItem('auth-token', data.data.token);
+            }
         } catch (e) {
             toastError('Something Went Wrong !');
         } finally {
