@@ -1,10 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../assets/css/login.css';
 import {Link} from "react-router-dom";
+import {useForm} from 'react-hook-form';
+import {toastError, toastSuccess} from '../../Helpers/Toaster';
+import axios from "axios";
 
 const Register = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+    } = useForm();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const onSubmit = async (data) => {
+        setIsSubmitting(true);
+        toastSuccess('Registration Success');
+        try {
+            await axios.post('/auth/signup/', data);
+            toastSuccess('Registration Success');
+            alert('Registration Success.');
+        } catch (e) {
+            toastError('Something Went Wrong !');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
-        <div className="login">
+        <div className="login" onSubmit={handleSubmit(onSubmit)}>
             <div className="container text-center">
                 <h4>Signup</h4>
                 <form className="mt-3">
@@ -13,29 +37,38 @@ const Register = () => {
                             <div className="form-group">
                                 <label className="form-label">First Name *</label>
                                 <input type="text"
+                                       {...register('first_name', {required: true})}
                                        className="form-control"
                                 />
+                                {errors.first_name && <span className="errorMsg">This field is required</span>}
                             </div>
                         </div>
                         <div className="col-md-6 mt-3">
                             <div className="form-group">
                                 <label className="form-label">Last Name *</label>
                                 <input type="text"
+                                       {...register('last_name', {required: true})}
                                        className="form-control"
                                 />
+                                {errors.last_name && <span className="errorMsg">This field is required</span>}
                             </div>
                         </div>
                         <div className="col-md-6 mt-3">
                             <div className="form-group">
                                 <label className="form-label">Phone Number *</label>
                                 <input type="number"
+                                       {...register('phone_number', {required: true})}
                                        className="form-control"
                                 />
+                                {errors.phone_number && <span className="errorMsg">This field is required</span>}
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="btn submitBtn text-center mt-3">
-                        Sign Up
+                    <button type="submit"
+                            className="btn submitBtn text-center mt-3"
+                            disabled={isSubmitting}
+                    >
+                        {isSubmitting ? 'Signing up...' : 'Sign Up'}
                     </button>
                 </form>
 

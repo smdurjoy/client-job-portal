@@ -36,6 +36,16 @@
     color: #484848;
 }
 
+.login form {
+    text-align: left;
+}
+
+.login form .errorMsg {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+}
+
 .login .socialIcons ul li .facebook {
     background-color: #3b5998;
 }
@@ -57,6 +67,7 @@
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type=number] {
     -moz-appearance: textfield;
 }
