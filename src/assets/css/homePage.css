@@ -49,14 +49,13 @@
 }
 
 .summary {
-    margin-top: 90px;
+    margin-top: 50px;
     background: var(--main1);
-    height: 351px;
     color: white;
 }
 
 .summary .container .row {
-    padding-top: 130px;
+    padding: 50px 0;
 }
 
 .summary .container img {
@@ -68,6 +67,10 @@
 }
 
 .pricing .header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--main1);
     padding: 5px 10px;
     border-bottom-right-radius: 10px;
@@ -79,6 +82,10 @@
 }
 
 .pricing .headerTwo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--main2);
     padding: 5px 10px;
     border-bottom-right-radius: 10px;
@@ -173,7 +180,7 @@
 }
 
 .jobs {
-    padding: 90px 0;
+    padding: 50px 0;
     background-color: var(--main2);
 }
 
@@ -205,7 +212,7 @@
 }
 
 .downloads {
-    padding: 90px 0;
+    padding: 70px 0;
 }
 
 .downloadsTitle {
@@ -233,7 +240,7 @@
 
 .howItWorks {
     background-color: var(--main2);
-    padding: 90px 0;
+    padding: 50px 0;
 }
 
 .howItWorks h2 {
@@ -246,6 +253,10 @@
     color: #f4f4f4;
 }
 
+.howItWorkDes span {
+    font-size: 13px;
+}
+
 .howItWorks img {
     width: 100px;
 }
@@ -255,15 +266,16 @@
 }
 
 .client img {
-    width: 100px;
-    height: 100px;
-    border: 2px solid var(--main1);
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--main1);
     border-radius: 50%;
     object-fit: contain;
 }
 
 .client small {
-    color: var(--main2);
+    color: gray;
+    font-weight: bold;
 }
 
 .clientMsg {
@@ -273,7 +285,7 @@
 }
 
 .icons {
-    padding: 60px 50px;
+    padding: 40px 50px;
     background-color: var(--main1);
 }
 

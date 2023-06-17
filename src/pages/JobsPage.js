@@ -33,7 +33,7 @@ const JobsPage = () => {
     return (
         <>
             <Navbar navBg='scrolledNav'/>
-            <SubBanner title="Job List - V1"/>
+            <SubBanner title="Jobs"/>
             <Jobs
                 countries={countries}
                 categories={categories}

@@ -66,16 +66,16 @@ const Footer = () => {
                                 <li>CV Packages</li>
                                 <li>Jobs Featured</li>
                                 <li>Jobs Urgent</li>
-                                <li>Candidate List</li>
-                                <li>Candidates Grid</li>
+                                <li>Candidate</li>
+                                <li>Candidates</li>
                             </ul>
                         </div>
                         <div className="col">
                             <p><b>For Employers</b></p>
                             <ul>
                                 <li>Post New</li>
-                                <li>Employer List</li>
-                                <li>Employer Grid</li>
+                                <li>Employer</li>
+                                <li>Employer</li>
                                 <li>Jobs Packages</li>
                                 <li>Jobs Listing</li>
                                 <li>Jobs Featured</li>
