@@ -11,12 +11,10 @@ const FeaturedJobs = () => {
             <div className="row mt-5">
                 <div className="col">
                     <div className="card text-center">
-                        <div>
-                            <span className="header">
-                                Featured
-                            </span>
-                        </div>
-                        <span className="mt-2">Full Time</span>
+                        <span className="header">
+                            Featured
+                        </span>
+                        <span className="mt-5">Full Time</span>
                         <div className="card-body p-0">
                             <img src={amazonLogo} alt="company"/>
                             <h5 className="card-title">Head of Marketing</h5>
@@ -38,12 +36,10 @@ const FeaturedJobs = () => {
                 </div>
                 <div className="col">
                     <div className="card text-center">
-                        <div>
-                            <span className="header">
-                                Featured
-                            </span>
-                        </div>
-                        <span className="mt-2">Full Time</span>
+                        <span className="header">
+                            Featured
+                        </span>
+                        <span className="mt-5">Full Time</span>
                         <div className="card-body p-0">
                             <img src={amazonLogo} alt="company"/>
                             <h5 className="card-title">Head of Marketing</h5>
@@ -65,12 +61,10 @@ const FeaturedJobs = () => {
                 </div>
                 <div className="col">
                     <div className="card text-center">
-                        <div>
-                            <span className="header">
-                                Featured
-                            </span>
-                        </div>
-                        <span className="mt-2">Full Time</span>
+                        <span className="header">
+                            Featured
+                        </span>
+                        <span className="mt-5">Full Time</span>
                         <div className="card-body p-0">
                             <img src={amazonLogo} alt="company"/>
                             <h5 className="card-title">Head of Marketing</h5>

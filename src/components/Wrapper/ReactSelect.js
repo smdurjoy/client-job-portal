@@ -16,7 +16,8 @@ const ReactSelect = ({options, placeholder}) => {
         valueContainer: (provided, state) => ({
             ...provided,
             height,
-            padding: '0 6px'
+            padding: '0 3px',
+            margin: '-7px 0 0 0'
         }),
 
         input: (provided, state) => ({

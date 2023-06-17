@@ -10,7 +10,7 @@ const Summary = () => {
                 <div className="row">
                     <div className="col text-center">
                         <div className="d-flex align-items-center justify-content-center">
-                            <div>
+                            <div className='pe-1'>
                                 <img src={user} alt="workers"/>
                             </div>
                             <div>
@@ -21,7 +21,7 @@ const Summary = () => {
                     </div>
                     <div className="col text-center">
                         <div className="d-flex align-items-center justify-content-center">
-                            <div>
+                            <div className='pe-2'>
                                 <img src={monitor} alt="companies"/>
                             </div>
                             <div className="">
@@ -32,7 +32,7 @@ const Summary = () => {
                     </div>
                     <div className="col text-center">
                         <div className="d-flex align-items-center justify-content-center">
-                            <div>
+                            <div className='pe-1'>
                                 <img src={web} alt="countries"/>
                             </div>
                             <div>
