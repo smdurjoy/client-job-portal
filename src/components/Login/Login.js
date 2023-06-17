@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../assets/css/login.css';
 import axios from "axios";
 import {useForm} from 'react-hook-form';
 import {toastError, toastSuccess} from "../../Helpers/Toaster";
+import EmailVersion from "./EmailVersion";
+// import OTPVersion from "./OTPVersion";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const {
@@ -12,21 +15,25 @@ const Login = () => {
     } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [otpMode, setOtpMode] = useState(false);
-    const [number, setNumber] = useState('');
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('auth-token');
+        if (token) {
+            navigate('/');
+        }
+    }, [navigate]);
 
     const onSubmit = async (formData, e) => {
         setIsSubmitting(true);
-        toastSuccess('Registration Success');
         try {
-            const {data} = await axios.post('/auth/send/otp/', formData);
+            const {data} = await axios.post('/auth/send/otp/email/', formData);
             if (data.status === 0) {
                 toastError(data.message);
             } else {
                 toastSuccess(data.message);
                 alert(data.message);
-                // localStorage.setItem('auth-token', data.data.token);
                 setOtpMode(true);
-                setNumber(formData.phone_number);
             }
         } catch (err) {
             toastError('Something Went Wrong !');
@@ -39,16 +46,18 @@ const Login = () => {
 
     const onOTPSubmit = async (formData, e) => {
         setIsSubmitting(true);
-        toastSuccess('Registration Success');
         try {
-            formData.phone_number = number;
-            const {data} = await axios.post('/auth/verify/otp/', formData);
+            formData.otp = parseInt(formData.otp);
+            const {data} = await axios.post('/auth/verify/otp/email/', formData);
             if (data.status === 0) {
+                alert(data.message);
                 toastError(data.message);
             } else {
-                toastSuccess(data.data.message);
-                alert(data.data.message);
+                toastSuccess('Login Success');
+                alert('Login Success');
                 localStorage.setItem('auth-token', data.data.token);
+                localStorage.setItem('user_id', data.data.user_id);
+                navigate('/');
             }
         } catch (err) {
             toastError('Something Went Wrong !');
@@ -62,43 +71,24 @@ const Login = () => {
         <div className="login">
             <div className="container text-center">
                 <h4>Login</h4>
-                {
-                    otpMode ? (
-                        <form className="mt-3" onSubmit={handleSubmit(onOTPSubmit)}>
-                            <div className="row mb-3">
-                                <div className="col-md-6 offset-md-3">
-                                    <input type="number"
-                                           className="form-control"
-                                           placeholder="OTP"
-                                           disabled={isSubmitting}
-                                           {...register('otp', {required: true})}
-                                    />
-                                    {errors.otp && <span className="errorMsg">This field is required</span>}
-                                </div>
-                            </div>
-                            <button type="submit" className="btn submitBtn text-center">
-                                {isSubmitting ? 'Sending...' : 'Send OTP'}
-                            </button>
-                        </form>
-                    ) : (
-                        <form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
-                            <div className="row mb-3">
-                                <div className="col-md-6 offset-md-3">
-                                    <input type="number"
-                                           className="form-control"
-                                           placeholder="Mobile Number"
-                                           disabled={isSubmitting}
-                                           {...register('phone_number', {required: true})}
-                                    />
-                                    {errors.phone_number && <span className="errorMsg">This field is required</span>}
-                                </div>
-                            </div>
-                            <button type="submit" className="btn submitBtn text-center">
-                                {isSubmitting ? 'Signing in...' : 'Sign In'}
-                            </button>
-                        </form>
-                    )
-                }
+                {/*<OTPVersion*/}
+                {/*    otpMode={otpMode}*/}
+                {/*    handleSubmit={handleSubmit}*/}
+                {/*    onOTPSubmit={onOTPSubmit}*/}
+                {/*    register={register}*/}
+                {/*    errors={errors}*/}
+                {/*    isSubmitting={isSubmitting}*/}
+                {/*    onSubmit={onSubmit}*/}
+                {/*/>*/}
+                <EmailVersion
+                    otpMode={otpMode}
+                    handleSubmit={handleSubmit}
+                    onOTPSubmit={onOTPSubmit}
+                    register={register}
+                    errors={errors}
+                    isSubmitting={isSubmitting}
+                    onSubmit={onSubmit}
+                />
             </div>
         </div>
     );
