@@ -10,6 +10,7 @@ import CandidateProfilePage from "../pages/CandidateProfilePage";
 import AboutPage from "../pages/AboutPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import WorkersProfileUpdatePage from "../pages/WorkersProfileUpdatePage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -32,6 +33,14 @@ const AppRoute = createBrowserRouter([
     {
         path: "/candidate-profile/:id",
         element: <CandidateProfilePage/>,
+    },
+    {
+        path: "/profile",
+        element: <CandidateProfilePage/>,
+    },
+    {
+        path: "/edit-profile",
+        element: <WorkersProfileUpdatePage/>,
     },
     {
         path: "/companies",

@@ -85,11 +85,33 @@ const Navbar = ({navBg = ''}) => {
                             </li>
                             {
                                 token ? (
-                                    <li className="nav-item">
-                                        <button className="btn registerBtn mt-2" onClick={handleLogout}>
-                                            LOGOUT
-                                        </button>
-                                    </li>
+                                    <>
+                                        <li className="nav-item">
+                                            <li className="nav-item dropdown">
+                                                <button className="nav-link dropdown-toggle" id="navbarDropdown"
+                                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    PROFILE
+                                                </button>
+                                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <li>
+                                                        <Link className="dropdown-item" href="#" to='/profile'>
+                                                            View Profile
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link className="dropdown-item" href="#" to='/edit-profile'>
+                                                            Edit Profile
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </li>
+                                        <li className="nav-item">
+                                            <button className="btn registerBtn mt-2" onClick={handleLogout}>
+                                                LOGOUT
+                                            </button>
+                                        </li>
+                                    </>
                                 ) : (
                                     <>
                                         <li className="nav-item">
