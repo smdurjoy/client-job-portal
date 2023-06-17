@@ -3,17 +3,7 @@ import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
 import ReactSelect from '../Wrapper/ReactSelect';
 
-const Jobs = () => {
-    const options = [
-        {
-            value: 'test',
-            label: 'Test'
-        },
-        {
-            value: 'test2',
-            label: 'Test 2'
-        }
-    ]
+const Jobs = ({countries, categories}) => {
     const filterOptions = [
         {
             value: 'Default',
@@ -39,10 +29,10 @@ const Jobs = () => {
                             />
                         </div>
                         <div className="col-md-3">
-                            <ReactSelect options={options} placeholder="All Category"/>
+                            <ReactSelect options={categories} placeholder="All Category"/>
                         </div>
                         <div className="col-md-3">
-                            <ReactSelect options={options} placeholder="All Location"/>
+                            <ReactSelect options={countries} placeholder="All Location"/>
                         </div>
                         <div className="col-md-3 filterButtons">
                             <button className="btn filterBtn">Filter</button>

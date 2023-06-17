@@ -15,6 +15,7 @@ import Footer from "../components/Common/Footer";
 import FeaturedJobs from '../components/Home/FeaturedJobs/FeaturedJobs';
 import Marketing from '../components/Home/Marketing/Marketing';
 import {toastError} from "../Helpers/Toaster";
+import {fetchCountries} from "../api/common/commonApi";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -31,23 +32,8 @@ const HomePage = () => {
         window.addEventListener('scroll', onScroll);
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Home - workersRUS';
-        fetchCountries();
+        fetchCountries().then(countries => setCountries(countries));
     }, [])
-
-    const fetchCountries = async () => {
-        try {
-            const {data: {counties}} = await axios.get('/common/countries/');
-            const formattedCountries = counties.map(country => {
-                return {
-                    id: country.id,
-                    label: country.country_name
-                }
-            })
-            setCountries(formattedCountries);
-        } catch (e) {
-            toastError('Something Went Wrong!');
-        }
-    }
 
     return (
         <>

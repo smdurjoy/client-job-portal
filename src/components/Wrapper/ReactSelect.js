@@ -45,7 +45,6 @@ const ReactSelect = ({options, placeholder}) => {
             styles={customStyles}
             placeholder={placeholder}
             isSearchable={false}
-
         />
     );
 };
