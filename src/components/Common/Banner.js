@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactSelect from "../Wrapper/ReactSelect";
 
-const Banner = () => {
+const Banner = ({countries}) => {
     const options = [
         {value: 'all', label: 'All'}
     ]
@@ -29,7 +29,7 @@ const Banner = () => {
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <ReactSelect options={options}
+                                <ReactSelect options={countries}
                                              placeholder="All Category"
                                 />
                             </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import amazonLogo from "../../../images/amazon.png";
 
 const Pricing = () => {
     return (<div className="pricing">

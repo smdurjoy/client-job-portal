@@ -1,16 +1,15 @@
 import React from 'react';
-import rabbit from '../../../images/rabbit.svg'
 import JobsList from '../../Jobs/JobsList';
 
 const Jobs = () => {
     return (<div className="jobs">
-        <div className="container">
-            <div className="text-center">
-                <h2 className="jobsTitle">We Found 489 Matches Jobs</h2>
-                <span className="subTitle">MOST VIEW JOBS</span>
-            </div>
-            <div className="row mt-5">
-                {/* <div className="col">
+            <div className="container">
+                <div className="text-center">
+                    <h2 className="jobsTitle">We Found 489 Matches Jobs</h2>
+                    <span className="subTitle">MOST VIEW JOBS</span>
+                </div>
+                <div className="row mt-5">
+                    {/* <div className="col">
                     <div className="card text-center">
                         <img src={rabbit} alt="--"/>
                         <div className="card-body">
@@ -64,10 +63,10 @@ const Jobs = () => {
                         </div>
                     </div>
                 </div> */}
-                <JobsList />
+                    <JobsList/>
+                </div>
             </div>
         </div>
-    </div>
     );
 };
 
