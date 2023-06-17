@@ -1,5 +1,5 @@
 import React from 'react';
-import JobsList from '../../Jobs/JobsList';
+import JobsList from '../../Home/Jobs/JobsList';
 
 const Jobs = () => {
     return (<div className="jobs">
