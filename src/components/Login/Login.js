@@ -3,7 +3,7 @@ import '../../assets/css/login.css';
 import axios from "axios";
 import {useForm} from 'react-hook-form';
 import {toastError, toastSuccess} from "../../Helpers/Toaster";
-import EmailVersion from "./EmailVersion";
+import EmailVersion from './EmailVersion';
 // import OTPVersion from "./OTPVersion";
 import { useNavigate } from "react-router-dom";
 

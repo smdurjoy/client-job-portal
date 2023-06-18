@@ -41,7 +41,7 @@
 }
 
 .subBanner {
-    margin-top: 99px;
+    margin-top: 65px;
     min-height: 270px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,8 +59,8 @@
 }
 
 .profileBanner {
-    margin-top: 99px;
-    min-height: 400px;
+    margin-top: 65px;
+    min-height: 270px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

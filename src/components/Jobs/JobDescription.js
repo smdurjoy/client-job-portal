@@ -6,7 +6,7 @@ import m2 from '../../images/companies/jobs/m2.webp';
 import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
 
-const JobDescription = () => {
+const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
     return (
         <div className="jobDescription">
             <div className="container">
@@ -27,14 +27,7 @@ const JobDescription = () => {
                         </p>
                         <h4>- Job Responsibilities:</h4>
                         <ul>
-                            <li>There are many variations of passages of Lorem Ipsum available.</li>
-                            <li>Many desktop publishing packages and web page editors now use</li>
-                            <li>Various versions have evolved over the years, sometimes by accident, sometimes on
-                                purpose
-                            </li>
-                            <li>If you are going to use a passage of Lorem Ipsum</li>
-                            <li>All the Lorem Ipsum generators on the Internet tend to repeat predefined</li>
-                            <li>Contrary to popular belief, Lorem Ipsum is not simply random text</li>
+                            {jobDescription?.job_responsibilities}
                         </ul>
                         <h4>- Skills Required:</h4>
                         <ul>
@@ -232,7 +225,7 @@ const JobDescription = () => {
 
                                 <div className="apply">
                                     <p>Application ends: <span>October 1 2025</span></p>
-                                    <button className="applyBtn">Apply Now</button>
+                                    <button className="applyBtn" onClick={handleJobApply}>Apply Now</button>
                                     <button className="shortlistBtn">Shortlist</button>
                                     <p className="text-center m-lg-auto py-3">OR APPLY WITH</p>
                                     <div className="applyWith">
