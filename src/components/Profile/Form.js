@@ -102,11 +102,11 @@ const Form = () => {
                             <ReactSelect
                                 options={[
                                     {
-                                        id: 'male',
+                                        id: 1,
                                         label: 'Male'
                                     },
                                     {
-                                        id: 'female',
+                                        id: 2,
                                         label: 'Female'
                                     }
                                 ]}
