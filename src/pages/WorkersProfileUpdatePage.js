@@ -4,7 +4,7 @@ import '../assets/css/candidateProfile.css';
 import Navbar from "../components/Common/Navbar";
 import Footer from "../components/Common/Footer";
 import Form from "../components/Profile/Form";
-import {useForm} from 'react-hook-form';
+import {useForm, useFieldArray} from 'react-hook-form';
 import {fetchAreas, fetchCities, fetchCountries, fetchStates} from "../api/common/commonApi";
 import {toastError, toastSuccess, toastWarning} from "../Helpers/Toaster";
 import axios from "axios";
@@ -14,6 +14,7 @@ const WorkersProfileUpdatePage = () => {
         register,
         handleSubmit,
         setValue,
+        control,
         formState: {errors},
     } = useForm({
         defaultValues: {
@@ -45,6 +46,8 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const onSubmit = async (formData) => {
+        console.log(formData)
+        return;
         try {
             formData.user_id = localStorage.getItem('user_id');
             const {data} = await axios.post('/auth/set/worker/basic/', formData, {
@@ -97,6 +100,8 @@ const WorkersProfileUpdatePage = () => {
                 handleCountryChange={handleCountryChange}
                 onSubmit={onSubmit}
                 setValue={setValue}
+                control={control}
+                useFieldArray={useFieldArray}
             />
             <Footer/>
         </>

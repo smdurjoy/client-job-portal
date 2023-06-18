@@ -3,7 +3,26 @@ import '../../assets/css/profile.css';
 import ReactSelect from "../Wrapper/ReactSelect";
 import {Link} from "react-router-dom";
 
-const Form = ({countries, cities, states, areas, handleCountryChange, handleSubmit, onSubmit, register, errors, setValue}) => {
+const Form = ({
+                  countries,
+                  cities,
+                  states,
+                  areas,
+                  handleCountryChange,
+                  handleSubmit,
+                  onSubmit,
+                  register,
+                  errors,
+                  setValue,
+                  control,
+                  useFieldArray
+              }) => {
+
+    const {fields, append, remove} = useFieldArray({
+        control,
+        name: "test"
+    });
+
     return (
         <div className="profileForm">
             <div className="container">
@@ -141,7 +160,57 @@ const Form = ({countries, cities, states, areas, handleCountryChange, handleSubm
                         </div>
                         <div className="col-md-12 my-2 form-group">
                             <label className="form-label">Education</label>
-                            <textarea className="form-control" rows="6" placeholder="Write"></textarea>
+                            <ul>
+                                {fields.map((item, index) => (
+                                    <div className="row mt-2" key={item.id}>
+                                        <div className="col-md-3">
+                                            <input type="text"
+                                                   className="form-control"
+                                                   placeholder="Degree"
+                                                   {...register(`degree_list.${index}.degree_id`)}
+                                            />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <input type="text"
+                                                   className="form-control"
+                                                   placeholder="Institute"
+                                                   {...register(`degree_list.${index}.institute`)}
+                                            />
+                                        </div>
+                                        <div className="col-md-3">
+                                            <input type="date"
+                                                   className="form-control"
+                                                   {...register(`degree_list.${index}.passing_year`)}
+                                            />
+                                        </div>
+                                        <div className="col-md-2">
+                                            <div className="form-check">
+                                                <input className="form-check-input" type="checkbox"
+                                                       value=""
+                                                       {...register(`degree_list.${index}.is_currently_reading`)}
+                                                       id={`currentStudy`+index}
+                                                />
+                                                <label className="form-check-label" htmlFor={`currentStudy`+index}>
+                                                    Currently Studying
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-1">
+                                            <button className="btn btn-danger btn-sm" type="button"
+                                                    onClick={() => remove(index)}>
+                                                <i className="fa fa-times"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </ul>
+                            <button
+                                type="button"
+                                className="btn btn-dark"
+                                onClick={() => append({firstName: "bill", lastName: "luo"})}
+                            >
+                                <i className="fa fa-plus"></i>
+                            </button>
                         </div>
                         <div className="col-md-12 my-2 form-group">
                             <label className="form-label">Work Experience</label>
