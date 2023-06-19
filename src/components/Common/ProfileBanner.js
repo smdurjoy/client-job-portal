@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../../images/bg.jpg'
 import companyLogo from '../../images/companies/company1.jpg';
 
-const ProfileBanner = ({title}) => {
+const ProfileBanner = ({title, deadline}) => {
     return (
         <div className="profileBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
@@ -24,7 +24,7 @@ const ProfileBanner = ({title}) => {
                             </div>
                         </div>
                         <div className="col-md-6 deadline">
-                            <p>Application ends: October 1, 2025</p>
+                            <p>Application ends: {deadline}</p>
                             <button className="btn applyBtn">
                                 Apply Now
                             </button>

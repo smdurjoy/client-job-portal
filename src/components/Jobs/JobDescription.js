@@ -108,7 +108,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                             <span>Job Type</span>
                                         </div>
                                         <div className="des">
-                                            <span>Internship</span>
+                                            <span>{jobDescription?.job_type}</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -119,7 +119,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                             <span>Category</span>
                                         </div>
                                         <div className="des">
-                                            <span>Retail</span>
+                                            <span>{jobDescription?.job_category}</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -141,7 +141,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                             <span>Offered Salary</span>
                                         </div>
                                         <div className="des">
-                                            <span>$2000 - $2500 / month</span>
+                                            <span>{jobDescription?.salary_range} / month</span>
                                         </div>
                                     </div>
                                     <hr/>

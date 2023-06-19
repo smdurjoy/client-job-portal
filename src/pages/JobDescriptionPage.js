@@ -15,9 +15,9 @@ const CandidatesPage = () => {
     const [jobDescription, setJobDescription] = useState([])
     const [isLoading, setLoading] = useState(false);
     const [workerId, setWorkerId] = useState(null);
+    const [token, setToken] = useState(null);
 
     const handleJobDescription = () => {
-        setJobDescription([]);
         setLoading(true);
         fetchJobDescription(id).then(jobDesc => {
             setJobDescription(jobDesc);
@@ -25,23 +25,15 @@ const CandidatesPage = () => {
         });
     }
 
-    // const handleJobApply = async () => {
-    //     try {
-    //       const response = await axios.post('https://example.com/api/endpoint', {
-    //         id,
-    //         workerId,
-    //       });
-    //       console.log("###", response.data); // You can handle the response data here
-    //     } catch (error) {
-    //       console.error(error);
-    //     }
-    //   };
-
     const handleJobApply = async () => {
         try {
             const {data} = await axios.post('/worker/job/apply/', {
                 job_id: parseInt(id),
                 worker_id: parseInt(workerId)
+            }, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
             });
             if (data.status === 0) {
                 alert(data.message);
@@ -64,15 +56,16 @@ const CandidatesPage = () => {
 
     useEffect(()=>{
         setWorkerId(localStorage.getItem('user_id'));
+        setToken(localStorage.getItem('auth-token'));
     },[])
     
     return (
         <>
             <Navbar navBg='scrolledNav'/>
-            <ProfileBanner 
-                jobDescription={jobDescription}
+            <ProfileBanner
                 isLoading={isLoading}
-                title="aaabc"
+                title={jobDescription.job_title}
+                deadline={jobDescription.application_deadline}
             />
             <JobDescription
                 jobDescription={jobDescription}
