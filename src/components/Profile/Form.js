@@ -17,6 +17,7 @@ const Form = ({
                   control,
                   useFieldArray,
                   isSubmitting,
+                  profile,
               }) => {
 
     const {
@@ -167,7 +168,7 @@ const Form = ({
                         </div>
                         <div className="col-md-12 my-2 form-group">
                             <label className="form-label">Education</label>
-                            {educations.map((item, index) => (
+                            {profile.educations.map((item, index) => (
                                 <div className="row mt-2" key={item.id}>
                                     <div className="col-md-3">
                                         <ReactSelect

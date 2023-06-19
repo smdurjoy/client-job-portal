@@ -2,7 +2,6 @@ import React from 'react';
 import '../../assets/css/timeline.css';
 
 const EducationTimeLine = ({educations}) => {
-    console.log({educations});
     return (
         <section className="my-3">
             <ul className="timeline">

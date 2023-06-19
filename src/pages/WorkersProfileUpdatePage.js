@@ -9,6 +9,8 @@ import {fetchAreas, fetchCities, fetchCountries, fetchStates} from "../api/commo
 import {toastError, toastSuccess, toastWarning} from "../Helpers/Toaster";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {fetchProfileInfo} from "../api/profile/profile";
+import Loader from "../components/Loader/Loader";
 
 const WorkersProfileUpdatePage = () => {
     const {
@@ -25,7 +27,16 @@ const WorkersProfileUpdatePage = () => {
             area_id: 1,
             gender_id: 1,
             address_line1: 'N/A',
+            educations: [],
         }
+    });
+    const [profile, setProfile] = useState({
+        id: null,
+        first_name: '-',
+        middle_name: '-',
+        last_name: '-',
+        email: '-',
+        phone_number: '-',
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [countries, setCountries] = useState([]);
@@ -38,6 +49,11 @@ const WorkersProfileUpdatePage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Update Profile - workersRUS';
+        const workerId = localStorage.getItem('user_id');
+        fetchProfileInfo(workerId).then(res => {
+            setProfile(res);
+            format(res);
+        });
         fetchCountries().then(countries => setCountries(countries))
     }, [])
 
@@ -131,24 +147,45 @@ const WorkersProfileUpdatePage = () => {
         }
     }
 
+    const format = (res) => {
+        setValue('first_name', res.first_name);
+        setValue('middle_name', res.middle_name);
+        setValue('last_name', res.last_name);
+        setValue('email', res.email);
+        setValue('phone_number', res.phone_number);
+        setValue('country_id', res.country);
+        setValue('state_id', res.state);
+        setValue('city_id', res.city);
+        setValue('area_id', res.area);
+        setValue('gender_id', res.gender);
+        setValue('address_line1', res.address_line1);
+        setValue('address_line2', res.address_line2);
+        setValue('postal_code', res.postal_code);
+        setValue('skill_set', res.skill_set);
+        setValue('educations', res.educations);
+    }
+
     return (
         <>
             <Navbar navBg='scrolledNav'/>
-            <Form
-                countries={countries}
-                cities={cities}
-                states={states}
-                areas={areas}
-                register={register}
-                handleSubmit={handleSubmit}
-                errors={errors}
-                handleCountryChange={handleCountryChange}
-                onSubmit={onSubmit}
-                setValue={setValue}
-                control={control}
-                useFieldArray={useFieldArray}
-                isSubmitting={isSubmitting}
-            />
+            {
+                profile.id ? <Form
+                    countries={countries}
+                    cities={cities}
+                    states={states}
+                    areas={areas}
+                    register={register}
+                    handleSubmit={handleSubmit}
+                    errors={errors}
+                    handleCountryChange={handleCountryChange}
+                    onSubmit={onSubmit}
+                    setValue={setValue}
+                    control={control}
+                    useFieldArray={useFieldArray}
+                    isSubmitting={isSubmitting}
+                    profile={profile}
+                /> : <div style={{marginTop: '9rem'}}><Loader/></div>
+            }
             <Footer/>
         </>
     );

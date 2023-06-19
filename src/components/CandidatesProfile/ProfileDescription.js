@@ -10,29 +10,6 @@ import ProgressBar from "../Common/ProgressBar";
 import EducationTimeLine from "./EducationTimeLine";
 
 const ProfileDescription = ({profile}) => {
-    console.log({profile})
-    const educations = [
-        {
-            degree_name: 'MASTERS IN FINE ARTS',
-            institute: 'Walters University',
-            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
-                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
-                '        Phasellus suscipit porta mattis.',
-            passing_year: '',
-            start_date: '2012',
-            end_date: '2014'
-        },
-        {
-            degree_name: 'Diploma in fine arts',
-            institute: 'Imperial Institute of Art Direction',
-            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
-                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
-                '        Phasellus suscipit porta mattis.',
-            passing_year: '',
-            start_date: '2010',
-            end_date: '2012'
-        },
-    ];
     const experience = [
         {
             title: 'Development Manager',

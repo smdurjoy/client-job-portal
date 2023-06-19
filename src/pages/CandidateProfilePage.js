@@ -10,6 +10,7 @@ import Loader from "../components/Loader/Loader";
 
 const CompanyProfilePage = () => {
     const [profile, setProfile] = useState({
+        id: null,
         first_name: '-',
         middle_name: '-',
         last_name: '-',
@@ -28,7 +29,7 @@ const CompanyProfilePage = () => {
             <Navbar navBg='scrolledNav'/>
             <CandidateProfileBanner profile={profile}/>
             {
-                profile.educations ? <ProfileDescription profile={profile}/> : <Loader/>
+                profile.id ? <ProfileDescription profile={profile}/> : <Loader/>
             }
             <Footer/>
         </>
