@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../../images/bg.jpg'
 import client5 from '../../images/client5.jpeg'
 
-const CandidateProfileBanner = ({title}) => {
+const CandidateProfileBanner = ({profile}) => {
     return (
         <div className="profileBanner candidateProfileBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
@@ -13,15 +13,15 @@ const CandidateProfileBanner = ({title}) => {
                                 <div className="d-flex align-items-center">
                                     <img src={client5} alt="companyLogo"/>
                                     <div className="companyDes">
-                                        <h3>{title}</h3>
+                                        <h3>{`${profile.first_name} ${profile.middle_name} ${profile.last_name}`}</h3>
                                         <span>Build 6 Creative Projects</span>
                                         <p className="mt-2">
                                             <i className="fa fa-map-marker"></i>&nbsp;
-                                            4 Rue Taine, Paris &nbsp;&nbsp;&nbsp;
+                                            {profile.address_line1} &nbsp;&nbsp;&nbsp;
                                             <i className="fa fa-envelope-o"></i>&nbsp;
-                                            fatah@apus.com &nbsp;&nbsp;&nbsp;
+                                            {profile.email} &nbsp;&nbsp;&nbsp;
                                             <i className="fa fa-mobile"></i>&nbsp;
-                                            +051 123 456 789
+                                            {profile.phone_number}
                                         </p>
                                     </div>
                                 </div>

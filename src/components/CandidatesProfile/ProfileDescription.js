@@ -7,24 +7,28 @@ import {Link} from "react-router-dom";
 import Review from "../Common/Review";
 import TimeLine from "../Common/TimeLine";
 import ProgressBar from "../Common/ProgressBar";
+import EducationTimeLine from "./EducationTimeLine";
 
-const ProfileDescription = () => {
+const ProfileDescription = ({profile}) => {
+    console.log({profile})
     const educations = [
         {
-            title: 'MASTERS IN FINE ARTS',
-            subtitle: 'Walters University',
+            degree_name: 'MASTERS IN FINE ARTS',
+            institute: 'Walters University',
             description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
                 '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
                 '        Phasellus suscipit porta mattis.',
+            passing_year: '',
             start_date: '2012',
             end_date: '2014'
         },
         {
-            title: 'Diploma in fine arts',
-            subtitle: 'Imperial Institute of Art Direction',
+            degree_name: 'Diploma in fine arts',
+            institute: 'Imperial Institute of Art Direction',
             description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
                 '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
                 '        Phasellus suscipit porta mattis.',
+            passing_year: '',
             start_date: '2010',
             end_date: '2012'
         },
@@ -92,7 +96,7 @@ const ProfileDescription = () => {
                         </ol>
 
                         <h4>- Education</h4>
-                        <TimeLine items={educations}/>
+                        <EducationTimeLine educations={profile.educations}/>
 
                         <h4>- Work & Experience</h4>
                         <TimeLine items={experience}/>
@@ -105,7 +109,7 @@ const ProfileDescription = () => {
                         </div>
 
                         <h4>- Skills</h4>
-                        <ProgressBar/>
+                        <ProgressBar skills={profile.skill_set}/>
 
                         <h4>- Awards</h4>
                         <TimeLine items={awards}/>
@@ -295,7 +299,7 @@ const ProfileDescription = () => {
                                         </td>
                                         <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            +084 123 456 789
+                                            {profile.phone_number}
                                         </td>
                                     </tr>
                                     <tr>
@@ -304,7 +308,7 @@ const ProfileDescription = () => {
                                         </td>
                                         <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            cadillac@apus.com
+                                            {profile.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -322,7 +326,7 @@ const ProfileDescription = () => {
                                         </td>
                                         <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            Washing, Cambodia
+                                            {profile.city_name}, {profile.state_name}, {profile.country_name}
                                         </td>
                                     </tr>
                                     <tr>
