@@ -4,10 +4,11 @@ import '../assets/css/candidateProfile.css';
 import Navbar from "../components/Common/Navbar";
 import Footer from "../components/Common/Footer";
 import Form from "../components/Profile/Form";
-import {useForm, useFieldArray} from 'react-hook-form';
+import {useFieldArray, useForm} from 'react-hook-form';
 import {fetchAreas, fetchCities, fetchCountries, fetchStates} from "../api/common/commonApi";
 import {toastError, toastSuccess, toastWarning} from "../Helpers/Toaster";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const WorkersProfileUpdatePage = () => {
     const {
@@ -32,6 +33,7 @@ const WorkersProfileUpdatePage = () => {
     const [states, setStates] = useState([]);
     const [areas, setAreas] = useState([]);
     const token = localStorage.getItem('auth-token');
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -73,7 +75,15 @@ const WorkersProfileUpdatePage = () => {
                 return;
             }
 
+            res = await storeSkills(formData);
+
+            if (res.status === 0) {
+                toastWarning(data.message);
+                return;
+            }
+
             toastSuccess('Updated Successfully.');
+            navigate('/profile');
 
         } catch (e) {
             toastError('Something Went Wrong!');
@@ -98,6 +108,19 @@ const WorkersProfileUpdatePage = () => {
     const storeEducation = async (formData) => {
         try {
             const {data} = await axios.post('/auth/set/worker/education/', formData, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            return data;
+        } catch (e) {
+            toastError('Something Went Wrong!');
+        }
+    }
+
+    const storeSkills = async (formData) => {
+        try {
+            const {data} = await axios.post('/auth/set/worker/skill/', formData, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }

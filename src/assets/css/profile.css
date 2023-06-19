@@ -27,3 +27,13 @@
     color: var(--main2);
     text-decoration: none;
 }
+
+.profileForm .skills {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.profileForm .skill {
+    flex-basis: 200px;
+}

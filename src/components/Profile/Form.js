@@ -19,10 +19,16 @@ const Form = ({
                   isSubmitting,
               }) => {
 
-    const {fields, append, remove} = useFieldArray({
-        control,
-        name: "test"
-    });
+    const {
+        fields: educations,
+        append: educationAppend,
+        remove: educationRemove
+    } = useFieldArray({control, name: "degree_list"});
+    const {
+        fields: skills,
+        append: skillAppend,
+        remove: skillRemove
+    } = useFieldArray({control, name: "skills"});
 
     return (
         <div className="profileForm">
@@ -161,62 +167,90 @@ const Form = ({
                         </div>
                         <div className="col-md-12 my-2 form-group">
                             <label className="form-label">Education</label>
-                            <ul>
-                                {fields.map((item, index) => (
-                                    <div className="row mt-2" key={item.id}>
-                                        <div className="col-md-3">
-                                            <ReactSelect
-                                                options={[
-                                                    {
-                                                        id: 1,
-                                                        label: 'BSc'
-                                                    },
-                                                    {
-                                                        id: 2,
-                                                        label: 'Diploma'
-                                                    }
-                                                ]}
-                                                onChange={(e) => setValue(`degree_list.${index}.degree_id`, e.id)}
+                            {educations.map((item, index) => (
+                                <div className="row mt-2" key={item.id}>
+                                    <div className="col-md-3">
+                                        <ReactSelect
+                                            options={[
+                                                {
+                                                    id: 1,
+                                                    label: 'BSc'
+                                                },
+                                                {
+                                                    id: 2,
+                                                    label: 'Diploma'
+                                                }
+                                            ]}
+                                            onChange={(e) => setValue(`degree_list.${index}.degree_id`, e.id)}
+                                        />
+                                    </div>
+                                    <div className="col-md-3">
+                                        <input type="text"
+                                               className="form-control"
+                                               placeholder="Institute"
+                                               {...register(`degree_list.${index}.institute`)}
+                                        />
+                                    </div>
+                                    <div className="col-md-3">
+                                        <input type="date"
+                                               className="form-control"
+                                               {...register(`degree_list.${index}.passing_year`)}
+                                        />
+                                    </div>
+                                    <div className="col-md-2">
+                                        <div className="form-check">
+                                            <input className="form-check-input" type="checkbox"
+                                                   value=""
+                                                   {...register(`degree_list.${index}.is_currently_reading`)}
+                                                   id={`currentStudy` + index}
                                             />
-                                        </div>
-                                        <div className="col-md-3">
-                                            <input type="text"
-                                                   className="form-control"
-                                                   placeholder="Institute"
-                                                   {...register(`degree_list.${index}.institute`)}
-                                            />
-                                        </div>
-                                        <div className="col-md-3">
-                                            <input type="date"
-                                                   className="form-control"
-                                                   {...register(`degree_list.${index}.passing_year`)}
-                                            />
-                                        </div>
-                                        <div className="col-md-2">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox"
-                                                       value=""
-                                                       {...register(`degree_list.${index}.is_currently_reading`)}
-                                                       id={`currentStudy` + index}
-                                                />
-                                                <label className="form-check-label" htmlFor={`currentStudy` + index}>
-                                                    Currently Studying
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div className="col-md-1">
-                                            <button className="btn btn-danger btn-sm" type="button"
-                                                    onClick={() => remove(index)}>
-                                                <i className="fa fa-times"></i>
-                                            </button>
+                                            <label className="form-check-label" htmlFor={`currentStudy` + index}>
+                                                Currently Studying
+                                            </label>
                                         </div>
                                     </div>
-                                ))}
-                            </ul>
+                                    <div className="col-md-1">
+                                        <button className="btn btn-danger btn-sm" type="button"
+                                                onClick={() => educationRemove(index)}>
+                                            <i className="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
                             <button
                                 type="button"
-                                className="btn btn-dark"
-                                onClick={() => append({firstName: "bill", lastName: "luo"})}
+                                className="btn btn-dark btn-sm mt-3 ml-2"
+                                onClick={() => educationAppend({
+                                    degree_id: '',
+                                    institute: '',
+                                    passing_year: '',
+                                    is_currently_reading: false
+                                })}
+                            >
+                                <i className="fa fa-plus"></i>
+                            </button>
+                        </div>
+                        <div className="col-md-12 my-2 form-group">
+                            <label className="form-label">Skills</label>
+                            <div className="row">
+                                {skills.map((item, index) => (
+                                    <div className="col-md-2 d-flex" key={item.id}>
+                                        <input type="text"
+                                               className="form-control"
+                                               placeholder="Write"
+                                               {...register(`skill_list.${index}`)}
+                                        />
+                                        <button className="btn btn-danger btn-sm" type="button"
+                                                onClick={() => skillRemove(index)}>
+                                            <i className="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                            <button
+                                type="button"
+                                className="btn btn-dark btn-sm mt-3 ml-4"
+                                onClick={() => skillAppend({skill_list: ''})}
                             >
                                 <i className="fa fa-plus"></i>
                             </button>
