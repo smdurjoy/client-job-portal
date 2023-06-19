@@ -15,7 +15,8 @@ const Form = ({
                   errors,
                   setValue,
                   control,
-                  useFieldArray
+                  useFieldArray,
+                  isSubmitting,
               }) => {
 
     const {fields, append, remove} = useFieldArray({
@@ -164,10 +165,18 @@ const Form = ({
                                 {fields.map((item, index) => (
                                     <div className="row mt-2" key={item.id}>
                                         <div className="col-md-3">
-                                            <input type="text"
-                                                   className="form-control"
-                                                   placeholder="Degree"
-                                                   {...register(`degree_list.${index}.degree_id`)}
+                                            <ReactSelect
+                                                options={[
+                                                    {
+                                                        id: 1,
+                                                        label: 'BSc'
+                                                    },
+                                                    {
+                                                        id: 2,
+                                                        label: 'Diploma'
+                                                    }
+                                                ]}
+                                                onChange={(e) => setValue(`degree_list.${index}.degree_id`, e.id)}
                                             />
                                         </div>
                                         <div className="col-md-3">
@@ -188,9 +197,9 @@ const Form = ({
                                                 <input className="form-check-input" type="checkbox"
                                                        value=""
                                                        {...register(`degree_list.${index}.is_currently_reading`)}
-                                                       id={`currentStudy`+index}
+                                                       id={`currentStudy` + index}
                                                 />
-                                                <label className="form-check-label" htmlFor={`currentStudy`+index}>
+                                                <label className="form-check-label" htmlFor={`currentStudy` + index}>
                                                     Currently Studying
                                                 </label>
                                             </div>
@@ -245,8 +254,8 @@ const Form = ({
                     </div>
                     <div className="row mt-5">
                         <div className="col-md-6 offset-md-3 text-center">
-                            <button type="submit" className="btn saveBtn">
-                                Save
+                            <button type="submit" className="btn saveBtn" disabled={isSubmitting}>
+                                {isSubmitting ? 'Saving...' : 'Save'}
                             </button>
                             <button type="submit" className="btn viewProfile">
                                 <Link to="/profile">

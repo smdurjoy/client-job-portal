@@ -26,6 +26,7 @@ const WorkersProfileUpdatePage = () => {
             address_line1: 'N/A',
         }
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [countries, setCountries] = useState([]);
     const [cities, setCities] = useState([]);
     const [states, setStates] = useState([]);
@@ -46,8 +47,7 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const onSubmit = async (formData) => {
-        console.log(formData)
-        return;
+        setIsSubmitting(true);
         try {
             formData.user_id = localStorage.getItem('user_id');
             const {data} = await axios.post('/auth/set/worker/basic/', formData, {
@@ -59,23 +59,45 @@ const WorkersProfileUpdatePage = () => {
                 toastWarning(data.message);
                 return;
             }
-            const res = await storeAddress(formData);
+            let res = await storeAddress(formData);
 
             if (res.status === 0) {
                 toastWarning(data.message);
                 return;
             }
 
-            toastSuccess('Updated Successfully.')
+            res = await storeEducation(formData);
+
+            if (res.status === 0) {
+                toastWarning(data.message);
+                return;
+            }
+
+            toastSuccess('Updated Successfully.');
 
         } catch (e) {
             toastError('Something Went Wrong!');
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
     const storeAddress = async (formData) => {
         try {
             const {data} = await axios.post('/auth/set/worker/address/', formData, {
+                headers: {
+                    'Authorization': `Token ${token}`
+                }
+            })
+            return data;
+        } catch (e) {
+            toastError('Something Went Wrong!');
+        }
+    }
+
+    const storeEducation = async (formData) => {
+        try {
+            const {data} = await axios.post('/auth/set/worker/education/', formData, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -102,6 +124,7 @@ const WorkersProfileUpdatePage = () => {
                 setValue={setValue}
                 control={control}
                 useFieldArray={useFieldArray}
+                isSubmitting={isSubmitting}
             />
             <Footer/>
         </>

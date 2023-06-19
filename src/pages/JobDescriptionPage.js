@@ -39,7 +39,7 @@ const CandidatesPage = () => {
 
     const handleJobApply = async () => {
         try {
-            const {data} = await axios.post('/worker/job/apply', {
+            const {data} = await axios.post('/worker/job/apply/', {
                 job_id: parseInt(id),
                 worker_id: parseInt(workerId)
             });
