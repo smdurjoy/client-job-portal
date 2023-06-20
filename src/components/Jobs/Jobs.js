@@ -3,7 +3,7 @@ import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
 import ReactSelect from '../Wrapper/ReactSelect';
 
-const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading, categoryId}) => {
+const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) => {
     const filterOptions = [
         {
             value: 'Default',
@@ -33,7 +33,6 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading, cat
                                 options={categories}
                                 placeholder="All Category"
                                 onChange={(e) => handleCategoryChange(e)}
-                                value={categoryId}
                             />
                         </div>
                         <div className="col-md-3">
