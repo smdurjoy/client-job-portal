@@ -51,14 +51,13 @@
 }
 
 .jobList .list .row {
-    height: 150px;
+    height: 80px;
+    color: #414141;
     border: 1px solid #e8e8e8;
 }
 
 .jobList img {
-    width: 130px;
-    height: 130px;
-    margin-top: 10px;
+    width: 80px;
 }
 
 .jobList .jobDes {

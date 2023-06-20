@@ -3,7 +3,7 @@ import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
 import ReactSelect from '../Wrapper/ReactSelect';
 
-const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) => {
+const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading, categoryId}) => {
     const filterOptions = [
         {
             value: 'Default',
@@ -33,6 +33,7 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                                 options={categories}
                                 placeholder="All Category"
                                 onChange={(e) => handleCategoryChange(e)}
+                                value={categoryId}
                             />
                         </div>
                         <div className="col-md-3">
@@ -40,10 +41,10 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                         </div>
                         <div className="col-md-3 filterButtons">
                             <button className="btn filterBtn">Filter</button>
-                            <button className="btn advancedBtn">
-                                <i className="fa fa-cog"></i> &nbsp;
-                                Advanced
-                            </button>
+                            {/*<button className="btn advancedBtn">*/}
+                            {/*    <i className="fa fa-cog"></i> &nbsp;*/}
+                            {/*    Advanced*/}
+                            {/*</button>*/}
                         </div>
                     </div>
                     <hr style={{

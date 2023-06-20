@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 
-const ReactSelect = ({options, placeholder, onChange}) => {
+const ReactSelect = ({options, placeholder, onChange, value}) => {
     const [height, setHeight] = useState('40px');
     const customStyles = {
         control: (provided, state) => ({
@@ -47,6 +47,7 @@ const ReactSelect = ({options, placeholder, onChange}) => {
             placeholder={placeholder}
             isSearchable={false}
             onChange={onChange}
+            value={value}
         />
     );
 };

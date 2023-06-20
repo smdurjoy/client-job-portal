@@ -1,6 +1,8 @@
 import React from 'react';
 import pythonLogo from '../../images/pythonLogo.png'
 import {Link} from "react-router-dom";
+import geoImg from "../../assets/images/geo-alt1.svg";
+import wishlist from "../../assets/images/wishlist.svg";
 
 const JobsList = ({jobs, isLoading}) => {
     return (
@@ -9,23 +11,28 @@ const JobsList = ({jobs, isLoading}) => {
                 {
                     jobs.length ? jobs.map((job, index) => (
                         <div className="list mt-4" key={index}>
-                            <div className="row">
-                                <div className="col-md-6 col-sm-12 d-flex">
-                                    <img src={pythonLogo} alt="python bootcamp"/>
-                                    <div className="jobDes">
-                                        <h5>{job.job_title}</h5>
-                                        <span>$2000 - $2500 / month</span>
-                                        <span className="jobType">Internship</span>
-                                        <p className="mt-2">1628 2nd Ave New York</p>
+                            <div className="row justify-content-between align-items-center border rounded mt-4">
+                                <div className='col-md-1'>
+                                    <img className='m-0 p-2' src={pythonLogo} alt="python bootcamp"/>
+                                </div>
+                                <div className='col-md-4'>
+                                    <h6 className=''>{job.job_title}</h6>
+                                    <div className='d-flex'>
+                                        <h6 className='m-0'>$2000-$3000 / Monthly</h6>
+                                        <h6 className='m-0'>&nbsp; Internship</h6>
                                     </div>
                                 </div>
-                                <div className="col-md-6 col-sm-12 pull-right">
-                                    <div className="applyArea">
-                                        <span>Application ends October 1, 2025</span>
-                                        <Link to={`/jobs/${job.id}`}>
-                                            <button className="btn">
-                                                View Details
-                                            </button>
+                                <div className='col-md-4 d-flex align-items-center'>
+                                    <img className='m-0' style={{width: '24px', height: '16px'}} src={geoImg} alt='search' />
+                                    <h6 className='m-0'>1628 2nd Ave New York</h6>
+                                </div>
+                                <div className='col-md-3'>
+                                    <div className='d-flex flex-column justify-content-between text-end' style={{height: '70px'}}>
+                                        <div>
+                                            <img style={{width: '30px', margin: 0}} src={wishlist} alt='wishlist' />
+                                        </div>
+                                        <Link to={`/jobs/${job.id}`} className='text-decoration-none'>
+                                            View Details >>>
                                         </Link>
                                     </div>
                                 </div>

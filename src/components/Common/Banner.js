@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactSelect from "../Wrapper/ReactSelect";
 import SearchIcon from '../../assets/images/search.svg';
 import GeoIcon from '../../assets/images/geo-alt.svg';
 import CategoryIcon from '../../assets/images/grid.svg';
+import {useNavigate} from "react-router-dom";
 
-const Banner = ({countries}) => {
+const Banner = ({countries, categories}) => {
+    const [categoryId, setCategoryId] = useState(null);
+    const navigate = useNavigate();
+
     const options = [
         {value: 'all', label: 'All'}
     ]
+
+    const handleJobFind = () => {
+        const url = categoryId ? `/jobs?category_id=${categoryId}` : '/jobs';
+        navigate(url);
+    }
 
     return (
         <main className="pattern">
@@ -24,11 +33,12 @@ const Banner = ({countries}) => {
                                            placeholder="Job Title or Keywords"
                                     />
                                 </div> */}
-                                <div class="input-group form-group">
-                                    <span class="input-group-text bg-white border-0" id="basic-addon1">
-                                        <img width={15} src={SearchIcon} alt='search' />
+                                <div className="input-group form-group">
+                                    <span className="input-group-text bg-white border-0" id="basic-addon1">
+                                        <img width={15} src={SearchIcon} alt='search'/>
                                     </span>
-                                    <input type="text" class="form-control border-0" placeholder="Job Title or Keywords" />
+                                    <input type="text" className="form-control border-0"
+                                           placeholder="Job Title or Keywords"/>
                                 </div>
                             </div>
                             <div className="col-lg-3">
@@ -37,23 +47,29 @@ const Banner = ({countries}) => {
                                                  placeholder="&#xf041; &nbsp; All Location"
                                     />
                                 </div> */}
-                                <div class="input-group form-group">
-                                    <span class="input-group-text bg-white border-0" id="basic-addon1">
-                                        <img width={15} src={GeoIcon} alt='GeoIcon' />
+                                <div className="input-group form-group">
+                                    <span className="input-group-text bg-white border-0" id="basic-addon1">
+                                        <img width={15} src={GeoIcon} alt='GeoIcon'/>
                                     </span>
-                                    <ReactSelect options={options} placeholder="All Location" />
+                                    <ReactSelect options={options} placeholder="All Location"/>
                                 </div>
                             </div>
                             <div className="col-lg-3">
-                                <div class="input-group">
-                                    <span class="input-group-text bg-white border-0" id="basic-addon1">
-                                        <img width={15} src={CategoryIcon} alt='search' />
+                                <div className="input-group">
+                                    <span className="input-group-text bg-white border-0" id="basic-addon1">
+                                        <img width={15} src={CategoryIcon} alt='search'/>
                                     </span>
-                                    <ReactSelect options={countries} placeholder="All Category" />
+                                    <ReactSelect options={categories}
+                                                 placeholder="All Category"
+                                                 onChange={(e) => setCategoryId(e.id)}
+                                    />
                                 </div>
                             </div>
                             <div className="col-lg-2 pe-lg-0">
-                                <input className="findJobBtn" type="submit" value="Find Jobs"/>
+                                <input className="findJobBtn"
+                                       type="submit" value="Find Jobs"
+                                       onClick={handleJobFind}
+                                />
                             </div>
                         </div>
                     </div>

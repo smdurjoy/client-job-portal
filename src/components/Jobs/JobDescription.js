@@ -226,7 +226,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                 <div className="apply">
                                     <p>Application ends: <span>October 1 2025</span></p>
                                     <button className="applyBtn" onClick={handleJobApply}>Apply Now</button>
-                                    <button className="shortlistBtn">Shortlist</button>
+                                    {/*<button className="shortlistBtn">Shortlist</button>*/}
                                     <p className="text-center m-lg-auto py-3">OR APPLY WITH</p>
                                     <div className="applyWith">
                                         <button className="btn facebook">
