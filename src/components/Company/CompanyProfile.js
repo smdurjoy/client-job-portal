@@ -9,7 +9,7 @@ import client2 from '../../images/client2.webp';
 import client3 from '../../images/client3.jpg';
 import Review from "../Common/Review";
 
-const CompanyProfile = () => {
+const CompanyProfile = ({profile}) => {
     return (
         <div className="jobDescription companyProfile">
             <div className="container">
@@ -167,7 +167,7 @@ const CompanyProfile = () => {
                                             <span>Location</span>
                                         </div>
                                         <div className="des">
-                                            <span>Washing, Cambodia</span>
+                                            <span>{profile.city_name}, {profile.state_name}</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -206,7 +206,7 @@ const CompanyProfile = () => {
                                         </td>
                                         <td>
                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            +084 123 456 789
+                                            {profile.company_contact_number}
                                         </td>
                                     </tr>
                                     <tr>

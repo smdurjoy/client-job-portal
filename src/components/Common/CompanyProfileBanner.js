@@ -2,7 +2,7 @@ import React from 'react';
 import image from '../../images/bg.jpg'
 import companyLogo from '../../images/companies/company4.jpg';
 
-const CompanyProfileBanner = ({title}) => {
+const CompanyProfileBanner = ({profile}) => {
     return (
         <div className="profileBanner companyProfileBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
@@ -11,14 +11,14 @@ const CompanyProfileBanner = ({title}) => {
                         <div className="col-md-6">
                             <div className="companyInfo">
                                 <div className="d-flex align-items-center">
-                                    <img src={companyLogo} alt="companyLogo"/>
+                                    <img src={profile.company_logo} alt="companyLogo"/>
                                     <div className="companyDes">
-                                        <h3>{title}</h3>
+                                        <h3>{profile.company_name}</h3>
                                         <span>
                                             <i className="fa fa-credit-card"></i>&nbsp;
                                             Education Training&nbsp;&nbsp;
                                             <i className="fa fa-map-marker"></i>&nbsp;
-                                            Washing, Cambodia
+                                            {profile.city_name}, {profile.state_name}
                                         </span>
                                         <div className="mt-3">
                                             <button className="btn applyBtn">

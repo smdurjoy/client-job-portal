@@ -10,6 +10,15 @@ export const fetchJobsByCategory = async (categoryId) => {
     }
 }
 
+export const fetchAllJobs = async () => {
+    try {
+        const {data: {jobs}} = await axios.get(`/job/all/`);
+        return jobs;
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
 export const fetchJobDescription = async (jobId) => {
     try {
         const {data: {job_details}} = await axios.get(`/job/details/${jobId}`);

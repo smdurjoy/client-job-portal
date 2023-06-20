@@ -70,6 +70,7 @@ const CandidatesPage = () => {
                 isLoading={isLoading}
                 title={jobDescription.job_title}
                 deadline={jobDescription.application_deadline}
+                handleJobApply={handleJobApply}
             />
             <JobDescription
                 jobDescription={jobDescription}

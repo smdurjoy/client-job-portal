@@ -53,7 +53,7 @@ const Candidates = ({companies, loader}) => {
                                                         </div>
                                                         <img src={company1} alt="company"/>
                                                         <h5 className="card-title">
-                                                            <Link to={"company/"+company.id}>
+                                                            <Link to={"/company/"+company.id}>
                                                                 {company.company_name}
                                                             </Link>
                                                         </h5>

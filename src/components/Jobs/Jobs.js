@@ -40,10 +40,10 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                         </div>
                         <div className="col-md-3 filterButtons">
                             <button className="btn filterBtn">Filter</button>
-                            <button className="btn advancedBtn">
-                                <i className="fa fa-cog"></i> &nbsp;
-                                Advanced
-                            </button>
+                            {/*<button className="btn advancedBtn">*/}
+                            {/*    <i className="fa fa-cog"></i> &nbsp;*/}
+                            {/*    Advanced*/}
+                            {/*</button>*/}
                         </div>
                     </div>
                     <hr style={{

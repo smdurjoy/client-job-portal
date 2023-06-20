@@ -3,7 +3,7 @@ import '../assets/css/candidates.css';
 import Navbar from "../components/Common/Navbar";
 import SubBanner from "../components/Common/SubBanner";
 import Footer from "../components/Common/Footer";
-import Employer from "../components/Companies/Companies";
+import Companies from "../components/Companies/Companies";
 import axios from 'axios';
 
 const CompanyPage = () => {
@@ -30,7 +30,7 @@ const CompanyPage = () => {
         <>
             <Navbar navBg='scrolledNav'/>
             <SubBanner title="Companies"/>
-            <Employer companies={companies} loader={loader}/>
+            <Companies companies={companies} loader={loader}/>
             <Footer/>
         </>
     );

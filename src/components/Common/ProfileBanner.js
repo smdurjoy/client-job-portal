@@ -1,8 +1,9 @@
 import React from 'react';
 import image from '../../images/bg.jpg'
 import companyLogo from '../../images/companies/company1.jpg';
+import moment from "moment";
 
-const ProfileBanner = ({title, deadline}) => {
+const ProfileBanner = ({title, deadline, handleJobApply}) => {
     return (
         <div className="profileBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
@@ -24,8 +25,8 @@ const ProfileBanner = ({title, deadline}) => {
                             </div>
                         </div>
                         <div className="col-md-6 deadline">
-                            <p>Application ends: {deadline}</p>
-                            <button className="btn applyBtn">
+                            <p>Application ends: {moment(deadline).format('ll')}</p>
+                            <button className="btn applyBtn" onClick={handleJobApply}>
                                 Apply Now
                             </button>
                             <button className="btn shortListBtn">
