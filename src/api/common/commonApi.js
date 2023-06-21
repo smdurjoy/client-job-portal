@@ -71,3 +71,17 @@ export const fetchCategories = async () => {
         toastError('Something Went Wrong!');
     }
 }
+
+export const fetchDegrees = async () => {
+    try {
+        const {data: {areas}} = await axios.get('/common/degrees/');
+        return areas.map(category => {
+            return {
+                id: category.id,
+                label: category.degree_name,
+            }
+        })
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
