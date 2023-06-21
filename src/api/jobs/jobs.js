@@ -27,3 +27,31 @@ export const fetchJobDescription = async (jobId) => {
         toastError('Something Went Wrong!');
     }
 }
+
+export const fetchWorkerShortlistedJobs = async (workerId) => {
+    const token = localStorage.getItem('auth-token');
+    try {
+        const {data:{data}} = await axios.get(`/worker/shortlist/job/${workerId}/`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        });
+        return data;
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
+export const fetchWorkerAppliedJobs = async (workerId) => {
+    const token = localStorage.getItem('auth-token');
+    try {
+        const {data:{data}} = await axios.get(`/worker/applied/job/${workerId}/`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        });
+        return data;
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
