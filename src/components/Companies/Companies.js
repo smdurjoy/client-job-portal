@@ -51,13 +51,13 @@ const Candidates = ({companies, loader}) => {
                                                                 <i className="fa fa-heart-o"></i>
                                                             </button>
                                                         </div>
-                                                        <img src={company1} alt="company"/>
+                                                        <img src={company.company_logo} alt="company"/>
                                                         <h5 className="card-title">
                                                             <Link to={"/company/"+company.id}>
                                                                 {company.company_name}
                                                             </Link>
                                                         </h5>
-                                                        <span className="card-text">Account / Finance</span><br/>
+                                                        <span className="card-text">{company.industry}</span><br/>
                                                         <span className="card-text">Jobs Open: 0</span>
                                                     </div>
                                                 </div>

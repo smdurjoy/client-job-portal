@@ -3,7 +3,7 @@ import image from '../../images/bg.jpg'
 import companyLogo from '../../images/companies/company1.jpg';
 import moment from "moment";
 
-const ProfileBanner = ({title, deadline, handleJobApply}) => {
+const ProfileBanner = ({title, subTitle, deadline, handleJobApply}) => {
     return (
         <div className="profileBanner" style={{ backgroundImage:`url(${image})` }}>
             <div className="container">
@@ -15,7 +15,7 @@ const ProfileBanner = ({title, deadline, handleJobApply}) => {
                                     <img src={companyLogo} alt="companyLogo"/>
                                     <div className="companyDes">
                                         <h3>{title}</h3>
-                                        <span>Retail</span>
+                                        <span>{subTitle}</span>
                                         <p>
                                             +084 123 456 789 &nbsp;&nbsp;&nbsp;
                                             <i className="fa fa-map-marker"></i> 1628 2nd Ave New York

@@ -58,13 +58,14 @@ const CandidatesPage = () => {
         setWorkerId(localStorage.getItem('user_id'));
         setToken(localStorage.getItem('auth-token'));
     },[])
-    
+
     return (
         <>
             <Navbar navBg='scrolledNav'/>
             <ProfileBanner
                 isLoading={isLoading}
                 title={jobDescription.job_title}
+                subTitle={jobDescription.industry}
                 deadline={jobDescription.application_deadline}
                 handleJobApply={handleJobApply}
             />
