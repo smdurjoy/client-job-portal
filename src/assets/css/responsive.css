@@ -18,6 +18,14 @@
     .navbar .registerBtn {
         font-size: 12px !important;
     }
+    .navbar .dropdown-menu {
+        background-color: transparent !important;
+    }
+    .navbar .dropdown-menu li a {
+        font-size: 11px !important;
+        color: #848383 !important;
+        font-weight: 500;
+    }
     .banner h3 {
         margin-top: 0 !important;
         font-size: 30px !important;
@@ -36,6 +44,9 @@
     .custom-search-input-2 input {
         height: 30px !important;
         font-size: 12px !important;
+    }
+    .css-b62m3t-container {
+        width: 90%;
     }
     /*homeJobs*/
     .jobs {
@@ -283,37 +294,14 @@
         margin-left: 20px !important;
         width: 100% !important;
     }
-    .jobList .list {
-        margin-top: 10px !important;
-    }
     .jobList .list .row {
-        height: 150px;
-        border: 1px solid #e3e3e3;
+        height: 200px !important;
     }
-    .jobList img {
-        width: 100px !important;
-        height: 100px !important;
-        margin-top: 5px !important;
+    .jobList .list .link {
+        margin-top: -40px !important;
     }
-    .jobList .jobDes {
-        padding: 10px 0 !important;
-        margin-left: 10px !important;
-    }
-    .jobList .jobDes h5 {
-        font-size: 14px !important;
-    }
-    .jobList .jobDes span, p {
-        font-size: 12px !important;
-    }
-    .jobList .jobDes .jobType {
-        margin-left: 13px !important;
-    }
-    .jobList .applyCol {
-        display: none !important;
-    }
-    .jobList .applyColAppend {
-        display: block !important;
-        margin-top: -20px !important;
+    .jobList .list .link a {
+        font-size: 12px;
     }
     .applyArea {
         padding: 5px 0 !important;
@@ -356,6 +344,11 @@
     }
     .companyProfileBanner .profileBannerContent .companyCounts div span {
         font-size: 12px;
+    }
+
+    /*worker jobs list page*/
+    .workerTitle {
+        font-size: 18px;
     }
 
     /*star-rating*/

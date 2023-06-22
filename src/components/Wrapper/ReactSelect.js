@@ -12,12 +12,15 @@ const ReactSelect = ({options, placeholder, onChange}) => {
             height,
             boxShadow: state.isFocused ? null : null,
         }),
-
+        menuList: styles => ({
+            ...styles,
+            color: 'black'
+        }),
         valueContainer: (provided, state) => ({
             ...provided,
             height,
             padding: '0 3px',
-            margin: '-7px 0 0 0'
+            margin: '-7px 0 0 0',
         }),
 
         input: (provided, state) => ({

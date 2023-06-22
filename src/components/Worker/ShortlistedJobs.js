@@ -4,7 +4,7 @@ import JobsList from "../Jobs/JobsList";
 const ShortlistedJobs = ({jobs}) => {
     return (
         <div className="container py-5">
-            <h4>Shortlisted Jobs</h4>
+            <h4 className="workerTitle">Shortlisted Jobs</h4>
             <JobsList jobs={jobs}/>
         </div>
     );
