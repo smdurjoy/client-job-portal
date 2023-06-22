@@ -5,10 +5,12 @@ import brandLogo from '../../images/brandLogo.png';
 const Navbar = ({navBg = ''}) => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     const [token, setToken] = useState(null);
+    const [type, setType] = useState(null);
     const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
     useEffect(() => {
         setToken(localStorage.getItem('auth-token'));
+        setType(localStorage.getItem('type'));
     }, []);
 
     const handleLogout = () => {
@@ -46,109 +48,136 @@ const Navbar = ({navBg = ''}) => {
                                     HOME
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className={({isActive}) =>
-                                    isActive ? "nav-link active" : "nav-link"
-                                }
-                                         data-scroll-nav="0" to="/jobs"
-                                >
-                                    JOBS
-                                </NavLink>
-                            </li>
-                            {/*<li className="nav-item">*/}
-                            {/*    <NavLink className={({isActive}) =>*/}
-                            {/*        isActive ? "nav-link active" : "nav-link"*/}
-                            {/*    }*/}
-                            {/*             data-scroll-nav="0"*/}
-                            {/*             to="/candidates"*/}
-                            {/*    >*/}
-                            {/*        CANDIDATES*/}
-                            {/*    </NavLink>*/}
-                            {/*</li>*/}
-                            <li className="nav-item">
-                                <NavLink className={({isActive}) =>
-                                    isActive ? "nav-link active" : "nav-link"
-                                }
-                                         data-scroll-nav="0"
-                                         to="/companies"
-                                >
-                                    COMPANIES
-                                </NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className={({isActive}) =>
-                                    isActive ? "nav-link active" : "nav-link"
-                                }
-                                         data-scroll-nav="0"
-                                         to="/about"
-                                >
-                                    ABOUT
-                                </NavLink>
-                            </li>
                             {
-                                token ? (
+                                type == '1' ? (
                                     <>
                                         <li className="nav-item">
-                                            <li className="nav-item dropdown">
-                                                <button className="nav-link dropdown-toggle" id="navbarDropdown"
-                                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    PROFILE
-                                                </button>
-                                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <li>
-                                                        <Link className="dropdown-item" href="#" to='/profile'>
-                                                            View Profile
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link className="dropdown-item" href="#" to='/edit-profile'>
-                                                            Edit Profile
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link className="dropdown-item" href="#" to='/applied-jobs'>
-                                                            Applied Jobs
-                                                        </Link>
-                                                    </li>
-                                                    <li>
-                                                        <Link className="dropdown-item" href="#" to='/shortlisted-jobs'>
-                                                            Shortlisted Jobs
-                                                        </Link>
-                                                    </li>
-                                                </ul>
-                                            </li>
+                                            <NavLink className={({isActive}) =>
+                                                isActive ? "nav-link active" : "nav-link"
+                                            }
+                                                     data-scroll-nav="0" to="/jobs"
+                                            >
+                                                JOBS
+                                            </NavLink>
                                         </li>
                                         <li className="nav-item">
-                                            <button className="btn registerBtn mt-2" onClick={handleLogout}>
-                                                LOGOUT
-                                            </button>
+                                            <NavLink className={({isActive}) =>
+                                                isActive ? "nav-link active" : "nav-link"
+                                            }
+                                                     data-scroll-nav="0"
+                                                     to="/companies"
+                                            >
+                                                COMPANIES
+                                            </NavLink>
                                         </li>
+                                        <li className="nav-item">
+                                            <NavLink className={({isActive}) =>
+                                                isActive ? "nav-link active" : "nav-link"
+                                            }
+                                                     data-scroll-nav="0"
+                                                     to="/about"
+                                            >
+                                                ABOUT
+                                            </NavLink>
+                                        </li>
+                                        {
+                                            token ? (
+                                                <>
+                                                    <li className="nav-item">
+                                                        <li className="nav-item dropdown">
+                                                            {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+                                                            <button className="nav-link dropdown-toggle" id="navbarDropdown"
+                                                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                PROFILE
+                                                            </button>
+                                                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                <li>
+                                                                    <Link className="dropdown-item" href="#" to='/profile'>
+                                                                        View Profile
+                                                                    </Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link className="dropdown-item" href="#" to='/edit-profile'>
+                                                                        Edit Profile
+                                                                    </Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link className="dropdown-item" href="#" to='/applied-jobs'>
+                                                                        Applied Jobs
+                                                                    </Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link className="dropdown-item" href="#" to='/shortlisted-jobs'>
+                                                                        Shortlisted Jobs
+                                                                    </Link>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <button className="btn registerBtn mt-2" onClick={handleLogout}>
+                                                            LOGOUT
+                                                        </button>
+                                                    </li>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <li className="nav-item">
+                                                        <NavLink className={({isActive}) =>
+                                                            isActive ? "nav-link active" : "nav-link"
+                                                        }
+                                                                 data-scroll-nav="0"
+                                                                 to="/login"
+                                                        >
+                                                            LOGIN
+                                                        </NavLink>
+                                                    </li>
+                                                    <li className="nav-item">
+                                                        <NavLink className={({isActive}) =>
+                                                            isActive ? "nav-link active" : "nav-link"
+                                                        }
+                                                                 data-scroll-nav="0"
+                                                                 to="/register"
+                                                        >
+                                                            <button className="btn registerBtn">
+                                                                REGISTER
+                                                            </button>
+                                                        </NavLink>
+                                                    </li>
+                                                </>
+                                            )
+                                        }
                                     </>
                                 ) : (
-                                    <>
-                                        <li className="nav-item">
-                                            <NavLink className={({isActive}) =>
-                                                isActive ? "nav-link active" : "nav-link"
-                                            }
-                                                     data-scroll-nav="0"
-                                                     to="/login"
-                                            >
-                                                LOGIN
-                                            </NavLink>
-                                        </li>
-                                        <li className="nav-item">
-                                            <NavLink className={({isActive}) =>
-                                                isActive ? "nav-link active" : "nav-link"
-                                            }
-                                                     data-scroll-nav="0"
-                                                     to="/register"
-                                            >
-                                                <button className="btn registerBtn">
-                                                    REGISTER
+                                    token ? (
+                                        <>
+                                            <li className="nav-item">
+                                                <NavLink className={({isActive}) =>
+                                                    isActive ? "nav-link active" : "nav-link"
+                                                }
+                                                         data-scroll-nav="0"
+                                                         to="/company-profile"
+                                                >
+                                                    ADD COMPANY PROFILE
+                                                </NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink className={({isActive}) =>
+                                                    isActive ? "nav-link active" : "nav-link"
+                                                }
+                                                         data-scroll-nav="0"
+                                                         to="/about"
+                                                >
+                                                    POST A JOB
+                                                </NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <button className="btn registerBtn mt-2" onClick={handleLogout}>
+                                                    LOGOUT
                                                 </button>
-                                            </NavLink>
-                                        </li>
-                                    </>
+                                            </li>
+                                        </>
+                                    ) : <></>
                                 )
                             }
                         </ul>

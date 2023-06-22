@@ -91,3 +91,18 @@ export const fetchDegrees = async () => {
         toastError('Something Went Wrong!');
     }
 }
+
+export const fetchAllIndustries = async () => {
+    try {
+        const {data: {industries}} = await axios.get('/company/all/industry/');
+        return industries.map(industry => {
+            return {
+                id: industry.id,
+                value: industry.id,
+                label: industry.industry_name,
+            }
+        })
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}

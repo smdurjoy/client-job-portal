@@ -13,6 +13,7 @@ import RegisterPage from "../pages/RegisterPage";
 import WorkersProfileUpdatePage from "../pages/WorkersProfileUpdatePage";
 import WorkerAppliedJobsPage from "../pages/WorkerAppliedJobsPage";
 import WorkerShortlistedJobsPage from "../pages/WorkerShortlistedJobsPage";
+import CompanyProfileUpdatePage from "../pages/CompanyProfileUpdatePage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/register",
         element: <RegisterPage/>,
+    },
+    {
+        path: "/company-profile",
+        element: <CompanyProfileUpdatePage/>,
     },
 ]);
 
