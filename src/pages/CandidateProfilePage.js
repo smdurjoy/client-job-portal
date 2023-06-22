@@ -7,7 +7,6 @@ import CandidateProfileBanner from "../components/CandidatesProfile/CandidatePro
 import ProfileDescription from "../components/CandidatesProfile/ProfileDescription";
 import {fetchProfileInfo} from "../api/profile/profile";
 import Loader from "../components/Loader/Loader";
-import {fetchWorkerShortlistedJobs} from "../api/jobs/jobs";
 
 const CompanyProfilePage = () => {
     const [profile, setProfile] = useState({
@@ -18,13 +17,11 @@ const CompanyProfilePage = () => {
         email: '-',
         phone_number: '-',
     });
-    const [shortListedJobs, setShortListedJobs] = useState([]);
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Candidate Profile - workersRUS';
         const workerId = localStorage.getItem('user_id');
         fetchProfileInfo(workerId).then(res => setProfile(res));
-        fetchWorkerShortlistedJobs(workerId).then(res => setShortListedJobs(res));
     }, [])
 
     return (
@@ -34,7 +31,6 @@ const CompanyProfilePage = () => {
             {
                 profile.id ? <ProfileDescription
                         profile={profile}
-                        shortListedJobs={shortListedJobs}
                     />
                     : <Loader/>
             }

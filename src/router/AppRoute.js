@@ -11,6 +11,8 @@ import AboutPage from "../pages/AboutPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import WorkersProfileUpdatePage from "../pages/WorkersProfileUpdatePage";
+import WorkerAppliedJobsPage from "../pages/WorkerAppliedJobsPage";
+import WorkerShortlistedJobsPage from "../pages/WorkerShortlistedJobsPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -37,6 +39,14 @@ const AppRoute = createBrowserRouter([
     {
         path: "/profile",
         element: <CandidateProfilePage/>,
+    },
+    {
+        path: "/applied-jobs",
+        element: <WorkerAppliedJobsPage/>,
+    },
+    {
+        path: "/shortlisted-jobs",
+        element: <WorkerShortlistedJobsPage/>,
     },
     {
         path: "/edit-profile",

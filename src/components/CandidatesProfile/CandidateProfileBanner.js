@@ -1,6 +1,7 @@
 import React from 'react';
 import image from '../../images/bg.jpg'
 import client5 from '../../images/client5.jpeg'
+import {Link} from "react-router-dom";
 
 const CandidateProfileBanner = ({profile}) => {
     return (
@@ -28,9 +29,11 @@ const CandidateProfileBanner = ({profile}) => {
                             </div>
                         </div>
                         <div className="col-md-6 deadline candidateProfileBannerBtnDiv">
-                            <button className="btn applyBtn">
-                                Shortlist
-                            </button>
+                            <Link to="/shortlisted-jobs">
+                                <button className="btn applyBtn">
+                                    Shortlist
+                                </button>
+                            </Link>
                             <button className="btn shortListBtn">
                                 Download CV
                             </button>

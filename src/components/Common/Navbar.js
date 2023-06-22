@@ -103,6 +103,16 @@ const Navbar = ({navBg = ''}) => {
                                                             Edit Profile
                                                         </Link>
                                                     </li>
+                                                    <li>
+                                                        <Link className="dropdown-item" href="#" to='/applied-jobs'>
+                                                            Applied Jobs
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link className="dropdown-item" href="#" to='/shortlisted-jobs'>
+                                                            Shortlisted Jobs
+                                                        </Link>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </li>

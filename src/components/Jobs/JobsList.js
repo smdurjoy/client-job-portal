@@ -12,10 +12,10 @@ const JobsList = ({jobs, isLoading}) => {
                     jobs.length ? jobs.map((job, index) => (
                         <div className="list mt-4" key={index}>
                             <div className="row justify-content-between align-items-center border rounded mt-4">
-                                <div className='col-md-1'>
+                                <div className='col-md-1 col-sm-1'>
                                     <img className='m-0 p-2' src={pythonLogo} alt="python bootcamp"/>
                                 </div>
-                                <div className='col-md-4'>
+                                <div className='col-md-4 col-sm-4'>
                                     <h6 className=''>{job.job_title}</h6>
                                     <div className='d-flex'>
                                         <h6 className='m-0'>$2000-$3000 / Monthly</h6>
