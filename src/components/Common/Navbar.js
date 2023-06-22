@@ -15,6 +15,8 @@ const Navbar = ({navBg = ''}) => {
         setToken(null);
         localStorage.removeItem('auth-token');
         localStorage.removeItem('user_id');
+        localStorage.removeItem('company_id');
+        localStorage.removeItem('type');
     }
 
     return (

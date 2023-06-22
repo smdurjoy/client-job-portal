@@ -1,92 +1,36 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import '../../assets/css/login.css';
-import axios from "axios";
-import {Link, useNavigate} from "react-router-dom";
-import {useForm} from 'react-hook-form';
-import {toastError, toastSuccess} from '../../Helpers/Toaster';
+import {Link} from "react-router-dom";
+import RegisterAsCompany from "./RegisterAsCompany";
+import RegisterAsWorker from "./RegisterAsWorker";
 
 const Register = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-    } = useForm();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        const token = localStorage.getItem('auth-token');
-        if (token) {
-            navigate('/');
-        }
-    }, [navigate]);
-
-    const onSubmit = async (formData) => {
-        setIsSubmitting(true);
-        toastSuccess('Registration Success');
-        try {
-            const {data} = await axios.post('/auth/signup/', formData);
-            if (data.status === 0) {
-                toastError(data.message);
-            } else {
-                toastSuccess(data.message);
-                alert(data.message);
-                console.log(data);
-                localStorage.setItem('auth-token', data.data.token);
-                localStorage.setItem('user_id', data.data.user_id);
-                navigate('/');
-            }
-        } catch (e) {
-            toastError('Something Went Wrong !');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
     return (
-        <div className="login" onSubmit={handleSubmit(onSubmit)}>
+        <div className="login">
             <div className="container text-center">
                 <h4>Signup</h4>
-                <form className="mt-3">
-                    <div className="row mb-3">
-                        <div className="col-md-6 mt-3">
-                            <div className="form-group">
-                                <label className="form-label">First Name *</label>
-                                <input type="text"
-                                       {...register('first_name', {required: true})}
-                                       className="form-control"
-                                />
-                                {errors.first_name && <span className="errorMsg">This field is required</span>}
-                            </div>
-                        </div>
-                        <div className="col-md-6 mt-3">
-                            <div className="form-group">
-                                <label className="form-label">Last Name *</label>
-                                <input type="text"
-                                       {...register('last_name', {required: true})}
-                                       className="form-control"
-                                />
-                                {errors.last_name && <span className="errorMsg">This field is required</span>}
-                            </div>
-                        </div>
-                        <div className="col-md-6 mt-3">
-                            <div className="form-group">
-                                <label className="form-label">Phone Number *</label>
-                                <input type="number"
-                                       {...register('phone_number', {required: true})}
-                                       className="form-control"
-                                />
-                                {errors.phone_number && <span className="errorMsg">This field is required</span>}
-                            </div>
-                        </div>
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <li className="nav-item" role="presentation">
+                        <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                                type="button" role="tab" aria-controls="home" aria-selected="true">
+                            Register as Worker
+                        </button>
+                    </li>
+                    <li className="nav-item" role="presentation">
+                        <button className="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                                type="button" role="tab" aria-controls="profile" aria-selected="false">
+                            Register as Company
+                        </button>
+                    </li>
+                </ul>
+                <div className="tab-content" id="myTabContent">
+                    <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <RegisterAsWorker/>
                     </div>
-                    <button type="submit"
-                            className="btn submitBtn text-center mt-3"
-                            disabled={isSubmitting}
-                    >
-                        {isSubmitting ? 'Signing up...' : 'Sign Up'}
-                    </button>
-                </form>
+                    <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <RegisterAsCompany/>
+                    </div>
+                </div>
 
                 <div className="row mt-5">
                     <h5>Or</h5>
