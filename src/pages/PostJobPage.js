@@ -98,7 +98,7 @@ const CompanyProfileUpdatePage = () => {
             }
 
             toastSuccess('Stored Successfully.');
-            navigate('/company-profile');
+            navigate('/posted-job-list');
 
         } catch (e) {
             toastError('Something Went Wrong!');

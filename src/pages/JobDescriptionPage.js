@@ -14,6 +14,8 @@ const CandidatesPage = () => {
     const navigate = useNavigate();
     const [jobDescription, setJobDescription] = useState([])
     const [isLoading, setLoading] = useState(false);
+    const [type, setType] = useState('');
+    const [companyId, setCompanyId] = useState(null);
     const [workerId, setWorkerId] = useState(null);
     const [token, setToken] = useState(null);
 
@@ -51,13 +53,23 @@ const CandidatesPage = () => {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Job Description - workersRUS';
-        handleJobDescription()
+        setType(localStorage.getItem('type'));
+        setCompanyId(localStorage.getItem('company_id'));
+        handleJobDescription();
     }, [])
 
     useEffect(()=>{
         setWorkerId(localStorage.getItem('user_id'));
         setToken(localStorage.getItem('auth-token'));
     },[])
+
+    const handleAppliedCandidates = () => {
+        navigate('/applied-candidates');
+    }
+
+    const handleShortlistedCandidates = () => {
+        navigate('/shortlisted-candidates');
+    }
 
     return (
         <>
@@ -67,12 +79,16 @@ const CandidatesPage = () => {
                 title={jobDescription.job_title}
                 subTitle={jobDescription.industry}
                 deadline={jobDescription.application_deadline}
+                type={type}
                 handleJobApply={handleJobApply}
+                handleAppliedCandidates={handleAppliedCandidates}
+                handleShortlistedCandidates={handleShortlistedCandidates}
             />
             <JobDescription
                 jobDescription={jobDescription}
                 isLoading={isLoading}
                 handleJobApply={handleJobApply}
+                type={type}
             />
             <Footer/>
         </>

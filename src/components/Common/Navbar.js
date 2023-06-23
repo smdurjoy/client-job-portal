@@ -49,7 +49,7 @@ const Navbar = ({navBg = ''}) => {
                                 </NavLink>
                             </li>
                             {
-                                type == '1' ? (
+                                !type || type == '1' ? (
                                     <>
                                         <li className="nav-item">
                                             <NavLink className={({isActive}) =>

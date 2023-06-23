@@ -56,6 +56,19 @@ export const fetchWorkerAppliedJobs = async (workerId) => {
     }
 }
 
+export const fetchJobsByCompany = async (companyId) => {
+    try {
+        const {data: {data}} = await axios.get(`/company/jobs/${companyId}/`, {
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        });
+        return data;
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
 export const fetchJobTypes = async () => {
     try {
         const {data: {data}} = await axios.get('/job/types/', {

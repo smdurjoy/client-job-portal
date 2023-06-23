@@ -55,6 +55,7 @@ const LoginAsWorker = () => {
                 alert('Login Success');
                 localStorage.setItem('auth-token', data.data.token);
                 localStorage.setItem('user_id', data.data.user_id);
+                localStorage.setItem('type', '1');
                 navigate('/');
             }
         } catch (err) {
