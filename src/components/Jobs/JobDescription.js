@@ -7,7 +7,7 @@ import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
 import moment from "moment";
 
-const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
+const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit}) => {
     return (
         <div className="jobDescription">
             <div className="container">
@@ -32,11 +32,11 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                         </ul>
                         <h4>- Skills Required:</h4>
                         <ul>
-                        {
-                            jobDescription?.skills_requirements?.map(skill => (
-                                <li>{ skill.skill_name }</li>
-                            ))
-                        }
+                            {
+                                jobDescription?.skills_requirements?.map(skill => (
+                                    <li>{skill.skill_name}</li>
+                                ))
+                            }
                         </ul>
                         <h4>- About Company</h4>
                         <p>
@@ -224,8 +224,17 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                 </div>
 
                                 <div className="apply">
-                                    <p>Application ends: <span>{moment(jobDescription.application_deadline).format('ll')}</span></p>
-                                    <button className="applyBtn" onClick={handleJobApply}>Apply Now</button>
+                                    <p>Application
+                                        ends: <span>{moment(jobDescription.application_deadline).format('ll')}</span>
+                                    </p>
+                                    {
+                                        type == '2' ? <button className="applyBtn"
+                                                              onClick={handleJobEdit}>
+                                            Edit Job
+                                        </button> : <button className="applyBtn" onClick={handleJobApply}>
+                                            Apply Now
+                                        </button>
+                                    }
                                     {/*<button className="shortlistBtn">Shortlist</button>*/}
                                     <p className="text-center m-lg-auto py-3">OR APPLY WITH</p>
                                     <div className="applyWith">

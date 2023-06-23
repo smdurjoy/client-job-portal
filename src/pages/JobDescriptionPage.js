@@ -76,6 +76,10 @@ const JobDescriptionPage = () => {
         navigate('/shortlisted-candidates/'+params.id);
     }
 
+    const handleJobEdit = () => {
+        
+    }
+
     return (
         <>
             <Navbar navBg='scrolledNav'/>
@@ -94,6 +98,7 @@ const JobDescriptionPage = () => {
                 isLoading={isLoading}
                 handleJobApply={handleJobApply}
                 type={type}
+                handleJobEdit={handleJobEdit}
             />
             <Footer/>
         </>
