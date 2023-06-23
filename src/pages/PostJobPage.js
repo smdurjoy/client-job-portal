@@ -47,7 +47,6 @@ const CompanyProfileUpdatePage = () => {
     const [token, setToken] = useState(null);
     const [companyId, setCompanyId] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('auth-token');
@@ -158,7 +157,6 @@ const CompanyProfileUpdatePage = () => {
                 degrees={degrees}
                 cvReceivingOptions={cvReceivingOptions}
                 setValue={setValue}
-                isLoading={isLoading}
                 countries={countries}
                 cities={cities}
                 states={states}

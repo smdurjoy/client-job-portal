@@ -15,11 +15,11 @@ const JobDescriptionPage = () => {
     const [jobDescription, setJobDescription] = useState([])
     const [isLoading, setLoading] = useState(false);
     const [type, setType] = useState('');
-    const [companyId, setCompanyId] = useState(null);
     const [workerId, setWorkerId] = useState(null);
     const [token, setToken] = useState(null);
     const params = useParams();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleJobDescription = () => {
         setLoading(true);
         fetchJobDescription(id).then(jobDesc => {
@@ -59,9 +59,8 @@ const JobDescriptionPage = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Job Description - workersRUS';
         setType(localStorage.getItem('type'));
-        setCompanyId(localStorage.getItem('company_id'));
         handleJobDescription();
-    }, [])
+    }, [handleJobDescription])
 
     useEffect(()=>{
         setWorkerId(localStorage.getItem('user_id'));
@@ -77,7 +76,7 @@ const JobDescriptionPage = () => {
     }
 
     const handleJobEdit = () => {
-        
+
     }
 
     return (

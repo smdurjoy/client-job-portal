@@ -22,7 +22,7 @@ const CompanyProfilePage = () => {
             id = localStorage.getItem('company_id');
         }
         fetchCompanyProfileInfo(id).then(profile => setProfile(profile));
-    }, [])
+    }, [params.id])
     return (
         <>
             <Navbar navBg='scrolledNav'/>

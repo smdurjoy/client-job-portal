@@ -31,7 +31,7 @@ const CompanyProfilePage = () => {
         setWorkerId(id);
         setJobId(params.jobId);
         fetchProfileInfo(id).then(res => setProfile(res));
-    }, [])
+    }, [params.id, params.jobId])
 
     const makeShortListed = async () => {
         setIsSubmitting(true);

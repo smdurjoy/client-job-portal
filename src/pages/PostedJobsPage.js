@@ -25,7 +25,7 @@ const PostedJobsPage = () => {
             setJobs(res);
             setLoading(false);
         });
-    }, [])
+    }, [navigate])
 
     return (
         <>

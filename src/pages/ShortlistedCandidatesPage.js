@@ -27,7 +27,7 @@ const PostedJobsPage = () => {
             setCandidates(res);
             setLoading(false);
         });
-    }, [])
+    }, [navigate, params.id])
 
     return (
         <>
