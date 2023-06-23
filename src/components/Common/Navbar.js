@@ -173,14 +173,25 @@ const Navbar = ({navBg = ''}) => {
                                                 </li>
                                             </li>
                                             <li className="nav-item">
-                                                <NavLink className={({isActive}) =>
-                                                    isActive ? "nav-link active" : "nav-link"
-                                                }
-                                                         data-scroll-nav="0"
-                                                         to="/about"
-                                                >
-                                                    POST A JOB
-                                                </NavLink>
+                                                <li className="nav-item dropdown">
+                                                    {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+                                                    <button className="nav-link dropdown-toggle" id="navbarDropdown"
+                                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        JOBS
+                                                    </button>
+                                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li>
+                                                            <Link className="dropdown-item" href="#" to='/post-job'>
+                                                                Post a Job
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link className="dropdown-item" href="#" to='/posted-job-list'>
+                                                                Posted Job List
+                                                            </Link>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </li>
                                             <li className="nav-item">
                                                 <button className="btn registerBtn mt-2" onClick={handleLogout}>
