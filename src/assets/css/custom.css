@@ -40,6 +40,16 @@
     color: black !important;
 }
 
+.saveBtn {
+    background-color: var(--main2) !important;
+    color: white !important;
+    padding: 5px 20px !important;
+}
+
+.section {
+    margin-top: 8rem;
+}
+
 .subBanner {
     margin-top: 65px;
     min-height: 270px;

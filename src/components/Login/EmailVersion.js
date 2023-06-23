@@ -5,7 +5,7 @@ const EmailVersion = ({otpMode, handleSubmit, onOTPSubmit, register, errors, isS
         <div>
             {
                 otpMode ? (
-                    <form className="mt-3" onSubmit={handleSubmit(onOTPSubmit)}>
+                    <form className="mt-5" onSubmit={handleSubmit(onOTPSubmit)}>
                         <div className="row mb-3">
                             <div className="col-md-6 offset-md-3">
                                 <input type="number"
@@ -22,7 +22,7 @@ const EmailVersion = ({otpMode, handleSubmit, onOTPSubmit, register, errors, isS
                         </button>
                     </form>
                 ) : (
-                    <form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
+                    <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
                         <div className="row mb-3">
                             <div className="col-md-6 offset-md-3">
                                 <input type="email"

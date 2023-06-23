@@ -5,6 +5,7 @@ import m1 from '../../images/companies/jobs/m1.jpg';
 import m2 from '../../images/companies/jobs/m2.webp';
 import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
+import moment from "moment";
 
 const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
     return (
@@ -31,12 +32,11 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                         </ul>
                         <h4>- Skills Required:</h4>
                         <ul>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                            <li>But I must explain to you how all this mistaken</li>
-                            <li>I will give you a complete</li>
-                            <li>At vero eos et accusamus et iusto odio dignissimos ducimus</li>
-                            <li>On the other hand, we denounce with righteous</li>
-                            <li>If you are going to use a passage of Lorem Ipsum</li>
+                        {
+                            jobDescription?.skills_requirements?.map(skill => (
+                                <li>{ skill.skill_name }</li>
+                            ))
+                        }
                         </ul>
                         <h4>- About Company</h4>
                         <p>
@@ -130,7 +130,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                             <span>Location</span>
                                         </div>
                                         <div className="des">
-                                            <span>1628 2nd Ave New York</span>
+                                            <span>{jobDescription.state}, {jobDescription.city}</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -174,7 +174,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                             <span>Gender</span>
                                         </div>
                                         <div className="des">
-                                            <span>Male</span>
+                                            <span>Male, Female</span>
                                         </div>
                                     </div>
                                     <hr/>
@@ -224,7 +224,7 @@ const JobDescription = ({jobDescription, isLoading, handleJobApply}) => {
                                 </div>
 
                                 <div className="apply">
-                                    <p>Application ends: <span>October 1 2025</span></p>
+                                    <p>Application ends: <span>{moment(jobDescription.application_deadline).format('ll')}</span></p>
                                     <button className="applyBtn" onClick={handleJobApply}>Apply Now</button>
                                     {/*<button className="shortlistBtn">Shortlist</button>*/}
                                     <p className="text-center m-lg-auto py-3">OR APPLY WITH</p>

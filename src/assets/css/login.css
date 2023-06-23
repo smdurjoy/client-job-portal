@@ -2,6 +2,10 @@
     margin: 10rem 0;
 }
 
+.login .nav-tabs .nav-item .active {
+    color: #717171 !important;
+}
+
 .login h4 {
     font-size: 26px;
     font-weight: 600;

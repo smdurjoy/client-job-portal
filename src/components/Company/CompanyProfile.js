@@ -9,7 +9,7 @@ import client2 from '../../images/client2.webp';
 import client3 from '../../images/client3.jpg';
 import Review from "../Common/Review";
 
-const CompanyProfile = ({profile}) => {
+const CompanyProfile = ({profile, type}) => {
     return (
         <div className="jobDescription companyProfile">
             <div className="container">
@@ -103,13 +103,17 @@ const CompanyProfile = ({profile}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <button className="btn shortListBtn">
-                                <i className="fa fa-heart-o"></i> &nbsp;
-                                Follow Us
-                            </button>
+                            {
+                                type == '2' ? <></> : <button className="btn shortListBtn">
+                                    <i className="fa fa-heart-o"></i> &nbsp;
+                                    Follow Us
+                                </button>
+                            }
                         </div>
 
-                        <Review title='Be the first to review "Cadillac"'/>
+                        {
+                            type == '2' ? <p>&nbsp;</p> : <Review title='Be the first to review "Cadillac"'/>
+                        }
 
                         <h4>- Open Positions</h4>
                     </div>
@@ -185,7 +189,9 @@ const CompanyProfile = ({profile}) => {
                                 </div>
 
                                 <div className="apply">
-                                    <button className="applyBtn">Contact Us</button>
+                                    {
+                                        type == '2' ? <></> : <button className="applyBtn">Contact Us</button>
+                                    }
                                 </div>
                             </div>
                         </div>

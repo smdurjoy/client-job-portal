@@ -7,6 +7,7 @@ export const fetchCountries = async () => {
         return counties.map(country => {
             return {
                 id: country.id,
+                value: country.id,
                 label: country.country_name
             }
         })
@@ -21,6 +22,7 @@ export const fetchStates = async (countryId) => {
         return states.map(state => {
             return {
                 id: state.id,
+                value: state.id,
                 label: state.state_name
             }
         })
@@ -35,6 +37,7 @@ export const fetchCities = async (countryId) => {
         return cities.map(city => {
             return {
                 id: city.id,
+                value: city.id,
                 label: city.city_name
             }
         })
@@ -49,6 +52,7 @@ export const fetchAreas = async (countryId) => {
         return areas.map(area => {
             return {
                 id: area.id,
+                value: area.id,
                 label: area.area_name
             }
         })
@@ -63,8 +67,39 @@ export const fetchCategories = async () => {
         return job_categories.map(category => {
             return {
                 id: category.id,
+                value: category.id,
                 label: category.category_name,
                 category_icon: category.category_icon,
+            }
+        })
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
+export const fetchDegrees = async () => {
+    try {
+        const {data: {areas}} = await axios.get('/common/degrees/');
+        return areas.map(degree => {
+            return {
+                id: degree.id,
+                value: degree.id,
+                label: degree.degree_name,
+            }
+        })
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
+export const fetchAllIndustries = async () => {
+    try {
+        const {data: {industries}} = await axios.get('/company/all/industry/');
+        return industries.map(industry => {
+            return {
+                id: industry.id,
+                value: industry.id,
+                label: industry.industry_name,
             }
         })
     } catch (e) {

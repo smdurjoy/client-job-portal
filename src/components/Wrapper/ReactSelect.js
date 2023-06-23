@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 
-const ReactSelect = ({options, placeholder, onChange}) => {
+const ReactSelect = ({options, placeholder, onChange, required, isMulti}) => {
     const [height, setHeight] = useState('40px');
     const customStyles = {
         control: (provided, state) => ({
@@ -12,12 +12,15 @@ const ReactSelect = ({options, placeholder, onChange}) => {
             height,
             boxShadow: state.isFocused ? null : null,
         }),
-
+        menuList: styles => ({
+            ...styles,
+            color: 'black'
+        }),
         valueContainer: (provided, state) => ({
             ...provided,
             height,
             padding: '0 3px',
-            margin: '-7px 0 0 0'
+            margin: '-7px 0 0 0',
         }),
 
         input: (provided, state) => ({
@@ -47,6 +50,8 @@ const ReactSelect = ({options, placeholder, onChange}) => {
             placeholder={placeholder}
             isSearchable={false}
             onChange={onChange}
+            required={required}
+            isMulti={isMulti}
         />
     );
 };

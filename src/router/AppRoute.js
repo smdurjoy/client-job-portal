@@ -11,6 +11,13 @@ import AboutPage from "../pages/AboutPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import WorkersProfileUpdatePage from "../pages/WorkersProfileUpdatePage";
+import WorkerAppliedJobsPage from "../pages/WorkerAppliedJobsPage";
+import WorkerShortlistedJobsPage from "../pages/WorkerShortlistedJobsPage";
+import CompanyProfileUpdatePage from "../pages/CompanyProfileUpdatePage";
+import PostJobPage from "../pages/PostJobPage";
+import PostedJobsPage from "../pages/PostedJobsPage";
+import AppliedCandidatesPage from "../pages/AppliedCandidatesPage";
+import ShortlistedCandidatesPage from "../pages/ShortlistedCandidatesPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -35,8 +42,20 @@ const AppRoute = createBrowserRouter([
         element: <CandidateProfilePage/>,
     },
     {
+        path: "/candidate-profile/:id/:jobId",
+        element: <CandidateProfilePage/>,
+    },
+    {
         path: "/profile",
         element: <CandidateProfilePage/>,
+    },
+    {
+        path: "/applied-jobs",
+        element: <WorkerAppliedJobsPage/>,
+    },
+    {
+        path: "/shortlisted-jobs",
+        element: <WorkerShortlistedJobsPage/>,
     },
     {
         path: "/edit-profile",
@@ -61,6 +80,30 @@ const AppRoute = createBrowserRouter([
     {
         path: "/register",
         element: <RegisterPage/>,
+    },
+    {
+        path: "/company-profile",
+        element: <CompanyProfilePage/>,
+    },
+    {
+        path: "/edit-company-profile",
+        element: <CompanyProfileUpdatePage/>,
+    },
+    {
+        path: "/post-job",
+        element: <PostJobPage/>,
+    },
+    {
+        path: "/posted-job-list",
+        element: <PostedJobsPage/>,
+    },
+    {
+        path: "/applied-candidates/:id",
+        element: <AppliedCandidatesPage/>,
+    },
+    {
+        path: "/shortlisted-candidates/:id",
+        element: <ShortlistedCandidatesPage/>,
     },
 ]);
 
