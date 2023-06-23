@@ -11,7 +11,7 @@ const Navbar = ({navBg = ''}) => {
     useEffect(() => {
         setToken(localStorage.getItem('auth-token'));
         setType(localStorage.getItem('type'));
-    }, []);
+    }, [token]);
 
     const handleLogout = () => {
         setToken(null);
