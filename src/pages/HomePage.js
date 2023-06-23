@@ -14,11 +14,13 @@ import Footer from "../components/Common/Footer";
 import FeaturedJobs from '../components/Home/FeaturedJobs/FeaturedJobs';
 import Marketing from '../components/Home/Marketing/Marketing';
 import {fetchCategories, fetchCountries} from "../api/common/commonApi";
+import LoginCompanyBanner from "../components/Common/LoginCompanyBanner";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
     const [countries, setCountries] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [loginType, setLoginType] = useState('1');
     const onScroll = () => {
         if (window.scrollY > 600) {
             setNavBackground('scrolledNav');
@@ -31,6 +33,7 @@ const HomePage = () => {
         window.addEventListener('scroll', onScroll);
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Home - workersRUS';
+        setLoginType(localStorage.getItem('type'));
         fetchCountries().then(countries => setCountries(countries));
         fetchCategories().then(categories => setCategories(categories));
     }, [])
@@ -38,14 +41,20 @@ const HomePage = () => {
     return (
         <>
             <Navbar navBg={navBackground}/>
-            <Banner
-                countries={countries}
-                categories={categories}
-            />
+            {
+                loginType == '2' ? <LoginCompanyBanner/> : <Banner
+                    countries={countries}
+                    categories={categories}
+                    loginType={loginType}
+                />
+            }
+
             <Category/>
             <Summary/>
             <FeaturedJobs/>
-            <Jobs/>
+            {
+                loginType == '2' ? <></> : <Jobs/>
+            }
             <Pricing/>
             <Marketing/>
             <Downloads/>

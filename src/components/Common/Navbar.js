@@ -152,14 +152,25 @@ const Navbar = ({navBg = ''}) => {
                                     token ? (
                                         <>
                                             <li className="nav-item">
-                                                <NavLink className={({isActive}) =>
-                                                    isActive ? "nav-link active" : "nav-link"
-                                                }
-                                                         data-scroll-nav="0"
-                                                         to="/company-profile"
-                                                >
-                                                    ADD COMPANY PROFILE
-                                                </NavLink>
+                                                <li className="nav-item dropdown">
+                                                    {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+                                                    <button className="nav-link dropdown-toggle" id="navbarDropdown"
+                                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        PROFILE
+                                                    </button>
+                                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li>
+                                                            <Link className="dropdown-item" href="#" to='/company-profile'>
+                                                                View Profile
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link className="dropdown-item" href="#" to='/edit-company-profile'>
+                                                                Edit Profile
+                                                            </Link>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </li>
                                             <li className="nav-item">
                                                 <NavLink className={({isActive}) =>

@@ -1,10 +1,9 @@
 import React from 'react';
 import image from '../../images/bg.jpg'
-import companyLogo from '../../images/companies/company4.jpg';
 
-const CompanyProfileBanner = ({profile}) => {
+const CompanyProfileBanner = ({profile, type}) => {
     return (
-        <div className="profileBanner companyProfileBanner" style={{ backgroundImage:`url(${image})` }}>
+        <div className="profileBanner companyProfileBanner" style={{backgroundImage: `url(${image})`}}>
             <div className="container">
                 <div className="profileBannerContent">
                     <div className="row">
@@ -20,16 +19,18 @@ const CompanyProfileBanner = ({profile}) => {
                                             <i className="fa fa-map-marker"></i>&nbsp;
                                             {profile.city_name}, {profile.state_name}
                                         </span>
-                                        <div className="mt-3">
-                                            <button className="btn applyBtn">
-                                                <i className="fa fa-heart-o"></i>&nbsp;
-                                                Follow Us
-                                            </button>
-                                            <button className="btn shortListBtn">
-                                                <i className="fa fa-envelope-o"></i> &nbsp;
-                                                Add Review
-                                            </button>
-                                        </div>
+                                        {
+                                            type == '2' ? <></> : <div className="mt-3">
+                                                <button className="btn applyBtn">
+                                                    <i className="fa fa-heart-o"></i>&nbsp;
+                                                    Follow Us
+                                                </button>
+                                                <button className="btn shortListBtn">
+                                                    <i className="fa fa-envelope-o"></i> &nbsp;
+                                                    Add Review
+                                                </button>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>

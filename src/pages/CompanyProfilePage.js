@@ -9,18 +9,25 @@ import {useParams} from "react-router-dom";
 
 const CompanyProfilePage = () => {
     const [profile, setProfile] = useState({});
+    const [type, setType] = useState(null);
     const params = useParams();
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Company Profile - workersRUS';
-        fetchCompanyProfileInfo(params.id).then(profile => setProfile(profile));
+        let id = params.id;
+        const loginType = localStorage.getItem('type');
+        setType(loginType);
+        if (loginType == '2') {
+            id = localStorage.getItem('company_id');
+        }
+        fetchCompanyProfileInfo(id).then(profile => setProfile(profile));
     }, [])
     return (
         <>
             <Navbar navBg='scrolledNav'/>
-            <CompanyProfileBanner profile={profile}/>
-            <CompanyProfile profile={profile}/>
+            <CompanyProfileBanner profile={profile} type={type}/>
+            <CompanyProfile profile={profile} type={type}/>
             <Footer/>
         </>
     );

@@ -75,6 +75,10 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/company-profile",
+        element: <CompanyProfilePage/>,
+    },
+    {
+        path: "/edit-company-profile",
         element: <CompanyProfileUpdatePage/>,
     },
 ]);
