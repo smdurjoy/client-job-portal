@@ -3,7 +3,17 @@ import image from '../../images/bg.jpg'
 import companyLogo from '../../images/companies/company1.jpg';
 import moment from "moment";
 
-const ProfileBanner = ({title, subTitle, deadline, handleJobApply, type, handleAppliedCandidates, handleShortlistedCandidates}) => {
+const ProfileBanner = ({
+                           title,
+                           subTitle,
+                           deadline,
+                           handleJobApply,
+                           type,
+                           handleAppliedCandidates,
+                           handleShortlistedCandidates,
+                           workerMakeJobShortlisted,
+                           isSubmitting
+                       }) => {
     return (
         <div className="profileBanner" style={{backgroundImage: `url(${image})`}}>
             <div className="container">
@@ -26,7 +36,7 @@ const ProfileBanner = ({title, subTitle, deadline, handleJobApply, type, handleA
                         </div>
                         <div className="col-md-6 deadline">
                             {
-                                type == '2' && (
+                                type == '2' ? (
                                     <>
                                         <p>Application ends: {moment(deadline).format('ll')}</p>
                                         <button className="btn applyBtn" onClick={handleAppliedCandidates}>
@@ -36,16 +46,19 @@ const ProfileBanner = ({title, subTitle, deadline, handleJobApply, type, handleA
                                             View Shortlist Candidates
                                         </button>
                                     </>
-                                )
-                            }
-                            {
-                                type == '1' && (
+                                ) : (
                                     <>
                                         <p>Application ends: {moment(deadline).format('ll')}</p>
-                                        <button className="btn applyBtn" onClick={handleJobApply}>
+                                        <button className="btn applyBtn"
+                                                onClick={handleJobApply}
+                                                disabled={isSubmitting}
+                                        >
                                             Apply Now
                                         </button>
-                                        <button className="btn shortListBtn">
+                                        <button className="btn shortListBtn"
+                                                onClick={workerMakeJobShortlisted}
+                                                disabled={isSubmitting}
+                                        >
                                             <i className="fa fa-heart-o"></i> &nbsp;
                                             Shortlist
                                         </button>

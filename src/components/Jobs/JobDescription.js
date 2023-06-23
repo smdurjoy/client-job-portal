@@ -7,7 +7,7 @@ import m3 from '../../images/companies/jobs/m3.jpg';
 import {Link} from "react-router-dom";
 import moment from "moment";
 
-const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit}) => {
+const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit, workerMakeJobShortlisted, isSubmitting}) => {
     return (
         <div className="jobDescription">
             <div className="container">
@@ -92,7 +92,10 @@ const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit}) =
                                     </ul>
                                 </div>
                             </div>
-                            <button className="btn shortListBtn">
+                            <button className="btn shortListBtn"
+                                    onClick={workerMakeJobShortlisted}
+                                    disabled={isSubmitting}
+                            >
                                 <i className="fa fa-heart-o"></i> &nbsp;
                                 Shortlist
                             </button>
@@ -231,7 +234,10 @@ const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit}) =
                                         type == '2' ? <button className="applyBtn"
                                                               onClick={handleJobEdit}>
                                             Edit Job
-                                        </button> : <button className="applyBtn" onClick={handleJobApply}>
+                                        </button> : <button className="applyBtn"
+                                                            onClick={handleJobApply}
+                                                            disabled={isSubmitting}
+                                        >
                                             Apply Now
                                         </button>
                                     }

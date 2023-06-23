@@ -9,7 +9,7 @@ const JobsList = ({jobs, isLoading}) => {
         <div className="jobList">
             <div className="container">
                 {
-                    jobs.length ? jobs.map((job, index) => (
+                    jobs?.length ? jobs.map((job, index) => (
                         <div className="list mt-4" key={index}>
                             <div className="row justify-content-between align-items-center border rounded mt-4">
                                 <div className='col-md-1 col-sm-1'>
