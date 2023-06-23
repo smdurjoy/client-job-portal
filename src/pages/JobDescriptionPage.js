@@ -9,7 +9,7 @@ import { fetchJobDescription } from '../api/jobs/jobs';
 import axios from 'axios';
 import { toastError, toastSuccess } from '../Helpers/Toaster';
 
-const CandidatesPage = () => {
+const JobDescriptionPage = () => {
     const {id} = useParams();
     const navigate = useNavigate();
     const [jobDescription, setJobDescription] = useState([])
@@ -18,6 +18,7 @@ const CandidatesPage = () => {
     const [companyId, setCompanyId] = useState(null);
     const [workerId, setWorkerId] = useState(null);
     const [token, setToken] = useState(null);
+    const params = useParams();
 
     const handleJobDescription = () => {
         setLoading(true);
@@ -64,11 +65,11 @@ const CandidatesPage = () => {
     },[])
 
     const handleAppliedCandidates = () => {
-        navigate('/applied-candidates');
+        navigate('/applied-candidates/'+params.id);
     }
 
     const handleShortlistedCandidates = () => {
-        navigate('/shortlisted-candidates');
+        navigate('/shortlisted-candidates/'+params.id);
     }
 
     return (
@@ -95,4 +96,4 @@ const CandidatesPage = () => {
     );
 };
 
-export default CandidatesPage;
+export default JobDescriptionPage;

@@ -9,7 +9,7 @@ import TimeLine from "../Common/TimeLine";
 import ProgressBar from "../Common/ProgressBar";
 import EducationTimeLine from "./EducationTimeLine";
 
-const ProfileDescription = ({profile}) => {
+const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => {
     const experience = [
         {
             title: 'Development Manager',
@@ -127,10 +127,22 @@ const ProfileDescription = ({profile}) => {
                                     </ul>
                                 </div>
                             </div>
-                            <button className="btn shortListBtn">
-                                <i className="fa fa-heart-o"></i> &nbsp;
-                                Shortlist
-                            </button>
+                            {
+                                jobId ? (
+                                    <button className="btn shortListBtn"
+                                            onClick={makeShortListed}
+                                            disabled={isSubmitting}
+                                    >
+                                        Make Shortlist
+                                    </button>
+                                ) : (
+                                    <button className="btn shortListBtn">
+                                        <i className="fa fa-heart-o"></i> &nbsp;
+                                        Shortlist
+                                    </button>
+                                )
+                            }
+
                         </div>
 
                         <div className="mt-4">
@@ -254,11 +266,19 @@ const ProfileDescription = ({profile}) => {
 
                                 <div className="apply">
                                     <button className="applyBtn">Contact Me</button>
-                                    <Link to="/shortlisted-jobs">
-                                        <button className="shortlistBtn">
-                                            Shortlist
-                                        </button>
-                                    </Link>
+                                    {
+                                        jobId ? (
+                                            <button className="shortlistBtn" onClick={makeShortListed}>
+                                                Make Shortlist
+                                            </button>
+                                        ) : (
+                                            <Link to="/shortlisted-jobs">
+                                                <button className="shortlistBtn">
+                                                    Shortlist
+                                                </button>
+                                            </Link>
+                                        )
+                                    }
                                     <button className="shortlistBtn">Download CV</button>
                                 </div>
                             </div>
