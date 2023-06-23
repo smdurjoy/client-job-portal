@@ -21,6 +21,7 @@ const PostedJobsPage = () => {
         const companyId = localStorage.getItem('company_id');
         if (!token || authType != '2' || !companyId) {
             navigate('/');
+            return;
         }
         setJobId(params.id);
         fetchShortlistedCandidates(companyId, params.id).then(res => {

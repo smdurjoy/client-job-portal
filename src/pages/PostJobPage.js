@@ -54,6 +54,7 @@ const CompanyProfileUpdatePage = () => {
         const company_id = localStorage.getItem('company_id');
         if (!token || authType != '2' || !company_id) {
             navigate('/');
+            return;
         }
         setToken(token);
         setCompanyId(company_id);

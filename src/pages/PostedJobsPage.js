@@ -20,6 +20,7 @@ const PostedJobsPage = () => {
         const company_id = localStorage.getItem('company_id');
         if (!token || authType != '2' || !company_id) {
             navigate('/');
+            return;
         }
         fetchJobsByCompany(company_id).then(res => {
             setJobs(res);

@@ -8,7 +8,7 @@ import {useFieldArray, useForm} from 'react-hook-form';
 import {fetchAreas, fetchCities, fetchCountries, fetchDegrees, fetchStates} from "../api/common/commonApi";
 import {toastError, toastSuccess, toastWarning} from "../Helpers/Toaster";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {fetchProfileInfo} from "../api/profile/profile";
 import Loader from "../components/Loader/Loader";
 
@@ -51,6 +51,12 @@ const WorkersProfileUpdatePage = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Update Profile - workersRUS';
         const workerId = localStorage.getItem('user_id');
+
+        if (!workerId) {
+            navigate('/');
+            return;
+        }
+
         fetchProfileInfo(workerId).then(res => {
             setProfile(res);
             format(res);

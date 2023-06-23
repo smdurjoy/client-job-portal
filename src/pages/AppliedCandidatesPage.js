@@ -11,7 +11,7 @@ const PostedJobsPage = () => {
     const [isLoading, setLoading] = useState(true);
     const [jobId, setJobId] = useState(null);
     const navigate = useNavigate();
-    const params = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -21,14 +21,15 @@ const PostedJobsPage = () => {
         const companyId = localStorage.getItem('company_id');
         if (!token || authType != '2' || !companyId) {
             navigate('/');
+            return;
         }
-        setJobId(params.id);
-        fetchAppliedCandidates(companyId, params.id).then(res => {
+        setJobId(id);
+        fetchAppliedCandidates(companyId, id).then(res => {
             console.log({res})
             setCandidates(res);
             setLoading(false);
         });
-    }, [])
+    }, [navigate, id])
 
     return (
         <>
