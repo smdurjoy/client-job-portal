@@ -18,10 +18,8 @@ const RegisterAsCompany = () => {
         try {
             const {data} = await axios.post('/auth/company/signup/', formData);
             if (data.status === 0) {
-                alert(data.message);
                 toastError(data.message);
             } else {
-                alert(data.message);
                 toastSuccess(data.message);
                 localStorage.setItem('auth-token', data.data.token);
                 localStorage.setItem('company_id', data.data.user_id);

@@ -6,9 +6,7 @@ import {toastError, toastSuccess} from "../../Helpers/Toaster";
 
 const LoginAsCompany = () => {
     const {
-        register,
-        handleSubmit,
-        formState: {errors},
+        register, handleSubmit, formState: {errors},
     } = useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
@@ -27,7 +25,6 @@ const LoginAsCompany = () => {
             if (data.status === 0) {
                 toastError(data.message);
             } else {
-                alert(data.message);
                 toastSuccess(data.message);
                 localStorage.setItem('auth-token', data.data.token);
                 localStorage.setItem('company_id', data.data.user_id);
@@ -42,37 +39,35 @@ const LoginAsCompany = () => {
         }
     };
 
-    return (
-        <div>
-            <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
-                <div className="row mb-3">
-                    <div className="col-md-6 offset-md-3">
-                        <label className="form-label">Email</label>
-                        <input type="email"
-                               className="form-control"
-                               placeholder="Email"
-                               disabled={isSubmitting}
-                               {...register('email', {required: true})}
-                        />
-                        {errors.email && <span className="errorMsg">This field is required</span>}
-                    </div>
-                    <div className="col-md-6 offset-md-3 mt-3">
-                        <label className="form-label">Password</label>
-                        <input type="password"
-                               className="form-control"
-                               placeholder="Password"
-                               disabled={isSubmitting}
-                               {...register('password', {required: true})}
-                        />
-                        {errors.password && <span className="errorMsg">This field is required</span>}
-                    </div>
+    return (<div>
+        <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
+            <div className="row mb-3">
+                <div className="col-md-6 offset-md-3">
+                    <label className="form-label">Email</label>
+                    <input type="email"
+                           className="form-control"
+                           placeholder="Email"
+                           disabled={isSubmitting}
+                           {...register('email', {required: true})}
+                    />
+                    {errors.email && <span className="errorMsg">This field is required</span>}
                 </div>
-                <button type="submit" className="btn submitBtn text-center">
-                    {isSubmitting ? 'Signing in...' : 'Sign In'}
-                </button>
-            </form>
-        </div>
-    );
+                <div className="col-md-6 offset-md-3 mt-3">
+                    <label className="form-label">Password</label>
+                    <input type="password"
+                           className="form-control"
+                           placeholder="Password"
+                           disabled={isSubmitting}
+                           {...register('password', {required: true})}
+                    />
+                    {errors.password && <span className="errorMsg">This field is required</span>}
+                </div>
+            </div>
+            <button type="submit" className="btn submitBtn text-center" disabled={isSubmitting}>
+                {isSubmitting ? 'Signing in...' : 'Sign In'}
+            </button>
+        </form>
+    </div>);
 };
 
 export default LoginAsCompany;

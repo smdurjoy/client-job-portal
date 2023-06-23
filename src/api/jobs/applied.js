@@ -1,9 +1,8 @@
 import axios from "axios";
 import {toastError} from "../../Helpers/Toaster";
 
-const token = localStorage.getItem('auth-token');
-
 export const fetchAppliedCandidates = async (categoryId, jobId) => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get(`/company/job/applied/candidate/${categoryId}/${jobId}/`, {
             headers: {
@@ -17,6 +16,7 @@ export const fetchAppliedCandidates = async (categoryId, jobId) => {
 }
 
 export const fetchShortlistedCandidates = async (categoryId, jobId) => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get(`/company/get/shortlisted/candidate/${categoryId}/${jobId}/`, {
             headers: {

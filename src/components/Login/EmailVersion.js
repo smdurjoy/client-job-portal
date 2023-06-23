@@ -11,7 +11,6 @@ const EmailVersion = ({otpMode, handleSubmit, onOTPSubmit, register, errors, isS
                                 <input type="number"
                                        className="form-control"
                                        placeholder="OTP"
-                                       disabled={isSubmitting}
                                        {...register('otp', {required: true})}
                                 />
                                 {errors.otp && <span className="errorMsg">This field is required</span>}
@@ -28,13 +27,12 @@ const EmailVersion = ({otpMode, handleSubmit, onOTPSubmit, register, errors, isS
                                 <input type="email"
                                        className="form-control"
                                        placeholder="Email"
-                                       disabled={isSubmitting}
                                        {...register('email', {required: true})}
                                 />
                                 {errors.email && <span className="errorMsg">This field is required</span>}
                             </div>
                         </div>
-                        <button type="submit" className="btn submitBtn text-center">
+                        <button type="submit" className="btn submitBtn text-center" disabled={isSubmitting}>
                             {isSubmitting ? 'Signing in...' : 'Sign In'}
                         </button>
                     </form>

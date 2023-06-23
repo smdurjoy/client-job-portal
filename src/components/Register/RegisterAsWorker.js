@@ -28,8 +28,6 @@ const RegisterAsWorker = () => {
                 toastError(data.message);
             } else {
                 toastSuccess(data.message);
-                alert(data.message);
-                console.log(data);
                 localStorage.setItem('auth-token', data.data.token);
                 localStorage.setItem('user_id', data.data.user_id);
                 localStorage.setItem('type', '1');

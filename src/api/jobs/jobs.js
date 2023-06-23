@@ -1,8 +1,6 @@
 import axios from "axios";
 import {toastError} from "../../Helpers/Toaster";
 
-const token = localStorage.getItem('auth-token');
-
 export const fetchJobsByCategory = async (categoryId) => {
     try {
         const {data: {jobs}} = await axios.get(`/job/get/${categoryId}/`);
@@ -31,6 +29,7 @@ export const fetchJobDescription = async (jobId) => {
 }
 
 export const fetchWorkerShortlistedJobs = async (workerId) => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get(`/worker/shortlist/job/${workerId}/`, {
             headers: {
@@ -44,6 +43,7 @@ export const fetchWorkerShortlistedJobs = async (workerId) => {
 }
 
 export const fetchWorkerAppliedJobs = async (workerId) => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get(`/worker/applied/job/${workerId}/`, {
             headers: {
@@ -57,6 +57,7 @@ export const fetchWorkerAppliedJobs = async (workerId) => {
 }
 
 export const fetchJobsByCompany = async (companyId) => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get(`/company/jobs/${companyId}/`, {
             headers: {
@@ -70,6 +71,7 @@ export const fetchJobsByCompany = async (companyId) => {
 }
 
 export const fetchJobTypes = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/types/', {
             headers: {
@@ -89,6 +91,7 @@ export const fetchJobTypes = async () => {
 }
 
 export const fetchJobLevels = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/levels/', {
             headers: {
@@ -108,6 +111,7 @@ export const fetchJobLevels = async () => {
 }
 
 export const fetchEmploymentStatus = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/employment/status/', {
             headers: {
@@ -127,6 +131,7 @@ export const fetchEmploymentStatus = async () => {
 }
 
 export const fetchJobWorkPlaces = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/work/places/', {
             headers: {
@@ -146,6 +151,7 @@ export const fetchJobWorkPlaces = async () => {
 }
 
 export const fetchJobBenefits = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/benefits/', {
             headers: {
@@ -165,6 +171,7 @@ export const fetchJobBenefits = async () => {
 }
 
 export const fetchJobCvReceivingOptions = async () => {
+    const token = localStorage.getItem('auth-token');
     try {
         const {data: {data}} = await axios.get('/job/cv/receiving/option/', {
             headers: {
