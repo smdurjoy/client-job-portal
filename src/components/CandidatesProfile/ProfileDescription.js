@@ -136,10 +136,12 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                                         Make Shortlist
                                     </button>
                                 ) : (
-                                    <button className="btn shortListBtn">
-                                        <i className="fa fa-heart-o"></i> &nbsp;
-                                        Shortlist
-                                    </button>
+                                    <Link to="/shortlisted-jobs">
+                                        <button className="btn shortListBtn">
+                                            <i className="fa fa-heart-o"></i> &nbsp;
+                                            Shortlist
+                                        </button>
+                                    </Link>
                                 )
                             }
 
