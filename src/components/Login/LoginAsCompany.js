@@ -60,7 +60,7 @@ const LoginAsCompany = () => {
                         <label className="form-label">Password</label>
                         <input type="password"
                                className="form-control"
-                               placeholder="Email"
+                               placeholder="Password"
                                disabled={isSubmitting}
                                {...register('password', {required: true})}
                         />

@@ -158,25 +158,29 @@
 }
 
 .marketing1 p, .marketing2 p {
-    font-size: 10px;
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .marketing1 button {
     border: 1px solid white;
     border-radius: 5px;
-    font-size: 12px;
-    padding: 2px 12px;
+    font-size: 16px;
+    padding: 3px 14px;
     margin: 0;
     color: var(--main2);
+    margin-top: 1rem;
 }
 
 .marketing2 button {
     border: 1px solid white;
     border-radius: 5px;
-    font-size: 12px;
-    padding: 2px 12px;
+    font-size: 16px;
+    padding: 3px 14px;
     margin: 0;
     color: var(--main1);
+    margin-top: 1rem;
 }
 
 .jobs {

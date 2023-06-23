@@ -29,25 +29,29 @@ const JobDescriptionPage = () => {
     }
 
     const handleJobApply = async () => {
-        try {
-            const {data} = await axios.post('/worker/job/apply/', {
-                job_id: parseInt(id),
-                worker_id: parseInt(workerId)
-            }, {
-                headers: {
-                    'Authorization': `Token ${token}`
+        if(localStorage.getItem('auth-token')){
+            try {
+                const {data} = await axios.post('/worker/job/apply/', {
+                    job_id: parseInt(id),
+                    worker_id: parseInt(workerId)
+                }, {
+                    headers: {
+                        'Authorization': `Token ${token}`
+                    }
+                });
+                if (data.status === 0) {
+                    alert(data.message);
+                    toastError(data.message);
+                } else {
+                    toastSuccess('Successfully Applied');
+                    alert('Successfully Applied');
+                    navigate('/')
                 }
-            });
-            if (data.status === 0) {
-                alert(data.message);
-                toastError(data.message);
-            } else {
-                toastSuccess('Successfully Applied');
-                alert('Successfully Applied');
-                navigate('/')
+            } catch (err) {
+                toastError('Something Went Wrong !');
             }
-        } catch (err) {
-            toastError('Something Went Wrong !');
+        } else {
+            navigate('/login')
         }
     };
 
