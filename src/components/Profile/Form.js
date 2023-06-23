@@ -101,8 +101,7 @@ const Form = ({
                             <ReactSelect
                                 options={countries}
                                 onChange={(e) => handleCountryChange(e)}
-                                register={register}
-                                name='country_id'
+                                required={true}
                             />
                         </div>
                         <div className="col-md-6 my-2 form-group">
@@ -110,6 +109,7 @@ const Form = ({
                             <ReactSelect
                                 options={states}
                                 onChange={(e) => setValue('state_id', e.id)}
+                                required={true}
                             />
                         </div>
                         <div className="col-md-6 my-2 form-group">
@@ -117,6 +117,7 @@ const Form = ({
                             <ReactSelect
                                 options={cities}
                                 onChange={(e) => setValue('city_id', e.id)}
+                                required={true}
                             />
                         </div>
                         <div className="col-md-6 my-2 form-group">
@@ -124,6 +125,7 @@ const Form = ({
                             <ReactSelect
                                 options={areas}
                                 onChange={(e) => setValue('area_id', e.id)}
+                                required={true}
                             />
                         </div>
                         <div className="col-md-6 my-2 form-group">
@@ -175,6 +177,7 @@ const Form = ({
                                         <ReactSelect
                                             options={degrees}
                                             onChange={(e) => setValue(`degree_list.${index}.degree_id`, e.id)}
+                                            required={true}
                                         />
                                     </div>
                                     <div className="col-md-3">
@@ -231,7 +234,7 @@ const Form = ({
                                         <input type="text"
                                                className="form-control"
                                                placeholder="Write"
-                                               {...register(`skill_list.${index}`)}
+                                               {...register(`skill_list.${index}`, {required: true})}
                                         />
                                         <button className="btn btn-danger btn-sm" type="button"
                                                 onClick={() => skillRemove(index)}>
