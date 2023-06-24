@@ -8,28 +8,9 @@ import Review from "../Common/Review";
 import TimeLine from "../Common/TimeLine";
 import ProgressBar from "../Common/ProgressBar";
 import EducationTimeLine from "./EducationTimeLine";
+import ExperienceTimeLine from "./ExperienceTimeLine";
 
 const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => {
-    const experience = [
-        {
-            title: 'Development Manager',
-            subtitle: 'Clothing Store',
-            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
-                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
-                '        Phasellus suscipit porta mattis.',
-            start_date: '2013',
-            end_date: '2015'
-        },
-        {
-            title: 'Store Manager',
-            subtitle: 'Fashion Store',
-            description: 'Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed\n' +
-                '        aliquet laoreet sapien, eget pulvinar lectus maximus vel.\n' +
-                '        Phasellus suscipit porta mattis.',
-            start_date: '2008',
-            end_date: '2012'
-        },
-    ];
     const awards = [
         {
             title: 'Distinguished Servicw Awards',
@@ -52,13 +33,7 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                 <div className="row">
                     <div className="col-md-8">
                         <h4>- About Me</h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.
-                            It has survived not only five centuries, but also the leap into electronic typesetting.
-                        </p>
+                        <p>{ profile.professional_description }</p>
                         <h4>- Basic Steps</h4>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus
@@ -76,7 +51,7 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                         <EducationTimeLine educations={profile.educations}/>
 
                         <h4>- Work & Experience</h4>
-                        <TimeLine items={experience}/>
+                        <ExperienceTimeLine experiences={profile.employment_history}/>
 
                         <h4>- Portfolio</h4>
                         <div className="companyPhoto mb-5">

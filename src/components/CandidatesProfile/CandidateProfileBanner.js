@@ -1,18 +1,17 @@
 import React from 'react';
 import image from '../../images/bg.jpg'
-import client5 from '../../images/client5.jpeg'
 import {Link} from "react-router-dom";
 
 const CandidateProfileBanner = ({profile, jobId, makeShortListed}) => {
     return (
-        <div className="profileBanner candidateProfileBanner" style={{ backgroundImage:`url(${image})` }}>
+        <div className="profileBanner candidateProfileBanner" style={{backgroundImage: `url(${image})`}}>
             <div className="container">
                 <div className="profileBannerContent">
                     <div className="row">
                         <div className="col-md-6">
                             <div className="companyInfo">
                                 <div className="d-flex align-items-center">
-                                    <img src={client5} alt="companyLogo"/>
+                                    <img src={profile.photo} alt="photo"/>
                                     <div className="companyDes">
                                         <h3>{`${profile.first_name} ${profile.middle_name} ${profile.last_name}`}</h3>
                                         <span>Build 6 Creative Projects</span>

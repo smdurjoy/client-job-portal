@@ -57,12 +57,13 @@ const WorkersProfileUpdatePage = () => {
             return;
         }
 
+        fetchCountries().then(countries => setCountries(countries))
+        fetchDegrees().then(degrees => setDegrees(degrees))
+
         fetchProfileInfo(workerId).then(res => {
             setProfile(res);
             format(res);
         });
-        fetchCountries().then(countries => setCountries(countries))
-        fetchDegrees().then(degrees => setDegrees(degrees))
     }, [])
 
     const handleCountryChange = (e) => {
