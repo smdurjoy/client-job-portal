@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../axios-configure";
 import {toastError} from "../../Helpers/Toaster";
 
 export const fetchCompanyProfileInfo = async (companyId) => {

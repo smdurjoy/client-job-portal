@@ -8,7 +8,7 @@ import ProfileDescription from "../components/CandidatesProfile/ProfileDescripti
 import {fetchProfileInfo} from "../api/profile/profile";
 import Loader from "../components/Loader/Loader";
 import {useParams} from "react-router-dom";
-import axios from "axios";
+import axios from "../api/axios-configure";
 import {toastSuccess} from "../Helpers/Toaster";
 
 const CompanyProfilePage = () => {

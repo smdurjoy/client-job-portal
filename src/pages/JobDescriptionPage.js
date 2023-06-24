@@ -6,7 +6,7 @@ import JobDescription from "../components/Jobs/JobDescription";
 import ProfileBanner from "../components/Common/ProfileBanner";
 import {useNavigate, useParams} from 'react-router-dom';
 import {fetchJobDescription} from '../api/jobs/jobs';
-import axios from 'axios';
+import axios from '../api/axios-configure';
 import {toastError, toastSuccess} from '../Helpers/Toaster';
 
 const JobDescriptionPage = () => {

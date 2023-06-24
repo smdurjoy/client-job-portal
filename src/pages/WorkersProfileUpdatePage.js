@@ -7,7 +7,7 @@ import Form from "../components/Profile/Form";
 import {useFieldArray, useForm} from 'react-hook-form';
 import {fetchAreas, fetchCities, fetchCountries, fetchDegrees, fetchStates} from "../api/common/commonApi";
 import {toastError, toastSuccess, toastWarning} from "../Helpers/Toaster";
-import axios from "axios";
+import axios from "../api/axios-configure";
 import {useNavigate} from "react-router-dom";
 import {fetchProfileInfo} from "../api/profile/profile";
 import Loader from "../components/Loader/Loader";

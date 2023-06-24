@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
+import axios from "../../api/axios-configure";
 import {toastError, toastSuccess} from "../../Helpers/Toaster";
 
 const LoginAsCompany = () => {
