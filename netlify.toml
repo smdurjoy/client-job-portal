@@ -1,6 +1,6 @@
 [[redirects]]
-  from = “/*/”
-  to = “https://www.kamla.xyz/:splat"
+  from = “/*”
+  to = “https://www.kamla.xyz/"
   status = 200
 [[redirects]]
   from = “/*”
