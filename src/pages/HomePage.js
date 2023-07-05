@@ -15,11 +15,13 @@ import FeaturedJobs from '../components/Home/FeaturedJobs/FeaturedJobs';
 import Marketing from '../components/Home/Marketing/Marketing';
 import {fetchCategories, fetchCountries} from "../api/common/commonApi";
 import LoginCompanyBanner from "../components/Common/LoginCompanyBanner";
+import {fetchAllJobs} from "../api/jobs/jobs";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
     const [countries, setCountries] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [jobs, setJobs] = useState([]);
     const [loginType, setLoginType] = useState('1');
     const onScroll = () => {
         if (window.scrollY > 600) {
@@ -36,6 +38,7 @@ const HomePage = () => {
         setLoginType(localStorage.getItem('type'));
         fetchCountries().then(countries => setCountries(countries));
         fetchCategories().then(categories => setCategories(categories));
+        fetchAllJobs().then(jobs => setJobs(jobs));
     }, [])
 
     return (
@@ -49,11 +52,11 @@ const HomePage = () => {
                 />
             }
 
-            <Category/>
+            <Category categories={categories}/>
             <Summary/>
             <FeaturedJobs/>
             {
-                loginType == '2' ? <></> : <Jobs/>
+                loginType == '2' ? <></> : <Jobs jobs={jobs}/>
             }
             <Pricing/>
             <Marketing/>
