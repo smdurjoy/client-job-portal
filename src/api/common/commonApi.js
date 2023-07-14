@@ -63,7 +63,7 @@ export const fetchAreas = async (countryId) => {
 
 export const fetchCategories = async () => {
     try {
-        const {data: {job_categories}} = await axios.get('/job/categories');
+        const {data: {job_categories}} = await axios.get('/job/categories/');
         return job_categories.map(category => {
             return {
                 id: category.id,

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Category = ({categories}) => {
-    const homeCategories = categories.slice(0, 4);
+    const homeCategories = categories?.slice(0, 4);
     return (
         <div className="container mt-5 pt-5 categoryContainer">
             <div className="text-center">

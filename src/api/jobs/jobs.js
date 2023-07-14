@@ -21,7 +21,7 @@ export const fetchAllJobs = async () => {
 
 export const fetchJobDescription = async (jobId) => {
     try {
-        const {data: {job_details}} = await axios.get(`/job/details/${jobId}`);
+        const {data: {job_details}} = await axios.get(`/job/details/${jobId}/`);
         return job_details;
     } catch (e) {
         toastError('Something Went Wrong!');

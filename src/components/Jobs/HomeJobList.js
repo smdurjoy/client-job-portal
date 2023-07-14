@@ -5,7 +5,7 @@ import wishlist from '../../assets/images/wishlist.svg'
 import {Link} from "react-router-dom";
 
 const HomeJobsList = ({jobs}) => {
-    const homeJobs = jobs.slice(0, 4);
+    const homeJobs = jobs?.slice(0, 4);
     return (
         <div className='homeJobList'>
             {

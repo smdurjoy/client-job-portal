@@ -50,7 +50,7 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                         color: "#a5a5a5", marginTop: '50px', width: '100%',
                     }}/>
                     {
-                        jobs.length ? <div className="row">
+                        jobs?.length ? <div className="row">
                             <div className="listFilter">
                                 <p>
                                     Showing 1 - 9 of 10 results &nbsp;&nbsp;&nbsp;
@@ -73,7 +73,7 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                 jobs={jobs}
                 isLoading={isLoading}
             />
-            {jobs.length && <Pagination/>}
+            {jobs?.length && <Pagination/>}
         </>
     );
 };
