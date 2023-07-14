@@ -84,6 +84,11 @@ const CompanyProfileUpdatePage = () => {
         setValue('contact_person_position', res.contact_person_position);
         setValue('contact_person_mobile', res.contact_person_mobile);
         setValue('contact_person_mobile', res.contact_person_email);
+        setValue('industry_id', res.industry_id);
+        setValue('country_id', res.country_id);
+        setValue('state_id', res.state_id);
+        setValue('city_id', res.city_id);
+        setValue('area_id', res.area_id);
     }
 
     return (

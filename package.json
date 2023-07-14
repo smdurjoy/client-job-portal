@@ -1,7 +1,7 @@
 {
   "name": "job-portal",
   "version": "0.1.0",
-  "proxy": "http://18.208.161.157:8000",
+  "proxy": "https://kamla.xyz",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
