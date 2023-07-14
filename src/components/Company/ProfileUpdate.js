@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactSelect from "../Wrapper/ReactSelect";
 import Loader from "../Loader/Loader";
 
 const ProfileUpdate = ({
@@ -26,43 +25,65 @@ const ProfileUpdate = ({
                         <div className="row">
                             <div className="col-md-3 form-group">
                                 <label className="form-label">Industry</label>
-                                <ReactSelect
-                                    options={industries}
-                                    onChange={(e) => setValue('industry_id', e.id)}
-                                    required={true}
-                                />
+                                <select className="form-control"
+                                        name="industry_id" {...register('industry_id', {required: true})}>
+                                    {
+                                        industries?.map(industry => (
+                                            <option value={industry.id}>{industry.label}</option>
+                                        ))
+                                    }
+                                </select>
+                                {errors.industry_id && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-3 form-group">
                                 <label className="form-label">Country</label>
-                                <ReactSelect
-                                    options={countries}
-                                    onChange={(e) => handleCountryChange(e)}
-                                    required={true}
-                                />
+                                <select className="form-control"
+                                        name="country_id" {...register('country_id', {required: true})}>
+                                    {
+                                        countries?.map(country => (
+                                            <option value={country.id} onChange={(e) => handleCountryChange(e)}>
+                                                {country.label}
+                                            </option>
+                                        ))
+                                    }
+                                </select>
+                                {errors.country_id && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-3 form-group">
                                 <label className="form-label">State</label>
-                                <ReactSelect
-                                    options={states}
-                                    onChange={(e) => setValue('state_id', e.id)}
-                                    required={true}
-                                />
+                                <select className="form-control"
+                                        name="state_id" {...register('state_id', {required: true})}>
+                                    {
+                                        states?.map(state => (
+                                            <option value={state.id}>{state.label}</option>
+                                        ))
+                                    }
+                                </select>
+                                {errors.state_id && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-3 form-group">
                                 <label className="form-label">City</label>
-                                <ReactSelect
-                                    options={cities}
-                                    onChange={(e) => setValue('city_id', e.id)}
-                                    required={true}
-                                />
+                                <select className="form-control"
+                                        name="city_id" {...register('city_id', {required: true})}>
+                                    {
+                                        cities?.map(city => (
+                                            <option value={city.id}>{city.label}</option>
+                                        ))
+                                    }
+                                </select>
+                                {errors.city_id && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-3 mt-2">
                                 <label className="form-label">Area</label>
-                                <ReactSelect
-                                    options={areas}
-                                    onChange={(e) => setValue('area_id', e.id)}
-                                    required={true}
-                                />
+                                <select className="form-control"
+                                        name="area_id" {...register('area_id', {required: true})}>
+                                    {
+                                        areas?.map(area => (
+                                            <option value={area.id}>{area.label}</option>
+                                        ))
+                                    }
+                                </select>
+                                {errors.area_id && <span className="text-danger">This field is required</span>}
                             </div>
                             <div className="col-md-3 mt-2">
                                 <label className="form-label">Address</label>

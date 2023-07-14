@@ -83,12 +83,16 @@ const CompanyProfileUpdatePage = () => {
         setValue('contact_person_name', res.contact_person_name);
         setValue('contact_person_position', res.contact_person_position);
         setValue('contact_person_mobile', res.contact_person_mobile);
-        setValue('contact_person_mobile', res.contact_person_email);
+        setValue('contact_person_email', res.contact_person_email);
+        setValue('company_address_line_1', res.company_address_line_1);
         setValue('industry_id', res.industry_id);
         setValue('country_id', res.country_id);
         setValue('state_id', res.state_id);
         setValue('city_id', res.city_id);
         setValue('area_id', res.area_id);
+        fetchCities(res.country_id).then(cities => setCities(cities));
+        fetchStates(res.country_id).then(states => setStates(states));
+        fetchAreas(res.country_id).then(areas => setAreas(areas));
     }
 
     return (
