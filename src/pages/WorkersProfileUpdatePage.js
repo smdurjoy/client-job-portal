@@ -172,6 +172,9 @@ const WorkersProfileUpdatePage = () => {
         setValue('postal_code', res.postal_code);
         setValue('skill_set', res.skill_set);
         setValue('educations', res.educations);
+        fetchCities(res.country).then(cities => setCities(cities));
+        fetchStates(res.country).then(states => setStates(states));
+        fetchAreas(res.country).then(areas => setAreas(areas));
     }
 
     return (

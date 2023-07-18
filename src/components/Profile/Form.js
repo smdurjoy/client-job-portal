@@ -32,6 +32,17 @@ const Form = ({
         remove: skillRemove
     } = useFieldArray({control, name: "skills"});
 
+    const genders = [
+        {
+            id: 1,
+            label: 'Male'
+        },
+        {
+            id: 2,
+            label: 'Female'
+        }
+    ];
+
     return (
         <div className="profileForm">
             <div className="container">
@@ -98,35 +109,53 @@ const Form = ({
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Country</label>
-                            <ReactSelect
-                                options={countries}
-                                onChange={(e) => handleCountryChange(e)}
-                                required={true}
-                            />
+                            <select className="form-control"
+                                    name="country_id" {...register('country_id', {required: true})}>
+                                {
+                                    countries?.map(country => (
+                                        <option value={country.id} onChange={(e) => handleCountryChange(e)}>
+                                            {country.label}
+                                        </option>
+                                    ))
+                                }
+                            </select>
+                            {errors.country_id && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">State</label>
-                            <ReactSelect
-                                options={states}
-                                onChange={(e) => setValue('state_id', e.id)}
-                                required={true}
-                            />
+                            <select className="form-control"
+                                    name="state_id" {...register('state_id', {required: true})}>
+                                {
+                                    states?.map(state => (
+                                        <option value={state.id}>{state.label}</option>
+                                    ))
+                                }
+                            </select>
+                            {errors.state_id && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">City</label>
-                            <ReactSelect
-                                options={cities}
-                                onChange={(e) => setValue('city_id', e.id)}
-                                required={true}
-                            />
+                            <select className="form-control"
+                                    name="city_id" {...register('city_id', {required: true})}>
+                                {
+                                    cities?.map(city => (
+                                        <option value={city.id}>{city.label}</option>
+                                    ))
+                                }
+                            </select>
+                            {errors.city_id && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Area</label>
-                            <ReactSelect
-                                options={areas}
-                                onChange={(e) => setValue('area_id', e.id)}
-                                required={true}
-                            />
+                            <select className="form-control"
+                                    name="area_id" {...register('area_id', {required: true})}>
+                                {
+                                    areas?.map(area => (
+                                        <option value={area.id}>{area.label}</option>
+                                    ))
+                                }
+                            </select>
+                            {errors.area_id && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Address Line 1</label>
@@ -146,19 +175,15 @@ const Form = ({
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Gender</label>
-                            <ReactSelect
-                                options={[
-                                    {
-                                        id: 1,
-                                        label: 'Male'
-                                    },
-                                    {
-                                        id: 2,
-                                        label: 'Female'
-                                    }
-                                ]}
-                                onChange={(e) => setValue('gender_id', e.id)}
-                            />
+                            <select className="form-control"
+                                    name="area_id" {...register('gender_id', {required: true})}>
+                                {
+                                    genders?.map(gender => (
+                                        <option value={gender.id}>{gender.label}</option>
+                                    ))
+                                }
+                            </select>
+                            {errors.gender_id && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Postal Code</label>
