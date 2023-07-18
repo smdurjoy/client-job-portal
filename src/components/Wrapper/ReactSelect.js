@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Select from "react-select";
 
-const ReactSelect = ({options, placeholder, onChange, required, isMulti}) => {
+const ReactSelect = ({options, placeholder, onChange, required, isMulti, value = null}) => {
     const [height, setHeight] = useState('40px');
     const customStyles = {
         control: (provided, state) => ({
@@ -44,15 +44,28 @@ const ReactSelect = ({options, placeholder, onChange, required, isMulti}) => {
     }, [])
 
     return (
-        <Select
-            options={options}
-            styles={customStyles}
-            placeholder={placeholder}
-            isSearchable={false}
-            onChange={onChange}
-            required={required}
-            isMulti={isMulti}
-        />
+        value ? (
+            <Select
+                options={options}
+                styles={customStyles}
+                placeholder={placeholder}
+                isSearchable={false}
+                onChange={onChange}
+                required={required}
+                isMulti={isMulti}
+                value={value}
+            />
+        ) : (
+            <Select
+                options={options}
+                styles={customStyles}
+                placeholder={placeholder}
+                isSearchable={false}
+                onChange={onChange}
+                required={required}
+                isMulti={isMulti}
+            />
+        )
     );
 };
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import JobsList from "./JobsList";
 import Pagination from "../Common/Pagination";
 import ReactSelect from '../Wrapper/ReactSelect';
 
-const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) => {
+const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading, categoryId}) => {
     const filterOptions = [
         {
             value: 'Default',
@@ -32,6 +32,7 @@ const Jobs = ({countries, categories, jobs, handleCategoryChange, isLoading}) =>
                             <ReactSelect
                                 options={categories}
                                 placeholder="All Category"
+                                value={categoryId}
                                 onChange={(e) => handleCategoryChange(e)}
                             />
                         </div>

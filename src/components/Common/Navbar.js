@@ -19,6 +19,7 @@ const Navbar = ({navBg = ''}) => {
         localStorage.removeItem('user_id');
         localStorage.removeItem('company_id');
         localStorage.removeItem('type');
+        window.location.href = '/';
     }
 
     return (

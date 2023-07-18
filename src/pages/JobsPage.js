@@ -13,25 +13,34 @@ const JobsPage = () => {
     const [countries, setCountries] = useState([]);
     const [categories, setCategories] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [categoryId, setCategoryId] = useState(null);
+    const [categoryId, setCategoryId] = useState({
+        value: '',
+        label: 'Select',
+    });
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Jobs - workersRUS';
         setLoading(true);
         fetchCountries().then(countries => setCountries(countries));
-        fetchCategories().then(countries => setCategories(countries));
-        fetchJobs();
+        fetchCategories().then(countries => {
+            setCategories(countries);
+            fetchJobs(countries);
+        });
     }, [])
 
-    const fetchJobs = () => {
+    const fetchJobs = (cat) => {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryId = urlParams.get('category_id');
-        setCategoryId(parseInt(categoryId));
         if (categoryId) {
             fetchJobsByCategory(categoryId).then(jobs => {
                 setJobs(jobs);
                 setLoading(false);
+            });
+            const label = cat.find(val => val.id == categoryId)?.label;
+            setCategoryId({
+                value: categoryId,
+                label,
             });
         } else {
             fetchAllJobs().then(jobs => {
@@ -44,7 +53,11 @@ const JobsPage = () => {
     const handleCategoryChange = (e) => {
         setJobs([]);
         setLoading(true);
-        setCategoryId(e.id);
+        const label = categories.find(val => val.id == e.id)?.label;
+        setCategoryId({
+            value: e.id,
+            label,
+        });
         fetchJobsByCategory(e.id).then(jobs => {
             setJobs(jobs);
             setLoading(false);
