@@ -30,7 +30,6 @@ const LoginAsWorker = () => {
                 toastError(data.message);
             } else {
                 toastSuccess(data.message);
-                alert(data.message);
                 setOtpMode(true);
             }
         } catch (err) {
@@ -48,11 +47,9 @@ const LoginAsWorker = () => {
             formData.otp = parseInt(formData.otp);
             const {data} = await axios.post('/auth/verify/otp/email/', formData);
             if (data.status === 0) {
-                alert(data.message);
                 toastError(data.message);
             } else {
                 toastSuccess('Login Success');
-                alert('Login Success');
                 localStorage.setItem('auth-token', data.data.token);
                 localStorage.setItem('user_id', data.data.user_id);
                 localStorage.setItem('type', '1');

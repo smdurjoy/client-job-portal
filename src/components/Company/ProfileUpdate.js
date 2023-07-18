@@ -90,7 +90,6 @@ const ProfileUpdate = ({
                                 <input type="text"
                                        className="form-control"
                                        placeholder="Write"
-                                       {...register('address', {required: true})}
                                 />
                                 {errors.address && <span className="text-danger">This field is required</span>}
                             </div>

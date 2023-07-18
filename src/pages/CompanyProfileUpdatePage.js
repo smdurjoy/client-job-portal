@@ -61,7 +61,6 @@ const CompanyProfileUpdatePage = () => {
                 toastError(data.message);
             } else {
                 toastSuccess(data.message);
-                alert(data.message);
             }
         } catch (e) {
             toastError('Something Went Wrong !');
