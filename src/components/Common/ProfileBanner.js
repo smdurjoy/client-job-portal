@@ -1,6 +1,5 @@
 import React from 'react';
 import image from '../../images/bg.jpg'
-import companyLogo from '../../images/companies/company1.jpg';
 import moment from "moment";
 
 const ProfileBanner = ({
@@ -12,7 +11,9 @@ const ProfileBanner = ({
                            handleAppliedCandidates,
                            handleShortlistedCandidates,
                            workerMakeJobShortlisted,
-                           isSubmitting
+                           isSubmitting,
+                           city,
+                           logo,
                        }) => {
     return (
         <div className="profileBanner" style={{backgroundImage: `url(${image})`}}>
@@ -22,13 +23,14 @@ const ProfileBanner = ({
                         <div className="col-md-6">
                             <div className="companyInfo">
                                 <div className="d-flex align-items-center">
-                                    <img src={companyLogo} alt="companyLogo"/>
+                                    <img src={logo} alt="companyLogo"/>
                                     <div className="companyDes">
                                         <h3>{title}</h3>
                                         <span>{subTitle}</span>
                                         <p>
                                             +084 123 456 789 &nbsp;&nbsp;&nbsp;
-                                            <i className="fa fa-map-marker"></i> 1628 2nd Ave New York
+                                            <i className="fa fa-map-marker"></i>&nbsp;
+                                            {city}
                                         </p>
                                     </div>
                                 </div>

@@ -112,9 +112,11 @@ const JobDescriptionPage = () => {
             <Navbar navBg='scrolledNav'/>
             <ProfileBanner
                 isLoading={isLoading}
+                logo={jobDescription.company_logo}
                 title={jobDescription.job_title}
                 subTitle={jobDescription.industry}
                 deadline={jobDescription.application_deadline}
+                city={jobDescription.city}
                 type={type}
                 handleJobApply={handleJobApply}
                 handleAppliedCandidates={handleAppliedCandidates}
