@@ -34,18 +34,18 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                     <div className="col-md-8">
                         <h4>- About Me</h4>
                         <p>{ profile.professional_description }</p>
-                        <h4>- Basic Steps</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus
-                            explicabo fugiat id libero,
-                            magnam optio praesentium repellat rerum voluptates. Amet doloribus facilis magnam maxime
-                            nisi, omnis quis.
-                        </p>
-                        <ol>
-                            <li>There are many variations of passages of Lorem Ipsum available.</li>
-                            <li>Many desktop publishing packages and web page editors now use</li>
-                            <li>If you are going to use a passage of Lorem Ipsum</li>
-                        </ol>
+                        {/*<h4>- Basic Steps</h4>*/}
+                        {/*<p>*/}
+                        {/*    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda, dolor doloribus*/}
+                        {/*    explicabo fugiat id libero,*/}
+                        {/*    magnam optio praesentium repellat rerum voluptates. Amet doloribus facilis magnam maxime*/}
+                        {/*    nisi, omnis quis.*/}
+                        {/*</p>*/}
+                        {/*<ol>*/}
+                        {/*    <li>There are many variations of passages of Lorem Ipsum available.</li>*/}
+                        {/*    <li>Many desktop publishing packages and web page editors now use</li>*/}
+                        {/*    <li>If you are going to use a passage of Lorem Ipsum</li>*/}
+                        {/*</ol>*/}
 
                         <h4>- Education</h4>
                         <EducationTimeLine educations={profile.educations}/>
@@ -53,193 +53,193 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                         <h4>- Work & Experience</h4>
                         <ExperienceTimeLine experiences={profile.employment_history}/>
 
-                        <h4>- Portfolio</h4>
-                        <div className="companyPhoto mb-5">
-                            <img src={m1} alt="image1"/>
-                            <img src={m2} alt="image2"/>
-                            <img src={m3} alt="image3"/>
-                        </div>
+                        {/*<h4>- Portfolio</h4>*/}
+                        {/*<div className="companyPhoto mb-5">*/}
+                        {/*    <img src={m1} alt="image1"/>*/}
+                        {/*    <img src={m2} alt="image2"/>*/}
+                        {/*    <img src={m3} alt="image3"/>*/}
+                        {/*</div>*/}
 
                         <h4>- Skills</h4>
                         <ProgressBar skills={profile.skill_set}/>
 
-                        <h4>- Awards</h4>
-                        <TimeLine items={awards}/>
+                        {/*<h4>- Awards</h4>*/}
+                        {/*<TimeLine items={awards}/>*/}
 
-                        <div className="tags mt-4">
-                            Tagged as: &nbsp; &nbsp;
-                            <span>Digital</span>
-                            <span>Interviews</span>
-                            <span>Jobs</span>
-                            <span>Media</span>
-                        </div>
-                        <hr className="mt-5"/>
-                        <div className="socialArea d-flex flex-wrap justify-content-between align-items-center">
-                            <div className="d-flex align-items-center">
-                                <span>- Share:</span>
-                                <div className="social-menu socialIcons">
-                                    <ul>
-                                        <li>
-                                            <Link to="https://www.facebook.com" target="blank" className="facebook">
-                                                <i className="fa fa-facebook"></i>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="https://www.twitter.com" target="blank" className="twitter">
-                                                <i className="fa fa-twitter"></i>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="https://www.linkedin.com" target="blank" className="linkedin">
-                                                <i className="fa fa-linkedin"></i>
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link to="https://www.pinterest.com" target="blank" className="pinterest">
-                                                <i className="fa fa-pinterest"></i>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            {
-                                jobId ? (
-                                    <button className="btn shortListBtn"
-                                            onClick={makeShortListed}
-                                            disabled={isSubmitting}
-                                    >
-                                        Make Shortlist
-                                    </button>
-                                ) : (
-                                    <Link to="/shortlisted-jobs">
-                                        <button className="btn shortListBtn">
-                                            <i className="fa fa-heart-o"></i> &nbsp;
-                                            Shortlist
-                                        </button>
-                                    </Link>
-                                )
-                            }
+                        {/*<div className="tags mt-4">*/}
+                        {/*    Tagged as: &nbsp; &nbsp;*/}
+                        {/*    <span>Digital</span>*/}
+                        {/*    <span>Interviews</span>*/}
+                        {/*    <span>Jobs</span>*/}
+                        {/*    <span>Media</span>*/}
+                        {/*</div>*/}
+                        {/*<hr className="mt-5"/>*/}
+                        {/*<div className="socialArea d-flex flex-wrap justify-content-between align-items-center">*/}
+                        {/*    <div className="d-flex align-items-center">*/}
+                        {/*        <span>- Share:</span>*/}
+                        {/*        <div className="social-menu socialIcons">*/}
+                        {/*            <ul>*/}
+                        {/*                <li>*/}
+                        {/*                    <Link to="https://www.facebook.com" target="blank" className="facebook">*/}
+                        {/*                        <i className="fa fa-facebook"></i>*/}
+                        {/*                    </Link>*/}
+                        {/*                </li>*/}
+                        {/*                <li>*/}
+                        {/*                    <Link to="https://www.twitter.com" target="blank" className="twitter">*/}
+                        {/*                        <i className="fa fa-twitter"></i>*/}
+                        {/*                    </Link>*/}
+                        {/*                </li>*/}
+                        {/*                <li>*/}
+                        {/*                    <Link to="https://www.linkedin.com" target="blank" className="linkedin">*/}
+                        {/*                        <i className="fa fa-linkedin"></i>*/}
+                        {/*                    </Link>*/}
+                        {/*                </li>*/}
+                        {/*                <li>*/}
+                        {/*                    <Link to="https://www.pinterest.com" target="blank" className="pinterest">*/}
+                        {/*                        <i className="fa fa-pinterest"></i>*/}
+                        {/*                    </Link>*/}
+                        {/*                </li>*/}
+                        {/*            </ul>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    {*/}
+                        {/*        jobId ? (*/}
+                        {/*            <button className="btn shortListBtn"*/}
+                        {/*                    onClick={makeShortListed}*/}
+                        {/*                    disabled={isSubmitting}*/}
+                        {/*            >*/}
+                        {/*                Make Shortlist*/}
+                        {/*            </button>*/}
+                        {/*        ) : (*/}
+                        {/*            <Link to="/shortlisted-jobs">*/}
+                        {/*                <button className="btn shortListBtn">*/}
+                        {/*                    <i className="fa fa-heart-o"></i> &nbsp;*/}
+                        {/*                    Shortlist*/}
+                        {/*                </button>*/}
+                        {/*            </Link>*/}
+                        {/*        )*/}
+                        {/*    }*/}
 
-                        </div>
+                        {/*</div>*/}
 
-                        <div className="mt-4">
-                            <Review title="Add a review"/>
-                        </div>
+                        {/*<div className="mt-4">*/}
+                        {/*    <Review title="Add a review"/>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="col-md-4">
                         <div className="card py-3 px-2 mt-0">
                             <div className="card-body candidateAlert">
-                                <h5>Jobs Overview</h5>
-                                <div className="content mt-4">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Job Type:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>Fulltime</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content mt-4">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Category:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>Accounting / Finance</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content mt-4">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Location:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>1628 2nd Ave New York</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Offered Salary:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>$1765 / month</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Experience:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>5 Years</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Languages:</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>English, Turkish, Japanese</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Gender</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>Male</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Age</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>30</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Qualification</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>Certificate, Associate Degree</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Views</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>777</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
+                                {/*<h5>Jobs Overview</h5>*/}
+                                {/*<div className="content mt-4">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Job Type:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>Fulltime</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content mt-4">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Category:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>Accounting / Finance</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content mt-4">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Location:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>1628 2nd Ave New York</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Offered Salary:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>$1765 / month</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Experience:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>5 Years</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Languages:</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>English, Turkish, Japanese</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Gender</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>Male</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Age</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>30</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Qualification</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>Certificate, Associate Degree</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Views</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>777</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
 
                                 <div className="apply">
                                     <button className="applyBtn">Contact Me</button>
@@ -289,15 +289,15 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                                             {profile.email}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td className="text-dark">
-                                            Website:
-                                        </td>
-                                        <td>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            apusthemes.com
-                                        </td>
-                                    </tr>
+                                    {/*<tr>*/}
+                                    {/*    <td className="text-dark">*/}
+                                    {/*        Website:*/}
+                                    {/*    </td>*/}
+                                    {/*    <td>*/}
+                                    {/*        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}
+                                    {/*        apusthemes.com*/}
+                                    {/*    </td>*/}
+                                    {/*</tr>*/}
                                     <tr>
                                         <td className="text-dark">
                                             Location:
@@ -307,23 +307,23 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                                             {profile.city_name}, {profile.state_name}, {profile.country_name}
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td className="text-dark">
-                                            Socials:
-                                        </td>
-                                        <td>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <Link to="#">
-                                                <i className="fa fa-facebook"></i>
-                                            </Link>&nbsp;
-                                            <Link to="#">
-                                                <i className="fa fa-twitter"></i>
-                                            </Link>&nbsp;
-                                            <Link to="#">
-                                                <i className="fa fa-linkedin"></i>
-                                            </Link>&nbsp;
-                                        </td>
-                                    </tr>
+                                    {/*<tr>*/}
+                                    {/*    <td className="text-dark">*/}
+                                    {/*        Socials:*/}
+                                    {/*    </td>*/}
+                                    {/*    <td>*/}
+                                    {/*        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}
+                                    {/*        <Link to="#">*/}
+                                    {/*            <i className="fa fa-facebook"></i>*/}
+                                    {/*        </Link>&nbsp;*/}
+                                    {/*        <Link to="#">*/}
+                                    {/*            <i className="fa fa-twitter"></i>*/}
+                                    {/*        </Link>&nbsp;*/}
+                                    {/*        <Link to="#">*/}
+                                    {/*            <i className="fa fa-linkedin"></i>*/}
+                                    {/*        </Link>&nbsp;*/}
+                                    {/*    </td>*/}
+                                    {/*</tr>*/}
                                     </tbody>
                                 </table>
                             </div>

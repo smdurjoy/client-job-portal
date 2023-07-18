@@ -1,5 +1,5 @@
 import React from 'react';
-import client1 from '../../images/client1.jpeg'
+import dummyUser from '../../assets/images/dummyUser.webp'
 import Rating from "../Common/Rating";
 import {Link} from "react-router-dom";
 
@@ -17,10 +17,10 @@ const AppliedCandidates = ({title, candidates, jobId}) => {
                                         <div className="col-md-6 mt-2">
                                             <div className="card text-center">
                                                 <div className="card-body p-0">
-                                                    <img src={client1} alt="candidate"/>
+                                                    <img src={dummyUser} alt="candidate"/>
                                                     <h5 className="card-title">{candidate.first_name} {candidate.last_name}</h5>
-                                                    <span className="card-text">User Experience Design Essentials</span>
-                                                    <Rating/>
+                                                    {/*<span className="card-text">User Experience Design Essentials</span>*/}
+                                                    {/*<Rating/>*/}
                                                     <div className="skills mt-3">
                                                         {
                                                             candidate.skill_set?.map(skill => (
