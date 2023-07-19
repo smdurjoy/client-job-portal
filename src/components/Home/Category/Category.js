@@ -17,7 +17,7 @@ const Category = ({categories}) => {
                                 <img style={{width: '100px', height: '100px'}} src={category.category_icon} alt=""/>
                                 <div className="mt-4">
                                     <h5>{category.label}</h5>
-                                    <small>327 Open Positions</small>
+                                    {/*<small>327 Open Positions</small>*/}
                                 </div>
                             </Link>
                         </div>
