@@ -74,6 +74,8 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const onSubmit = async (formData) => {
+        console.log({formData});
+        return;
         setIsSubmitting(true);
         try {
             formData.user_id = localStorage.getItem('user_id');
@@ -221,7 +223,7 @@ const WorkersProfileUpdatePage = () => {
         setValue('address_line2', res.address_line2);
         setValue('postal_code', res.postal_code);
         setValue('skill_set', res.skill_set);
-        setValue('educations', res.educations);
+        setValue('degree_list', res.educations);
         setValue('date_of_birth', res.date_of_birth);
         fetchCities(res.country).then(cities => setCities(cities));
         fetchStates(res.country).then(states => setStates(states));

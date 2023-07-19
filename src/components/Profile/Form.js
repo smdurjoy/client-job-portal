@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../assets/css/profile.css';
-import ReactSelect from "../Wrapper/ReactSelect";
 import {Link} from "react-router-dom";
 
 const Form = ({
@@ -13,11 +12,9 @@ const Form = ({
                   onSubmit,
                   register,
                   errors,
-                  setValue,
                   control,
                   useFieldArray,
                   isSubmitting,
-                  profile,
                   degrees,
               }) => {
 
@@ -30,7 +27,7 @@ const Form = ({
         fields: skills,
         append: skillAppend,
         remove: skillRemove
-    } = useFieldArray({control, name: "skills"});
+    } = useFieldArray({control, name: "skill_set"});
 
     const genders = [
         {
@@ -199,11 +196,14 @@ const Form = ({
                             {educations.map((item, index) => (
                                 <div className="row mt-2" key={item.id}>
                                     <div className="col-md-3">
-                                        <ReactSelect
-                                            options={degrees}
-                                            onChange={(e) => setValue(`degree_list.${index}.degree_id`, e.id)}
-                                            required={true}
-                                        />
+                                        <select className="form-control"
+                                                name="area_id" {...register(`degree_list.${index}.degree_id`, {required: true})}>
+                                            {
+                                                degrees?.map(degree => (
+                                                    <option value={degree.id}>{degree.label}</option>
+                                                ))
+                                            }
+                                        </select>
                                     </div>
                                     <div className="col-md-3">
                                         <input type="text"
@@ -212,10 +212,16 @@ const Form = ({
                                                {...register(`degree_list.${index}.institute`)}
                                         />
                                     </div>
-                                    <div className="col-md-3">
+                                    <div className="col-md-2">
                                         <input type="date"
                                                className="form-control"
                                                {...register(`degree_list.${index}.passing_year`)}
+                                        />
+                                    </div>
+                                    <div className="col-md-2">
+                                        <input type="text"
+                                               className="form-control"
+                                               {...register(`degree_list.${index}.result`)}
                                         />
                                     </div>
                                     <div className="col-md-2">
