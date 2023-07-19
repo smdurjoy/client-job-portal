@@ -29,11 +29,6 @@ const JobsPage = () => {
         document.title = 'Jobs - workersRUS';
         setLoading(true);
         handleJobEffect();
-        // fetchCountries().then(countries => setCountries(countries));
-        // fetchCategories().then(categories => {
-        //     setCategories(categories);
-        //     fetchJobs(categories);
-        // });
     }, [])
 
     const handleJobEffect = async () => {

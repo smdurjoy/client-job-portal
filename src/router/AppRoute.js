@@ -18,6 +18,7 @@ import PostJobPage from "../pages/PostJobPage";
 import PostedJobsPage from "../pages/PostedJobsPage";
 import AppliedCandidatesPage from "../pages/AppliedCandidatesPage";
 import ShortlistedCandidatesPage from "../pages/ShortlistedCandidatesPage";
+import AllCategoryListPage from "../pages/AllCategoryListPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -104,6 +105,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/shortlisted-candidates/:id",
         element: <ShortlistedCandidatesPage/>,
+    },
+    {
+        path: "/all-categories",
+        element: <AllCategoryListPage/>,
     },
 ]);
 
