@@ -89,22 +89,38 @@ const WorkersProfileUpdatePage = () => {
             let res = await storeAddress(formData);
 
             if (res.status === 0) {
-                toastWarning(data.message);
+                toastWarning(res.message);
                 return;
             }
 
             res = await storeEducation(formData);
 
             if (res.status === 0) {
-                toastWarning(data.message);
+                toastWarning(res.message);
                 return;
             }
 
             res = await storeSkills(formData);
 
             if (res.status === 0) {
-                toastWarning(data.message);
+                toastWarning(res.message);
                 return;
+            }
+
+            if (formData.profile_picture && formData.profile_picture[0]) {
+                res = await storeProfilePicture(formData);
+                if (res.status === 0) {
+                    toastWarning(res.message);
+                    return;
+                }
+            }
+
+            if (formData.attachment && formData.attachment[0]) {
+                res = await storeAttachment(formData);
+                if (res.status === 0) {
+                    toastWarning(res.message);
+                    return;
+                }
             }
 
             toastSuccess('Updated Successfully.');
@@ -156,6 +172,40 @@ const WorkersProfileUpdatePage = () => {
         }
     }
 
+    const storeProfilePicture = async (form) => {
+        const formData = new FormData();
+        formData.append("profile_picture", form.profile_picture[0]);
+        formData.append("worker_id", form.user_id);
+        try {
+            const {data} = await axios.post('/worker/upload/profile/picture/', formData, {
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Content-Type': 'multipart/form-data',
+                }
+            })
+            return data;
+        } catch (e) {
+            toastError('Something Went Wrong!');
+        }
+    }
+
+    const storeAttachment = async (form) => {
+        const formData = new FormData();
+        formData.append("profile_picture", form.attachment[0]);
+        formData.append("worker_id", form.user_id);
+        try {
+            const {data} = await axios.post('/worker/upload/resume/', formData, {
+                headers: {
+                    'Authorization': `Token ${token}`,
+                    'Content-Type': 'multipart/form-data',
+                }
+            })
+            return data;
+        } catch (e) {
+            toastError('Something Went Wrong!');
+        }
+    }
+
     const format = (res) => {
         setValue('first_name', res.first_name);
         setValue('middle_name', res.middle_name);
@@ -172,6 +222,7 @@ const WorkersProfileUpdatePage = () => {
         setValue('postal_code', res.postal_code);
         setValue('skill_set', res.skill_set);
         setValue('educations', res.educations);
+        setValue('date_of_birth', res.date_of_birth);
         fetchCities(res.country).then(cities => setCities(cities));
         fetchStates(res.country).then(states => setStates(states));
         fetchAreas(res.country).then(areas => setAreas(areas));

@@ -298,12 +298,14 @@ const Form = ({
                             <label className="form-label">Photo</label>
                             <input type="file"
                                    className="form-control"
+                                   {...register('profile_picture')}
                             />
                         </div>
                         <div className="col-md-6 my-2 form-group">
                             <label className="form-label">Attachment</label>
                             <input type="file"
                                    className="form-control"
+                                   {...register('attachment')}
                             />
                         </div>
                     </div>
