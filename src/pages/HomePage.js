@@ -22,6 +22,7 @@ const HomePage = () => {
     const [countries, setCountries] = useState([]);
     const [categories, setCategories] = useState([]);
     const [jobs, setJobs] = useState([]);
+    const [token, setToken] = useState(null);
     const [loginType, setLoginType] = useState('1');
     const onScroll = () => {
         if (window.scrollY > 600) {
@@ -36,6 +37,7 @@ const HomePage = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Home - workersRUS';
         setLoginType(localStorage.getItem('type'));
+        setToken(localStorage.getItem('auth-token'));
         fetchCountries().then(countries => setCountries(countries));
         fetchCategories().then(categories => setCategories(categories));
         fetchAllJobs().then(jobs => setJobs(jobs));
@@ -59,7 +61,7 @@ const HomePage = () => {
                 loginType == '2' ? <></> : <Jobs jobs={jobs}/>
             }
             <Pricing/>
-            <Marketing/>
+            <Marketing token={token}/>
             <Downloads/>
             <HowItWorks/>
             <Client/>
