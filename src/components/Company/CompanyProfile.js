@@ -129,39 +129,39 @@ const CompanyProfile = ({profile, type}) => {
                                     </div>
                                     <hr/>
                                 </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Since</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>1998</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Views</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>28</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
-                                <div className="content">
-                                    <div className="d-flex justify-content-between">
-                                        <div className="title">
-                                            <span>Posted Jobs</span>
-                                        </div>
-                                        <div className="des">
-                                            <span>2</span>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                </div>
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Since</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>1998</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Views</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>28</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
+                                {/*<div className="content">*/}
+                                {/*    <div className="d-flex justify-content-between">*/}
+                                {/*        <div className="title">*/}
+                                {/*            <span>Posted Jobs</span>*/}
+                                {/*        </div>*/}
+                                {/*        <div className="des">*/}
+                                {/*            <span>2</span>*/}
+                                {/*        </div>*/}
+                                {/*    </div>*/}
+                                {/*    <hr/>*/}
+                                {/*</div>*/}
                                 <div className="content">
                                     <div className="d-flex justify-content-between">
                                         <div className="title">

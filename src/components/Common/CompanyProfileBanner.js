@@ -35,22 +35,22 @@ const CompanyProfileBanner = ({profile, type}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-6 companyCounts">
-                            <div className="d-flex justify-content-center">
-                                <div className="text-center">
-                                    <p>2</p><br/>
-                                    <span>Jobs</span>
-                                </div>
-                                <div className="text-center">
-                                    <p>0</p><br/>
-                                    <span>Review</span>
-                                </div>
-                                <div className="text-center">
-                                    <p>28</p><br/>
-                                    <span>Views</span>
-                                </div>
-                            </div>
-                        </div>
+                        {/*<div className="col-md-6 companyCounts">*/}
+                        {/*    <div className="d-flex justify-content-center">*/}
+                        {/*        <div className="text-center">*/}
+                        {/*            <p>2</p><br/>*/}
+                        {/*            <span>Jobs</span>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="text-center">*/}
+                        {/*            <p>0</p><br/>*/}
+                        {/*            <span>Review</span>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="text-center">*/}
+                        {/*            <p>28</p><br/>*/}
+                        {/*            <span>Views</span>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
