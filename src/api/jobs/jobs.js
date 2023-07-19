@@ -19,6 +19,15 @@ export const fetchAllJobs = async () => {
     }
 }
 
+export const searchJobs = async (keyword, country, category) => {
+    try {
+        const {data: {jobs}} = await axios.get(`/job/search/?keyword=${keyword}&country=${country}&category=${category}`);
+        return jobs;
+    } catch (e) {
+        toastError('Something Went Wrong!');
+    }
+}
+
 export const fetchJobDescription = async (jobId) => {
     try {
         const {data: {job_details}} = await axios.get(`/job/details/${jobId}/`);

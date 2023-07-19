@@ -6,15 +6,13 @@ import CategoryIcon from '../../assets/images/grid.svg';
 import {useNavigate} from "react-router-dom";
 
 const Banner = ({countries, categories}) => {
-    const [categoryId, setCategoryId] = useState(null);
+    const [categoryId, setCategoryId] = useState('all');
+    const [countryId, setCountryId] = useState('all');
+    const [keyword, setKeyword] = useState('');
     const navigate = useNavigate();
 
-    const options = [
-        {value: 'all', label: 'All'}
-    ]
-
     const handleJobFind = () => {
-        const url = categoryId ? `/jobs?category_id=${categoryId}` : '/jobs';
+        const url = `/jobs?category_id=${categoryId}&country_id=${countryId}&keyword=${keyword}`;
         navigate(url);
     }
 
@@ -38,6 +36,7 @@ const Banner = ({countries, categories}) => {
                                         <img width={15} src={SearchIcon} alt='search'/>
                                     </span>
                                     <input type="text" className="form-control border-0"
+                                           onChange={(e) => setKeyword(e.target.value)}
                                            placeholder="Job Title or Keywords"/>
                                 </div>
                             </div>
@@ -51,7 +50,10 @@ const Banner = ({countries, categories}) => {
                                     <span className="input-group-text bg-white border-0" id="basic-addon1">
                                         <img width={15} src={GeoIcon} alt='GeoIcon'/>
                                     </span>
-                                    <ReactSelect options={options} placeholder="All Location"/>
+                                    <ReactSelect options={countries}
+                                                 placeholder="All Location"
+                                                 onChange={(e) => setCountryId(e.id)}
+                                    />
                                 </div>
                             </div>
                             <div className="col-lg-3">

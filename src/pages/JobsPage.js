@@ -5,15 +5,21 @@ import SubBanner from "../components/Common/SubBanner";
 import Jobs from "../components/Jobs/Jobs";
 import Footer from "../components/Common/Footer";
 import {fetchCategories, fetchCountries} from "../api/common/commonApi";
-import {fetchAllJobs, fetchJobsByCategory} from "../api/jobs/jobs";
+import {searchJobs} from "../api/jobs/jobs";
 import Loader from "../components/Loader/Loader";
+import {toastError} from "../Helpers/Toaster";
 
 const JobsPage = () => {
     const [jobs, setJobs] = useState([]);
     const [countries, setCountries] = useState([]);
     const [categories, setCategories] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const [categoryId, setCategoryId] = useState({
+    const [keyword, setKeyword] = useState('');
+    const [category, setCategory] = useState({
+        value: '',
+        label: 'Select',
+    });
+    const [country, setCountry] = useState({
         value: '',
         label: 'Select',
     });
@@ -22,43 +28,53 @@ const JobsPage = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         document.title = 'Jobs - workersRUS';
         setLoading(true);
-        fetchCountries().then(countries => setCountries(countries));
-        fetchCategories().then(countries => {
-            setCategories(countries);
-            fetchJobs(countries);
-        });
+        handleJobEffect();
+        // fetchCountries().then(countries => setCountries(countries));
+        // fetchCategories().then(categories => {
+        //     setCategories(categories);
+        //     fetchJobs(categories);
+        // });
     }, [])
 
-    const fetchJobs = (cat) => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryId = urlParams.get('category_id');
-        if (categoryId) {
-            fetchJobsByCategory(categoryId).then(jobs => {
-                setJobs(jobs);
-                setLoading(false);
-            });
-            const label = cat.find(val => val.id == categoryId)?.label;
-            setCategoryId({
-                value: categoryId,
-                label,
-            });
-        } else {
-            fetchAllJobs().then(jobs => {
-                setJobs(jobs);
-                setLoading(false);
-            });
+    const handleJobEffect = async () => {
+        try {
+            const countryRes = await fetchCountries();
+            const categoryRes = await fetchCategories();
+            setCategories(categoryRes);
+            setCountries(countryRes);
+            await fetchJobs(categoryRes, countryRes);
+        } catch (e) {
+            toastError('Something Went Wrong!');
         }
     }
 
-    const handleCategoryChange = (e) => {
-        setJobs([]);
+    const fetchJobs = async (categoryRes, countryRes) => {
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryId = urlParams.get('category_id');
+            const countryId = urlParams.get('country_id');
+            const keyword = urlParams.get('keyword');
+            const jobsRes = await searchJobs(keyword, countryId, categoryId);
+            setJobs(jobsRes);
+            setLoading(false);
+            const label = categoryRes.find(val => val.id == categoryId)?.label;
+            setCategory({
+                value: categoryId,
+                label,
+            });
+            const countryLabel = countryRes.find(val => val.id == countryId)?.label;
+            setCountry({
+                value: countryId,
+                label: countryLabel,
+            });
+        } catch (e) {
+            toastError('Something Went Wrong!');
+        }
+    }
+
+    const handleJobSearch = () => {
         setLoading(true);
-        const label = categories.find(val => val.id == e.id)?.label;
-        setCategoryId({
-            value: e.id,
-            label,
-        });
-        fetchJobsByCategory(e.id).then(jobs => {
+        searchJobs(keyword, country.value, category.value).then(jobs => {
             setJobs(jobs);
             setLoading(false);
         });
@@ -71,10 +87,15 @@ const JobsPage = () => {
             <Jobs
                 countries={countries}
                 categories={categories}
-                handleCategoryChange={handleCategoryChange}
                 jobs={jobs}
                 isLoading={isLoading}
-                categoryId={categoryId}
+                categoryId={category.value}
+                setCategory={setCategory}
+                countryId={country.value}
+                setCountry={setCountry}
+                handleJobSearch={handleJobSearch}
+                keyword={keyword}
+                setKeyword={setKeyword}
             />
             {
                 isLoading ? <Loader/> : <></>
