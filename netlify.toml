@@ -2,6 +2,7 @@
   from = '/*'
   to = 'https://www.kamla.xyz/:splat'
   status = 200
+  headers = {Access-Control-Allow-Origin: “*”}
 [[redirects]]
   from = '/*'
   to = '/index.html'
