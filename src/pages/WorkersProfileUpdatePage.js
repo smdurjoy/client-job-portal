@@ -74,8 +74,6 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const onSubmit = async (formData) => {
-        console.log({formData});
-        return;
         setIsSubmitting(true);
         try {
             formData.user_id = localStorage.getItem('user_id');

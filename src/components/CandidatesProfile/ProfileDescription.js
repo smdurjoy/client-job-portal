@@ -61,7 +61,12 @@ const ProfileDescription = ({profile, jobId, makeShortListed, isSubmitting}) => 
                         {/*</div>*/}
 
                         <h4>- Skills</h4>
-                        <ProgressBar skills={profile.skill_set}/>
+                        {
+                            profile?.skill_set.map(skill => (
+                                <span>{skill.skill_name}, &nbsp;</span>
+                            ))
+                        }
+                        {/*<ProgressBar skills={profile.skill_set}/>*/}
 
                         {/*<h4>- Awards</h4>*/}
                         {/*<TimeLine items={awards}/>*/}
