@@ -1,31 +1,23 @@
 import React from 'react';
 import '../../assets/css/jobDescription.css';
 import companyLogo from '../../images/companies/company1.jpg';
-import m1 from '../../images/companies/jobs/m1.jpg';
-import m2 from '../../images/companies/jobs/m2.webp';
-import m3 from '../../images/companies/jobs/m3.jpg';
-import {Link} from "react-router-dom";
 import moment from "moment";
 
-const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit, workerMakeJobShortlisted, isSubmitting}) => {
+const JobDescription = ({
+                            jobDescription,
+                            type,
+                            handleJobApply,
+                            handleJobEdit,
+                            workerMakeJobShortlisted,
+                            isSubmitting
+                        }) => {
     return (
         <div className="jobDescription">
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
                         <h4>- Job Description</h4>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.
-                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages,
-                            and more recently with desktop publishing software like Aldus PageMaker including versions
-                            of Lorem Ipsum.
-                        </p>
+                        <p>{jobDescription.job_description}</p>
                         <h4>- Job Responsibilities:</h4>
                         <ul>
                             {jobDescription?.job_responsibilities}
@@ -257,16 +249,24 @@ const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit, wo
                                         ends: <span>{moment(jobDescription?.application_deadline).format('ll')}</span>
                                     </p>
                                     {
-                                        type == '2' ? <button className="applyBtn"
-                                                              onClick={handleJobEdit}>
-                                            Edit Job
-                                        </button> : <button className="applyBtn"
-                                                            onClick={handleJobApply}
-                                                            disabled={isSubmitting}
+                                        type == '2' ? <></> : <button className="applyBtn"
+                                                                      onClick={handleJobApply}
+                                                                      disabled={isSubmitting}
                                         >
                                             Apply Now
                                         </button>
                                     }
+                                    {/*{*/}
+                                    {/*    type == '2' ? <button className="applyBtn"*/}
+                                    {/*                          onClick={handleJobEdit}>*/}
+                                    {/*        Edit Job*/}
+                                    {/*    </button> : <button className="applyBtn"*/}
+                                    {/*                        onClick={handleJobApply}*/}
+                                    {/*                        disabled={isSubmitting}*/}
+                                    {/*    >*/}
+                                    {/*        Apply Now*/}
+                                    {/*    </button>*/}
+                                    {/*}*/}
                                     {/*<button className="shortlistBtn">Shortlist</button>*/}
                                     {/*<p className="text-center m-lg-auto py-3">OR APPLY WITH</p>*/}
                                     {/*<div className="applyWith">*/}
@@ -300,14 +300,14 @@ const JobDescription = ({jobDescription, type, handleJobApply, handleJobEdit, wo
                                     <i className="fa fa-phone"></i>&nbsp;&nbsp;
                                     <div>
                                         <span className="text-dark">Phone</span> <br/>
-                                        <span>+084 123 456 789</span>
+                                        <span>{jobDescription.company_phone}</span>
                                     </div>
                                 </div>
                                 <div className="content d-flex align-items-center mt-3">
                                     <i className="fa fa-envelope-o"></i>&nbsp;
                                     <div>
                                         <span className="text-dark">Email</span> <br/>
-                                        <span>+gaddis@apus.com</span>
+                                        <span>{jobDescription.company_email}</span>
                                     </div>
                                 </div>
                                 <div className="content d-flex align-items-center mt-3">
