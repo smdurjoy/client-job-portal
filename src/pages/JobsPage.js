@@ -5,7 +5,7 @@ import SubBanner from "../components/Common/SubBanner";
 import Jobs from "../components/Jobs/Jobs";
 import Footer from "../components/Common/Footer";
 import {fetchCategories, fetchCountries} from "../api/common/commonApi";
-import {searchJobs} from "../api/jobs/jobs";
+import {fetchAllJobs, searchJobs} from "../api/jobs/jobs";
 import Loader from "../components/Loader/Loader";
 import {toastError} from "../Helpers/Toaster";
 
@@ -49,19 +49,29 @@ const JobsPage = () => {
             const categoryId = urlParams.get('category_id');
             const countryId = urlParams.get('country_id');
             const keyword = urlParams.get('keyword');
-            const jobsRes = await searchJobs(keyword, countryId, categoryId);
+            let jobsRes;
+
+            if (keyword || countryId || categoryId) {
+                jobsRes = await searchJobs(keyword, countryId, categoryId);
+                if (categoryId) {
+                    const label = categoryRes.find(val => val.id == categoryId)?.label;
+                    setCategory({
+                        value: categoryId,
+                        label,
+                    });
+                }
+                if (countryId) {
+                    const countryLabel = countryRes.find(val => val.id == countryId)?.label;
+                    setCountry({
+                        value: countryId,
+                        label: countryLabel,
+                    });
+                }
+            } else {
+                jobsRes = await fetchAllJobs();
+            }
             setJobs(jobsRes);
             setLoading(false);
-            const label = categoryRes.find(val => val.id == categoryId)?.label;
-            setCategory({
-                value: categoryId,
-                label,
-            });
-            const countryLabel = countryRes.find(val => val.id == countryId)?.label;
-            setCountry({
-                value: countryId,
-                label: countryLabel,
-            });
         } catch (e) {
             toastError('Something Went Wrong!');
         }
@@ -69,7 +79,9 @@ const JobsPage = () => {
 
     const handleJobSearch = () => {
         setLoading(true);
-        searchJobs(keyword, country.value, category.value).then(jobs => {
+        const countryVal = country.value ? country.value : 'all';
+        const categoryVal = category.value ? category.value : 'all';
+        searchJobs(keyword, countryVal, categoryVal).then(jobs => {
             setJobs(jobs);
             setLoading(false);
         });
@@ -84,9 +96,9 @@ const JobsPage = () => {
                 categories={categories}
                 jobs={jobs}
                 isLoading={isLoading}
-                categoryId={category.value}
+                category={category}
                 setCategory={setCategory}
-                countryId={country.value}
+                country={country}
                 setCountry={setCountry}
                 handleJobSearch={handleJobSearch}
                 keyword={keyword}

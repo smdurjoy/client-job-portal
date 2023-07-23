@@ -1,6 +1,5 @@
 import React from 'react';
 import JobsList from "./JobsList";
-import Pagination from "../Common/Pagination";
 import ReactSelect from '../Wrapper/ReactSelect';
 
 const Jobs = ({
@@ -8,8 +7,8 @@ const Jobs = ({
                   categories,
                   jobs,
                   isLoading,
-                  categoryId,
-                  countryId,
+                  category,
+                  country,
                   handleJobSearch,
                   setCountry,
                   setCategory,
@@ -46,7 +45,7 @@ const Jobs = ({
                             <ReactSelect
                                 options={categories}
                                 placeholder="All Category"
-                                value={categoryId}
+                                value={category}
                                 onChange={(e) => {
                                     const label = categories.find(val => val.id == e.id)?.label;
                                     setCategory({
@@ -60,9 +59,9 @@ const Jobs = ({
                             <ReactSelect
                                 options={countries}
                                 placeholder="All Location"
-                                value={countryId}
+                                value={country}
                                 onChange={(e) => {
-                                    const label = countries.find(val => val.id ==  e.id)?.label;
+                                    const label = countries.find(val => val.id == e.id)?.label;
                                     setCountry({
                                         value: e.id,
                                         label,
