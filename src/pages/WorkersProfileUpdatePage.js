@@ -147,8 +147,12 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const storeEducation = async (formData) => {
+        const payload = {
+            user_id: formData.user_id,
+            degree_list: formData.degree_list
+        }
         try {
-            const {data} = await axios.post('/auth/set/worker/education/', formData, {
+            const {data} = await axios.post('/auth/set/worker/education/', payload, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }
@@ -160,8 +164,12 @@ const WorkersProfileUpdatePage = () => {
     }
 
     const storeSkills = async (formData) => {
+        const payload = {
+            user_id: formData.user_id,
+            skill_list: formData.skill_set.map(item => item.skill_name)
+        }
         try {
-            const {data} = await axios.post('/auth/set/worker/skill/', formData, {
+            const {data} = await axios.post('/auth/set/worker/skill/', payload, {
                 headers: {
                     'Authorization': `Token ${token}`
                 }

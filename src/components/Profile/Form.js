@@ -197,7 +197,10 @@ const Form = ({
                                 <div className="row mt-2" key={item.id}>
                                     <div className="col-md-3">
                                         <select className="form-control"
-                                                name="area_id" {...register(`degree_list.${index}.degree_id`, {required: true})}>
+                                                {...register(`degree_list.${index}.degree_id`, {
+                                                    required: true,
+                                                    valueAsNumber: true,
+                                                })}>
                                             {
                                                 degrees?.map(degree => (
                                                     <option value={degree.id}>{degree.label}</option>
@@ -265,7 +268,7 @@ const Form = ({
                                         <input type="text"
                                                className="form-control"
                                                placeholder="Write"
-                                               {...register(`skill_list.${index}`, {required: true})}
+                                               {...register(`skill_set.${index}.skill_name`, {required: true})}
                                         />
                                         <button className="btn btn-danger btn-sm" type="button"
                                                 onClick={() => skillRemove(index)}>
