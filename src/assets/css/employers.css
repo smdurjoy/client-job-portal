@@ -20,3 +20,7 @@
 .employers .accordion {
     padding-top: 10px;
 }
+
+.employers a {
+    text-decoration: none;
+}

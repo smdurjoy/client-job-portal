@@ -7,7 +7,7 @@ const CompanyProfileBanner = ({profile, type}) => {
             <div className="container">
                 <div className="profileBannerContent">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-12">
                             <div className="companyInfo">
                                 <div className="d-flex align-items-center">
                                     <img src={profile.company_logo} alt="companyLogo"/>

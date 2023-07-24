@@ -1,10 +1,5 @@
 import React from 'react';
-import ReactSelect from "../Wrapper/ReactSelect";
 import '../../assets/css/employers.css';
-import company1 from '../../images/companies/company1.jpg';
-import Pagination from "../Common/Pagination";
-import Checkbox from "../Wrapper/Checkbox";
-import InputRange from "../Wrapper/InputRange";
 import {Link} from "react-router-dom";
 import Loader from "../Loader/Loader";
 
@@ -43,22 +38,24 @@ const Candidates = ({companies, loader}) => {
                                             <div className="col-md-4 mt-2" key={index}>
                                                 <div className="card text-center">
                                                     <div className="card-body pb-5">
-                                                        <div className="featuredTags">
-                                                            <h1>Featured</h1>
-                                                        </div>
-                                                        <div className="wishList">
-                                                            <button className="btn pull-right">
-                                                                <i className="fa fa-heart-o"></i>
-                                                            </button>
-                                                        </div>
-                                                        <img src={company.company_logo} alt="company"/>
-                                                        <h5 className="card-title">
-                                                            <Link to={"/company/"+company.id}>
+                                                        <Link to={"/company/" + company.id}>
+                                                            <div className="featuredTags">
+                                                                <h1>Featured</h1>
+                                                            </div>
+                                                            <div className="wishList">
+                                                                <button className="btn pull-right">
+                                                                    <i className="fa fa-heart-o"></i>
+                                                                </button>
+                                                            </div>
+                                                            <img src={company.company_logo} alt="company"/>
+                                                            <h5 className="card-title">
+
                                                                 {company.company_name}
-                                                            </Link>
-                                                        </h5>
-                                                        <span className="card-text">{company.industry}</span><br/>
-                                                        <span className="card-text">Jobs Open: 0</span>
+
+                                                            </h5>
+                                                            <span className="card-text">{company.industry}</span><br/>
+                                                            <span className="card-text">Jobs Open: 0</span>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </div>
