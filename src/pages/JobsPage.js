@@ -46,9 +46,12 @@ const JobsPage = () => {
     const fetchJobs = async (categoryRes, countryRes) => {
         try {
             const urlParams = new URLSearchParams(window.location.search);
-            const categoryId = urlParams.get('category_id');
-            const countryId = urlParams.get('country_id');
-            const keyword = urlParams.get('keyword');
+            let categoryId = urlParams.get('category_id');
+            categoryId = categoryId === null ? 'all' : categoryId;
+            let countryId = urlParams.get('country_id');
+            countryId = countryId === null ? 'all' : countryId;
+            let keyword = urlParams.get('keyword');
+            keyword = keyword === null ? '' : keyword;
             let jobsRes;
 
             if (keyword || countryId || categoryId) {
@@ -67,6 +70,7 @@ const JobsPage = () => {
                         label: countryLabel,
                     });
                 }
+                setKeyword(keyword);
             } else {
                 jobsRes = await fetchAllJobs();
             }
