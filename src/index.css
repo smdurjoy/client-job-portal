@@ -1,3 +1,7 @@
+:root {
+  --primary: #F28A1F;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,37 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.homeBanner {
+  height: 745px;
+  background: url("./assets/images/home/bannerBg.png") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navItem {
+  padding: 0 25px;
+  color: #1e1e1e;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.navItem:hover {
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+
+.primaryBtn {
+  background-color: var(--primary) !important;
+  text-transform: none !important;
+  color: white !important;
+  padding: 10px 25px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
 }
