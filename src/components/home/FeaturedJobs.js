@@ -20,7 +20,7 @@ const FeaturedJobs = () => {
                     <Typography variant='h4' color='white'>
                         Featured Jobs
                     </Typography>
-                    <Button variant='outlined' className='secondaryBtnWhite'>
+                    <Button variant='outlined' className='secondaryBtnBlueWhite'>
                         Explore All
                     </Button>
                 </Box>
@@ -72,7 +72,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>
@@ -127,7 +127,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>
@@ -182,7 +182,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>
@@ -237,7 +237,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>
@@ -292,7 +292,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>
@@ -347,7 +347,7 @@ const FeaturedJobs = () => {
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Button variant='outlined' className='secondaryBtn'>
+                                <Button variant='outlined' className='secondaryBtnBlue'>
                                     View More
                                 </Button>
                                 <Button className='primaryBtn'>

@@ -60,6 +60,16 @@ code {
   border-radius: 7px !important;
 }
 
+.secondaryBtnBlue {
+  border-color: #0d9ca4 !important;
+  text-transform: capitalize !important;
+  color: #0d9ca4 !important;
+  padding: 12px 42px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
+}
+
 
 .secondaryBtnWhite {
   border-color: white !important;
