@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Navbar from "../components/common/Navbar";
 import Banner from "../components/home/Banner";
+import Companies from "../components/home/Companies";
+import Category from "../components/home/Category";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -23,6 +25,8 @@ const HomePage = () => {
         <>
             <Navbar/>
             <Banner/>
+            <Companies/>
+            <Category/>
         </>
     );
 };
