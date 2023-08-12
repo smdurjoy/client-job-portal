@@ -8,6 +8,7 @@ import FeaturedJobs from "../components/home/FeaturedJobs";
 import EasyAccess from "../components/home/EasyAccess";
 import PostAJob from "../components/home/PostAJob";
 import Statistics from "../components/home/Statistics";
+import Plans from "../components/home/Plans";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -37,6 +38,7 @@ const HomePage = () => {
             <EasyAccess/>
             <PostAJob/>
             <Statistics/>
+            <Plans/>
         </>
     );
 };

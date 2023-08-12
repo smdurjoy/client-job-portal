@@ -5,19 +5,13 @@ import {Grid} from "@mui/material";
 import createAcc from '../../assets/images/home/createAccount.svg';
 import searchJobs from '../../assets/images/home/searchJobs.svg';
 import save from '../../assets/images/home/save.svg';
+import SectionTitle from "../common/SectionTitle";
 
 const EasyAccess = () => {
     return (
         <div className='container'>
             <Box py={8}>
-                <Box display='flex' justifyContent='space-between' alignItems='center'>
-                    <Typography variant='h4' fontWeight='bold'>
-                        Get Started Easily
-                    </Typography>
-                    <Typography variant='h5' color='#6B6E6F'>
-                        Working Processes
-                    </Typography>
-                </Box>
+                <SectionTitle title='Get Started Easily' subTitle='Working Processes'/>
 
                 <Grid container my={5} columnSpacing={5}>
                     <Grid item xs={6} md={4} mt={4}>
