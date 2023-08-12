@@ -17,7 +17,7 @@ const FeaturedJobs = () => {
         <div className='container' style={{backgroundColor: '#2B3940'}}>
             <Box py={8}>
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
-                    <Typography variant='h5' color='white'>
+                    <Typography variant='h4' color='white'>
                         Featured Jobs
                     </Typography>
                     <Button variant='outlined' className='secondaryBtnWhite'>
@@ -27,7 +27,7 @@ const FeaturedJobs = () => {
 
                 <Grid container my={5} columnSpacing={5}>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>
@@ -82,7 +82,7 @@ const FeaturedJobs = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>
@@ -137,7 +137,7 @@ const FeaturedJobs = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>
@@ -192,7 +192,7 @@ const FeaturedJobs = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>
@@ -247,7 +247,7 @@ const FeaturedJobs = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>
@@ -302,7 +302,7 @@ const FeaturedJobs = () => {
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4} mt={4}>
-                        <Card style={{ borderRadius: '10px', padding: '20px' }}>
+                        <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
                                     <img src={companyLogo} alt="company" width='80px'/>

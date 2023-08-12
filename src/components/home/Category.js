@@ -10,7 +10,9 @@ const Category = () => {
     return (
         <div className='container'>
             <Box display='flex' justifyContent='space-between' alignItems='center' my={6} px={2}>
-                <h2 className='title'>Explore By Category</h2>
+                <Typography variant='h4' fontWeight='bold'>
+                    Explore By Category
+                </Typography>
                 <Button variant='outlined' className='secondaryBtn'>
                     Explore All
                 </Button>

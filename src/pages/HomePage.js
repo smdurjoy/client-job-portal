@@ -5,6 +5,7 @@ import Companies from "../components/home/Companies";
 import Category from "../components/home/Category";
 import HelpToWorker from "../components/home/HelpToWorker";
 import FeaturedJobs from "../components/home/FeaturedJobs";
+import EasyAccess from "../components/home/EasyAccess";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -31,6 +32,7 @@ const HomePage = () => {
             <Category/>
             <HelpToWorker/>
             <FeaturedJobs/>
+            <EasyAccess/>
         </>
     );
 };
