@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import rectangle2 from '../../assets/images/home/rectangle2.png';
 import user1 from '../../assets/images/home/user1.svg';
+import Customers from "../common/Customers";
 
 const PostAJob = () => {
     return (
@@ -49,39 +50,9 @@ const PostAJob = () => {
                             Applicants List
                         </Typography>
                         <Box p={1}>
-                            <Box display='flex' justifyContent='start' alignItems='center' pl={2}>
-                                <img src={user1} alt='user1' width='41px'/>
-                                <Box pl={2}>
-                                    <Typography>
-                                        Davir Mark
-                                    </Typography>
-                                    <Typography variant='caption' color='#6B6E6F'>
-                                        General Worker
-                                    </Typography>
-                                </Box>
-                            </Box>
-                            <Box display='flex' justifyContent='start' alignItems='center' pl={2}>
-                                <img src={user1} alt='user1' width='41px'/>
-                                <Box pl={2}>
-                                    <Typography>
-                                        Davir Mark
-                                    </Typography>
-                                    <Typography variant='caption' color='#6B6E6F'>
-                                        General Worker
-                                    </Typography>
-                                </Box>
-                            </Box>
-                            <Box display='flex' justifyContent='start' alignItems='center' pl={2}>
-                                <img src={user1} alt='user1' width='41px'/>
-                                <Box pl={2}>
-                                    <Typography>
-                                        Davir Mark
-                                    </Typography>
-                                    <Typography variant='caption' color='#6B6E6F'>
-                                        General Worker
-                                    </Typography>
-                                </Box>
-                            </Box>
+                            <Customers name='Davir Mark' title='General Worker'/>
+                            <Customers name='Davir Mark' title='General Worker'/>
+                            <Customers name='Davir Mark' title='General Worker'/>
                         </Box>
                     </Box>
                 </Grid>
