@@ -11,6 +11,7 @@ import Statistics from "../components/home/Statistics";
 import Plans from "../components/home/Plans";
 import SuccessStories from "../components/home/SuccessStories";
 import Download from "../components/home/Download";
+import Footer from "../components/common/Footer";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -43,6 +44,7 @@ const HomePage = () => {
             <Plans/>
             <SuccessStories/>
             <Download/>
+            <Footer/>
         </>
     );
 };

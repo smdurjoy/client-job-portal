@@ -20,7 +20,7 @@ const FeaturedJobs = () => {
                     <Typography variant='h4' color='white'>
                         Featured Jobs
                     </Typography>
-                    <Button variant='outlined' className='secondaryBtnBlueWhite'>
+                    <Button variant='outlined' className='secondaryBtnWhite'>
                         Explore All
                     </Button>
                 </Box>

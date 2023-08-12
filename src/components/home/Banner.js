@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FormControl, Grid, Input, InputAdornment, MenuItem, Select} from "@mui/material";
+import {FormControl, Grid, InputAdornment, MenuItem, Select, TextField} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ZoomOutOutlinedIcon from '@mui/icons-material/ZoomOutOutlined';
@@ -25,18 +25,26 @@ const Banner = () => {
                                 That You Deserve
                             </Typography>
                             <Box className='homeSearchBox'>
-                                <div>
-                                    <Input
-                                        id="input-with-icon-adornment"
-                                        placeholder='Job Title'
-                                        startAdornment={
+                                <TextField
+                                    hiddenLabel
+                                    id="filled-hidden-label-normal"
+                                    placeholder='Job Title'
+                                    sx={{
+                                        backgroundColor: 'white',
+                                        height: 'inherit',
+                                        "& fieldset": {
+                                            border: "none",
+                                        }
+                                    }}
+                                    InputProps={{
+                                        startAdornment: (
                                             <InputAdornment position="start">
                                                 <ZoomOutOutlinedIcon style={{color: '#F28A1F'}}/>
                                             </InputAdornment>
-                                        }
-                                    />
-                                </div>
-                                <div style={{ flexBasis: '25%' }}>
+                                        ),
+                                    }}
+                                />
+                                <div style={{flexBasis: '25%'}}>
                                     <FormControl fullWidth>
                                         {/*<InputLabel id="demo-simple-select-label">Category</InputLabel>*/}
                                         <Select
@@ -62,7 +70,7 @@ const Banner = () => {
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <div style={{ flexBasis: '25%' }}>
+                                <div style={{flexBasis: '25%'}}>
                                     <FormControl fullWidth>
                                         {/*<InputLabel id="demo-simple-select-label">Category</InputLabel>*/}
                                         <Select
@@ -96,7 +104,7 @@ const Banner = () => {
                             </Box>
 
                             <Box mt={5}>
-                                <p style={{ color: '#6B6E6F' }}>
+                                <p style={{color: '#6B6E6F'}}>
                                     Search keywords e.g. Product Designer
                                 </p>
                             </Box>
