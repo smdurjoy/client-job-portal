@@ -3,6 +3,7 @@ import Navbar from "../components/common/Navbar";
 import Banner from "../components/home/Banner";
 import Companies from "../components/home/Companies";
 import Category from "../components/home/Category";
+import HelpToWorker from "../components/home/HelpToWorker";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -27,6 +28,7 @@ const HomePage = () => {
             <Banner/>
             <Companies/>
             <Category/>
+            <HelpToWorker/>
         </>
     );
 };
