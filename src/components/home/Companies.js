@@ -12,7 +12,7 @@ const Companies = () => {
         <div className='container' style={{ backgroundColor: '#2B3940' }}>
             <Box py={3}>
                 <p style={{ color: 'white' }}>Get hired in top companies</p>
-                <Box display='flex' justifyContent='space-between' pb={2}>
+                <Box display='flex' justifyContent='space-between' flexWrap='wrap' pb={2}>
                     <img src={company1} alt='company1' />
                     <img src={company2} alt='company2' />
                     <img src={company3} alt='company3' />

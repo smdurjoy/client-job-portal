@@ -26,6 +26,15 @@ code {
   background-size: cover;
 }
 
+.statisticsBanner {
+  height: 700px;
+  background: url("./assets/images/home/bannerBg2.png") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .navItem {
   padding: 0 25px;
   color: #1e1e1e;
@@ -121,5 +130,8 @@ code {
   }
   .homeBannerManImg {
     display: none;
+  }
+  .container {
+    padding: 0;
   }
 }

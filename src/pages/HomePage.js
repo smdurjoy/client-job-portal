@@ -7,6 +7,7 @@ import HelpToWorker from "../components/home/HelpToWorker";
 import FeaturedJobs from "../components/home/FeaturedJobs";
 import EasyAccess from "../components/home/EasyAccess";
 import PostAJob from "../components/home/PostAJob";
+import Statistics from "../components/home/Statistics";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -35,6 +36,7 @@ const HomePage = () => {
             <FeaturedJobs/>
             <EasyAccess/>
             <PostAJob/>
+            <Statistics/>
         </>
     );
 };
