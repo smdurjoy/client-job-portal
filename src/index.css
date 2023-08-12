@@ -1,5 +1,6 @@
 :root {
   --primary: #F28A1F;
+  --secondayTextColor: '#6B6E6F';
 }
 
 body {
@@ -17,7 +18,7 @@ code {
 }
 
 .homeBanner {
-  height: 745px;
+  height: 700px;
   background: url("./assets/images/home/bannerBg.png") center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -43,8 +44,45 @@ code {
   background-color: var(--primary) !important;
   text-transform: none !important;
   color: white !important;
-  padding: 10px 25px !important;
+  padding: 12px 42px !important;
   font-size: 16px !important;
   font-weight: 600 !important;
   border-radius: 7px !important;
+}
+
+.container {
+  padding: 0 140px;
+}
+
+.secondaryText {
+  color: var(--secondayTextColor);
+}
+
+.navBar {
+  background: transparent !important;
+  box-shadow: none !important;
+  margin-top: 20px;
+}
+
+.homeSearchBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  width: 80%;
+  height: 52px;
+  background-color: white;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+
+@media (max-width: 576px) {
+  .navBar {
+    box-shadow: none;
+    padding: 0 !important;
+    margin-top: 20px;
+  }
+  .homeBannerManImg {
+    display: none;
+  }
 }

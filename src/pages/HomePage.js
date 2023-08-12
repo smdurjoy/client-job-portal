@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Navbar from "../components/common/Navbar";
+import Banner from "../components/home/Banner";
 
 const HomePage = () => {
     const [navBackground, setNavBackground] = useState('');
@@ -21,6 +22,7 @@ const HomePage = () => {
     return (
         <>
             <Navbar/>
+            <Banner/>
         </>
     );
 };

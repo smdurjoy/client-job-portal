@@ -13,7 +13,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import homeBanner from '../../assets/images/home/bannerBg.png';
 import logo from '../../assets/images/home/logo.svg';
 import {Link} from "react-router-dom";
 
@@ -49,64 +48,71 @@ function Navbar(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <div className='homeBanner'>
-            <Box sx={{display: 'flex'}}>
-                <AppBar position="static"
-                        style={{background: 'transparent', boxShadow: 'none', padding: '0 140px', marginTop: '20px'}}>
-                    <Toolbar>
-                        <Box sx={{display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center'}}>
-                            <div style={{flexBasis: '30%'}}>
-                                <img src={logo} alt="logo"/>
-                            </div>
-                            <div style={{flexBasis: '40%'}}>
-                                <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
-                                    {navItems.map(item => (
-                                        <Link to={'/'} key={item} className='navItem'>
-                                            {item}
-                                        </Link>
-                                    ))}
-                                </Box>
-                            </div>
-                            <div style={{flexBasis: '30%'}}>
-                                <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
-                                    <Link to={'/'} className='navItem'>
-                                        Login
-                                    </Link>
-                                    <Button className='primaryBtn' sx={{ marginLeft: 5 }}>
-                                        Post a Job
-                                    </Button>
-                                </Box>
-                            </div>
-                        </Box>
-                    </Toolbar>
-                </AppBar>
-                <Box component="nav">
-                    <Drawer
-                        container={container}
-                        variant="temporary"
-                        open={mobileOpen}
-                        onClose={handleDrawerToggle}
-                        ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
-                        }}
-                        sx={{
-                            display: {xs: 'block', sm: 'none'},
-                            '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
-                        }}
+        <Box sx={{display: 'flex'}}>
+            <AppBar position="absolute" className='navBar container'>
+                <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{mr: 2, display: {sm: 'none'}, color: '#F28A1F'}}
                     >
-                        {drawer}
-                    </Drawer>
-                </Box>
+                        <MenuIcon/>
+                    </IconButton>
+                    <Box sx={{
+                        display: 'flex',
+                        width: '100%',
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
+                    }}>
+                        <div style={{flexBasis: '30%'}}>
+                            <img src={logo} alt="logo"/>
+                        </div>
+                        <div style={{flexBasis: '40%'}}>
+                            <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
+                                {navItems.map(item => (
+                                    <Link to={'/'} key={item} className='navItem'>
+                                        {item}
+                                    </Link>
+                                ))}
+                            </Box>
+                        </div>
+                        <div style={{flexBasis: '30%'}}>
+                            <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
+                                <Link to={'/'} className='navItem'>
+                                    Login
+                                </Link>
+                                <Button className='primaryBtn' sx={{marginLeft: 4}}>
+                                    Post a Job
+                                </Button>
+                            </Box>
+                        </div>
+                    </Box>
+                </Toolbar>
+            </AppBar>
+            <Box component="nav">
+                <Drawer
+                    container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: {xs: 'block', sm: 'none'},
+                        '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
+                    }}
+                >
+                    {drawer}
+                </Drawer>
             </Box>
-        </div>
+        </Box>
     );
 }
 
 Navbar.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window: PropTypes.func,
 };
 
