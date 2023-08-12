@@ -1,137 +1,212 @@
 :root {
-  --primary: #F28A1F;
-  --secondayTextColor: '#6B6E6F';
+    --primary: #F28A1F;
+    --secondayTextColor: '#6B6E6F';
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 .homeBanner {
-  height: 700px;
-  background: url("./assets/images/home/bannerBg.png") center center no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: 700px;
+    background: url("./assets/images/home/bannerBg.png") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .statisticsBanner {
-  height: 700px;
-  background: url("./assets/images/home/bannerBg2.png") center center no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: 700px;
+    background: url("./assets/images/home/bannerBg2.png") center center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .navItem {
-  padding: 0 25px;
-  color: #1e1e1e;
-  font-weight: 600;
-  font-size: 18px;
-  text-decoration: none;
-  transition: 0.2s;
+    padding: 0 25px;
+    color: #1e1e1e;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 .navItem:hover {
-  color: var(--primary);
-  border-bottom: 1px solid var(--primary);
+    color: var(--primary);
+    border-bottom: 1px solid var(--primary);
 }
 
 .primaryBtn {
-  background-color: var(--primary) !important;
-  text-transform: none !important;
-  color: white !important;
-  padding: 12px 42px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  border-radius: 7px !important;
+    background-color: var(--primary) !important;
+    text-transform: none !important;
+    color: white !important;
+    padding: 12px 42px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 7px !important;
 }
 
 .secondaryBtn {
-  border-color: var(--primary) !important;
-  text-transform: uppercase !important;
-  color: var(--primary) !important;
-  padding: 12px 42px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  border-radius: 7px !important;
+    border-color: var(--primary) !important;
+    text-transform: uppercase !important;
+    color: var(--primary) !important;
+    padding: 12px 42px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 7px !important;
 }
 
 .secondaryBtnBlue {
-  border-color: #0d9ca4 !important;
-  text-transform: capitalize !important;
-  color: #0d9ca4 !important;
-  padding: 12px 42px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  border-radius: 7px !important;
+    border-color: #0d9ca4 !important;
+    text-transform: capitalize !important;
+    color: #0d9ca4 !important;
+    padding: 12px 42px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 7px !important;
 }
 
 
 .secondaryBtnWhite {
-  border-color: white !important;
-  text-transform: uppercase !important;
-  color: white !important;
-  padding: 12px 42px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  border-radius: 7px !important;
+    border-color: white !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    padding: 12px 42px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 7px !important;
 }
 
 .container {
-  padding: 0 140px;
+    padding: 0 140px;
 }
 
 .secondaryText {
-  color: var(--secondayTextColor);
+    color: var(--secondayTextColor);
 }
 
 .navBar {
-  background: transparent !important;
-  box-shadow: none !important;
-  margin-top: 20px;
+    background: transparent !important;
+    box-shadow: none !important;
+    margin-top: 20px;
 }
 
 .homeSearchBox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4rem;
-  width: 80%;
-  height: 52px;
-  background-color: white;
-  border-radius: 6px;
-  padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    width: 80%;
+    height: 52px;
+    background-color: white;
+    border-radius: 6px;
+    padding-left: 10px;
 }
 
 .title {
-  color: #000;
-  font-size: 30px;
-  font-weight: 500;
+    color: #000;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.rectangle1 {
+    height: 525px;
+    width: 485px;
+}
+
+.rectangle1Box {
+    border: 1px solid #F28A1F;
+    border-radius: 5px;
+    padding: 75px 20px;
+    width: 230px;
+    position: absolute;
+    margin-top: -9rem;
+    margin-left: 18rem;
+    z-index: 99;
+    background-color: white;
+    box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.20);
+}
+
+.rectangle1Box img {
+    margin-top: -120px;
+    margin-left: -70px;
+    position: absolute;
+}
+
+.rectangle2Box {
+    border: 1px solid #0d9ca4;
+    border-radius: 5px;
+    text-align: center;
+    width: 230px;
+    position: absolute;
+    margin-top: -14rem;
+    margin-left: 16rem;
+    z-index: 99;
+    background-color: white;
+    box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.20);
+}
+
+.rectangle2 {
+    height: 525px;
+    width: 485px;
 }
 
 @media (max-width: 576px) {
-  .navBar {
-    box-shadow: none;
-    padding: 0 !important;
-    margin-top: 20px;
-  }
-  .homeBannerManImg {
-    display: none;
-  }
-  .container {
-    padding: 0;
-  }
+    .navBar {
+        box-shadow: none;
+        padding: 0 !important;
+        margin-top: 20px;
+    }
+
+    .homeBannerManImg {
+        display: none;
+    }
+
+    .container {
+        padding: 0;
+    }
+
+    .rectangle1 {
+        height: 325px;
+        width: 285px;
+    }
+
+    .rectangle1Box {
+        margin-left: 12rem !important;
+        padding: 25px 10px;
+        width: 150px;
+        margin-top: -6rem;
+    }
+
+    .rectangle1Box img {
+        width: 50px;
+        margin-top: -60px;
+        margin-left: -30px;
+        position: absolute;
+    }
+
+    .rectangle2 {
+        height: 325px;
+        width: 285px;
+    }
+
+    .rectangle2Box {
+        width: 230px;
+        margin-top: -10rem;
+        margin-left: 1rem;
+    }
+
 }

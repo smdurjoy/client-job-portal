@@ -12,21 +12,10 @@ const HelpToWorker = () => {
         <div className='container'>
             <Grid container my={15}>
                 <Grid item xs={12} md={6}>
-                    <img src={rectangle1} alt="" style={{height: '525px', width: '485px'}}/>
+                    <img src={rectangle1} alt="" className='rectangle1'/>
 
-                    <Box marginRight={0} style={{
-                        border: '1px solid #F28A1F',
-                        borderRadius: '5px',
-                        padding: '75px 20px',
-                        width: '230px',
-                        position: 'absolute',
-                        marginTop: '-9rem',
-                        marginLeft: '18rem',
-                        zIndex: '99',
-                        backgroundColor: 'white',
-                        boxShadow: '3px 3px 20px 0px rgba(75, 74, 74, 0.20'
-                    }}>
-                        <img src={tickCircle} alt='okay' style={{ marginTop: '-120px', marginLeft: '-70px', position: 'absolute' }}/>
+                    <Box marginRight={0} className='rectangle1Box'>
+                        <img src={tickCircle} alt='okay'/>
                         <Typography variant='h6' fontWeight='bold'>
                             Found 200+ Jobs
                         </Typography>

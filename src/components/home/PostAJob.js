@@ -32,20 +32,9 @@ const PostAJob = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <Box display='flex' justifyContent='end'>
-                        <img src={rectangle2} alt="" style={{height: '525px', width: '485px'}}/>
+                        <img src={rectangle2} alt="" className='rectangle2'/>
                     </Box>
-                    <Box marginRight={0} style={{
-                        border: '1px solid #0d9ca4',
-                        borderRadius: '5px',
-                        textAlign: 'center',
-                        width: '230px',
-                        position: 'absolute',
-                        marginTop: '-14rem',
-                        marginLeft: '16rem',
-                        zIndex: '99',
-                        backgroundColor: 'white',
-                        boxShadow: '3px 3px 20px 0px rgba(75, 74, 74, 0.20'
-                    }}>
+                    <Box marginRight={0} className='rectangle2Box'>
                         <Typography variant='h6' bgcolor='#0d9ca4' color='white'>
                             Applicants List
                         </Typography>
