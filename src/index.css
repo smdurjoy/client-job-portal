@@ -79,7 +79,6 @@ code {
     border-radius: 7px !important;
 }
 
-
 .secondaryBtnWhite {
     border-color: white !important;
     text-transform: uppercase !important;
@@ -164,6 +163,24 @@ code {
     width: 485px;
 }
 
+.rectangle3 {
+    width: 485px;
+}
+
+.d-none {
+    display: none;
+}
+
+.mobileSearchBtn {
+    margin-top: 6px !important;
+}
+
+.homeDownloadBox {
+    background: radial-gradient(754.03% 141.42% at -0.00% 0%, #FFD9B2 0.23%, rgba(255, 238, 220, 0.57) 73.63%, #FFD9B2 100%);
+    border-radius: 7px;
+    padding: 4rem;
+}
+
 @media (max-width: 576px) {
     .navBar {
         box-shadow: none;
@@ -171,12 +188,64 @@ code {
         margin-top: 20px;
     }
 
+    .homeBanner {
+        height: 500px;
+    }
+
     .homeBannerManImg {
         display: none;
     }
 
+    .homeSearchBox {
+        margin-top: 2rem !important;
+        width: 100% !important;
+        padding-left: 4px !important;
+    }
+
+    .homeSearchBox .desktopSearchBtn {
+        display: none;
+    }
+
+    .homeCompanies {
+        padding: 0 30px;
+    }
+
+    .homeCompanies img {
+        width: 90px;
+        margin-top: 10px;
+    }
+
     .container {
-        padding: 0;
+        padding: 5px;
+    }
+
+    .helpToWorkerGrid {
+        margin-top: 0 !important;
+        margin-bottom: 35px !important;
+    }
+
+    .helpToWorkerGrid .secondGridCol {
+        margin-top: 5rem !important;
+    }
+
+    .primaryBtn {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .secondaryBtn {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .secondaryBtnBlue {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .secondaryBtnWhite {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
     }
 
     .rectangle1 {
@@ -209,4 +278,27 @@ code {
         margin-left: 1rem;
     }
 
+    .rectangle3 {
+        width: 285px;
+    }
+
+    .homeDownloadBox {
+        padding: 10px;
+        margin-top: 0 !important;
+    }
+
+    .homeDownloadBox .downloadBtns img {
+        width: 100px;
+        margin-bottom: 3rem;
+    }
+
+    .statisticsBanner {
+        height: 930px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 30px;
+    }
 }

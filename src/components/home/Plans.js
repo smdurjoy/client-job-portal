@@ -42,7 +42,7 @@ const Plans = () => {
                 <SectionTitle title='Check our amazing plans' subTitle='Choose the best one for you'/>
 
                 <Grid container my={5} columnSpacing={5}>
-                    <Grid item xs={6} md={4} mt={10}>
+                    <Grid item xs={12} md={4} mt={10}>
                         <Card style={{textAlign: 'center', border: '1px solid #ddd'}}>
                             <CardContent>
                                 <Box p={4}>
@@ -81,7 +81,7 @@ const Plans = () => {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{textAlign: 'center', border: '1px solid #ddd'}}>
                             <CardContent>
                                 <Box p={4}>
@@ -123,7 +123,7 @@ const Plans = () => {
                         </Card>
                     </Grid>
 
-                    <Grid item xs={6} md={4} mt={10}>
+                    <Grid item xs={12} md={4} mt={10}>
                         <Card style={{textAlign: 'center', border: '1px solid #ddd'}}>
                             <CardContent>
                                 <Box p={4}>

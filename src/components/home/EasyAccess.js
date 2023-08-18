@@ -14,7 +14,7 @@ const EasyAccess = () => {
                 <SectionTitle title='Get Started Easily' subTitle='Working Processes'/>
 
                 <Grid container my={5} columnSpacing={5}>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Box style={{borderRadius: '10px', padding: '80px 20px', textAlign: 'center', backgroundColor: '#fafafa'}}>
                             <Box display='flex' justifyContent='center' flexDirection='column' alignItems='center'>
                                 <Box bgcolor='#F28A1F' width='83px' height='83px' display='flex' alignItems='center' justifyContent='center'>
@@ -29,7 +29,7 @@ const EasyAccess = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Box style={{borderRadius: '10px', padding: '80px 20px', textAlign: 'center', backgroundColor: '#fafafa'}}>
                             <Box display='flex' justifyContent='center' flexDirection='column' alignItems='center'>
                                 <Box bgcolor='#0d9ca4' width='83px' height='83px' display='flex' alignItems='center' justifyContent='center'>
@@ -44,7 +44,7 @@ const EasyAccess = () => {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Box style={{borderRadius: '10px', padding: '80px 20px', textAlign: 'center', backgroundColor: '#fafafa'}}>
                             <Box display='flex' justifyContent='center' flexDirection='column' alignItems='center'>
                                 <Box bgcolor='#2b3940' width='83px' height='83px' display='flex' alignItems='center' justifyContent='center'>

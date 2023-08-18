@@ -9,7 +9,7 @@ import company6 from '../../assets/images/home/company6.png';
 
 const Companies = () => {
     return (
-        <div className='container' style={{ backgroundColor: '#2B3940' }}>
+        <div className='container homeCompanies' style={{ backgroundColor: '#2B3940' }}>
             <Box py={3}>
                 <p style={{ color: 'white' }}>Get hired in top companies</p>
                 <Box display='flex' justifyContent='space-between' flexWrap='wrap' pb={2}>

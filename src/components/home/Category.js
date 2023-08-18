@@ -8,9 +8,18 @@ import {Link} from "react-router-dom";
 
 const Category = () => {
     return (
-        <div className='container'>
+        <div className='container category'>
             <Box display='flex' justifyContent='space-between' alignItems='center' my={6} px={2}>
-                <Typography variant='h4' fontWeight='bold'>
+                <Typography
+                    variant='h4'
+                    fontWeight='bold'
+                    fontSize={{
+                        lg: 32,
+                        md: 28,
+                        sm: 24,
+                        xs: 18
+                    }}
+                >
                     Explore By Category
                 </Typography>
                 <Button variant='outlined' className='secondaryBtn'>
@@ -18,7 +27,7 @@ const Category = () => {
                 </Button>
             </Box>
             <Grid container mb={5}>
-                <Grid item xs={6} md={3} px={2}>
+                <Grid item xs={6} md={3} px={2} mb={2}>
                     <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
                         <Box style={{ border: '1px solid #F28A1F', borderRadius: '5px', textAlign: 'center' }} py={4}>
                             <img src={category1} style={{ width: '150px' }} alt='category' />
@@ -29,7 +38,7 @@ const Category = () => {
                         </Box>
                     </Link>
                 </Grid>
-                <Grid item xs={6} md={3} px={2}>
+                <Grid item xs={6} md={3} px={2} mb={2}>
                     <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
                         <Box style={{ border: '1px solid #F28A1F', borderRadius: '5px', textAlign: 'center' }} py={4}>
                             <img src={category1} style={{ width: '150px' }} alt='category' />
@@ -40,7 +49,7 @@ const Category = () => {
                         </Box>
                     </Link>
                 </Grid>
-                <Grid item xs={6} md={3} px={2}>
+                <Grid item xs={6} md={3} px={2} mb={2}>
                     <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
                         <Box style={{ border: '1px solid #F28A1F', borderRadius: '5px', textAlign: 'center' }} py={4}>
                             <img src={category1} style={{ width: '150px' }} alt='category' />
@@ -51,7 +60,7 @@ const Category = () => {
                         </Box>
                     </Link>
                 </Grid>
-                <Grid item xs={6} md={3} px={2}>
+                <Grid item xs={6} md={3} px={2} mb={2}>
                     <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
                         <Box style={{ border: '1px solid #F28A1F', borderRadius: '5px', textAlign: 'center' }} py={4}>
                             <img src={category1} style={{ width: '150px' }} alt='category' />

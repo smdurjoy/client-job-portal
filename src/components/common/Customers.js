@@ -6,9 +6,18 @@ import Typography from "@mui/material/Typography";
 const Customers = ({name, title}) => {
     return (
         <Box display='flex' justifyContent='start' alignItems='center' pl={2}>
-            <img src={user1} alt='user1' width='60px' style={{ border: '2px solid white', borderRadius: '50%' }}/>
+            <img src={user1}
+                 alt='user1'
+                 style={{ border: '2px solid white', borderRadius: '50%' }}
+            />
             <Box pl={2} textAlign='left'>
-                <Typography variant='h6' color='#6B6E6F'>
+                <Typography
+                    variant='h6'
+                    color='#6B6E6F'
+                    fontSize={{
+                        xs: 16
+                    }}
+                >
                     {name}
                 </Typography>
                 <Typography variant='caption' color='#6B6E6F'>

@@ -9,26 +9,51 @@ import mobileDownload from '../../assets/images/home/mobileDownload.png';
 const Download = () => {
     return (
         <div className='container'>
-            <Box my={8} sx={{
-                background: 'radial-gradient(754.03% 141.42% at -0.00% 0%, #FFD9B2 0.23%, rgba(255, 238, 220, 0.57) 73.63%, #FFD9B2 100%)',
-                borderRadius: '7px',
-                padding: '4rem'
-            }}>
+            <Box my={8} className='homeDownloadBox'>
                 <Grid container my={5} columnSpacing={5}>
                     <Grid item xs={12} md={6}>
                         <Box pr={12}>
-                            <Typography variant='h4' fontWeight='bold'>
+                            <Typography
+                                variant='h4'
+                                fontWeight='bold'
+                                fontSize={{
+                                    lg: 32,
+                                    md: 28,
+                                    sm: 24,
+                                    xs: 20
+                                }}
+                            >
                                 Unlock Your Future Now!
                             </Typography>
-                            <Typography color='#6B6E6F' variant='h6' mt={3}>
+                            <Typography
+                                color='#6B6E6F'
+                                variant='h6'
+                                mt={3}
+                                fontSize={{
+                                    lg: 20,
+                                    md: 18,
+                                    sm: 16,
+                                    xs: 14,
+                                }}
+                            >
                                 Download Our app, it empowers job seekers with tailored opportunities and helps
                                 companies find the perfect match.
                                 Join now for a brighter future in work and talent acquisition
                             </Typography>
-                            <Typography variant='h6' mt={8} fontWeight='bold'>
+                            <Typography
+                                variant='h6'
+                                mt={8}
+                                fontWeight='bold'
+                                fontSize={{
+                                    lg: 20,
+                                    md: 18,
+                                    sm: 16,
+                                    xs: 14,
+                                }}
+                            >
                                 Get the App
                             </Typography>
-                            <Box display='flex' mt={1}>
+                            <Box display='flex' mt={1} className='downloadBtns'>
                                 <img src={googlePlay} alt='googlePlay'/>
                                 <img src={appStore} alt='appStore' style={{marginLeft: '10px'}}/>
                             </Box>

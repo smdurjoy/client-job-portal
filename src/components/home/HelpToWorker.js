@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 const HelpToWorker = () => {
     return (
         <div className='container'>
-            <Grid container my={15}>
+            <Grid container my={15} className="helpToWorkerGrid">
                 <Grid item xs={12} md={6}>
                     <img src={rectangle1} alt="" className='rectangle1'/>
 
@@ -24,11 +24,29 @@ const HelpToWorker = () => {
                         </Typography>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={6} pl={5}>
-                    <Typography variant="h3" sx={{fontWeight: 'bold'}}>
+                <Grid item xs={12} md={6} pl={5} className="secondGridCol">
+                    <Typography
+                        variant="h3"
+                        sx={{fontWeight: 'bold'}}
+                        fontSize={{
+                            lg: 48,
+                            md: 44,
+                            sm: 35,
+                            xs: 30
+                        }}
+                    >
                         Help you to get the best job that fits you.
                     </Typography>
-                    <Typography color='#6B6E6F' fontSize='20px' mt={4}>
+                    <Typography
+                        color='#6B6E6F'
+                        mt={4}
+                        fontSize={{
+                            lg: 20,
+                            md: 18,
+                            sm: 16,
+                            xs: 14
+                        }}
+                    >
                         Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative
                         approach
                     </Typography>
@@ -36,19 +54,43 @@ const HelpToWorker = () => {
                     <Box mt={5}>
                         <Box display='flex' alignItems='center' mt={2}>
                             <img src={arrowIcon} alt="->" style={{width: '30px'}}/>
-                            <Typography ml={4}>
+                            <Typography
+                                ml={4}
+                                fontSize={{
+                                    lg: 20,
+                                    md: 18,
+                                    sm: 16,
+                                    xs: 14
+                                }}
+                            >
                                 Rorem ipsum dolor sit amet, consectetur.
                             </Typography>
                         </Box>
                         <Box display='flex' alignItems='center' mt={2}>
                             <img src={arrowIcon} alt="->" style={{width: '30px'}}/>
-                            <Typography ml={4}>
+                            <Typography
+                                ml={4}
+                                fontSize={{
+                                    lg: 20,
+                                    md: 18,
+                                    sm: 16,
+                                    xs: 14
+                                }}
+                            >
                                 Rorem ipsum dolor sit amet, consectetur.
                             </Typography>
                         </Box>
                         <Box display='flex' alignItems='center' mt={2}>
                             <img src={arrowIcon} alt="->" style={{width: '30px'}}/>
-                            <Typography ml={4}>
+                            <Typography
+                                ml={4}
+                                fontSize={{
+                                    lg: 20,
+                                    md: 18,
+                                    sm: 16,
+                                    xs: 14
+                                }}
+                            >
                                 Rorem ipsum dolor sit amet, consectetur.
                             </Typography>
                         </Box>

@@ -17,7 +17,16 @@ const FeaturedJobs = () => {
         <div className='container' style={{backgroundColor: '#2B3940'}}>
             <Box py={8}>
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
-                    <Typography variant='h4' color='white'>
+                    <Typography
+                        variant='h4'
+                        color='white'
+                        fontSize={{
+                            lg: 32,
+                            md: 28,
+                            sm: 24,
+                            xs: 18
+                        }}
+                    >
                         Featured Jobs
                     </Typography>
                     <Button variant='outlined' className='secondaryBtnWhite'>
@@ -26,7 +35,7 @@ const FeaturedJobs = () => {
                 </Box>
 
                 <Grid container my={5} columnSpacing={5}>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
@@ -81,7 +90,7 @@ const FeaturedJobs = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
@@ -136,7 +145,7 @@ const FeaturedJobs = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
@@ -191,7 +200,7 @@ const FeaturedJobs = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
@@ -246,7 +255,7 @@ const FeaturedJobs = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
@@ -301,7 +310,7 @@ const FeaturedJobs = () => {
                             </CardActions>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} mt={4}>
+                    <Grid item xs={12} md={4} mt={4}>
                         <Card style={{borderRadius: '10px', padding: '20px'}}>
                             <CardContent>
                                 <Box display='flex' justifyContent='space-between' alignItems='start'>
