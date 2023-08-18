@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {FormControl, Grid, InputAdornment, MenuItem, Select, TextField} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -11,19 +11,6 @@ import homeBannerManImg from '../../assets/images/home/homeBannerMan.png';
 const Banner = () => {
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
-    const [mobileBtnClass, setMobileBtnClass] = useState('primaryBtn mobileSearchBtn d-none');
-
-    useEffect(() => {
-        if (
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
-                navigator.userAgent
-            )
-        ) {
-            setMobileBtnClass('primaryBtn mobileSearchBtn');
-        } else {
-            setMobileBtnClass('primaryBtn mobileSearchBtn d-none');
-        }
-    }, []);
 
     return (
         <div className='homeBanner container'>
@@ -151,14 +138,10 @@ const Banner = () => {
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <Button className='primaryBtn desktopSearchBtn'>
+                                <Button className='primaryBtn'>
                                     Search
                                 </Button>
                             </Box>
-
-                            <Button className={mobileBtnClass} mt={2}>
-                                Search
-                            </Button>
 
                             <Box mt={5}>
                                 <p style={{color: '#6B6E6F'}}>

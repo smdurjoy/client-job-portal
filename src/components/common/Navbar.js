@@ -56,7 +56,7 @@ function Navbar(props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{mr: 2, display: {sm: 'none'}, color: '#F28A1F'}}
+                        sx={{mr: 2, display: {md: 'none'}, color: '#F28A1F'}}
                     >
                         <MenuIcon/>
                     </IconButton>
@@ -70,7 +70,7 @@ function Navbar(props) {
                             <img src={logo} alt="logo"/>
                         </div>
                         <div style={{flexBasis: '40%'}}>
-                            <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
+                            <Box sx={{display: {xs: 'none', md: 'block'}, textAlign: 'center'}}>
                                 {navItems.map(item => (
                                     <Link to={'/'} key={item} className='navItem'>
                                         {item}
@@ -79,7 +79,7 @@ function Navbar(props) {
                             </Box>
                         </div>
                         <div style={{flexBasis: '30%'}}>
-                            <Box sx={{display: {xs: 'none', sm: 'block'}, textAlign: 'center'}}>
+                            <Box sx={{display: {xs: 'none', md: 'block'}, textAlign: 'center'}}>
                                 <Link to={'/'} className='navItem'>
                                     Login
                                 </Link>
@@ -101,7 +101,7 @@ function Navbar(props) {
                         keepMounted: true, // Better open performance on mobile.
                     }}
                     sx={{
-                        display: {xs: 'block', sm: 'none'},
+                        display: {sm: 'block', md: 'none'},
                         '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
                     }}
                 >
