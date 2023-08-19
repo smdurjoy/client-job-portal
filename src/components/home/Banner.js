@@ -83,7 +83,7 @@ const Banner = () => {
                                     }}
                                 />
                                 <div style={{flexBasis: '25%'}}>
-                                    <FormControl fullWidth>
+                                    <FormControl>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
@@ -111,7 +111,7 @@ const Banner = () => {
                                     </FormControl>
                                 </div>
                                 <div style={{flexBasis: '25%'}}>
-                                    <FormControl fullWidth>
+                                    <FormControl>
                                         <Select
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
@@ -138,10 +138,16 @@ const Banner = () => {
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <Button className='primaryBtn'>
+                                <Button className='primaryBtn' sx={{ display: {xs: 'none', sm: 'block'} }}>
                                     Search
                                 </Button>
                             </Box>
+                            <Button
+                                className='primaryBtn'
+                                sx={{ display: {xs: 'block', sm: 'none'}, mt: 1 }}
+                            >
+                                Search
+                            </Button>
 
                             <Box mt={5}>
                                 <p style={{color: '#6B6E6F'}}>
