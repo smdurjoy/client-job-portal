@@ -7,10 +7,14 @@ import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Button from "@mui/material/Button";
 import homeBannerManImg from '../../assets/images/home/homeBannerMan.png';
+import {useGetCountriesQuery} from '../../services/country';
 
 const Banner = () => {
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
+    const {data} = useGetCountriesQuery();
+
+    console.log({data})
 
     return (
         <div className='homeBanner container'>
@@ -138,13 +142,13 @@ const Banner = () => {
                                         </Select>
                                     </FormControl>
                                 </div>
-                                <Button className='primaryBtn' sx={{ display: {xs: 'none', sm: 'block'} }}>
+                                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}}}>
                                     Search
                                 </Button>
                             </Box>
                             <Button
                                 className='primaryBtn'
-                                sx={{ display: {xs: 'block', sm: 'none'}, mt: 1 }}
+                                sx={{display: {xs: 'block', sm: 'none'}, mt: 1}}
                             >
                                 Search
                             </Button>
