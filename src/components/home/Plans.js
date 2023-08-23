@@ -14,24 +14,24 @@ import ListItemText from "@mui/material/ListItemText";
 
 const Plans = () => {
     const standardPlans = [
-        '10 Job Posting',
-        'Urgent Job',
-        '0 Featured Job',
-        'Job Displayed for 7 Days',
+        '10 Jobs Posting',
+        'Urgent Jobs',
+        '0 Featured Jobs',
+        'Jobs Displayed for 7 Days',
         'Premium Support 24/7',
     ]
     const premiumPlans = [
-        '30 Job Posting',
-        'Urgent Job',
-        '1-3 Featured Job',
-        'Job Displayed for 7 Days',
+        '30 Jobs Posting',
+        'Urgent Jobs',
+        '1-3 Featured Jobs',
+        'Jobs Displayed for 7 Days',
         'Premium Support 24/7',
     ]
     const enterprisePlans = [
-        '60 Job Posting',
-        'Urgent Job',
-        '4+ Featured Job',
-        'Job Displayed for 7 Days',
+        '60 Jobs Posting',
+        'Urgent Jobs',
+        '4+ Featured Jobs',
+        'Jobs Displayed for 7 Days',
         'Premium Support 24/7',
     ]
 
