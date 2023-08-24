@@ -17,10 +17,26 @@ import logo from '../../assets/images/home/logo.svg';
 import {Link} from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Jobs', 'Company', 'About Us'];
+const navItems = [
+    {
+        title: 'Home',
+        link: '/',
+    },
+    {
+        title: 'Jobs',
+        link: '/jobs',
+    },
+    {
+        title: 'Company',
+        link: '/',
+    },
+    {
+        title: 'About Us',
+        link: '/',
+    },
+];
 
-function Navbar(props) {
-    const {window} = props;
+function Navbar({window, isForHomePage = true}) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -34,13 +50,15 @@ function Navbar(props) {
             </Typography>
             <Divider/>
             <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{textAlign: 'center'}}>
-                            <ListItemText primary={item} color='black'/>
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {
+                    navItems.map((item, key) => (
+                        <ListItem key={key} disablePadding>
+                            <ListItemButton sx={{textAlign: 'center'}}>
+                                <ListItemText primary={item.title} color='black'/>
+                            </ListItemButton>
+                        </ListItem>
+                    ))
+                }
             </List>
         </Box>
     );
@@ -49,7 +67,7 @@ function Navbar(props) {
 
     return (
         <Box sx={{display: 'flex'}}>
-            <AppBar position="absolute" className='navBar container'>
+            <AppBar position="absolute" className={isForHomePage ? 'navBar container' : 'commonNav container'}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -71,11 +89,13 @@ function Navbar(props) {
                         </div>
                         <div style={{flexBasis: '40%'}}>
                             <Box sx={{display: {xs: 'none', md: 'block'}, textAlign: 'center'}}>
-                                {navItems.map(item => (
-                                    <Link to={'/'} key={item} className='navItem'>
-                                        {item}
-                                    </Link>
-                                ))}
+                                {
+                                    navItems.map((item, key) => (
+                                        <Link to={item.link} key={key} className='navItem'>
+                                            {item.title}
+                                        </Link>
+                                    ))
+                                }
                             </Box>
                         </div>
                         <div style={{flexBasis: '30%'}}>

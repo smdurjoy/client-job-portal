@@ -14,13 +14,13 @@ import Download from "../components/home/Download";
 import Footer from "../components/common/Footer";
 
 const HomePage = () => {
-    const [navBackground, setNavBackground] = useState('');
+    const [isForHomePage, setIsForHomePage] = useState(true);
 
     const onScroll = () => {
-        if (window.scrollY > 600) {
-            setNavBackground('scrolledNav');
+        if (window.scrollY > 500) {
+            setIsForHomePage(false);
         } else {
-            setNavBackground('');
+            setIsForHomePage(true);
         }
     }
 
@@ -32,7 +32,7 @@ const HomePage = () => {
 
     return (
         <>
-            <Navbar/>
+            <Navbar isForHomePage={isForHomePage}/>
             <Banner/>
             <Companies/>
             <Category/>

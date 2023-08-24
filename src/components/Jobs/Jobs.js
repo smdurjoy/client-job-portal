@@ -20,7 +20,7 @@ const Jobs = () => {
     };
 
     return (
-        <div className='container'>
+        <Box className='container' mt={18}>
             <Grid container px={2} spacing={3} my={5}>
                 <Grid item xs={12} md={4}>
                     <Filters/>
@@ -134,7 +134,7 @@ const Jobs = () => {
                     }
                 </Grid>
             </Grid>
-        </div>
+        </Box>
     );
 };
 

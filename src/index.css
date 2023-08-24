@@ -101,6 +101,15 @@ code {
     background: transparent !important;
     box-shadow: none !important;
     margin-top: 20px;
+    transition: background 0.2s ease, padding 0.3s linear !important;
+}
+
+.commonNav {
+    position: fixed !important;
+    background: #FFF4EA !important;
+    box-shadow: 0 10px 20px 0 rgba(74, 74, 74, 0.10) !important;
+    padding: 20px 5vw !important;
+    transition: background 0.2s ease, padding 0.3s linear !important;
 }
 
 .homeSearchBox {
