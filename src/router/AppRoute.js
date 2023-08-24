@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
+import JobDetailsPage from "../pages/JobDetailsPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -10,8 +11,11 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/jobs",
-        element: <JobsPage/>,
-        // errorElement: <ErrorPage />,
+        element: <JobsPage/>
+    },
+    {
+        path: "/job-details/:id",
+        element: <JobDetailsPage/>
     },
 ]);
 

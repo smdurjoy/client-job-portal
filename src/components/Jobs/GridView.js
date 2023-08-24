@@ -10,6 +10,8 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
+import {Link} from "react-router-dom";
+import TypoBadge from "../common/TypoBadge";
 
 const GridView = () => {
     return (
@@ -40,16 +42,18 @@ const GridView = () => {
                     </Typography>
                 </Box>
                 <Box display='flex' mt={2} flexWrap='wrap'>
-                    <Typography bgcolor='#F3FAFA' color='#0D9CA4' width='fit-content' variant="caption"
-                                p={1} display='flex' alignItems='center'>
-                        <LocationOnOutlinedIcon fontSize='small'/>&nbsp;
-                        Berlyn
-                    </Typography>
-                    <Typography bgcolor='#FFF6F6' color='#ff5656' width='fit-content' variant="caption"
-                                p={1} display='flex' alignItems='center' ml={2}>
-                        <BusinessCenterIcon fontSize='small'/>&nbsp;
-                        Full Time
-                    </Typography>
+                    <TypoBadge
+                        icon={<LocationOnOutlinedIcon fontSize='small'/>}
+                        text='Berlyn'
+                        color='#0D9CA4'
+                        bgColor='#F3FAFA'
+                    />
+                    <TypoBadge
+                        icon={<BusinessCenterIcon fontSize='small'/>}
+                        text='Full Time'
+                        color='#FF5656'
+                        bgColor='#fff6f6'
+                    />
                 </Box>
 
                 <Box display='flex' mt={2} alignItems='center' justifyContent='space-between' flexWrap='wrap'>
@@ -68,7 +72,9 @@ const GridView = () => {
             </CardContent>
             <CardActions>
                 <Button variant='outlined' className='secondaryBtnBlue'>
-                    View More
+                    <Link to={'/job-details/1'}>
+                        View More
+                    </Link>
                 </Button>
                 <Button className='primaryBtn'>
                     Apply Now

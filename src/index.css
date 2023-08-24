@@ -185,6 +185,11 @@ code {
     padding: 4rem;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 576px) {
     .navBar {
         box-shadow: none;
