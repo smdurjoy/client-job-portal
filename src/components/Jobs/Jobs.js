@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
-import {Grid, MenuItem, Select} from "@mui/material";
+import {Grid, MenuItem, Select, Tab, Tabs} from "@mui/material";
 import SearchBox from "../common/SearchBox";
 import Filters from "../common/Filters";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import ListView from "./ListView";
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
+import GridView from "./GridView";
 
 const Jobs = () => {
+    const [viewMode, setViewMode] = React.useState(0);
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState(1);
+
+    const handleChange = (event, newValue) => {
+        setViewMode(newValue);
+    };
 
     return (
         <div className='container'>
@@ -52,7 +61,7 @@ const Jobs = () => {
                             </Typography>
                         </Box>
 
-                        <Box display="flex" alignItems="center">
+                        <Box display="flex" alignItems="center" flexWrap='wrap'>
                             <Typography
                                 variant='h5'
                                 color="#6B6E6F"
@@ -83,8 +92,46 @@ const Jobs = () => {
                                 </MenuItem>
                                 <MenuItem value={2}>Latest</MenuItem>
                             </Select>
+                            |
+                            <Box ml={2}>
+                                <Tabs value={viewMode} onChange={handleChange}>
+                                    <Tab
+                                        icon={<GridViewOutlinedIcon/>}
+                                        className="customTab"
+                                    />
+                                    <Tab
+                                        icon={<ViewStreamOutlinedIcon/>}
+                                        className="customTab"
+                                    />
+                                </Tabs>
+                            </Box>
                         </Box>
                     </Box>
+
+                    {
+                        viewMode === 1 ? (
+                            <>
+                                <ListView/>
+                                <ListView/>
+                                <ListView/>
+                            </>
+                        ) : (
+                            <Grid container columnSpacing={2}>
+                                <Grid item xs={12} md={6} mt={4}>
+                                    <GridView/>
+                                </Grid>
+                                <Grid item xs={12} md={6} mt={4}>
+                                    <GridView/>
+                                </Grid>
+                                <Grid item xs={12} md={6} mt={4}>
+                                    <GridView/>
+                                </Grid>
+                                <Grid item xs={12} md={6} mt={4}>
+                                    <GridView/>
+                                </Grid>
+                            </Grid>
+                        )
+                    }
                 </Grid>
             </Grid>
         </div>

@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 const SearchBox = ({category, setCategory, location, setLocation}) => {
     return (
         <Box>
-            <Box className='homeSearchBox' style={{ boxShadow: '5px 8px 20px 0px rgba(242, 138, 31, 0.20)' }}>
+            <Box className='homeSearchBox' style={{ boxShadow: '5px 8px 20px 0px rgba(242, 138, 31, 0.20)' }} width='100%'>
                 <TextField
                     hiddenLabel
                     id="filled-hidden-label-normal"
