@@ -42,7 +42,7 @@ const JobDetails = () => {
             <Grid container px={2} spacing={5} my={5}>
                 <Grid item xs={12} md={8}>
                     <ListHeader/>
-                    <Box mt={3} display='flex'>
+                    <Box mt={3} display='flex' flexWrap='wrap'>
                         <TypoBadge
                             icon={<LocationOnOutlinedIcon fontSize='small'/>}
                             text='Berlyn'

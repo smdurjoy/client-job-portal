@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
 
-const H4 = ({text, color = 'black', mt = 0}) => {
+const H5 = ({text, color = 'black', mt = 0}) => {
     return (
         <Typography
             variant='h5'
@@ -19,4 +19,4 @@ const H4 = ({text, color = 'black', mt = 0}) => {
     );
 };
 
-export default H4;
+export default H5;
