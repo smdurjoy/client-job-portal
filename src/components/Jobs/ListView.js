@@ -24,7 +24,7 @@ const ListView = () => {
                 <CardContent>
                     <ListHeader/>
 
-                    <Box display='flex' justifyContent='space-between' flexWrap='wrap'>
+                    <Box display='flex' justifyContent='space-between'>
                         <Box display='flex' mt={2}>
                             <TypoBadge
                                 icon={<LocationOnOutlinedIcon fontSize='small'/>}
@@ -67,12 +67,12 @@ const ListView = () => {
                             $ 2000-2500 / Month
                         </Typography>
                         <Box>
-                            <Button variant='outlined' className='secondaryBtnBlue'>
+                            <Button size='large' variant='outlined' className='secondaryBtnBlue'>
                                 <Link to={'/job-details/1'}>
                                     View More
                                 </Link>
                             </Button>
-                            <Button className='primaryBtn' sx={{marginLeft: '10px'}}>
+                            <Button size='large' className='primaryBtn' sx={{marginLeft: '10px'}}>
                                 Apply Now
                             </Button>
                         </Box>

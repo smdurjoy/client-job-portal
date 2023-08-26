@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import {Grid} from "@mui/material";
+import {Button, Grid, Stack, Typography} from "@mui/material";
 import ListHeader from "./ListHeader";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
@@ -18,6 +18,7 @@ import H4 from "../Typography/H4";
 import H6 from "../Typography/H6";
 import UlList from "../common/UlList";
 import GridView from "./GridView";
+import CompanyImg from '../../assets/images/home/companyImg.png'
 
 const JobDetails = () => {
     const responsibilities = [
@@ -39,10 +40,9 @@ const JobDetails = () => {
     return (
         <Box className='container' mt={16}>
             <Grid container px={2} spacing={5} my={5}>
-                <Grid item xs={12} md={7}>
+                <Grid item xs={12} md={8}>
                     <ListHeader/>
-
-                    <Box mt={3} display='flex' flexWrap='wrap'>
+                    <Box mt={3} display='flex'>
                         <TypoBadge
                             icon={<LocationOnOutlinedIcon fontSize='small'/>}
                             text='Berlyn'
@@ -71,39 +71,44 @@ const JobDetails = () => {
 
                     <Box borderTop='1px solid #D4D4D4' py={3} mt={4}>
                         <H3 text='Job Role Insights'/>
-
-                        <Box display='flex' alignItems='center' flexWrap='wrap'>
-                            <JobRoleInsights
-                                icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
-                                title='Date posted'
-                                subTitle='October 7, 2022'
-                            />
-                            <JobRoleInsights
-                                icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
-                                title='Application Deadline'
-                                subTitle='October 27, 2022'
-                            />
-                            <JobRoleInsights
-                                icon={<MonetizationOnOutlinedIcon fontSize='large'/>}
-                                title='Salary'
-                                subTitle='$2000 - $2500'
-                            />
-                            <JobRoleInsights
-                                icon={<EventNoteOutlinedIcon fontSize='large'/>}
-                                title='Experience'
-                                subTitle='3-5 Years'
-                            />
-                            <JobRoleInsights
-                                icon={<BusinessCenterOutlinedIcon fontSize='large'/>}
-                                title='Job Type'
-                                subTitle='Full-time'
-                            />
-                            <JobRoleInsights
-                                icon={<GroupsOutlinedIcon fontSize='large'/>}
-                                title='Vacancy'
-                                subTitle='02'
-                            />
-                        </Box>
+                        <Grid container spacing={2}>
+                            <Grid item md={4}>
+                                <JobRoleInsights
+                                    icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
+                                    title='Date posted'
+                                    subTitle='October 7, 2022'
+                                />
+                                <JobRoleInsights
+                                    icon={<EventNoteOutlinedIcon fontSize='large'/>}
+                                    title='Experience'
+                                    subTitle='3-5 Years'
+                                />
+                            </Grid>
+                            <Grid item md={4}>
+                                <JobRoleInsights
+                                    icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
+                                    title='Application Deadline'
+                                    subTitle='October 27, 2022'
+                                />
+                                <JobRoleInsights
+                                    icon={<BusinessCenterOutlinedIcon fontSize='large'/>}
+                                    title='Job Type'
+                                    subTitle='Full-time'
+                                />
+                            </Grid>
+                            <Grid item md={4}>
+                                <JobRoleInsights
+                                    icon={<MonetizationOnOutlinedIcon fontSize='large'/>}
+                                    title='Salary'
+                                    subTitle='$2000 - $2500'
+                                />
+                                <JobRoleInsights
+                                    icon={<GroupsOutlinedIcon fontSize='large'/>}
+                                    title='Vacancy'
+                                    subTitle='02'
+                                />
+                            </Grid>
+                        </Grid>
                     </Box>
 
                     <Box borderTop='1px solid #D4D4D4' py={3} mt={4}>
@@ -137,7 +142,66 @@ const JobDetails = () => {
                         <UlList items={benefits}/>
                     </Box>
                 </Grid>
-                <Grid item xs={12} md={5}>
+                <Grid item xs={12} md={4}>
+                    <Stack
+                        direction='column'
+                        spacing={2}
+                        justifyContent='center'
+                        alignItems='center'
+                        border='1px solid #D4D4D4'
+                        borderRadius='7px'
+                        padding='20px'
+                        bgcolor='#FAFAFA'
+                        mb={4}
+                    >
+                        <H3 text='Interested in this job?'/>
+                        <Typography color="#6B6E6F">
+                            <span style={{color: '#0D9CA4'}}>148</span> Days left to apply
+                        </Typography>
+                        <Button className='primaryBtn' fullWidth>
+                            Apply to this job
+                        </Button>
+                    </Stack>
+                    <Stack
+                        direction='column'
+                        spacing={3}
+                        borderRadius='7px'
+                        padding='20px'
+                        bgcolor='#FAFAFA'
+                    >
+                        <Stack direction='row' spacing={2} alignItems='center'>
+                            <img src={CompanyImg} alt="" />
+                            <Stack direction='column' spacing={0}>
+                                <Typography color='#6B6E6F' fontSize='30px'>Airbnb</Typography>
+                                <Typography color='#F28A1F'>View Company Profile</Typography>
+                            </Stack>
+                        </Stack>
+                        <Stack direction='row' spacing={2} alignItems='center'>
+                            <Typography color='#F28A1F'>Overview</Typography>
+                            <Typography>Jobs (10)</Typography>
+                        </Stack>
+                        <Typography>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sed nulla suscipit voluptate deleniti ipsam laudantium praesentium omnis. Reprehenderit itaque odio aliquid vitae velit aliquam nobis deleniti ea ratione suscipit.
+                        </Typography>
+                        <Stack direction='column' spacing={2}>
+                            <Stack direction='row' spacing={2} justifyContent='space-between'>
+                                <Typography color='#0D9CA4'>Industry Type</Typography>
+                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                            </Stack>
+                            <Stack direction='row' spacing={2} justifyContent='space-between'>
+                                <Typography color='#0D9CA4'>Website</Typography>
+                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                            </Stack>
+                            <Stack direction='row' spacing={2} justifyContent='space-between'>
+                                <Typography color='#0D9CA4'>Location</Typography>
+                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                            </Stack>
+                            <Stack direction='row' spacing={2} justifyContent='space-between'>
+                                <Typography color='#0D9CA4'>Company Size</Typography>
+                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                            </Stack>
+                        </Stack>
+                    </Stack>
                 </Grid>
             </Grid>
 

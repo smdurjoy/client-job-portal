@@ -41,7 +41,7 @@ const GridView = () => {
                         Product Designer
                     </Typography>
                 </Box>
-                <Box display='flex' mt={2} flexWrap='wrap'>
+                <Box display='flex' mt={2}>
                     <TypoBadge
                         icon={<LocationOnOutlinedIcon fontSize='small'/>}
                         text='Berlyn'
@@ -71,12 +71,12 @@ const GridView = () => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button variant='outlined' className='secondaryBtnBlue'>
+                <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue'>
                     <Link to={'/job-details/1'}>
                         View More
                     </Link>
                 </Button>
-                <Button className='primaryBtn'>
+                <Button fullWidth size='large' className='primaryBtn'>
                     Apply Now
                 </Button>
             </CardActions>

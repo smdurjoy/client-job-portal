@@ -1,316 +1,320 @@
 :root {
-    --primary: #F28A1F;
-    --secondayTextColor: '#6B6E6F';
+  --primary: #f28a1f;
+  --secondayTextColor: "#6B6E6F";
 }
 
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .homeBanner {
-    height: 700px;
-    background: url("./assets/images/home/bannerBg.png") center center no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 700px;
+  background: url("./assets/images/home/bannerBg.png") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .statisticsBanner {
-    height: 700px;
-    background: url("./assets/images/home/bannerBg2.png") center center no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  height: 700px;
+  background: url("./assets/images/home/bannerBg2.png") center center no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .navItem {
-    padding: 0 25px;
-    color: #1e1e1e;
-    font-weight: 600;
-    font-size: 18px;
-    text-decoration: none;
-    transition: 0.2s;
+  padding: 0 25px;
+  color: #1e1e1e;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
 .navItem:hover {
-    color: var(--primary);
-    border-bottom: 1px solid var(--primary);
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
 }
 
 .primaryBtn {
-    background-color: var(--primary) !important;
-    text-transform: none !important;
-    color: white !important;
-    padding: 12px 42px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 7px !important;
+  background-color: var(--primary) !important;
+  text-transform: none !important;
+  color: white !important;
+  /* padding: 12px 42px !important; */
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
 }
 
 .secondaryBtn {
-    border-color: var(--primary) !important;
-    text-transform: uppercase !important;
-    color: var(--primary) !important;
-    padding: 12px 42px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 7px !important;
+  border-color: var(--primary) !important;
+  text-transform: uppercase !important;
+  color: var(--primary) !important;
+  padding: 12px 42px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
 }
 
 .secondaryBtnBlue {
-    border-color: #0d9ca4 !important;
-    text-transform: capitalize !important;
-    color: #0d9ca4 !important;
-    padding: 12px 42px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 7px !important;
+  border-color: #0d9ca4 !important;
+  text-transform: capitalize !important;
+  color: #0d9ca4 !important;
+  /* padding: 12px 42px !important; */
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
 }
 
 .secondaryBtnWhite {
-    border-color: white !important;
-    text-transform: uppercase !important;
-    color: white !important;
-    padding: 12px 42px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    border-radius: 7px !important;
+  border-color: white !important;
+  text-transform: uppercase !important;
+  color: white !important;
+  padding: 12px 42px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 7px !important;
 }
 
 .container {
-    padding: 0 5vw;
+  padding: 0 5vw;
 }
 
 .secondaryText {
-    color: var(--secondayTextColor);
+  color: var(--secondayTextColor);
 }
 
 .navBar {
-    background: transparent !important;
-    box-shadow: none !important;
-    margin-top: 20px;
-    transition: background 0.2s ease, padding 0.3s linear !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  margin-top: 20px;
+  transition: background 0.2s ease, padding 0.3s linear !important;
 }
 
 .commonNav {
-    position: fixed !important;
-    background: #FFF4EA !important;
-    box-shadow: 0 10px 20px 0 rgba(74, 74, 74, 0.10) !important;
-    padding: 20px 5vw !important;
-    transition: background 0.2s ease, padding 0.3s linear !important;
+  position: fixed !important;
+  background: #fff4ea !important;
+  box-shadow: 0 10px 20px 0 rgba(74, 74, 74, 0.1) !important;
+  padding: 20px 5vw !important;
+  transition: background 0.2s ease, padding 0.3s linear !important;
 }
 
 .homeSearchBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    height: 52px;
-    background-color: white;
-    border-radius: 6px;
-    padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 52px;
+  background-color: white;
+  border-radius: 6px;
+  padding-left: 10px;
 }
 
 .title {
-    color: #000;
-    font-size: 30px;
-    font-weight: 500;
+  color: #000;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .rectangle1 {
-    height: 525px;
-    width: 485px;
+  height: 525px;
+  width: 485px;
 }
 
 .rectangle1Box {
-    border: 1px solid #F28A1F;
-    border-radius: 5px;
-    padding: 75px 20px;
-    width: 230px;
-    position: absolute;
-    margin-top: -9rem;
-    margin-left: 18rem;
-    z-index: 99;
-    background-color: white;
-    box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.20);
+  border: 1px solid #f28a1f;
+  border-radius: 5px;
+  padding: 75px 20px;
+  width: 230px;
+  position: absolute;
+  margin-top: -9rem;
+  margin-left: 18rem;
+  z-index: 99;
+  background-color: white;
+  box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.2);
 }
 
 .rectangle1Box img {
-    margin-top: -120px;
-    margin-left: -70px;
-    position: absolute;
+  margin-top: -120px;
+  margin-left: -70px;
+  position: absolute;
 }
 
 .rectangle2Box {
-    border: 1px solid #0d9ca4;
-    border-radius: 5px;
-    text-align: center;
-    width: 230px;
-    position: absolute;
-    margin-top: -14rem;
-    margin-left: 16rem;
-    z-index: 99;
-    background-color: white;
-    box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.20);
+  border: 1px solid #0d9ca4;
+  border-radius: 5px;
+  text-align: center;
+  width: 230px;
+  position: absolute;
+  margin-top: -14rem;
+  margin-left: 16rem;
+  z-index: 99;
+  background-color: white;
+  box-shadow: 3px 3px 20px 0 rgba(75, 74, 74, 0.2);
 }
 
 .rectangle2 {
-    height: 525px;
-    width: 485px;
+  height: 525px;
+  width: 485px;
 }
 
 .rectangle3 {
-    width: 485px;
+  width: 485px;
 }
 
 .mobileSearchBtn {
-    margin-top: 6px !important;
+  margin-top: 6px !important;
 }
 
 .homeDownloadBox {
-    background: radial-gradient(754.03% 141.42% at -0.00% 0%, #FFD9B2 0.23%, rgba(255, 238, 220, 0.57) 73.63%, #FFD9B2 100%);
-    border-radius: 7px;
-    padding: 4rem;
+  background: radial-gradient(
+    754.03% 141.42% at -0% 0%,
+    #ffd9b2 0.23%,
+    rgba(255, 238, 220, 0.57) 73.63%,
+    #ffd9b2 100%
+  );
+  border-radius: 7px;
+  padding: 4rem;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (max-width: 576px) {
-    .navBar {
-        box-shadow: none;
-        padding: 0 !important;
-        margin-top: 20px;
-    }
+  .navBar {
+    box-shadow: none;
+    padding: 0 !important;
+    margin-top: 20px;
+  }
 
-    .homeBanner {
-        height: 500px;
-    }
+  .homeBanner {
+    height: 500px;
+  }
 
-    .homeBannerManImg {
-        display: none;
-    }
+  .homeBannerManImg {
+    display: none;
+  }
 
-    .homeSearchBox {
-        margin-top: 2rem !important;
-        width: 100% !important;
-        padding-left: 4px !important;
-    }
+  .homeSearchBox {
+    margin-top: 2rem !important;
+    width: 100% !important;
+    padding-left: 4px !important;
+  }
 
-    .homeSearchBox .desktopSearchBtn {
-        display: none;
-    }
+  .homeSearchBox .desktopSearchBtn {
+    display: none;
+  }
 
-    .homeCompanies {
-        padding: 0 30px;
-    }
+  .homeCompanies {
+    padding: 0 30px;
+  }
 
-    .homeCompanies img {
-        width: 90px;
-        margin-top: 10px;
-    }
+  .homeCompanies img {
+    width: 90px;
+    margin-top: 10px;
+  }
 
-    .helpToWorkerGrid {
-        margin-top: 0 !important;
-        margin-bottom: 35px !important;
-    }
+  .helpToWorkerGrid {
+    margin-top: 0 !important;
+    margin-bottom: 35px !important;
+  }
 
-    .helpToWorkerGrid .secondGridCol {
-        margin-top: 5rem !important;
-    }
+  .helpToWorkerGrid .secondGridCol {
+    margin-top: 5rem !important;
+  }
 
-    .primaryBtn {
-        padding: 5px 10px !important;
-        font-size: 12px !important;
-    }
+  .primaryBtn {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
 
-    .secondaryBtn {
-        padding: 5px 10px !important;
-        font-size: 12px !important;
-    }
+  .secondaryBtn {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
 
-    .secondaryBtnBlue {
-        padding: 5px 10px !important;
-        font-size: 12px !important;
-    }
+  .secondaryBtnBlue {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
 
-    .secondaryBtnWhite {
-        padding: 5px 10px !important;
-        font-size: 12px !important;
-    }
+  .secondaryBtnWhite {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
 
-    .rectangle1 {
-        height: 325px;
-        width: 285px;
-    }
+  .rectangle1 {
+    height: 325px;
+    width: 285px;
+  }
 
-    .rectangle1Box {
-        margin-left: 12rem !important;
-        padding: 25px 10px;
-        width: 150px;
-        margin-top: -6rem;
-    }
+  .rectangle1Box {
+    margin-left: 12rem !important;
+    padding: 25px 10px;
+    width: 150px;
+    margin-top: -6rem;
+  }
 
-    .rectangle1Box img {
-        width: 50px;
-        margin-top: -60px;
-        margin-left: -30px;
-        position: absolute;
-    }
+  .rectangle1Box img {
+    width: 50px;
+    margin-top: -60px;
+    margin-left: -30px;
+    position: absolute;
+  }
 
-    .rectangle2 {
-        height: 325px;
-        width: 285px;
-    }
+  .rectangle2 {
+    height: 325px;
+    width: 285px;
+  }
 
-    .rectangle2Box {
-        width: 230px;
-        margin-top: -10rem;
-        margin-left: 1rem;
-    }
+  .rectangle2Box {
+    width: 230px;
+    margin-top: -10rem;
+    margin-left: 1rem;
+  }
 
-    .rectangle3 {
-        width: 285px;
-    }
+  .rectangle3 {
+    width: 285px;
+  }
 
-    .homeDownloadBox {
-        padding: 10px;
-        margin-top: 0 !important;
-    }
+  .homeDownloadBox {
+    padding: 10px;
+    margin-top: 0 !important;
+  }
 
-    .homeDownloadBox .downloadBtns img {
-        width: 100px;
-        margin-bottom: 3rem;
-    }
+  .homeDownloadBox .downloadBtns img {
+    width: 100px;
+    margin-bottom: 3rem;
+  }
 
-    .statisticsBanner {
-        height: 930px;
-    }
+  .statisticsBanner {
+    height: 930px;
+  }
 }
 
 @media (max-width: 768px) {
-    .homeBannerManImg {
-        display: none;
-    }
-    .statisticsBanner {
-        height: 1130px;
-    }
+  .homeBannerManImg {
+    display: none;
+  }
+  .statisticsBanner {
+    height: 1130px;
+  }
 }
 
 @media (max-width: 1024px) {
-
 }

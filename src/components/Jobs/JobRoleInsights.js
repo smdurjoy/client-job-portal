@@ -5,7 +5,7 @@ import H6 from "../Typography/H6";
 
 const JobRoleInsights = ({icon, title, subTitle}) => {
     return (
-        <Box display='flex' alignItems='center' mr={10} mt={3} flexGrow={1}>
+        <Box display='flex' alignItems='center' mt={3}>
             <Typography
                 bgcolor='#F3FAFA'
                 color='#0D9CA4'

@@ -85,7 +85,7 @@ const SearchBox = ({category, setCategory, location, setLocation}) => {
                         </Select>
                     </FormControl>
                 </div>
-                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}}}>
+                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}, px:5 }}>
                     Search
                 </Button>
             </Box>

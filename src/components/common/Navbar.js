@@ -100,7 +100,7 @@ function Navbar({window, isForHomePage = true}) {
                         </div>
                         <div style={{flexBasis: '30%'}}>
                             <Box sx={{display: {xs: 'none', md: 'block'}, textAlign: 'center'}}>
-                                <Link to={'/'} className='navItem'>
+                                <Link to={'/login'} className='navItem'>
                                     Login
                                 </Link>
                                 <Button className='primaryBtn' sx={{marginLeft: 4}}>

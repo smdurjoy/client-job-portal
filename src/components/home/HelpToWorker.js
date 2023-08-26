@@ -97,7 +97,7 @@ const HelpToWorker = () => {
                     </Box>
 
                     <Box mt={9}>
-                        <Button className='primaryBtn'>
+                        <Button size='large' sx={{px: 5}} className='primaryBtn'>
                             Apply Now
                         </Button>
                     </Box>
