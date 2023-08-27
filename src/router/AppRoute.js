@@ -5,6 +5,7 @@ import JobDetailsPage from "../pages/JobDetailsPage";
 import LoginPage from "../pages/LoginPage";
 import OTPPage from "../pages/OTPPage";
 import RegistrationPage from "../pages/RegistrationPage";
+import ForgetPasswordPage from "../pages/ForgetPasswordPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/register",
         element: <RegistrationPage/>
+    },
+    {
+        path: "/forget-password",
+        element: <ForgetPasswordPage/>
     },
 ]);
 
