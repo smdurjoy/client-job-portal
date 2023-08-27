@@ -29,7 +29,7 @@ const WorkerForm = () => {
                     Login
                 </Button>
                 <Box textAlign="center" mt={2}>
-                    <Link to={'/'}>
+                    <Link to={'/forget-password'}>
                         <H6
                             text='Forget Password?'
                             color='#0D9CA4'
