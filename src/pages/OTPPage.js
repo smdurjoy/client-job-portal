@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import Login from "../components/auth/login/Login";
 import loginImg from "../assets/images/auth/workerLogin.png";
+import OTP from "../components/auth/login/OTP";
 
-const LoginPage = () => {
+const OTPPage = () => {
     const [img, setImg] = useState(loginImg);
-    const [subtitle, setSubtitle] = useState('Log in to continue your account and explore new jobs');
+    const [subtitle, setSubtitle] = useState('Please Enter Verification Code');
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-        document.title = 'Login - workersRUS';
+        document.title = 'OTP Verification - workersRUS';
     }, [])
 
     return (
         <>
-            <Login
+            <OTP
                 img={img}
                 setImg={setImg}
                 subtitle={subtitle}
@@ -23,4 +23,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default OTPPage;

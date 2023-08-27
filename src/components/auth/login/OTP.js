@@ -3,16 +3,17 @@ import AuthLayout from "../AuthLayout";
 import FormWrapper from "../FormWrapper";
 import OTPForm from "./OTPForm";
 
-const Login = () => {
+const OTP = ({img, subtitle}) => {
+
     return (
-        <AuthLayout>
+        <AuthLayout img={img}>
             <FormWrapper
                 title="OTP Verification"
-                subTitle="Please Enter Verification Code"
+                subTitle={subtitle}
                 form={<OTPForm/>}
             />
         </AuthLayout>
     );
 };
 
-export default Login;
+export default OTP;

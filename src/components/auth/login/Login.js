@@ -3,13 +3,13 @@ import Form from "./Form";
 import AuthLayout from "../AuthLayout";
 import FormWrapper from "../FormWrapper";
 
-const Login = () => {
+const Login = ({img, setImg, subtitle, setSubtitle}) => {
     return (
-        <AuthLayout>
+        <AuthLayout img={img}>
             <FormWrapper
                 title="Welcome"
-                subTitle="Log in to continue your account and explore new jobs"
-                form={<Form/>}
+                subTitle={subtitle}
+                form={<Form setImg={setImg} setSubtitle={setSubtitle}/>}
             />
         </AuthLayout>
     );
