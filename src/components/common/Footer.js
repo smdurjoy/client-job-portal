@@ -13,6 +13,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -56,9 +57,11 @@ const Footer = () => {
                               xs: 3,
                           }}
                     >
-                        <Button variant='outlined' className='secondaryBtnWhite'>
-                            Log In
-                        </Button>
+                        <Link to={'/login'}>
+                            <Button variant='outlined' className='secondaryBtnWhite'>
+                                Log In
+                            </Button>
+                        </Link>
                         <Button className='primaryBtn' sx={{marginLeft: '26px'}}>
                             Register
                         </Button>

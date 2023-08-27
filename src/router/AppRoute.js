@@ -3,6 +3,7 @@ import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
 import JobDetailsPage from "../pages/JobDetailsPage";
 import LoginPage from "../pages/LoginPage";
+import OTP from "../components/auth/login/OTP";
 
 const AppRoute = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/login",
         element: <LoginPage />
+    },
+    {
+        path: "/otp-verification",
+        element: <OTP />
     },
 ]);
 

@@ -1,17 +1,12 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import {InputAdornment, TextField} from "@mui/material";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import DialpadIcon from '@mui/icons-material/Dialpad';
 import Button from "@mui/material/Button";
-import {useNavigate} from 'react-router-dom';
+import {Link} from "react-router-dom";
+import H6 from "../../Typography/H6";
 
-const WorkerForm = () => {
-    const navigate = useNavigate();
-
-    const handleLogin = () => {
-        navigate('/otp-verification');
-    }
-
+const WorkerOTPForm = () => {
     return (
         <Box
             boxShadow="0px 0px 20px 0px rgba(242, 138, 31, 0.15)"
@@ -24,7 +19,7 @@ const WorkerForm = () => {
                     <TextField
                         hiddenLabel
                         id="filled-hidden-label-normal"
-                        placeholder='Phone Number *'
+                        placeholder='Enter OTP *'
                         sx={{
                             backgroundColor: 'white',
                             height: 'inherit',
@@ -36,22 +31,33 @@ const WorkerForm = () => {
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
-                                    <LocalPhoneIcon/>
+                                    <DialpadIcon/>
                                 </InputAdornment>
                             ),
                         }}
                     />
                 </Box>
-                <Button
-                    className='primaryBtn'
-                    sx={{marginTop: '1rem', width: '100%'}}
-                    onClick={handleLogin}
-                >
-                    Login
+                <Button className='primaryBtn' sx={{marginTop: '1rem', width: '100%'}}>
+                    Send
                 </Button>
+                <Box textAlign="center" mt={2}>
+                    <Box display="flex" justifyContent="center">
+                        <H6
+                            text="Don't Get Yet?"
+                            color='#6B6E6F'
+                        />
+                        <Link to={'/'}>
+                            <H6
+                                text="Resend"
+                                color='#0D9CA4'
+                                ml={0.5}
+                            />
+                        </Link>
+                    </Box>
+                </Box>
             </Box>
         </Box>
     );
 };
 
-export default WorkerForm;
+export default WorkerOTPForm;
