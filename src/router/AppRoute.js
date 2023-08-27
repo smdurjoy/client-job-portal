@@ -4,6 +4,7 @@ import JobsPage from "../pages/JobsPage";
 import JobDetailsPage from "../pages/JobDetailsPage";
 import LoginPage from "../pages/LoginPage";
 import OTPPage from "../pages/OTPPage";
+import RegistrationPage from "../pages/RegistrationPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/otp-verification",
         element: <OTPPage/>
+    },
+    {
+        path: "/register",
+        element: <RegistrationPage/>
     },
 ]);
 

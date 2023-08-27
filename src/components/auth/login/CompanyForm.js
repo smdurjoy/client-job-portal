@@ -75,7 +75,7 @@ const WorkerForm = () => {
                             text="Don't Have an Account? "
                             color='#6B6E6F'
                         />
-                        <Link to={'/'}>
+                        <Link to={'/register'}>
                             <H6
                                 text=" Register"
                                 color='#0D9CA4'
