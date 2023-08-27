@@ -1,9 +1,9 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import {InputAdornment, TextField} from "@mui/material";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import Button from "@mui/material/Button";
 import {useNavigate} from 'react-router-dom';
+import FormInput from "../../common/FormInput";
 
 const WorkerForm = () => {
     const navigate = useNavigate();
@@ -17,31 +17,13 @@ const WorkerForm = () => {
             boxShadow="0px 0px 20px 0px rgba(242, 138, 31, 0.15)"
             width="100%"
             bgcolor="white"
-            sx={{ borderTopLeftRadius: '30px', borderTopRightRadius: '30px' }}
+            sx={{borderTopLeftRadius: '30px', borderTopRightRadius: '30px'}}
         >
-            <Box px={4} py={10}>
-                <Box sx={{border: '1px solid #D4D4D4'}}>
-                    <TextField
-                        hiddenLabel
-                        id="filled-hidden-label-normal"
-                        placeholder='Phone Number *'
-                        sx={{
-                            backgroundColor: 'white',
-                            height: 'inherit',
-                            width: '100%',
-                            "& fieldset": {
-                                border: "none",
-                            }
-                        }}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <LocalPhoneIcon/>
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
-                </Box>
+            <Box px={4} py={8}>
+                <FormInput
+                    placeholder='Phone Number *'
+                    icon={<LocalPhoneIcon/>}
+                />
                 <Button
                     className='primaryBtn'
                     sx={{marginTop: '1rem', width: '100%'}}

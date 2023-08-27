@@ -2,11 +2,12 @@ import React from 'react';
 import {InputAdornment, TextField} from "@mui/material";
 import Box from "@mui/material/Box";
 
-const FormInput = ({placeholder, icon}) => {
+const FormInput = ({placeholder, icon, inputType = 'text'}) => {
     return (
         <Box sx={{border: '1px solid #D4D4D4'}} mt={2}>
             <TextField
                 hiddenLabel
+                type={inputType}
                 placeholder={placeholder}
                 sx={{
                     backgroundColor: 'white',

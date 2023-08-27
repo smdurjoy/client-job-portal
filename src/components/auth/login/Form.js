@@ -48,6 +48,7 @@ const Form = ({setImg, setSubtitle}) => {
                                 value="1"
                                 sx={{
                                     color: '#6B6E6F',
+                                    fontWeight: 'bold',
                                     '&.Mui-selected': {
                                         color: '#F28A1F'
                                     }
@@ -58,6 +59,7 @@ const Form = ({setImg, setSubtitle}) => {
                                 value="2"
                                 sx={{
                                     color: '#6B6E6F',
+                                    fontWeight: 'bold',
                                     '&.Mui-selected': {
                                         color: '#F28A1F'
                                     }

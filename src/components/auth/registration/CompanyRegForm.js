@@ -32,10 +32,12 @@ const CompanyRegForm = () => {
                 />
                 <FormInput
                     placeholder='Enter Password *'
+                    inputType='password'
                     icon={<LockOutlinedIcon/>}
                 />
                 <FormInput
                     placeholder='Re-Type Password *'
+                    inputType='password'
                     icon={<LockOutlinedIcon/>}
                 />
                 <Button className='primaryBtn' sx={{marginTop: '1rem', width: '100%'}}>

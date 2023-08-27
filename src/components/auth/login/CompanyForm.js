@@ -1,11 +1,11 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import {InputAdornment, TextField} from "@mui/material";
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Button from "@mui/material/Button";
 import H6 from "../../Typography/H6";
 import {Link} from "react-router-dom";
+import FormInput from "../../common/FormInput";
 
 const WorkerForm = () => {
     return (
@@ -15,51 +15,16 @@ const WorkerForm = () => {
             bgcolor="white"
             sx={{borderTopLeftRadius: '30px', borderTopRightRadius: '30px'}}
         >
-            <Box px={4} py={10}>
-                <Box sx={{border: '1px solid #D4D4D4'}}>
-                    <TextField
-                        hiddenLabel
-                        id="filled-hidden-label-normal"
-                        placeholder='Enter Your Email *'
-                        sx={{
-                            backgroundColor: 'white',
-                            height: 'inherit',
-                            width: '100%',
-                            "& fieldset": {
-                                border: "none",
-                            }
-                        }}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <EmailOutlinedIcon/>
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
-                </Box>
-                <Box sx={{border: '1px solid #D4D4D4'}} mt={2}>
-                    <TextField
-                        hiddenLabel
-                        id="filled-hidden-label-normal"
-                        placeholder='Enter Your Password *'
-                        sx={{
-                            backgroundColor: 'white',
-                            height: 'inherit',
-                            width: '100%',
-                            "& fieldset": {
-                                border: "none",
-                            }
-                        }}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <LockOutlinedIcon/>
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
-                </Box>
+            <Box px={4} py={8}>
+                <FormInput
+                    placeholder='Enter Your Email *'
+                    icon={<EmailOutlinedIcon/>}
+                />
+                <FormInput
+                    placeholder='Enter Your Password *'
+                    inputType='password'
+                    icon={<LockOutlinedIcon/>}
+                />
                 <Button className='primaryBtn' sx={{marginTop: '1rem', width: '100%'}}>
                     Login
                 </Button>
@@ -77,7 +42,7 @@ const WorkerForm = () => {
                         />
                         <Link to={'/register'}>
                             <H6
-                                text=" Register"
+                                text="Register"
                                 color='#0D9CA4'
                                 ml={0.5}
                             />

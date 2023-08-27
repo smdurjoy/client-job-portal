@@ -30,6 +30,7 @@ const OTPForm = () => {
                                 value="1"
                                 sx={{
                                     color: '#6B6E6F',
+                                    fontWeight: 'bold',
                                     '&.Mui-selected': {
                                         color: '#F28A1F'
                                     }
@@ -41,6 +42,7 @@ const OTPForm = () => {
                                 disabled
                                 sx={{
                                     color: '#6B6E6F',
+                                    fontWeight: 'bold',
                                     '&.Mui-selected': {
                                         color: '#F28A1F'
                                     }
