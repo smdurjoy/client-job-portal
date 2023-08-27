@@ -2,8 +2,8 @@ import React from 'react';
 import Box from "@mui/material/Box";
 import FormInput from "../../common/FormInput";
 import Button from "@mui/material/Button";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import TabWrapper from "../TabWrapper";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 const tabContent = () => {
     return (
@@ -15,22 +15,27 @@ const tabContent = () => {
         >
             <Box px={4} py={8}>
                 <FormInput
-                    placeholder='Enter Your Email *'
-                    inputType='email'
-                    icon={<EmailOutlinedIcon/>}
+                    placeholder='Enter Password *'
+                    inputType='password'
+                    icon={<LockOutlinedIcon/>}
+                />
+                <FormInput
+                    placeholder='Re-Type Password *'
+                    inputType='password'
+                    icon={<LockOutlinedIcon/>}
                 />
                 <Button
                     className='primaryBtn'
                     sx={{marginTop: '1rem', width: '100%'}}
                 >
-                    Next
+                    Reset
                 </Button>
             </Box>
         </Box>
     )
 }
 
-const ForgetPasswordForm = () => {
+const ResetPasswordForm = () => {
     return (
         <TabWrapper
             defaultTab={'2'}
@@ -40,4 +45,4 @@ const ForgetPasswordForm = () => {
     );
 };
 
-export default ForgetPasswordForm;
+export default ResetPasswordForm;
