@@ -7,6 +7,7 @@ import OTPPage from "../pages/OTPPage";
 import RegistrationPage from "../pages/RegistrationPage";
 import ForgetPasswordPage from "../pages/ForgetPasswordPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
+import WorkerProfilePage from "../pages/WorkerProfilePage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/reset-password",
         element: <ResetPasswordPage/>
+    },
+    {
+        path: "/profile",
+        element: <WorkerProfilePage/>
     },
 ]);
 

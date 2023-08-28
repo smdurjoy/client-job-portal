@@ -190,6 +190,10 @@ code {
   padding: 4rem;
 }
 
+.workerProfileActionImg {
+  width: 80px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -308,6 +312,10 @@ a {
 
   .loginImg {
     display: none;
+  }
+
+  .workerProfileActionImg {
+    width: 40px !important;
   }
 }
 
