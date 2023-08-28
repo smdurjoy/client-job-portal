@@ -10,8 +10,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import RememberMeOutlinedIcon from '@mui/icons-material/RememberMeOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import Button from "@mui/material/Button";
-import {Link} from "react-router-dom";
+import SaveNCancel from "../common/SaveNCancel";
 
 const PersonalInfo = () => {
     return (
@@ -107,7 +106,7 @@ const PersonalInfo = () => {
                         renderInput={(params) => <TextField {...params} label="Select City"/>}
                     />
                 </Grid>
-                <Grid item md={12}>
+                <Grid item md={12} sm={12} xs={12}>
                     <H6
                         text='About Yourself*'
                         color='#F28A1F'
@@ -117,7 +116,6 @@ const PersonalInfo = () => {
                         placeholder="Write About Yourself"
                         multiline
                         rows={3}
-                        maxRows={4}
                         sx={{
                             marginTop: '1rem',
                             '&:hover': {
@@ -131,14 +129,7 @@ const PersonalInfo = () => {
                     />
                 </Grid>
                 <Grid item md={12} mt={3}>
-                    <Button size='large' className='primaryBtn'>
-                        Save
-                    </Button>
-                    <Button size='large' variant='outlined' className='secondaryBtnBlue' sx={{ marginLeft: '1rem' }}>
-                        <Link to={'/'}>
-                            Cancel
-                        </Link>
-                    </Button>
+                    <SaveNCancel/>
                 </Grid>
             </Grid>
         </Box>

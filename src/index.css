@@ -63,7 +63,7 @@ code {
     border-color: var(--primary) !important;
     text-transform: uppercase !important;
     color: var(--primary) !important;
-    padding: 12px 42px !important;
+    padding: 10px 42px !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     border-radius: 7px !important;
@@ -248,17 +248,17 @@ a {
     }
 
     .secondaryBtn {
-        padding: 5px 10px !important;
+        padding: 4px 10px !important;
         font-size: 12px !important;
     }
 
     .secondaryBtnBlue {
-        padding: 5px 10px !important;
+        padding: 4px 10px !important;
         font-size: 12px !important;
     }
 
     .secondaryBtnWhite {
-        padding: 5px 10px !important;
+        padding: 4px 10px !important;
         font-size: 12px !important;
     }
 
