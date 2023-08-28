@@ -9,6 +9,7 @@ import employment from '../../assets/images/workerProfile/employment.gif';
 import information from '../../assets/images/workerProfile/information.gif';
 import imgNVideo from '../../assets/images/workerProfile/imgNVideo.gif';
 import H6 from "../Typography/H6";
+import PersonalInfo from "./PersonalInfo";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -51,7 +52,7 @@ const Index = () => {
     ];
 
     return (
-        <Box className='container' mt={16} mb={4}>
+        <Box className='container' mt={16} mb={10}>
             <Box py={6}>
                 <Stack direction="row" spacing={2} flexWrap='wrap' useFlexGap>
                     {
@@ -70,6 +71,8 @@ const Index = () => {
                     }
                 </Stack>
             </Box>
+
+            <PersonalInfo/>
 
             {/*<Grid container py={6} spacing={2} columnGap={2}>*/}
             {/*    {*/}

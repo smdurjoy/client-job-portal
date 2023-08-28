@@ -1,11 +1,12 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
 
-const H6 = ({text, color = 'black', mt = 0, ml = 0}) => {
+const H6 = ({text, color = 'black', mt = 0, ml = 0, fontWeight = 'normal'}) => {
     return (
         <Typography
             variant='h6'
             color={color}
+            fontWeight={fontWeight}
             fontSize={{
                 lg: 18,
                 md: 16,

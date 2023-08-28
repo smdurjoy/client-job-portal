@@ -2,20 +2,7 @@ import React from 'react';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import {Autocomplete, Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
-
-const countries = [
-    {label: 'USA', value: 1},
-    {label: 'Canada', value: 2},
-    {label: 'UK', value: 3},
-];
-const states = [
-    {label: 'ABC', value: 1},
-    {label: 'DEF', value: 2}
-];
-const cities = [
-    {label: 'ABC', value: 1},
-    {label: 'DEF', value: 2},
-];
+import {countries, states, cities} from "../../constants/Constant";
 
 const Filters = () => {
     return (
