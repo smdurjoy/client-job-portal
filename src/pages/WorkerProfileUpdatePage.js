@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
-import WorkerProfile from "../components/workerProfile";
+import WorkerProfileUpdate from "../components/workerProfileUpdate";
 
 const HomePage = () => {
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-        document.title = 'Profile - workersRUS';
+        document.title = 'Update Profile - workersRUS';
     }, [])
 
     return (
         <>
             <Navbar isForHomePage={false}/>
-            <WorkerProfile/>
+            <WorkerProfileUpdate/>
             <Footer/>
         </>
     );

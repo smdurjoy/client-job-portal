@@ -11,6 +11,7 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import RememberMeOutlinedIcon from '@mui/icons-material/RememberMeOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import SaveNCancel from "../common/SaveNCancel";
+import Textarea from "../common/Textarea";
 
 const PersonalInfo = () => {
     return (
@@ -112,20 +113,9 @@ const PersonalInfo = () => {
                         color='#F28A1F'
                         mt={1}
                     />
-                    <TextField
+                    <Textarea
                         placeholder="Write About Yourself"
-                        multiline
-                        rows={3}
-                        sx={{
-                            marginTop: '1rem',
-                            '&:hover': {
-                                borderColor: 'transparent',
-                            },
-                            '&:focus': {
-                                borderColor: 'transparent',
-                            },
-                        }}
-                        fullWidth
+                        row={3}
                     />
                 </Grid>
                 <Grid item md={12} mt={3}>

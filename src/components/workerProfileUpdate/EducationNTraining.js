@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import H4 from "../Typography/H4";
-import {Autocomplete, Grid, TextField} from "@mui/material";
+import {Autocomplete, Checkbox, FormControlLabel, Grid, TextField} from "@mui/material";
 import H6 from "../Typography/H6";
 import FormInput from "../common/FormInput";
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -9,7 +9,7 @@ import SaveNCancel from "../common/SaveNCancel";
 import Button from "@mui/material/Button";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-const PersonalInfo = () => {
+const EducationNTraining = () => {
     return (
         <Box mt={2}>
             <H4
@@ -46,6 +46,13 @@ const PersonalInfo = () => {
                         placeholder='Passing Year'
                     />
                 </Grid>
+                <Grid item md={6} sm={12} xs={12}>
+                    <FormControlLabel
+                        control={<Checkbox/>}
+                        label="Currently Studying"
+                        sx={{color: '#A1A6AB'}}
+                    />
+                </Grid>
 
                 <Grid item md={12} mt={3}>
                     <SaveNCancel/>
@@ -62,4 +69,4 @@ const PersonalInfo = () => {
     );
 };
 
-export default PersonalInfo;
+export default EducationNTraining;

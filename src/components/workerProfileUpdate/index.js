@@ -11,6 +11,7 @@ import imgNVideo from '../../assets/images/workerProfile/imgNVideo.gif';
 import H6 from "../Typography/H6";
 import PersonalInfo from "./PersonalInfo";
 import EducationNTraining from "./EducationNTraining";
+import Employment from "./Employment";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -104,6 +105,7 @@ const Index = () => {
 
             {activeSection === 1 && <PersonalInfo/>}
             {activeSection === 2 && <EducationNTraining/>}
+            {activeSection === 3 && <Employment/>}
 
             {/*<Grid container py={6} spacing={2} columnGap={2}>*/}
             {/*    {*/}
