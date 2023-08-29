@@ -2,8 +2,13 @@ import React, {useEffect} from 'react';
 import Footer from "../components/common/Footer";
 import Jobs from "../components/Jobs/Jobs";
 import Navbar from "../components/common/Navbar";
+import {useGetAllJobCategoriesQuery, useGetAllJobsQuery} from "../services/jobs";
+import {useGetCountriesQuery} from "../services/country";
 
 const HomePage = () => {
+    const {data: jobs} = useGetAllJobsQuery();
+    const {data: countries} = useGetCountriesQuery();
+    const {data: categories} = useGetAllJobCategoriesQuery();
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -13,7 +18,11 @@ const HomePage = () => {
     return (
         <>
             <Navbar isForHomePage={false}/>
-            <Jobs/>
+            <Jobs
+                jobs={jobs?.jobs}
+                categories={categories?.job_categories}
+                countries={countries?.counties}
+            />
             <Footer/>
         </>
     );

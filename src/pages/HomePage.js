@@ -12,9 +12,13 @@ import Plans from "../components/home/Plans";
 import SuccessStories from "../components/home/SuccessStories";
 import Download from "../components/home/Download";
 import Footer from "../components/common/Footer";
+import {useGetCountriesQuery} from "../services/country";
+import {useGetAllJobCategoriesQuery} from "../services/jobs";
 
 const HomePage = () => {
     const [isForHomePage, setIsForHomePage] = useState(true);
+    const {data: countries} = useGetCountriesQuery();
+    const {data: categories} = useGetAllJobCategoriesQuery();
 
     const onScroll = () => {
         if (window.scrollY > 500) {
@@ -33,7 +37,10 @@ const HomePage = () => {
     return (
         <>
             <Navbar isForHomePage={isForHomePage}/>
-            <Banner/>
+            <Banner
+                categories={categories?.job_categories}
+                countries={countries?.counties}
+            />
             <Companies/>
             <Category/>
             <HelpToWorker/>

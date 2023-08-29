@@ -11,7 +11,7 @@ import {Link} from "react-router-dom";
 import ListHeader from "./ListHeader";
 import TypoBadge from "../common/TypoBadge";
 
-const ListView = () => {
+const ListView = ({job}) => {
     return (
         <Box mt={3}>
             <Card
@@ -22,7 +22,7 @@ const ListView = () => {
                 }}
             >
                 <CardContent>
-                    <ListHeader/>
+                    <ListHeader job={job}/>
 
                     <Box display='flex' justifyContent='space-between'>
                         <Box display='flex' mt={2}>
@@ -64,11 +64,11 @@ const ListView = () => {
                             variant="caption"
                             sx={{padding: {lg: '10px', md: '7px', sm: '5px', xs: '3px'}}}
                         >
-                            $ 2000-2500 / Month
+                            {job ? `$ ${job.salary_range} / ${job.salary_type}` : '$ 2000-2500 / Month'}
                         </Typography>
                         <Box>
                             <Button size='large' variant='outlined' className='secondaryBtnBlue'>
-                                <Link to={'/job-details/1'}>
+                                <Link to={job ? `job-details/${job.id}` : '/job-details/1'}>
                                     View More
                                 </Link>
                             </Button>

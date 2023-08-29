@@ -9,7 +9,7 @@ import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
 import ViewStreamOutlinedIcon from '@mui/icons-material/ViewStreamOutlined';
 import GridView from "./GridView";
 
-const Jobs = () => {
+const Jobs = ({jobs, countries, categories}) => {
     const [viewMode, setViewMode] = React.useState(0);
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
@@ -31,6 +31,8 @@ const Jobs = () => {
                         setCategory={setCategory}
                         location={location}
                         setLocation={setLocation}
+                        countries={countries}
+                        categories={categories}
                     />
 
                     <Box mt={5} display="flex" justifyContent="space-between">
@@ -57,7 +59,7 @@ const Jobs = () => {
                                     xs: 12
                                 }}
                             >
-                                Showing 73 Results
+                                Showing {jobs ? jobs?.length : 0} Results
                             </Typography>
                         </Box>
 
@@ -111,24 +113,21 @@ const Jobs = () => {
                     {
                         viewMode === 1 ? (
                             <>
-                                <ListView/>
-                                <ListView/>
-                                <ListView/>
+                                {
+                                    jobs?.map((job, key) => (
+                                        <ListView job={job} key={key}/>
+                                    ))
+                                }
                             </>
                         ) : (
                             <Grid container columnSpacing={2}>
-                                <Grid item xs={12} md={6} mt={4}>
-                                    <GridView/>
-                                </Grid>
-                                <Grid item xs={12} md={6} mt={4}>
-                                    <GridView/>
-                                </Grid>
-                                <Grid item xs={12} md={6} mt={4}>
-                                    <GridView/>
-                                </Grid>
-                                <Grid item xs={12} md={6} mt={4}>
-                                    <GridView/>
-                                </Grid>
+                                {
+                                    jobs?.map((job, key) => (
+                                        <Grid item xs={12} md={6} mt={4} key={key}>
+                                            <GridView job={job}/>
+                                        </Grid>
+                                    ))
+                                }
                             </Grid>
                         )
                     }

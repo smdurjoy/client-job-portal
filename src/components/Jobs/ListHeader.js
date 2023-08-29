@@ -5,11 +5,11 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 
-const ListHeader = () => {
+const ListHeader = ({job}) => {
     return (
         <Box display='flex' justifyContent='space-between' alignItems='start'>
             <Box display='flex' alignItems='center'>
-                <img src={companyLogo} alt="company"/>
+                <img src={job ? job.company_logo : companyLogo} alt="company"/>
                 <Box ml={2}>
                     <Typography
                         variant='h5'
@@ -21,10 +21,10 @@ const ListHeader = () => {
                             xs: 18
                         }}
                     >
-                        Product Designer
+                        {job ? job.job_title : 'Product Designer'}
                     </Typography>
                     <Typography color="text.secondary">
-                        Airbnb
+                        {job ? job.company_name : 'Airbnb'}
                     </Typography>
                 </Box>
             </Box>

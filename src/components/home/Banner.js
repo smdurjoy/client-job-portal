@@ -3,14 +3,11 @@ import {Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import homeBannerManImg from '../../assets/images/home/homeBannerMan.png';
-import {useGetCountriesQuery} from '../../services/country';
 import SearchBox from "../common/SearchBox";
 
-const Banner = () => {
+const Banner = ({categories, countries}) => {
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
-    const {data} = useGetCountriesQuery();
-    console.log({data})
 
     return (
         <div className='homeBanner container'>
@@ -69,6 +66,8 @@ const Banner = () => {
                                     setCategory={setCategory}
                                     location={location}
                                     setLocation={setLocation}
+                                    countries={countries}
+                                    categories={categories}
                                 />
                             </Box>
                         </Box>

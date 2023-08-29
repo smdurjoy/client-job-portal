@@ -6,10 +6,11 @@ import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Button from "@mui/material/Button";
 
-const SearchBox = ({category, setCategory, location, setLocation}) => {
+const SearchBox = ({category, setCategory, location, setLocation, countries, categories}) => {
     return (
         <Box>
-            <Box className='homeSearchBox' style={{ boxShadow: '5px 8px 20px 0px rgba(242, 138, 31, 0.20)' }} width='100%'>
+            <Box className='homeSearchBox' style={{boxShadow: '5px 8px 20px 0px rgba(242, 138, 31, 0.20)'}}
+                 width='100%'>
                 <TextField
                     hiddenLabel
                     id="filled-hidden-label-normal"
@@ -51,9 +52,13 @@ const SearchBox = ({category, setCategory, location, setLocation}) => {
                             <MenuItem disabled value="">
                                 Category
                             </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            {
+                                categories?.map((category, idx) => (
+                                    <MenuItem value={category.id} key={idx}>
+                                        {category.category_name}
+                                    </MenuItem>
+                                ))
+                            }
                         </Select>
                     </FormControl>
                 </div>
@@ -79,13 +84,17 @@ const SearchBox = ({category, setCategory, location, setLocation}) => {
                             <MenuItem disabled value="">
                                 Location
                             </MenuItem>
-                            <MenuItem value={10}>USA</MenuItem>
-                            <MenuItem value={20}>Canada</MenuItem>
-                            <MenuItem value={30}>Australia</MenuItem>
+                            {
+                                countries?.map((country, idx) => (
+                                    <MenuItem value={country.id} key={idx}>
+                                        {country.country_name}
+                                    </MenuItem>
+                                ))
+                            }
                         </Select>
                     </FormControl>
                 </div>
-                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}, px:5 }}>
+                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}, px: 5}}>
                     Search
                 </Button>
             </Box>

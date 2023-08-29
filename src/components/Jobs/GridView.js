@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
 import TypoBadge from "../common/TypoBadge";
 
-const GridView = () => {
+const GridView = ({job}) => {
     return (
         <Card sx={{borderRadius: '10px', padding: '20px', borderTop: '1px solid #D4D4D4'}}>
             <CardContent>
@@ -26,7 +26,7 @@ const GridView = () => {
                 </Box>
                 <Box mt={3}>
                     <Typography color="text.secondary">
-                        Airbnb
+                        {job ? job.company_name : 'Airbnb'}
                     </Typography>
                     <Typography
                         variant='h5'
@@ -38,7 +38,7 @@ const GridView = () => {
                             xs: 14
                         }}
                     >
-                        Product Designer
+                        {job ? job.job_title : 'Product Designer'}
                     </Typography>
                 </Box>
                 <Box display='flex' mt={2}>
@@ -59,7 +59,7 @@ const GridView = () => {
                 <Box display='flex' mt={2} alignItems='center' justifyContent='space-between' flexWrap='wrap'>
                     <Typography bgcolor='#f7f7f8' color='#6b6e6f' width='fit-content' variant="caption"
                                 p={1} display='flex' alignItems='center'>
-                        $ 2000-2500 / Month
+                        {job ? `$ ${job.salary_range} / ${job.salary_type}` : '$ 2000-2500 / Month'}
                     </Typography>
                     <Typography color='#6b6e6f' width='fit-content' variant="caption">
                         148 days left to apply
@@ -72,7 +72,7 @@ const GridView = () => {
             </CardContent>
             <CardActions>
                 <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue'>
-                    <Link to={'/job-details/1'}>
+                    <Link to={job ? `job-details/${job.id}` : '/job-details/1'}>
                         View More
                     </Link>
                 </Button>
