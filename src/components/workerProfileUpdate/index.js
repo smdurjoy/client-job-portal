@@ -13,6 +13,7 @@ import PersonalInfo from "./PersonalInfo";
 import EducationNTraining from "./EducationNTraining";
 import Employment from "./Employment";
 import OtherInformation from "./OtherInformation";
+import ImageNVideo from "./ImageNVideo";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -108,6 +109,7 @@ const Index = () => {
             {activeSection === 2 && <EducationNTraining/>}
             {activeSection === 3 && <Employment/>}
             {activeSection === 4 && <OtherInformation/>}
+            {activeSection === 5 && <ImageNVideo/>}
 
             {/*<Grid container py={6} spacing={2} columnGap={2}>*/}
             {/*    {*/}
