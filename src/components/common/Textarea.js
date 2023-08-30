@@ -2,7 +2,6 @@ import React from 'react';
 import {TextField} from "@mui/material";
 
 const Textarea = ({placeholder, row}) => {
-    console.log({row})
     return (
         <TextField
             placeholder={placeholder}
