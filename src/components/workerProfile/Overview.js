@@ -19,7 +19,7 @@ const Overview = () => {
     ]
 
     return (
-        <Box mt={5}>
+        <Box mt={4}>
             <H4
                 text='About Yourself'
                 color='#0D9CA4'
@@ -46,9 +46,14 @@ const Overview = () => {
                             color='#2B3940'
                             width='fit-content'
                             variant="caption"
-                            fontSize='16px'
                             borderRadius='5px'
                             p={1} mr={2} mb={2}
+                            fontSize={{
+                                lg: 16,
+                                md: 15,
+                                sm: 14,
+                                xs: 12
+                            }}
                         >
                             {skill}
                         </Typography>

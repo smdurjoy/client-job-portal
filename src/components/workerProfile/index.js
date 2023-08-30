@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Box from "@mui/material/Box";
 import {Grid} from "@mui/material";
 import profileImg from '../../assets/images/workerProfile/uploadImgIcon.png';
@@ -10,8 +10,11 @@ import H5 from "../Typography/H5";
 import Button from "@mui/material/Button";
 import Overview from "./Overview";
 import {Link} from "react-router-dom";
+import VideoCv from "./VideoCv";
 
 const Index = () => {
+    const [activeItem, setActiveItem] = useState(1);
+
     const contactInfos = [
         {
             label: 'Location',
@@ -32,9 +35,9 @@ const Index = () => {
     ];
 
     return (
-        <Box className='container' mt={9}>
+        <Box className='container workerProfile' mt={9}>
             <Box py={6}>
-                <Grid container px={2} spacing={3} my={5} columnSpacing={10}>
+                <Grid container px={2} spacing={3} columnSpacing={10} marginY={{lg: 5, md: 4, sm: 3, xs: 1}}>
                     <Grid item xs={12} md={4}>
                         <Box bgcolor='#fafafa' py={5}>
                             <Box display='flex' flexDirection='column' alignItems='center'>
@@ -75,15 +78,19 @@ const Index = () => {
                         <Box display='flex' justifyContent='space-between' flexWrap='wrap'
                              borderBottom='1px solid #D4D4D4'>
                             <Box display='flex'>
-                                <H5
-                                    text='Overview'
-                                    color='#0D9CA4'
-                                />
-                                <H5
-                                    text='Video CV'
-                                    color='#0D9CA4'
-                                    ml={9}
-                                />
+                                <Box sx={{cursor: 'pointer'}} onClick={() => setActiveItem(1)}>
+                                    <H5
+                                        text='Overview'
+                                        color={activeItem === 1 ? '#0D9CA4' : '#6B6E6F'}
+                                    />
+                                </Box>
+                                <Box sx={{cursor: 'pointer'}} onClick={() => setActiveItem(2)}>
+                                    <H5
+                                        text='Video CV'
+                                        color={activeItem === 2 ? '#0D9CA4' : '#6B6E6F'}
+                                        ml={9}
+                                    />
+                                </Box>
                             </Box>
                             <Link to='/edit-profile'>
                                 <Button className='primaryBtnLessPadding'>
@@ -92,7 +99,8 @@ const Index = () => {
                             </Link>
                         </Box>
                         <Box>
-                            <Overview/>
+                            {activeItem === 1 && <Overview/>}
+                            {activeItem === 2 && <VideoCv/>}
                         </Box>
                     </Grid>
                 </Grid>

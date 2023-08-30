@@ -1,7 +1,6 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import H5 from "../Typography/H5";
-import H6 from "../Typography/H6";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import H7 from "../Typography/H7";
 

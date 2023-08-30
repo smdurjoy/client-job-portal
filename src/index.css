@@ -337,6 +337,10 @@ a {
     .workerProfileImg {
         width: 100px !important;
     }
+
+    .workerProfile ul li {
+        font-size: 12px !important;
+    }
 }
 
 @media (max-width: 768px) {
