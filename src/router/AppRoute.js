@@ -9,6 +9,7 @@ import ForgetPasswordPage from "../pages/ForgetPasswordPage";
 import ResetPasswordPage from "../pages/ResetPasswordPage";
 import WorkerProfileUpdatePage from "../pages/WorkerProfileUpdatePage";
 import WorkerProfilePage from "../pages/WorkerProfilePage";
+import BookmarkPage from "../pages/BookmarksPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/edit-profile",
         element: <WorkerProfileUpdatePage/>
+    },
+    {
+        path: "/bookmarks",
+        element: <BookmarkPage/>
     },
 ]);
 
