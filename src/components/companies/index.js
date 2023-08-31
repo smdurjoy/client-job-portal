@@ -3,7 +3,6 @@ import {Grid} from "@mui/material";
 import Box from "@mui/material/Box";
 import H6 from "../Typography/H6";
 import SortBy from "../common/SortBy";
-import GridView from "../Jobs/GridView";
 import CommonPagination from "../common/CommonPagination";
 import H3 from "../Typography/H3";
 import CompanyCard from "./CompanyCard";

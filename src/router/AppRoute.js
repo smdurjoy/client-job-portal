@@ -11,6 +11,7 @@ import WorkerProfileUpdatePage from "../pages/WorkerProfileUpdatePage";
 import WorkerProfilePage from "../pages/WorkerProfilePage";
 import BookmarkPage from "../pages/BookmarksPage";
 import CompaniesPage from "../pages/CompaniesPage";
+import CompanyDetailsPage from "../pages/CompanyDetailsPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/companies",
         element: <CompaniesPage/>
+    },
+    {
+        path: "/company-details",
+        element: <CompanyDetailsPage/>
     },
 ]);
 

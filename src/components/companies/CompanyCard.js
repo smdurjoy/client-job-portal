@@ -11,24 +11,29 @@ import Button from "@mui/material/Button";
 import TypoBadge from "../common/TypoBadge";
 import H3 from "../Typography/H3";
 import H7 from "../Typography/H7";
+import {Link} from "react-router-dom";
 
 const CompanyCard = ({job}) => {
     return (
         <Card sx={{borderRadius: '10px', padding: '15px', borderTop: '1px solid #D4D4D4'}}>
+
             <CardContent>
-                <Box display='flex' justifyContent='space-between' alignItems='start'>
-                    <img src={companyLogo} alt="company" width='80px'/>
-                    <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue' sx={{width: '40%'}}>
-                        Following
-                    </Button>
-                </Box>
-                <Box mt={3} display='flex' alignItems='center'>
-                    <H3
-                        text='Airbnb'
-                        color='#6B6E6F'
-                    />
-                    <CheckCircleIcon sx={{color: '#17B017', marginLeft: '5px'}}/>
-                </Box>
+                <Link to='/company-details'>
+                    <Box display='flex' justifyContent='space-between' alignItems='start'>
+                        <img src={companyLogo} alt="company" width='80px'/>
+                        <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue'
+                                sx={{width: '40%'}}>
+                            Following
+                        </Button>
+                    </Box>
+                    <Box mt={3} display='flex' alignItems='center'>
+                        <H3
+                            text='Airbnb'
+                            color='#6B6E6F'
+                        />
+                        <CheckCircleIcon sx={{color: '#17B017', marginLeft: '5px'}}/>
+                    </Box>
+                </Link>
                 <Box mt={2}>
                     <TypoBadge
                         icon={<LocationOnOutlinedIcon fontSize='small'/>}
