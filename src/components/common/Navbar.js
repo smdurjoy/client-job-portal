@@ -28,7 +28,7 @@ const navItems = [
     },
     {
         title: 'Company',
-        link: '/',
+        link: '/companies',
     },
     {
         title: 'About Us',

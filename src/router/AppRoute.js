@@ -10,6 +10,7 @@ import ResetPasswordPage from "../pages/ResetPasswordPage";
 import WorkerProfileUpdatePage from "../pages/WorkerProfileUpdatePage";
 import WorkerProfilePage from "../pages/WorkerProfilePage";
 import BookmarkPage from "../pages/BookmarksPage";
+import CompaniesPage from "../pages/CompaniesPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/bookmarks",
         element: <BookmarkPage/>
+    },
+    {
+        path: "/companies",
+        element: <CompaniesPage/>
     },
 ]);
 
