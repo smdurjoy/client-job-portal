@@ -65,7 +65,24 @@ code {
     color: white !important;
     padding: 4px 10px !important;
     font-size: 16px !important;
-    font-weight: 600 !important;
+    border-radius: 7px !important;
+}
+
+.primaryBtnLessPaddingBlue {
+    background-color: #F3FAFA !important;
+    text-transform: none !important;
+    color: #0D9CA4 !important;
+    padding: 4px 10px !important;
+    font-size: 16px !important;
+    border-radius: 7px !important;
+}
+
+.primaryBtnLessPaddingRed {
+    background-color: #fff6f6 !important;
+    text-transform: none !important;
+    color: #FF5656 !important;
+    padding: 4px 10px !important;
+    font-size: 16px !important;
     border-radius: 7px !important;
 }
 
