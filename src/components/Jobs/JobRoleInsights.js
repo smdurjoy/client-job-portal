@@ -3,9 +3,9 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import H6 from "../Typography/H6";
 
-const JobRoleInsights = ({icon, title, subTitle}) => {
+const JobRoleInsights = ({icon, title, subTitle, mt = 3}) => {
     return (
-        <Box display='flex' alignItems='center' mt={3}>
+        <Box display='flex' alignItems='center' mt={mt}>
             <Typography
                 bgcolor='#F3FAFA'
                 color='#0D9CA4'

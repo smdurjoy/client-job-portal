@@ -358,6 +358,10 @@ a {
     .workerProfile ul li {
         font-size: 12px !important;
     }
+
+    .applicantsCard img {
+        width: 60px !important;
+    }
 }
 
 @media (max-width: 768px) {

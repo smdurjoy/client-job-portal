@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
 
-const H3 = ({text, color = 'black', mt = 0, fontWeight = 'normal'}) => {
+const H3 = ({text, color = 'black', mt = 0, ml = 0, fontWeight = 'normal'}) => {
     return (
         <Typography
             variant='h3'
@@ -14,6 +14,7 @@ const H3 = ({text, color = 'black', mt = 0, fontWeight = 'normal'}) => {
                 xs: 22
             }}
             mt={mt}
+            ml={ml}
         >
             {text}
         </Typography>
