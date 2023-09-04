@@ -14,6 +14,7 @@ import CompaniesPage from "../pages/CompaniesPage";
 import CompanyDetailsPage from "../pages/CompanyDetailsPage";
 import CompanyDashboardPage from "../pages/CompanyDashboardPage";
 import PostedJobsPage from "../pages/PostedJobsPage";
+import GetAPlansPage from "../pages/GetAPlansPage";
 
 const AppRoute = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/posted-jobs",
         element: <PostedJobsPage/>
+    },
+    {
+        path: "/get-a-plan",
+        element: <GetAPlansPage/>
     },
 ]);
 
