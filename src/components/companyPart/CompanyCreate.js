@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import H3 from "../Typography/H3";
-import {Autocomplete, Grid, TextField} from "@mui/material";
+import {Grid} from "@mui/material";
 import H6 from "../Typography/H6";
 import FormInput from "../common/FormInput";
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
@@ -10,11 +10,11 @@ import uploadImg from '../../assets/images/company/uploadImg.svg';
 import H4 from "../Typography/H4";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import LanguageIcon from '@mui/icons-material/Language';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import {cities, countries, states} from "../../constants/Constant";
 import Button from "@mui/material/Button";
+import AddressSelectArea from "../common/AddressSelectArea";
 
 const CompanyCreate = () => {
     return (
@@ -27,7 +27,8 @@ const CompanyCreate = () => {
 
                 <Grid container columnSpacing={4}>
                     <Grid item md={4} xs={12} mt={4}>
-                        <Box sx={{ border: '1px dashed #A1A6AB' }} display='flex' flexDirection='column' alignItems='center' py={10}>
+                        <Box sx={{border: '1px dashed #A1A6AB'}} display='flex' flexDirection='column'
+                             alignItems='center' py={10}>
                             <img src={uploadImg} alt='upload' width='40px'/>
                             <H4
                                 text='Browse Logo'
@@ -35,7 +36,8 @@ const CompanyCreate = () => {
                         </Box>
                     </Grid>
                     <Grid item md={8} xs={12} mt={4}>
-                        <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center' height='100%'>
+                        <Box display='flex' flexDirection='column' alignItems='center' justifyContent='center'
+                             height='100%'>
                             <H6
                                 text='Max file size is 5MB, Minimum dimension: 330x300 And Suitable files are .jpg & .png'
                             />
@@ -85,36 +87,11 @@ const CompanyCreate = () => {
                             icon={<EmailOutlinedIcon/>}
                         />
                     </Grid>
-                    <Grid item md={12} sm={12} xs={12}>
-                        <H6
-                            text='Address*'
-                            color='#F28A1F'
-                            mt={3}
-                        />
-                        <FormInput
-                            placeholder='Enter Your Address'
-                            icon={<LocationOnOutlinedIcon/>}
-                        />
-                    </Grid>
-                    <Grid item md={6} sm={12} xs={12} mt={3}>
-                        <Autocomplete
-                            options={countries}
-                            renderInput={(params) => <TextField {...params} label="Select Country"/>}
-                        />
-                    </Grid>
-                    <Grid item md={6} sm={12} xs={12} mt={3}>
-                        <Autocomplete
-                            options={states}
-                            renderInput={(params) => <TextField {...params} label="Select State"/>}
-                        />
-                    </Grid>
-                    <Grid item md={6} sm={12} xs={12} mt={3}>
-                        <Autocomplete
-                            options={cities}
-                            renderInput={(params) => <TextField {...params} label="Select City"/>}
-                        />
-                    </Grid>
-                    <Grid item md={6} sm={12} xs={12} mt={3}></Grid>
+                    <AddressSelectArea
+                        countries={countries}
+                        cities={cities}
+                        states={states}
+                    />
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
                             text='Website*'
