@@ -1,16 +1,31 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers, } from '@reduxjs/toolkit'
 import { countryApi } from "../services/country";
 import {jobApi} from "../services/jobs";
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
+
+
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
+const rootReducer = combineReducers({
+    [countryApi.reducerPath]: countryApi.reducer,
+    [jobApi.reducerPath]: jobApi.reducer,
+})
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: {
-        [countryApi.reducerPath]: countryApi.reducer,
-        [jobApi.reducerPath]: jobApi.reducer,
-    },
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware()
-            .concat(countryApi.middleware)
-            .concat(jobApi.middleware),
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat([
+            countryApi.middleware,
+            jobApi.middleware
+        ])
 })
+
+export const persistor = persistStore(store);
