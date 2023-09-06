@@ -2,12 +2,11 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' : '';
 
-
 export const countryApi = createApi({
     reducerPath: 'countryApi',
     tagTypes: ['countries'],
     baseQuery: fetchBaseQuery({
-        baseUrl: baseUrl,
+        baseUrl,
         prepareHeaders: (headers) => {
             headers.set('Access-Control-Allow-Origin', '*');
             headers.set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
@@ -18,7 +17,6 @@ export const countryApi = createApi({
     endpoints: (builder) => ({
         getCountries: builder.query({
             query: () => `common/countries/`,
-            // providesTags: 'countries'
         }),
     }),
 })

@@ -10,6 +10,7 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import {Link} from "react-router-dom";
 import ListHeader from "./ListHeader";
 import TypoBadge from "../common/TypoBadge";
+import {diffInDays} from "../../helpers/Helpers";
 
 const ListView = ({job}) => {
     return (
@@ -28,13 +29,13 @@ const ListView = ({job}) => {
                         <Box display='flex' mt={2}>
                             <TypoBadge
                                 icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                                text='Berlyn'
+                                text={job ? `${job.job_area}, ${job.city}` : 'Berlyn'}
                                 color='#0D9CA4'
                                 bgColor='#F3FAFA'
                             />
                             <TypoBadge
                                 icon={<BusinessCenterIcon fontSize='small'/>}
-                                text='Full Time'
+                                text={job ? job.job_type : 'Full Time'}
                                 color='#FF5656'
                                 bgColor='#fff6f6'
                             />

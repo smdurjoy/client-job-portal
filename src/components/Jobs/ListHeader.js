@@ -9,7 +9,7 @@ const ListHeader = ({job}) => {
     return (
         <Box display='flex' justifyContent='space-between' alignItems='start'>
             <Box display='flex' alignItems='center'>
-                <img src={job ? job.company_logo : companyLogo} alt="company"/>
+                <img src={job ? job.company_logo : companyLogo} alt="company" width='80px'/>
                 <Box ml={2}>
                     <Typography
                         variant='h5'
