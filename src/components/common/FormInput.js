@@ -2,7 +2,7 @@ import React from 'react';
 import {InputAdornment, TextField} from "@mui/material";
 import Box from "@mui/material/Box";
 
-const FormInput = ({placeholder, icon, inputType = 'text'}) => {
+const FormInput = ({placeholder, icon, inputType = 'text', handleChange}) => {
     return (
         <Box sx={{border: '1px solid #D4D4D4'}} mt={2}>
             <TextField
@@ -24,6 +24,7 @@ const FormInput = ({placeholder, icon, inputType = 'text'}) => {
                         </InputAdornment>
                     ),
                 }}
+                onChange={(e) => handleChange(e)}
             />
         </Box>
     );

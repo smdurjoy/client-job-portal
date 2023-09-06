@@ -1,11 +1,44 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from "@mui/material/Box";
 import DialpadIcon from '@mui/icons-material/Dialpad';
 import Button from "@mui/material/Button";
 import H6 from "../../Typography/H6";
 import FormInput from "../../common/FormInput";
+import useAuthManager from "../../../app/customHooks/useAuthManger";
+import {useAppSelector} from "../../../app/hooks";
+import {toast} from "react-toastify";
+import {setToken, setUserId} from "../../../services/app";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const WorkerOTPForm = () => {
+    const [otp, setOtp] = useState('');
+    const {isOtpVerificationLoading, isOtpVerificationSuccess, verifyOtp, optVerificationResponse} = useAuthManager();
+    const {phone_number} = useAppSelector((state) => state.app);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleVerification = () => {
+        verifyOtp(phone_number, otp);
+    }
+    const handleChange = (e) => {
+        setOtp(parseInt(e.target.value));
+    }
+
+    useEffect(() => {
+        if (isOtpVerificationSuccess) {
+            const {data, status} = optVerificationResponse;
+            if (status === 0) {
+                toast.warning('Invalid OTP');
+                return;
+            }
+            dispatch(setToken(data.token));
+            dispatch(setUserId(data.user_id));
+            toast.success('Verify Success');
+            navigate('/');
+        }
+    }, [dispatch, isOtpVerificationSuccess, navigate, optVerificationResponse]);
+
     return (
         <Box
             boxShadow="0px 0px 20px 0px rgba(242, 138, 31, 0.15)"
@@ -17,8 +50,14 @@ const WorkerOTPForm = () => {
                 <FormInput
                     placeholder='Enter OTP *'
                     icon={<DialpadIcon/>}
+                    handleChange={handleChange}
                 />
-                <Button className='primaryBtn' sx={{marginTop: '1rem', width: '100%'}}>
+                <Button
+                    className='primaryBtn'
+                    sx={{marginTop: '1rem', width: '100%'}}
+                    onClick={handleVerification}
+                    disabled={isOtpVerificationLoading}
+                >
                     Send
                 </Button>
                 <Box textAlign="center" mt={2}>

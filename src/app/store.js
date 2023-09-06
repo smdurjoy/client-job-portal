@@ -1,9 +1,10 @@
-import { configureStore, combineReducers, } from '@reduxjs/toolkit'
-import { countryApi } from "../services/country";
+import {combineReducers, configureStore,} from '@reduxjs/toolkit'
+import {countryApi} from "../services/country";
 import {jobApi} from "../services/jobs";
 import storage from 'redux-persist/lib/storage';
-import { persistReducer, persistStore } from 'redux-persist';
+import {persistReducer, persistStore} from 'redux-persist';
 import appSliceReducer from '../services/app';
+import {authApi} from "../services/auth";
 
 const persistConfig = {
     key: 'root',
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     app: appSliceReducer,
+    [authApi.reducerPath]: authApi.reducer,
     [countryApi.reducerPath]: countryApi.reducer,
     [jobApi.reducerPath]: jobApi.reducer,
 })
@@ -24,6 +26,7 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: false,
         }).concat([
+            authApi.middleware,
             countryApi.middleware,
             jobApi.middleware
         ])
