@@ -27,7 +27,14 @@ export const authApi = createApi({
                 body: {phone_number, otp},
             })
         }),
+        companyRegister: builder.mutation({
+            query: ({company_name, phone_number, email, password}) => ({
+                url: `/auth/company/signup/`,
+                method: 'POST',
+                body: {company_name, phone_number, email, password},
+            })
+        }),
     }),
 })
 
-export const { useSendOtpMutation, useOtpVerificationMutation } = authApi
+export const { useSendOtpMutation, useOtpVerificationMutation, useCompanyRegisterMutation } = authApi
