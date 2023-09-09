@@ -10,6 +10,9 @@ import FormInput from "../../common/FormInput";
 import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
 import useAuthManager from "../../../app/customHooks/useAuthManger";
 import {toast} from "react-toastify";
+import {setCompanyEmail, setUserType} from "../../../services/app";
+import {COMPANY_LOGIN} from "../../../helpers/Constants";
+import {useDispatch} from "react-redux";
 
 const CompanyRegForm = () => {
     const [companyName, setCompanyName] = useState('');
@@ -19,6 +22,7 @@ const CompanyRegForm = () => {
     const [rePassword, setRePassword] = useState('');
     const {isCompanyRegisterLoading, isCompanyRegisterSuccess, registerCompany, companyRegisterResponse} = useAuthManager();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleRegister = () => {
         const data = {
@@ -38,6 +42,8 @@ const CompanyRegForm = () => {
                 return;
             }
             toast.success(message);
+            dispatch(setCompanyEmail(email));
+            dispatch(setUserType(COMPANY_LOGIN));
             navigate('/otp-verification');
         }
     }, [companyRegisterResponse, isCompanyRegisterSuccess, navigate]);
