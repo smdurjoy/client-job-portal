@@ -1,4 +1,10 @@
-import {useOtpVerificationMutation, useSendOtpMutation, useCompanyRegisterMutation, useCompanyOtpVerificationMutation} from '../../services/auth';
+import {
+    useCompanyLoginMutation,
+    useCompanyOtpVerificationMutation,
+    useCompanyRegisterMutation,
+    useOtpVerificationMutation,
+    useSendOtpMutation
+} from '../../services/auth';
 
 export default function useAuthManager() {
     const [
@@ -41,6 +47,17 @@ export default function useAuthManager() {
         },
     ] = useCompanyOtpVerificationMutation();
 
+    const [
+        createCompanyLoginFunc,
+        {
+            isLoading: isCompanyLoginLoading,
+            isSuccess: isCompanyLoginSuccess,
+            isError: isCompanyLoginError,
+            error: companyLoginError,
+            data: companyLoginResponse
+        },
+    ] = useCompanyLoginMutation();
+
     const sendOtp = async (phone_number, device_hash) => {
         await createSendOtpFunc({
             phone_number,
@@ -71,6 +88,13 @@ export default function useAuthManager() {
         });
     };
 
+    const companyLogin = async (email, password) => {
+        await createCompanyLoginFunc({
+            email,
+            password,
+        });
+    };
+
     return {
         isOtpSendLoading,
         isOtpSendSuccess,
@@ -98,5 +122,12 @@ export default function useAuthManager() {
         companyRegisterError,
         companyRegisterResponse,
         registerCompany,
+
+        isCompanyLoginLoading,
+        isCompanyLoginSuccess,
+        isCompanyLoginError,
+        companyLoginError,
+        companyLoginResponse,
+        companyLogin,
     };
 }

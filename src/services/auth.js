@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' : '';
 
@@ -41,7 +41,20 @@ export const authApi = createApi({
                 body: {email, otp},
             })
         }),
+        companyLogin: builder.mutation({
+            query: ({email, password}) => ({
+                url: `/auth/company/login/`,
+                method: 'POST',
+                body: {email, password},
+            })
+        }),
     }),
 })
 
-export const { useSendOtpMutation, useOtpVerificationMutation, useCompanyRegisterMutation, useCompanyOtpVerificationMutation } = authApi
+export const {
+    useSendOtpMutation,
+    useOtpVerificationMutation,
+    useCompanyRegisterMutation,
+    useCompanyOtpVerificationMutation,
+    useCompanyLoginMutation
+} = authApi

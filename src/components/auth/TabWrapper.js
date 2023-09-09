@@ -6,7 +6,7 @@ import TabList from "@mui/lab/TabList";
 import Tab from "@mui/material/Tab";
 import TabPanel from "@mui/lab/TabPanel";
 
-const TabWrapper = ({defaultTab = '1', tabContent1, tabContent2, isDisabled = false, handleChange}) => {
+const TabWrapper = ({defaultTab = '1', tabContent1, tabContent2, isDisabled = false, handleTabChange}) => {
     return (
         <Card sx={{width: {lg: 500, md: 450, sm: 400, xs: 350}}}>
             <Box sx={{width: '100%', typography: 'body1'}}>
@@ -18,7 +18,7 @@ const TabWrapper = ({defaultTab = '1', tabContent1, tabContent2, isDisabled = fa
                         bgcolor="#f5f5f5"
                     >
                         <TabList
-                            onChange={handleChange}
+                            onChange={handleTabChange}
                             TabIndicatorProps={{
                                 style: {
                                     backgroundColor: "#F28A1F",

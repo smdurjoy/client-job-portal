@@ -8,7 +8,7 @@ import TabWrapper from "../TabWrapper";
 const Form = ({setImg, setSubtitle}) => {
     const [value, setValue] = React.useState('1');
 
-    const handleChange = (event, newValue) => {
+    const handleTabChange = (event, newValue) => {
         setValue(newValue);
 
         if (newValue === '1') {
@@ -26,7 +26,7 @@ const Form = ({setImg, setSubtitle}) => {
                 defaultTab={value}
                 tabContent1={<WorkerForm/>}
                 tabContent2={<CompanyForm/>}
-                handleChange={handleChange}
+                handleTabChange={handleTabChange}
             />
         </>
     );
