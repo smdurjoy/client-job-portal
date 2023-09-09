@@ -1,5 +1,4 @@
 import {createBrowserRouter} from "react-router-dom";
-import HomePage from "../pages/HomePage";
 import JobsPage from "../pages/JobsPage";
 import JobDetailsPage from "../pages/JobDetailsPage";
 import LoginPage from "../pages/LoginPage";
@@ -18,11 +17,13 @@ import GetAPlansPage from "../pages/GetAPlansPage";
 import CreateCompanyPage from "../pages/CreateCompanyPage";
 import PostAJobPage from "../pages/PostAJobPage";
 import PostedJobDetailsPage from "../pages/PostedJobDetailsPage";
+import HomePageRedirector from "../components/HomePageRedirector";
+import PrivateRoute from "../components/PrivateRoute";
 
 const AppRoute = createBrowserRouter([
     {
         path: "/",
-        element: <HomePage/>,
+        element: <HomePageRedirector/>,
         // errorElement: <ErrorPage />,
     },
     {
@@ -91,7 +92,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/post-a-job",
-        element: <PostAJobPage/>
+        element: <PrivateRoute children={<PostAJobPage/>}/>
     },
     {
         path: "/posted-job-details",

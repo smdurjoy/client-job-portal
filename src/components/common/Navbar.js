@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -15,29 +16,22 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from '../../assets/images/home/logo.svg';
 import {Link} from "react-router-dom";
+import {useAppSelector} from "../../app/hooks";
+import {COMPANY_LOGIN, COMPANY_MENU_ITEMS, WORKER_MENU_ITEMS} from "../../helpers/Constants";
+import {AddOutlined} from "@mui/icons-material";
 
 const drawerWidth = 240;
-const navItems = [
-    {
-        title: 'Home',
-        link: '/',
-    },
-    {
-        title: 'Jobs',
-        link: '/jobs',
-    },
-    {
-        title: 'Company',
-        link: '/companies',
-    },
-    {
-        title: 'About Us',
-        link: '/',
-    },
-];
+let navItems = [];
 
 function Navbar({window, isForHomePage = true}) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const {token, user_type} = useAppSelector((state) => state.app);
+
+    if (token && user_type === COMPANY_LOGIN) {
+        navItems = COMPANY_MENU_ITEMS;
+    } else {
+        navItems = WORKER_MENU_ITEMS;
+    }
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -46,7 +40,7 @@ function Navbar({window, isForHomePage = true}) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
             <Typography variant="h6" sx={{my: 2}}>
-                MUI
+                workersRUS
             </Typography>
             <Divider/>
             <List>
@@ -100,12 +94,20 @@ function Navbar({window, isForHomePage = true}) {
                         </div>
                         <div style={{flexBasis: '30%'}}>
                             <Box sx={{display: {xs: 'none', md: 'block'}, textAlign: 'center'}}>
-                                <Link to={'/login'} className='navItem'>
-                                    Login
+                                {
+                                    !token && (
+                                        <Link to={'/login'} className='navItem'>
+                                            Login
+                                        </Link>
+                                    )
+                                }
+
+                                <Link to={'/post-a-job'}>
+                                    <Button className='primaryBtn' sx={{marginLeft: 4}}>
+                                        <AddOutlined sx={{ marginRight: '6px' }}/>
+                                        Post a Job
+                                    </Button>
                                 </Link>
-                                <Button className='primaryBtn' sx={{marginLeft: 4}}>
-                                    Post a Job
-                                </Button>
                             </Box>
                         </div>
                     </Box>
