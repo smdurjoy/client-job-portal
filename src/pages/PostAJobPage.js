@@ -148,16 +148,21 @@ const PostAJobPage = () => {
 
     useEffect(() => {
         if (isJobAddressSuccess) {
-            setIsLoading(false);
             const {status, message} = jobAddressCreateResponse;
             if (status === 0) {
+                setIsLoading(false);
                 toast.warning(message);
-                return;
             }
+        }
+    }, [isJobAddressSuccess]);
+
+    useEffect(() => {
+        if (isJobRequirementSuccess && isJobAddressSuccess) {
+            setIsLoading(false);
             toast.success('Job Posted Successfully.');
             navigate('/posted-jobs');
         }
-    }, [isJobAddressSuccess]);
+    }, [isJobRequirementSuccess, isJobAddressSuccess]);
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});

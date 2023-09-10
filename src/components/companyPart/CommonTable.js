@@ -77,7 +77,7 @@ const CommonTable = ({jobs, type = 1}) => {
                             <TableCell>
                                 <TypoBadge
                                     icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                                    text={row.location}
+                                    text={`${row.state}, ${row.city}`}
                                     color='#0D9CA4'
                                     bgColor='#F3FAFA'
                                 />
@@ -85,12 +85,12 @@ const CommonTable = ({jobs, type = 1}) => {
                             <TableCell>
                                 <TypoBadge
                                     icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                                    text={row.salary}
+                                    text={row.salary_range}
                                     color='#6b6e6f'
                                     bgColor='#f7f7f8'
                                 />
                             </TableCell>
-                            <TableCell>{row.total_applicants}</TableCell>
+                            <TableCell>{row.no_of_vacancies}</TableCell>
                             <TableCell>
                                 {type === 1 ? (
                                     <Box display='flex' flexWrap='wrap'>

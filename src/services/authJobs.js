@@ -4,6 +4,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const authJobApi = createApi({
     reducerPath: 'authJobApi',
+    tagTypes: ['companyJobs'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers, {getState}) => {
@@ -32,6 +33,10 @@ export const authJobApi = createApi({
         }),
         getJobBenefits: builder.query({
             query: () => `/job/benefits/`,
+        }),
+        getCompanyJobs: builder.query({
+            query: (companyId) => `/company/jobs/${companyId}/`,
+            providesTags: ['companyJobs'],
         }),
         createJobBasics: builder.mutation({
             query: ({
@@ -112,7 +117,8 @@ export const authJobApi = createApi({
                     city_id,
                     area_id,
                 },
-            })
+            }),
+            invalidatesTags: ['companyJobs'],
         }),
     }),
 })
@@ -127,4 +133,5 @@ export const {
     useCreateJobBasicsMutation,
     useCreateJobRequirementsMutation,
     useCreateJobAddressMutation,
+    useGetCompanyJobsQuery,
 } = authJobApi
