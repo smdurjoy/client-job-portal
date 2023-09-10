@@ -10,9 +10,9 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import {Link} from "react-router-dom";
 import ListHeader from "./ListHeader";
 import TypoBadge from "../common/TypoBadge";
-import {diffInDays} from "../../helpers/Helpers";
+import {isAppliedToJob} from "../../helpers/Helpers";
 
-const ListView = ({job}) => {
+const ListView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
     return (
         <Box mt={3}>
             <Card
@@ -69,13 +69,36 @@ const ListView = ({job}) => {
                         </Typography>
                         <Box>
                             <Button size='large' variant='outlined' className='secondaryBtnBlue'>
-                                <Link to={job ? `job-details/${job.id}` : '/job-details/1'}>
+                                <Link to={job ? `/job-details/${job.id}` : '#'}>
                                     View More
                                 </Link>
                             </Button>
-                            <Button size='large' className='primaryBtn' sx={{marginLeft: '10px'}}>
-                                Apply Now
-                            </Button>
+                            {
+                                isAppliedToJob(appliedJobs, job?.id) ? (
+                                    <Button
+                                        size='large'
+                                        className='primaryBtn'
+                                        sx={{
+                                            background: '#e7e7e7 !important',
+                                            color: '#9f9f9f !important',
+                                            marginLeft: '10px'
+                                        }}
+                                        disabled={true}
+                                    >
+                                        Applied
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        size='large'
+                                        className='primaryBtn'
+                                        sx={{marginLeft: '10px'}}
+                                        onClick={() => handleJobApply(job?.id)}
+                                        disabled={isApplyJobLoading}
+                                    >
+                                        {isApplyJobLoading ? 'Applying...' : 'Apply Now'}
+                                    </Button>
+                                )
+                            }
                         </Box>
                     </Box>
                 </CardContent>

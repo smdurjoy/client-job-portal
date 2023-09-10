@@ -4,6 +4,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const workerApi = createApi({
     reducerPath: 'workerApi',
+    tagTypes: ['appliedJobs'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers, {getState}) => {
@@ -15,6 +16,10 @@ export const workerApi = createApi({
         }
     }),
     endpoints: (builder) => ({
+        getAppliedJobs: builder.query({
+            query: (workerId) => `/worker/applied/job/${workerId}/`,
+            providesTags: ['appliedJobs'],
+        }),
         applyToJob: builder.mutation({
             query: ({job_id, worker_id}) => ({
                 url: `/worker/job/apply/`,
@@ -23,11 +28,13 @@ export const workerApi = createApi({
                     job_id,
                     worker_id
                 },
-            })
+            }),
+            invalidatesTags: ['appliedJobs'],
         }),
     }),
 })
 
 export const {
     useApplyToJobMutation,
+    useGetAppliedJobsQuery,
 } = workerApi

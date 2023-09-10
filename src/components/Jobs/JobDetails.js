@@ -24,11 +24,14 @@ import {useAppSelector} from "../../app/hooks";
 import {useNavigate, useParams} from "react-router-dom";
 import useWorkerManger from "../../app/customHooks/useWorkerManger";
 import {toast} from "react-toastify";
+import {useGetAppliedJobsQuery} from "../../services/worker";
+import {isAppliedToJob} from "../../helpers/Helpers";
 
 const JobDetails = ({job}) => {
     const {token, user_id} = useAppSelector((state) => state.app);
     const navigate = useNavigate();
-    const {isApplyJobLoading, isApplyJobSuccess, applyJobResponse, applyToJob}  = useWorkerManger();
+    const {isApplyJobLoading, isApplyJobSuccess, applyJobResponse, applyToJob} = useWorkerManger();
+    const {data: appliedJobs} = useGetAppliedJobsQuery(user_id);
     const {id: jobId} = useParams();
 
     const handleJobApply = () => {
@@ -47,7 +50,6 @@ const JobDetails = ({job}) => {
                 return;
             }
             toast.success('Applied Successfully.');
-            console.log(applyJobResponse);
         }
     }, [isApplyJobSuccess]);
 
@@ -175,14 +177,20 @@ const JobDetails = ({job}) => {
                         <Typography color="#6B6E6F">
                             <span style={{color: '#0D9CA4'}}>148</span> Days left to apply
                         </Typography>
-                        <Button
-                            className='primaryBtn'
-                            fullWidth
-                            onClick={handleJobApply}
-                            disabled={isApplyJobLoading}
-                        >
-                            {isApplyJobLoading ? 'Applying...' : 'Apply to this job'}
-                        </Button>
+                        {
+                            isAppliedToJob(appliedJobs?.data, jobId) ?
+                                <Typography color="red">You applied to this job.</Typography> : (
+                                    <Button
+                                        className='primaryBtn'
+                                        fullWidth
+                                        onClick={handleJobApply}
+                                        disabled={isApplyJobLoading}
+                                    >
+                                        {isApplyJobLoading ? 'Applying...' : 'Apply to this job'}
+                                    </Button>
+                                )
+                        }
+
                     </Stack>
                     <Stack
                         direction='column'

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SortBy from "../common/SortBy";
@@ -7,8 +7,33 @@ import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import ViewStreamOutlinedIcon from "@mui/icons-material/ViewStreamOutlined";
 import ListView from "./ListView";
 import GridView from "./GridView";
+import useWorkerManger from "../../app/customHooks/useWorkerManger";
+import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
-const JobList = ({viewMode, jobs, sortBy, setSortBy, handleChange}) => {
+const JobList = ({viewMode, jobs, sortBy, setSortBy, handleChange, appliedJobs, userId, token}) => {
+    const {isApplyJobLoading, isApplyJobSuccess, applyJobResponse, applyToJob} = useWorkerManger();
+    const navigate = useNavigate();
+
+    const handleJobApply = (jobId) => {
+        if (!token) {
+            navigate('/login');
+            return;
+        }
+        applyToJob(jobId, userId);
+    }
+
+    useEffect(() => {
+        if (isApplyJobSuccess) {
+            const {status, message} = applyJobResponse;
+            if (status === 0) {
+                toast.warning(message);
+                return;
+            }
+            toast.success('Applied Successfully.');
+        }
+    }, [isApplyJobSuccess]);
+
     return (
         <>
             <Box mt={5} display="flex" justifyContent="space-between">
@@ -65,7 +90,13 @@ const JobList = ({viewMode, jobs, sortBy, setSortBy, handleChange}) => {
                     <>
                         {
                             jobs?.map((job, key) => (
-                                <ListView job={job} key={key}/>
+                                <ListView
+                                    job={job}
+                                    key={key}
+                                    appliedJobs={appliedJobs}
+                                    isApplyJobLoading={isApplyJobLoading}
+                                    handleJobApply={handleJobApply}
+                                />
                             ))
                         }
                     </>
@@ -74,7 +105,12 @@ const JobList = ({viewMode, jobs, sortBy, setSortBy, handleChange}) => {
                         {
                             jobs?.map((job, key) => (
                                 <Grid item xs={12} md={6} mt={4} key={key}>
-                                    <GridView job={job}/>
+                                    <GridView
+                                        job={job}
+                                        appliedJobs={appliedJobs}
+                                        isApplyJobLoading={isApplyJobLoading}
+                                        handleJobApply={handleJobApply}
+                                    />
                                 </Grid>
                             ))
                         }

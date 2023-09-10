@@ -12,8 +12,9 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
 import TypoBadge from "../common/TypoBadge";
+import {isAppliedToJob} from "../../helpers/Helpers";
 
-const GridView = ({job}) => {
+const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
     return (
         <Card sx={{borderRadius: '10px', padding: '20px', borderTop: '1px solid #D4D4D4'}}>
             <CardContent>
@@ -72,13 +73,33 @@ const GridView = ({job}) => {
             </CardContent>
             <CardActions>
                 <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue'>
-                    <Link to={job ? `/job-details/${job.id}` : '/job-details/1'}>
+                    <Link to={job ? `/job-details/${job.id}` : '#'}>
                         View More
                     </Link>
                 </Button>
-                <Button fullWidth size='large' className='primaryBtn'>
-                    Apply Now
-                </Button>
+                {
+                    isAppliedToJob(appliedJobs, job?.id) ? (
+                        <Button
+                            fullWidth
+                            size='large'
+                            className='primaryBtn'
+                            sx={{background: '#e7e7e7 !important', color: '#9f9f9f !important'}}
+                            disabled={true}
+                        >
+                            Applied
+                        </Button>
+                    ) : (
+                        <Button
+                            fullWidth
+                            size='large'
+                            className='primaryBtn'
+                            onClick={() => handleJobApply(job?.id)}
+                            disabled={isApplyJobLoading}
+                        >
+                            {isApplyJobLoading ? 'Applying...' : 'Apply Now'}
+                        </Button>
+                    )
+                }
             </CardActions>
         </Card>
     );

@@ -5,7 +5,7 @@ import Filters from "../common/Filters";
 import Box from "@mui/material/Box";
 import JobList from "./JobList";
 
-const Jobs = ({jobs, countries, categories}) => {
+const Jobs = ({jobs, countries, categories, appliedJobs, userId, token}) => {
     const [viewMode, setViewMode] = React.useState(0);
     const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
@@ -37,6 +37,9 @@ const Jobs = ({jobs, countries, categories}) => {
                         sortBy={sortBy}
                         setSortBy={setSortBy}
                         handleChange={handleChange}
+                        appliedJobs={appliedJobs}
+                        userId={userId}
+                        token={token}
                     />
                 </Grid>
             </Grid>

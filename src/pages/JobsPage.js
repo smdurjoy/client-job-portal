@@ -4,11 +4,15 @@ import Jobs from "../components/Jobs/Jobs";
 import Navbar from "../components/common/Navbar";
 import {useGetAllJobCategoriesQuery, useGetAllJobsQuery} from "../services/jobs";
 import {useGetCountriesQuery} from "../services/common";
+import {useAppSelector} from "../app/hooks";
+import {useGetAppliedJobsQuery} from "../services/worker";
 
-const HomePage = () => {
+const JobsPage = () => {
+    const {user_id, token} = useAppSelector((state) => state.app);
     const {data: jobs} = useGetAllJobsQuery();
     const {data: countries} = useGetCountriesQuery();
     const {data: categories} = useGetAllJobCategoriesQuery();
+    const {data: appliedJobs} = useGetAppliedJobsQuery(user_id);
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -22,10 +26,13 @@ const HomePage = () => {
                 jobs={jobs?.jobs}
                 categories={categories?.job_categories}
                 countries={countries?.counties}
+                appliedJobs={appliedJobs?.data}
+                userId={user_id}
+                token={token}
             />
             <Footer/>
         </>
     );
 };
 
-export default HomePage;
+export default JobsPage;

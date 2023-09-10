@@ -5,3 +5,11 @@ export const diffInDays = (fromDate, toDate) => {
     const toDay = moment([toDate]);
     return fromDay.diff(toDay, 'days');
 }
+
+export const isAppliedToJob = (appliedJobs, jobId) => {
+    let isApplied = false;
+    if (appliedJobs && jobId) {
+        isApplied = appliedJobs?.some(val => val.id == jobId);
+    }
+    return isApplied;
+}
