@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' : '';
 
@@ -19,7 +19,10 @@ export const jobApi = createApi({
         getAllJobCategories: builder.query({
             query: () => `/job/categories/`,
         }),
+        getJobDetails: builder.query({
+            query: (jobId) => `/job/details/${jobId}/`,
+        }),
     }),
 })
 
-export const { useGetAllJobsQuery, useGetAllJobCategoriesQuery } = jobApi
+export const {useGetAllJobsQuery, useGetAllJobCategoriesQuery, useGetJobDetailsQuery} = jobApi

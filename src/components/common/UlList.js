@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from "@mui/material/Typography";
 
-const UlList = ({items}) => {
+const UlList = ({items, objKey}) => {
     return (
         <Typography
             component="div"
@@ -14,8 +14,8 @@ const UlList = ({items}) => {
         >
             <ul>
                 {
-                    items?.map((item, key) => (
-                        <li key={key}>{item}</li>
+                    items?.map((item, idx) => (
+                        <li key={idx}>{item[objKey]}</li>
                     ))
                 }
             </ul>

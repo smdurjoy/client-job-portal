@@ -19,8 +19,9 @@ import H6 from "../Typography/H6";
 import UlList from "../common/UlList";
 import GridView from "./GridView";
 import CompanyImg from '../../assets/images/home/companyImg.png'
+import moment from "moment";
 
-const JobDetails = () => {
+const JobDetails = ({job}) => {
     const responsibilities = [
         'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
         'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
@@ -41,17 +42,17 @@ const JobDetails = () => {
         <Box className='container' mt={16}>
             <Grid container px={2} spacing={5} my={5}>
                 <Grid item xs={12} md={8}>
-                    <ListHeader/>
+                    <ListHeader job={job}/>
                     <Box mt={3} display='flex' flexWrap='wrap'>
                         <TypoBadge
                             icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                            text='Berlyn'
+                            text={job ? `${job.city}, ${job.state}` : 'Berlyn'}
                             color='#0D9CA4'
                             bgColor='#F3FAFA'
                         />
                         <TypoBadge
                             icon={<BusinessCenterIcon fontSize='small'/>}
-                            text='Full Time'
+                            text={job ? job.job_type : 'Full Time'}
                             color='#FF5656'
                             bgColor='#fff6f6'
                         />
@@ -63,7 +64,7 @@ const JobDetails = () => {
                         />
                         <TypoBadge
                             icon={<RoomOutlinedIcon fontSize='small'/>}
-                            text='Work at Site'
+                            text={job ? job.work_place : 'Work at Site'}
                             color='#2B3940'
                             bgColor='#fff6f6'
                         />
@@ -76,36 +77,36 @@ const JobDetails = () => {
                                 <JobRoleInsights
                                     icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
                                     title='Date posted'
-                                    subTitle='October 7, 2022'
+                                    subTitle={job?.created_at ? moment(job.created_at).format('MMMM Do YYYY') : ''}
                                 />
                                 <JobRoleInsights
                                     icon={<EventNoteOutlinedIcon fontSize='large'/>}
                                     title='Experience'
-                                    subTitle='3-5 Years'
+                                    subTitle={job ? job.experience_requirements : ''}
                                 />
                             </Grid>
                             <Grid item md={4}>
                                 <JobRoleInsights
                                     icon={<CalendarTodayOutlinedIcon fontSize='large'/>}
                                     title='Application Deadline'
-                                    subTitle='October 27, 2022'
+                                    subTitle={job ? moment(job.application_deadline).format('MMMM Do YYYY') : ''}
                                 />
                                 <JobRoleInsights
                                     icon={<BusinessCenterOutlinedIcon fontSize='large'/>}
                                     title='Job Type'
-                                    subTitle='Full-time'
+                                    subTitle={job ? job.job_type : ''}
                                 />
                             </Grid>
                             <Grid item md={4}>
                                 <JobRoleInsights
                                     icon={<MonetizationOnOutlinedIcon fontSize='large'/>}
                                     title='Salary'
-                                    subTitle='$2000 - $2500'
+                                    subTitle={job ? job.salary_range : ''}
                                 />
                                 <JobRoleInsights
                                     icon={<GroupsOutlinedIcon fontSize='large'/>}
                                     title='Vacancy'
-                                    subTitle='02'
+                                    subTitle={job ? job.no_of_vacancies : ''}
                                 />
                             </Grid>
                         </Grid>
@@ -116,30 +117,33 @@ const JobDetails = () => {
 
                         <H4 text='About Job' mt={5}/>
                         <H6
-                            text='Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.'
+                            text={job ? job.job_description : ''}
                             mt={3}
                         />
 
                         <H4 text='Responsibilities' mt={5}/>
-                        <UlList items={responsibilities}/>
-
-                        <H4 text='Skill Requirements' mt={5}/>
                         <H6
-                            text='Teamwork and Collaboration, Adaptability'
+                            text={job ? job.job_responsibilities : ''}
                             mt={3}
                         />
 
+                        <H4 text='Skill Requirements' mt={5}/>
+                        <UlList items={job ? job.skills_requirements : []} objKey='skill_name'/>
+
                         <H4 text='Education Qualification' mt={5}/>
-                        <UlList items={educations}/>
+                        <H6
+                            text={job ? job.degree_requirements : ''}
+                            mt={3}
+                        />
 
                         <H4 text='Age & Gender' mt={5}/>
                         <H6
-                            text='20 - 25 Years Old'
+                            text={`${job.age_require_minimum} - ${job.age_require_maximum} years old`}
                             mt={3}
                         />
 
                         <H4 text='Benefits' mt={5}/>
-                        <UlList items={benefits}/>
+                        <UlList items={job ? job.benefits : []} objKey='benefit_name'/>
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={4}>
@@ -170,9 +174,9 @@ const JobDetails = () => {
                         bgcolor='#FAFAFA'
                     >
                         <Stack direction='row' spacing={2} alignItems='center'>
-                            <img src={CompanyImg} alt="" />
+                            <img src={job ? job.company_logo : CompanyImg} alt="companyLogo" width='80px'/>
                             <Stack direction='column' spacing={0}>
-                                <Typography color='#6B6E6F' fontSize='30px'>Airbnb</Typography>
+                                <Typography color='#6B6E6F' fontSize='30px'>{job ? job.company : 'Airbnb'}</Typography>
                                 <Typography color='#F28A1F'>View Company Profile</Typography>
                             </Stack>
                         </Stack>
@@ -181,24 +185,24 @@ const JobDetails = () => {
                             <Typography>Jobs (10)</Typography>
                         </Stack>
                         <Typography>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae sed nulla suscipit voluptate deleniti ipsam laudantium praesentium omnis. Reprehenderit itaque odio aliquid vitae velit aliquam nobis deleniti ea ratione suscipit.
+                            {job.about_company}
                         </Typography>
                         <Stack direction='column' spacing={2}>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Industry Type</Typography>
-                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                                <Typography color='#6B6E6F'></Typography>
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Website</Typography>
-                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                                <Typography color='#6B6E6F'>{job.company_website}</Typography>
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Location</Typography>
-                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                                <Typography color='#6B6E6F'>{job.company_location}</Typography>
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Company Size</Typography>
-                                <Typography color='#6B6E6F'>Residential construction</Typography>
+                                <Typography color='#6B6E6F'>{job.company_size}</Typography>
                             </Stack>
                         </Stack>
                     </Stack>

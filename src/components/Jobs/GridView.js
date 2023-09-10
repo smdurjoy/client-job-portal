@@ -18,7 +18,7 @@ const GridView = ({job}) => {
         <Card sx={{borderRadius: '10px', padding: '20px', borderTop: '1px solid #D4D4D4'}}>
             <CardContent>
                 <Box display='flex' justifyContent='space-between' alignItems='start'>
-                    <img src={companyLogo} alt="company" width='80px'/>
+                    <img src={job ? job.company_logo : companyLogo} alt="company" width='80px'/>
                     <IconButton aria-label="bookmark" size="large"
                                 sx={{border: '1px solid #F28A1F', color: '#F28A1F'}}>
                         <BookmarkOutlinedIcon/>
@@ -44,13 +44,13 @@ const GridView = ({job}) => {
                 <Box display='flex' mt={2}>
                     <TypoBadge
                         icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                        text='Berlyn'
+                        text={job ? `${job.city}, ${job.state}` : 'Berlyn'}
                         color='#0D9CA4'
                         bgColor='#F3FAFA'
                     />
                     <TypoBadge
                         icon={<BusinessCenterIcon fontSize='small'/>}
-                        text='Full Time'
+                        text={job ? job.job_type : 'Full Time'}
                         color='#FF5656'
                         bgColor='#fff6f6'
                     />
@@ -72,7 +72,7 @@ const GridView = ({job}) => {
             </CardContent>
             <CardActions>
                 <Button fullWidth size='large' variant='outlined' className='secondaryBtnBlue'>
-                    <Link to={job ? `job-details/${job.id}` : '/job-details/1'}>
+                    <Link to={job ? `/job-details/${job.id}` : '/job-details/1'}>
                         View More
                     </Link>
                 </Button>
