@@ -6,6 +6,7 @@ import {persistReducer, persistStore} from 'redux-persist';
 import appSliceReducer from '../services/app';
 import {authApi} from "../services/auth";
 import {authJobApi} from "../services/authJobs";
+import {workerApi} from "../services/worker";
 
 const persistConfig = {
     key: 'root',
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     [commonApi.reducerPath]: commonApi.reducer,
     [jobApi.reducerPath]: jobApi.reducer,
     [authJobApi.reducerPath]: authJobApi.reducer,
+    [workerApi.reducerPath]: workerApi.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -32,6 +34,7 @@ export const store = configureStore({
             commonApi.middleware,
             jobApi.middleware,
             authJobApi.middleware,
+            workerApi.middleware,
         ])
 })
 

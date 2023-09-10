@@ -24,7 +24,7 @@ const ListHeader = ({job}) => {
                         {job ? job.job_title : 'Product Designer'}
                     </Typography>
                     <Typography color="text.secondary">
-                        {job ? job.company_name : 'Airbnb'}
+                        {job ? job.company : 'Airbnb'}
                     </Typography>
                 </Box>
             </Box>

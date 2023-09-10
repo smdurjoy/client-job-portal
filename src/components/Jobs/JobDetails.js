@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Box from "@mui/material/Box";
 import {Button, Grid, Stack, Typography} from "@mui/material";
 import ListHeader from "./ListHeader";
@@ -20,23 +20,36 @@ import UlList from "../common/UlList";
 import GridView from "./GridView";
 import CompanyImg from '../../assets/images/home/companyImg.png'
 import moment from "moment";
+import {useAppSelector} from "../../app/hooks";
+import {useNavigate, useParams} from "react-router-dom";
+import useWorkerManger from "../../app/customHooks/useWorkerManger";
+import {toast} from "react-toastify";
 
 const JobDetails = ({job}) => {
-    const responsibilities = [
-        'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
-        'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
-        'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
-        'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.',
-    ];
-    const educations = [
-        'Horem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.'
-    ];
-    const benefits = [
-        'Travel Allowance',
-        'Travel Allowance',
-        'Travel Allowance',
-    ];
+    const {token, user_id} = useAppSelector((state) => state.app);
+    const navigate = useNavigate();
+    const {isApplyJobLoading, isApplyJobSuccess, applyJobResponse, applyToJob}  = useWorkerManger();
+    const {id: jobId} = useParams();
 
+    const handleJobApply = () => {
+        if (!token) {
+            navigate('/login');
+            return;
+        }
+        applyToJob(jobId, user_id);
+    }
+
+    useEffect(() => {
+        if (isApplyJobSuccess) {
+            const {status, message} = applyJobResponse;
+            if (status === 0) {
+                toast.warning(message);
+                return;
+            }
+            toast.success('Applied Successfully.');
+            console.log(applyJobResponse);
+        }
+    }, [isApplyJobSuccess]);
 
     return (
         <Box className='container' mt={16}>
@@ -138,7 +151,7 @@ const JobDetails = ({job}) => {
 
                         <H4 text='Age & Gender' mt={5}/>
                         <H6
-                            text={`${job.age_require_minimum} - ${job.age_require_maximum} years old`}
+                            text={`${job?.age_require_minimum} - ${job?.age_require_maximum} years old`}
                             mt={3}
                         />
 
@@ -162,8 +175,13 @@ const JobDetails = ({job}) => {
                         <Typography color="#6B6E6F">
                             <span style={{color: '#0D9CA4'}}>148</span> Days left to apply
                         </Typography>
-                        <Button className='primaryBtn' fullWidth>
-                            Apply to this job
+                        <Button
+                            className='primaryBtn'
+                            fullWidth
+                            onClick={handleJobApply}
+                            disabled={isApplyJobLoading}
+                        >
+                            {isApplyJobLoading ? 'Applying...' : 'Apply to this job'}
                         </Button>
                     </Stack>
                     <Stack
@@ -185,7 +203,7 @@ const JobDetails = ({job}) => {
                             <Typography>Jobs (10)</Typography>
                         </Stack>
                         <Typography>
-                            {job.about_company}
+                            {job?.about_company}
                         </Typography>
                         <Stack direction='column' spacing={2}>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
@@ -194,15 +212,15 @@ const JobDetails = ({job}) => {
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Website</Typography>
-                                <Typography color='#6B6E6F'>{job.company_website}</Typography>
+                                <Typography color='#6B6E6F'>{job?.company_website}</Typography>
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Location</Typography>
-                                <Typography color='#6B6E6F'>{job.company_location}</Typography>
+                                <Typography color='#6B6E6F'>{job?.company_location}</Typography>
                             </Stack>
                             <Stack direction='row' spacing={2} justifyContent='space-between'>
                                 <Typography color='#0D9CA4'>Company Size</Typography>
-                                <Typography color='#6B6E6F'>{job.company_size}</Typography>
+                                <Typography color='#6B6E6F'>{job?.company_size}</Typography>
                             </Stack>
                         </Stack>
                     </Stack>
