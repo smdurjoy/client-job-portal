@@ -7,7 +7,8 @@ import FormInput from "../../common/FormInput";
 import useAuthManager from "../../../app/customHooks/useAuthManger";
 import {toast} from "react-toastify";
 import {useAppDispatch} from "../../../app/hooks";
-import {setUserPhone} from "../../../services/app";
+import {setUserPhone, setUserType} from "../../../services/app";
+import {WORKER_LOGIN} from "../../../helpers/Constants";
 
 const WorkerForm = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -27,6 +28,7 @@ const WorkerForm = () => {
     useEffect(() => {
         if (isOtpSendSuccess) {
             toast.success('OTP Send Success');
+            dispatch(setUserType(WORKER_LOGIN));
             navigate('/otp-verification');
         }
     }, [isOtpSendSuccess, navigate])

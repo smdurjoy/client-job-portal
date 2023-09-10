@@ -125,12 +125,16 @@ function Navbar({window, isForHomePage = true}) {
                                     )
                                 }
 
-                                <Link to={'/post-a-job'}>
-                                    <Button className='primaryBtn' sx={{marginLeft: 4}}>
-                                        <AddOutlined sx={{marginRight: '6px'}}/>
-                                        Post a Job
-                                    </Button>
-                                </Link>
+                                {
+                                    (!token || user_type === COMPANY_LOGIN) && (
+                                        <Link to={'/post-a-job'}>
+                                            <Button className='primaryBtn' sx={{marginLeft: 4}}>
+                                                <AddOutlined sx={{marginRight: '6px'}}/>
+                                                Post a Job
+                                            </Button>
+                                        </Link>
+                                    )
+                                }
 
                                 {
                                     token && (
@@ -143,7 +147,7 @@ function Navbar({window, isForHomePage = true}) {
                                                 aria-haspopup="true"
                                                 aria-expanded={open ? 'true' : undefined}
                                             >
-                                                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                                                <Avatar sx={{ width: 32, height: 32 }}>W</Avatar>
                                             </IconButton>
                                             <Menu
                                                 id="basic-menu"
