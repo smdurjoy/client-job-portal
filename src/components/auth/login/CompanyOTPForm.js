@@ -7,7 +7,7 @@ import FormInput from "../../common/FormInput";
 import useAuthManager from "../../../app/customHooks/useAuthManger";
 import {useAppSelector} from "../../../app/hooks";
 import {toast} from "react-toastify";
-import {setCompanyId, setToken, setUserId, setUserPhone} from "../../../services/app";
+import {setToken, setUserId, setUserPhone} from "../../../services/app";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 

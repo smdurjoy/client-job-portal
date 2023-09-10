@@ -7,15 +7,81 @@ import FormInput from "../common/FormInput";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import GroupIcon from '@mui/icons-material/Group';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import AllInboxIcon from '@mui/icons-material/AllInbox';
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import Button from "@mui/material/Button";
 import Textarea from "../common/Textarea";
 import AddressSelectArea from "../common/AddressSelectArea";
-import {cities, countries, states} from "../../constants/Constant";
+import {cities, states} from "../../constants/Constant";
 import CommonDatePicker from "../common/CommonDatePicker";
 
-const CompanyCreate = () => {
+const CompanyCreate = ({
+                           jobCategories,
+                           jobLevels,
+                           jobTypes,
+                           employmentStatus,
+                           jobPlaces,
+                           skills,
+                           degrees,
+                           jobBenefits,
+                           jobBasics,
+                           setJobBasics,
+                           countries,
+
+                           jobRequirement,
+                           setJobRequirement,
+
+                           jobAddress,
+                           setJobAddress,
+
+                           handleSave,
+                           isLoading
+                       }) => {
+
+    const handleOptionChange = (e, selectedVal, key) => {
+        if (!selectedVal) {
+            return;
+        }
+        setJobBasics({
+            ...jobBasics,
+            [key]: selectedVal.id,
+        })
+    }
+
+    const handleJobRequirementsOptionChange = (e, selectedVal, key) => {
+        if (!selectedVal) {
+            return;
+        }
+        let selectedIds = selectedVal.id;
+        if (key === 'skills_ids' || key === 'benefit_ids' || key === 'gender_ids') {
+            selectedIds = [];
+            selectedVal.forEach(val => selectedIds.push(val.id));
+        }
+        setJobRequirement({
+            ...jobRequirement,
+            [key]: selectedIds,
+        })
+    }
+
+    const handleJobAddressOptionChange = (e, selectedVal, key) => {
+        if (!selectedVal) {
+            return;
+        }
+        setJobAddress({
+            ...jobAddress,
+            [key]: selectedVal.id,
+        })
+    }
+
+    const handleDateChange = (newDate) => {
+        const day = newDate.$D.toString().padStart(2, '0');
+        const month = newDate.$M.toString().padStart(2, '0');
+        const date = `${newDate.$y}-${month}-${day}`
+        setJobBasics({
+            ...jobBasics,
+            application_deadline: date,
+        });
+    }
+
     return (
         <Box className='container' mt={15} mb={3}>
             <Box py={6}>
@@ -40,6 +106,7 @@ const CompanyCreate = () => {
                         <FormInput
                             placeholder='Job Title'
                             icon={<WorkHistoryIcon/>}
+                            handleChange={(e) => setJobBasics({...jobBasics, job_title: e.target.value})}
                         />
                     </Grid>
                     <Grid item md={6} xs={12} mt={4}>
@@ -50,7 +117,9 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                options={jobCategories}
+                                getOptionLabel={(option) => option.category_name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'job_category_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Job Category"/>}
                             />
                         </Box>
@@ -64,6 +133,7 @@ const CompanyCreate = () => {
                         <FormInput
                             placeholder='Vacancies'
                             icon={<GroupIcon/>}
+                            handleChange={(e) => setJobBasics({...jobBasics, no_of_vacancies: e.target.value})}
                         />
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
@@ -74,7 +144,9 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                options={jobTypes}
+                                getOptionLabel={(option) => option.type_name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'job_type_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Job Type"/>}
                             />
                         </Box>
@@ -88,6 +160,7 @@ const CompanyCreate = () => {
                         <FormInput
                             placeholder='Min Salary'
                             icon={<AttachMoneyIcon/>}
+                            handleChange={(e) => setJobBasics({...jobBasics, min_salary: e.target.value})}
                         />
                     </Grid>
                     <Grid item md={4} sm={12} xs={12}>
@@ -99,11 +172,27 @@ const CompanyCreate = () => {
                         <FormInput
                             placeholder='Max Salary'
                             icon={<AttachMoneyIcon/>}
+                            handleChange={(e) => setJobBasics({...jobBasics, max_salary: e.target.value})}
                         />
                     </Grid>
                     <Grid item md={2} sm={12} xs={12}>
                         <Box display='flex' alignItems='end' height='100%'>
-                            <FormControlLabel control={<Checkbox/>} label="Negotiable" sx={{color: '#A1A6AB'}}/>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={jobBasics.salary_range === 'Negotiable'}
+                                        onChange={(e) => {
+                                            setJobBasics({
+                                                ...jobBasics,
+                                                salary_range: e.target.checked ? 'Negotiable' : '',
+                                                salary_type: e.target.checked ? 'Negotiable' : ''
+                                            });
+                                        }}
+                                    />
+                                }
+                                label="Negotiable"
+                                sx={{color: '#A1A6AB'}}
+                            />
                         </Box>
                     </Grid>
                     <Grid item md={12} sm={12} xs={12}>
@@ -115,6 +204,12 @@ const CompanyCreate = () => {
                         <Textarea
                             placeholder="About Job"
                             row={4}
+                            handleChange={(e) => {
+                                setJobBasics({
+                                    ...jobBasics,
+                                    jobDescription: e.target.value
+                                })
+                            }}
                         />
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
@@ -125,7 +220,9 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                options={employmentStatus}
+                                getOptionLabel={(option) => option.status_name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'employment_status_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Employment Status"/>}
                             />
                         </Box>
@@ -138,7 +235,9 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                options={jobPlaces}
+                                getOptionLabel={(option) => option.work_place}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'work_place_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Work Place"/>}
                             />
                         </Box>
@@ -149,10 +248,14 @@ const CompanyCreate = () => {
                             color='#F28A1F'
                             mt={3}
                         />
-                        <FormInput
-                            placeholder='Type Experience'
-                            icon={<AllInboxIcon/>}
-                        />
+                        <Box mt={2}>
+                            <Autocomplete
+                                options={jobLevels}
+                                getOptionLabel={(option) => option.option_name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'job_level_id')}
+                                renderInput={(params) => <TextField {...params} label="Select Experience Level"/>}
+                            />
+                        </Box>
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
@@ -160,10 +263,24 @@ const CompanyCreate = () => {
                             color='#F28A1F'
                             mt={3}
                         />
-                        <FormInput
-                            placeholder='Type Age'
-                            icon={<EscalatorWarningIcon/>}
-                        />
+                        <Box display="flex" columnGap={3}>
+                            <FormInput
+                                placeholder='Min'
+                                icon={<EscalatorWarningIcon/>}
+                                handleChange={(e) => setJobRequirement({
+                                    ...jobRequirement,
+                                    minimum_age: e.target.value
+                                })}
+                            />
+                            <FormInput
+                                placeholder='Max'
+                                icon={<EscalatorWarningIcon/>}
+                                handleChange={(e) => setJobRequirement({
+                                    ...jobRequirement,
+                                    maximum_age: e.target.value
+                                })}
+                            />
+                        </Box>
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
@@ -186,7 +303,9 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                options={degrees}
+                                getOptionLabel={(option) => option.degree_name}
+                                onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'degree_id')}
                                 renderInput={(params) => <TextField {...params} label="Select a Degree"/>}
                             />
                         </Box>
@@ -199,7 +318,11 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                multiple
+                                limitTags={3}
+                                options={skills}
+                                getOptionLabel={(option) => option.skill_name}
+                                onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'skills_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Skills"/>}
                             />
                         </Box>
@@ -212,7 +335,11 @@ const CompanyCreate = () => {
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                multiple
+                                limitTags={3}
+                                options={jobBenefits}
+                                getOptionLabel={(option) => option.benefit_name}
+                                onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'benefit_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Benefits"/>}
                             />
                         </Box>
@@ -226,12 +353,21 @@ const CompanyCreate = () => {
                         <Textarea
                             placeholder="Write Job Responsibilities"
                             row={4}
+                            handleChange={(e) => setJobBasics({
+                                ...jobBasics,
+                                job_responsibility: e.target.value
+                            })}
                         />
                     </Grid>
                     <AddressSelectArea
                         countries={countries}
                         cities={cities}
                         states={states}
+                        handleOptionChange={handleJobAddressOptionChange}
+                        handleChange={(e) => setJobAddress({
+                            ...jobAddress,
+                            address: e.target.value
+                        })}
                     />
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
@@ -242,6 +378,7 @@ const CompanyCreate = () => {
                         <Box mt={2}>
                             <CommonDatePicker
                                 label='MM/DD/YY*'
+                                handleDateChange={(val) => handleDateChange(val)}
                             />
                         </Box>
                     </Grid>
@@ -255,8 +392,8 @@ const CompanyCreate = () => {
                         </Box>
                     </Grid>
                     <Grid item md={6} sm={12} xs={12} mt={5}>
-                        <Button size='large' className='primaryBtn'>
-                            Post Now
+                        <Button size='large' className='primaryBtn' onClick={handleSave} disabled={isLoading}>
+                            {isLoading ? 'Posting...' : 'Post Now'}
                         </Button>
                     </Grid>
                 </Grid>

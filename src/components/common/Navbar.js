@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {useState} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -15,10 +14,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import logo from '../../assets/images/home/logo.svg';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useAppSelector} from "../../app/hooks";
 import {COMPANY_LOGIN, COMPANY_MENU_ITEMS, WORKER_MENU_ITEMS} from "../../helpers/Constants";
 import {AddOutlined} from "@mui/icons-material";
+import {Avatar, Menu, MenuItem} from "@mui/material";
+import {useDispatch} from "react-redux";
+import {setCompanyEmail, setToken, setUserId, setUserPhone, setUserType} from "../../services/app";
 
 const drawerWidth = 240;
 let navItems = [];
@@ -26,6 +28,17 @@ let navItems = [];
 function Navbar({window, isForHomePage = true}) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const {token, user_type} = useAppSelector((state) => state.app);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     if (token && user_type === COMPANY_LOGIN) {
         navItems = COMPANY_MENU_ITEMS;
@@ -36,6 +49,16 @@ function Navbar({window, isForHomePage = true}) {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
+
+    const handleLogout = () => {
+        dispatch(setToken(null));
+        dispatch(setUserPhone(null));
+        dispatch(setUserId(null));
+        dispatch(setUserType(null));
+        dispatch(setCompanyEmail(null));
+
+        navigate('/');
+    }
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
@@ -104,10 +127,39 @@ function Navbar({window, isForHomePage = true}) {
 
                                 <Link to={'/post-a-job'}>
                                     <Button className='primaryBtn' sx={{marginLeft: 4}}>
-                                        <AddOutlined sx={{ marginRight: '6px' }}/>
+                                        <AddOutlined sx={{marginRight: '6px'}}/>
                                         Post a Job
                                     </Button>
                                 </Link>
+
+                                {
+                                    token && (
+                                        <>
+                                            <IconButton
+                                                onClick={handleClick}
+                                                size="small"
+                                                sx={{ ml: 2 }}
+                                                aria-controls={open ? 'account-menu' : undefined}
+                                                aria-haspopup="true"
+                                                aria-expanded={open ? 'true' : undefined}
+                                            >
+                                                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                                            </IconButton>
+                                            <Menu
+                                                id="basic-menu"
+                                                anchorEl={anchorEl}
+                                                open={open}
+                                                onClose={handleClose}
+                                                MenuListProps={{
+                                                    'aria-labelledby': 'basic-button',
+                                                }}
+                                            >
+                                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                                            </Menu>
+                                        </>
+                                    )
+                                }
                             </Box>
                         </div>
                     </Box>

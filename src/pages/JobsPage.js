@@ -3,7 +3,7 @@ import Footer from "../components/common/Footer";
 import Jobs from "../components/Jobs/Jobs";
 import Navbar from "../components/common/Navbar";
 import {useGetAllJobCategoriesQuery, useGetAllJobsQuery} from "../services/jobs";
-import {useGetCountriesQuery} from "../services/country";
+import {useGetCountriesQuery} from "../services/common";
 
 const HomePage = () => {
     const {data: jobs} = useGetAllJobsQuery();

@@ -4,12 +4,13 @@ import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
 import {DatePicker} from "@mui/x-date-pickers/DatePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 
-const CommonDatePicker = ({label}) => {
+const CommonDatePicker = ({label, handleDateChange}) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DatePicker', 'DatePicker', 'DatePicker']}>
                 <DatePicker
                     label={label}
+                    onChange={handleDateChange}
                 />
             </DemoContainer>
         </LocalizationProvider>

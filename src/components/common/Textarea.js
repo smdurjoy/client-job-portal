@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextField} from "@mui/material";
 
-const Textarea = ({placeholder, row}) => {
+const Textarea = ({placeholder, row, handleChange}) => {
     return (
         <TextField
             placeholder={placeholder}
@@ -17,6 +17,7 @@ const Textarea = ({placeholder, row}) => {
                 },
             }}
             fullWidth
+            onChange={handleChange}
         />
     );
 };

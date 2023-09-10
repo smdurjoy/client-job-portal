@@ -4,7 +4,6 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const jobApi = createApi({
     reducerPath: 'jobApi',
-    tagTypes: ['allJobs', 'categories'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers) => {
@@ -15,12 +14,10 @@ export const jobApi = createApi({
     }),
     endpoints: (builder) => ({
         getAllJobs: builder.query({
-            query: () => `job/all/`,
-            providesTags: ['allJobs'],
+            query: () => `/job/all/`,
         }),
         getAllJobCategories: builder.query({
-            query: () => `job/categories/`,
-            providesTags: ['categories'],
+            query: () => `/job/categories/`,
         }),
     }),
 })

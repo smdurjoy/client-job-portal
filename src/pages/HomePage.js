@@ -12,7 +12,7 @@ import Plans from "../components/home/Plans";
 import SuccessStories from "../components/home/SuccessStories";
 import Download from "../components/home/Download";
 import Footer from "../components/common/Footer";
-import {useGetCountriesQuery} from "../services/country";
+import {useGetCountriesQuery} from "../services/common";
 import {useGetAllJobCategoriesQuery} from "../services/jobs";
 
 const HomePage = () => {

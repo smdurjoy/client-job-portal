@@ -29,9 +29,6 @@ export const appSlice = createSlice({
         setCompanyEmail: (state, action: PayloadAction) => {
             state.company_email = action.payload;
         },
-        setCompanyId: (state, action: PayloadAction) => {
-            state.company_id = action.payload;
-        },
     }
 });
 
@@ -49,8 +46,5 @@ export const {
 } = appSlice.actions;
 export const {
     setCompanyEmail
-} = appSlice.actions;
-export const {
-    setCompanyId
 } = appSlice.actions;
 export default appSlice.reducer;
