@@ -42,7 +42,7 @@ const HomePage = () => {
                 countries={countries?.counties}
             />
             <Companies/>
-            <Category/>
+            <Category categories={categories?.job_categories}/>
             <HelpToWorker/>
             <FeaturedJobs/>
             <EasyAccess/>

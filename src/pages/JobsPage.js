@@ -6,10 +6,11 @@ import {useGetAllJobCategoriesQuery, useGetAllJobsQuery} from "../services/jobs"
 import {useGetCountriesQuery} from "../services/common";
 import {useAppSelector} from "../app/hooks";
 import {useGetAppliedJobsQuery} from "../services/worker";
+import Loader from "../components/common/Loader";
 
 const JobsPage = () => {
     const {user_id, token} = useAppSelector((state) => state.app);
-    const {data: jobs} = useGetAllJobsQuery();
+    const {data: jobs, isLoading} = useGetAllJobsQuery();
     const {data: countries} = useGetCountriesQuery();
     const {data: categories} = useGetAllJobCategoriesQuery();
     const {data: appliedJobs} = useGetAppliedJobsQuery(user_id);
@@ -22,14 +23,18 @@ const JobsPage = () => {
     return (
         <>
             <Navbar isForHomePage={false}/>
-            <Jobs
-                jobs={jobs?.jobs}
-                categories={categories?.job_categories}
-                countries={countries?.counties}
-                appliedJobs={appliedJobs?.data}
-                userId={user_id}
-                token={token}
-            />
+            {
+                isLoading ? <Loader/> : (
+                    <Jobs
+                        jobs={jobs?.jobs}
+                        categories={categories?.job_categories}
+                        countries={countries?.counties}
+                        appliedJobs={appliedJobs?.data}
+                        userId={user_id}
+                        token={token}
+                    />
+                )
+            }
             <Footer/>
         </>
     );
