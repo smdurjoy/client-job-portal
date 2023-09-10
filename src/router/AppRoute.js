@@ -19,6 +19,8 @@ import PostAJobPage from "../pages/PostAJobPage";
 import PostedJobDetailsPage from "../pages/PostedJobDetailsPage";
 import HomePageRedirector from "../components/HomePageRedirector";
 import CompanyPrivateRoute from "../components/CompanyPrivateRoute";
+import AppliedJobsPage from "../pages/AppliedJobsPage";
+import PrivateRoute from "../components/PrivateRoute";
 
 const AppRoute = createBrowserRouter([
     {
@@ -65,6 +67,10 @@ const AppRoute = createBrowserRouter([
     {
         path: "/bookmarks",
         element: <BookmarkPage/>
+    },
+    {
+        path: "/applied-jobs",
+        element: <PrivateRoute children={<AppliedJobsPage/>}/>
     },
     {
         path: "/companies",

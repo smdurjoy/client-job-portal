@@ -14,7 +14,7 @@ import {Link} from "react-router-dom";
 import TypoBadge from "../common/TypoBadge";
 import {isAppliedToJob} from "../../helpers/Helpers";
 
-const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
+const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading, isAppliedJobList = false}) => {
     return (
         <Card sx={{borderRadius: '10px', padding: '20px', borderTop: '1px solid #D4D4D4'}}>
             <CardContent>
@@ -78,7 +78,7 @@ const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
                     </Link>
                 </Button>
                 {
-                    isAppliedToJob(appliedJobs, job?.id) ? (
+                    isAppliedJobList ? (
                         <Button
                             fullWidth
                             size='large'
@@ -89,15 +89,28 @@ const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
                             Applied
                         </Button>
                     ) : (
-                        <Button
-                            fullWidth
-                            size='large'
-                            className='primaryBtn'
-                            onClick={() => handleJobApply(job?.id)}
-                            disabled={isApplyJobLoading}
-                        >
-                            {isApplyJobLoading ? 'Applying...' : 'Apply Now'}
-                        </Button>
+                        isAppliedToJob(appliedJobs, job?.id) ? (
+                            <Button
+                                fullWidth
+                                size='large'
+                                className='primaryBtn'
+                                sx={{background: '#e7e7e7 !important', color: '#9f9f9f !important'}}
+                                disabled={true}
+                            >
+                                Applied
+                            </Button>
+                        ) : (
+                            <Button
+                                fullWidth
+                                size='large'
+                                className='primaryBtn'
+                                onClick={() => handleJobApply(job?.id)}
+                                disabled={isApplyJobLoading}
+                            >
+                                {isApplyJobLoading ? 'Applying...' : 'Apply Now'}
+                            </Button>
+                        )
+
                     )
                 }
             </CardActions>

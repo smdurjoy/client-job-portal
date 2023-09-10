@@ -142,12 +142,12 @@ function Navbar({window, isForHomePage = true}) {
                                             <IconButton
                                                 onClick={handleClick}
                                                 size="small"
-                                                sx={{ ml: 2 }}
+                                                sx={{ml: 2}}
                                                 aria-controls={open ? 'account-menu' : undefined}
                                                 aria-haspopup="true"
                                                 aria-expanded={open ? 'true' : undefined}
                                             >
-                                                <Avatar sx={{ width: 32, height: 32 }}>W</Avatar>
+                                                <Avatar sx={{width: 32, height: 32}}>W</Avatar>
                                             </IconButton>
                                             <Menu
                                                 id="basic-menu"
@@ -158,8 +158,15 @@ function Navbar({window, isForHomePage = true}) {
                                                     'aria-labelledby': 'basic-button',
                                                 }}
                                             >
-                                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                                                <MenuItem onClick={handleClose}>
+                                                    Profile
+                                                </MenuItem>
+                                                <MenuItem onClick={() => navigate('/applied-jobs')}>
+                                                    Applied Jobs
+                                                </MenuItem>
+                                                <MenuItem onClick={handleLogout}>
+                                                    Logout
+                                                </MenuItem>
                                             </Menu>
                                         </>
                                     )
