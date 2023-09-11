@@ -4,7 +4,6 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const commonApi = createApi({
     reducerPath: 'commonApi',
-    tagTypes: ['countries'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers) => {
@@ -30,6 +29,9 @@ export const commonApi = createApi({
         getDegrees: builder.query({
             query: () => `/common/degrees/`,
         }),
+        getCompanies: builder.query({
+            query: () => `/company/all/`,
+        }),
     }),
 })
 
@@ -39,4 +41,5 @@ export const {
     useGetStatesByCountryQuery,
     useGetCitiesByCountryQuery,
     useGetAreasByCountryQuery,
+    useGetCompaniesQuery,
 } = commonApi

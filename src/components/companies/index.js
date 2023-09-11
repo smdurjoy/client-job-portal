@@ -6,8 +6,9 @@ import SortBy from "../common/SortBy";
 import CommonPagination from "../common/CommonPagination";
 import H3 from "../Typography/H3";
 import CompanyCard from "./CompanyCard";
+import Loader from "../common/Loader";
 
-const Companies = () => {
+const Companies = ({companies, isLoading}) => {
     const [sortBy, setSortBy] = useState(1);
 
     return (
@@ -32,24 +33,15 @@ const Companies = () => {
                     </Box>
                 </Box>
                 <Grid container columnSpacing={4}>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
-                    <Grid item xs={12} md={4} mt={4}>
-                        <CompanyCard/>
-                    </Grid>
+                    {
+                        isLoading ? <Loader/> : (
+                            companies?.map((company, idx) => (
+                                <Grid item xs={12} md={4} mt={4} key={idx}>
+                                    <CompanyCard company={company}/>
+                                </Grid>
+                            ))
+                        )
+                    }
                 </Grid>
 
                 <Box display='flex' justifyContent='center' mt={7}>
