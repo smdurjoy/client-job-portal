@@ -158,7 +158,7 @@ function Navbar({window, isForHomePage = true}) {
                                                     'aria-labelledby': 'basic-button',
                                                 }}
                                             >
-                                                <MenuItem onClick={handleClose}>
+                                                <MenuItem onClick={() => navigate('/profile')}>
                                                     Profile
                                                 </MenuItem>
                                                 <MenuItem onClick={() => navigate('/applied-jobs')}>

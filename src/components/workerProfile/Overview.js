@@ -7,17 +7,7 @@ import Typography from "@mui/material/Typography";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
 
-const Overview = () => {
-    const skills = [
-        'Blueprint Reading',
-        'Trade Skills',
-        'Equipment Operation',
-        'Teamwork',
-        'Material Handling',
-        'Tool Proficiency',
-        'Mechanical Knowledge',
-    ]
-
+const Overview = ({profile}) => {
     return (
         <Box mt={4}>
             <H4
@@ -25,7 +15,7 @@ const Overview = () => {
                 color='#0D9CA4'
             />
             <H6
-                text='Borem ipsum dolor sit amet, consectetur adipiscing elit.'
+                text={profile?.professional_description}
                 mt={2}
             />
 
@@ -40,7 +30,7 @@ const Overview = () => {
 
             <Box display='flex' flexWrap='wrap' mt={2}>
                 {
-                    skills?.map(skill => (
+                    profile?.skill_set?.map((skill, idx) => (
                         <Typography
                             bgcolor='#eaecec'
                             color='#2B3940'
@@ -54,8 +44,9 @@ const Overview = () => {
                                 sm: 14,
                                 xs: 12
                             }}
+                            key={idx}
                         >
-                            {skill}
+                            {skill.skill_name}
                         </Typography>
                     ))
                 }
@@ -70,7 +61,11 @@ const Overview = () => {
                 color='#0D9CA4'
             />
 
-            <WorkExperience/>
+            {
+                profile?.employment_history?.map((experience, idx) => (
+                    <WorkExperience experience={experience} key={idx}/>
+                ))
+            }
 
             <Box my={4}>
                 <Divider/>
@@ -81,7 +76,11 @@ const Overview = () => {
                 color='#0D9CA4'
             />
 
-            <Education/>
+            {
+                profile?.educations?.map((education, idx) => (
+                    <Education education={education} key={idx}/>
+                ))
+            }
         </Box>
     );
 };

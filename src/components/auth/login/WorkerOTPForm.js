@@ -34,7 +34,7 @@ const WorkerOTPForm = () => {
             }
             dispatch(setToken(data.token));
             dispatch(setUserId(data.user_id));
-            toast.success('Verify Success');
+            toast.success('Login Success');
             navigate('/');
         }
     }, [dispatch, isOtpVerificationSuccess, navigate, optVerificationResponse]);
@@ -58,7 +58,7 @@ const WorkerOTPForm = () => {
                     onClick={handleVerification}
                     disabled={isOtpVerificationLoading}
                 >
-                    Send
+                    {isOtpVerificationLoading ? 'Sending..' : 'Send'}
                 </Button>
                 <Box textAlign="center" mt={2}>
                     <Box display="flex" justifyContent="center">

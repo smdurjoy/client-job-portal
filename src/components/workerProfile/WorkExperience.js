@@ -4,23 +4,23 @@ import H5 from "../Typography/H5";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import H7 from "../Typography/H7";
 
-const WorkExperience = () => {
+const WorkExperience = ({experience}) => {
     return (
         <Box mt={3}>
             <Box display='flex' justifyContent='space-between'>
                 <Box>
                     <H5
-                        text='General Worker'
+                        text={experience?.designation}
                     />
                     <H7
-                        text='AD Construction Ltd.'
+                        text={experience?.company_name}
                         color='#6B6E6F'
                     />
                 </Box>
                 <Box display='flex'>
                     <BusinessCenterIcon sx={{color: '#0D9CA4'}} fontSize='small'/>
                     <H7
-                        text='Jun 2017 - April 2020'
+                        text={`${experience?.start_at+'-' ?? ''} ${experience?.end_date}`}
                         color='#6B6E6F'
                         ml={1}
                     />
@@ -30,11 +30,11 @@ const WorkExperience = () => {
                 <H5
                     text='Responsibilities'
                 />
-                <ul>
-                    <li>Clearing and leveling the construction area.</li>
-                    <li>Unloading, transporting, and distributing construction materials.</li>
-                    <li>Assisting skilled tradespeople during construction tasks.</li>
-                </ul>
+                <H7
+                    text={experience?.responsibilities}
+                    color='#6B6E6F'
+                    ml={1}
+                />
             </Box>
         </Box>
     );

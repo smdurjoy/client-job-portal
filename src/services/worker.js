@@ -16,6 +16,9 @@ export const workerApi = createApi({
         }
     }),
     endpoints: (builder) => ({
+        getWorkerDetails: builder.query({
+            query: (workerId) => `/worker/details/${workerId}/`,
+        }),
         getAppliedJobs: builder.query({
             query: (workerId) => `/worker/applied/job/${workerId}/`,
             providesTags: ['appliedJobs'],
@@ -36,5 +39,6 @@ export const workerApi = createApi({
 
 export const {
     useApplyToJobMutation,
+    useGetWorkerDetailsQuery,
     useGetAppliedJobsQuery,
 } = workerApi
