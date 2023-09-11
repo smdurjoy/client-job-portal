@@ -4,10 +4,18 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import homeBannerManImg from '../../assets/images/home/homeBannerMan.png';
 import SearchBox from "../common/SearchBox";
+import {useNavigate} from "react-router-dom";
 
 const Banner = ({categories, countries}) => {
-    const [category, setCategory] = useState('');
-    const [location, setLocation] = useState('');
+    const [keyword, setKeyword] = useState('');
+    const [category, setCategory] = useState('all');
+    const [location, setLocation] = useState('all');
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        let url = `/jobs?keyword=${keyword}&category_id=${category}&country_id=${location}`;
+        navigate(url);
+    }
 
     return (
         <div className='homeBanner container'>
@@ -68,6 +76,9 @@ const Banner = ({categories, countries}) => {
                                     setLocation={setLocation}
                                     countries={countries}
                                     categories={categories}
+                                    keyword={keyword}
+                                    setKeyword={setKeyword}
+                                    handleSearch={handleSearch}
                                 />
                             </Box>
                         </Box>

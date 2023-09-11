@@ -6,7 +6,18 @@ import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Button from "@mui/material/Button";
 
-const SearchBox = ({category, setCategory, location, setLocation, countries, categories}) => {
+const SearchBox = ({
+                       category,
+                       setCategory,
+                       location,
+                       setLocation,
+                       countries,
+                       categories,
+                       keyword,
+                       setKeyword,
+                       handleSearch,
+                       isSearchLoading
+                   }) => {
     return (
         <Box>
             <Box className='homeSearchBox' style={{boxShadow: '5px 8px 20px 0px rgba(242, 138, 31, 0.20)'}}
@@ -29,6 +40,8 @@ const SearchBox = ({category, setCategory, location, setLocation, countries, cat
                             </InputAdornment>
                         ),
                     }}
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
                 />
                 <div style={{flexBasis: '25%'}}>
                     <FormControl>
@@ -40,7 +53,7 @@ const SearchBox = ({category, setCategory, location, setLocation, countries, cat
                                     border: "none",
                                 },
                             }}
-                            value={category}
+                            value={category === 'all' ? '' : category}
                             displayEmpty
                             startAdornment={
                                 <InputAdornment position="start">
@@ -72,7 +85,7 @@ const SearchBox = ({category, setCategory, location, setLocation, countries, cat
                                     border: "none",
                                 },
                             }}
-                            value={location}
+                            value={location === 'all' ? '' : location}
                             displayEmpty
                             startAdornment={
                                 <InputAdornment position="start">
@@ -94,13 +107,20 @@ const SearchBox = ({category, setCategory, location, setLocation, countries, cat
                         </Select>
                     </FormControl>
                 </div>
-                <Button className='primaryBtn' sx={{display: {xs: 'none', sm: 'block'}, px: 5}}>
+                <Button
+                    className='primaryBtn'
+                    sx={{display: {xs: 'none', sm: 'block'}, px: 5}}
+                    onClick={handleSearch}
+                    disabled={isSearchLoading}
+                >
                     Search
                 </Button>
             </Box>
             <Button
                 className='primaryBtn'
                 sx={{display: {xs: 'block', sm: 'none'}, mt: 1}}
+                onClick={handleSearch}
+                disabled={isSearchLoading}
             >
                 Search
             </Button>

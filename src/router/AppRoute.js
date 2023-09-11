@@ -1,5 +1,4 @@
 import {createBrowserRouter} from "react-router-dom";
-import JobsPage from "../pages/JobsPage";
 import JobDetailsPage from "../pages/JobDetailsPage";
 import LoginPage from "../pages/LoginPage";
 import OTPPage from "../pages/OTPPage";
@@ -21,6 +20,7 @@ import HomePageRedirector from "../components/HomePageRedirector";
 import CompanyPrivateRoute from "../components/CompanyPrivateRoute";
 import AppliedJobsPage from "../pages/AppliedJobsPage";
 import PrivateRoute from "../components/PrivateRoute";
+import JobsPage from "../pages/JobsPage";
 
 const AppRoute = createBrowserRouter([
     {

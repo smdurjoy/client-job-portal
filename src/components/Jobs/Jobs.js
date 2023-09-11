@@ -4,14 +4,29 @@ import SearchBox from "../common/SearchBox";
 import Filters from "../common/Filters";
 import Box from "@mui/material/Box";
 import JobList from "./JobList";
+import Loader from "../common/Loader";
 
-const Jobs = ({jobs, countries, categories, appliedJobs, userId, token}) => {
+const Jobs = ({
+                  jobs,
+                  countries,
+                  categories,
+                  appliedJobs,
+                  userId,
+                  token,
+                  isLoading,
+                  keyword,
+                  setKeyword,
+                  handleSearch,
+                  categoryId,
+                  setCategoryId,
+                  countryId,
+                  setCountryId,
+                  isSearchLoading,
+              }) => {
     const [viewMode, setViewMode] = React.useState(0);
-    const [category, setCategory] = useState('');
-    const [location, setLocation] = useState('');
     const [sortBy, setSortBy] = useState(1);
 
-    const handleChange = (event, newValue) => {
+    const handleViewModeChange = (event, newValue) => {
         setViewMode(newValue);
     };
 
@@ -23,24 +38,33 @@ const Jobs = ({jobs, countries, categories, appliedJobs, userId, token}) => {
                 </Grid>
                 <Grid item xs={12} md={8}>
                     <SearchBox
-                        category={category}
-                        setCategory={setCategory}
-                        location={location}
-                        setLocation={setLocation}
+                        category={categoryId}
+                        setCategory={setCategoryId}
+                        location={countryId}
+                        setLocation={setCountryId}
                         countries={countries}
                         categories={categories}
+                        keyword={keyword}
+                        setKeyword={setKeyword}
+                        handleSearch={handleSearch}
+                        isSearchLoading={isSearchLoading}
                     />
 
-                    <JobList
-                        viewMode={viewMode}
-                        jobs={jobs}
-                        sortBy={sortBy}
-                        setSortBy={setSortBy}
-                        handleChange={handleChange}
-                        appliedJobs={appliedJobs}
-                        userId={userId}
-                        token={token}
-                    />
+                    {
+                        (isLoading || isSearchLoading) ? <Loader/> : (
+                            <JobList
+                                viewMode={viewMode}
+                                jobs={jobs}
+                                sortBy={sortBy}
+                                setSortBy={setSortBy}
+                                handleChange={handleViewModeChange}
+                                appliedJobs={appliedJobs}
+                                userId={userId}
+                                token={token}
+                            />
+                        )
+                    }
+
                 </Grid>
             </Grid>
         </Box>
