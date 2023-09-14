@@ -14,7 +14,7 @@ const SaveNCancel = ({handleSave, isLoading}) => {
                 {isLoading ? 'Saving...' : 'Save'}
             </Button>
             <Button size='large' variant='outlined' className='secondaryBtnBlue' sx={{marginLeft: '1rem'}}>
-                <Link to={'/'}>
+                <Link to={'/profile'}>
                     Cancel
                 </Link>
             </Button>

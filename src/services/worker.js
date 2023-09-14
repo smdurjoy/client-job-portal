@@ -89,6 +89,20 @@ export const workerApi = createApi({
             }),
             invalidatesTags: ['workerProfileDetails'],
         }),
+        updateProfileEducation: builder.mutation({
+            query: ({
+                        user_id,
+                        degree_list
+                    }) => ({
+                url: `/auth/set/worker/education/`,
+                method: 'POST',
+                body: {
+                    user_id,
+                    degree_list
+                },
+            }),
+            invalidatesTags: ['workerProfileDetails'],
+        }),
     }),
 })
 
@@ -98,4 +112,5 @@ export const {
     useGetAppliedJobsQuery,
     useUpdateBasicProfileInfoMutation,
     useUpdateProfileAddressMutation,
+    useUpdateProfileEducationMutation,
 } = workerApi

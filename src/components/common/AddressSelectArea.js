@@ -29,8 +29,6 @@ const AddressSelectArea = ({
         skip: !countryId
     });
 
-    console.log({area_id})
-
     const handleCountryChange = (e, sv, key) => {
         handleOptionChange(e, sv, key);
         setCountryId(sv.id);
