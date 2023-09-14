@@ -16,9 +16,9 @@ import useWorkerManger from "../../app/customHooks/useWorkerManger";
 import {toast} from "react-toastify";
 import CommonDatePicker from "../common/CommonDatePicker";
 import {formatDate} from "../../helpers/Helpers";
+import {useNavigate} from "react-router-dom";
 
 const PersonalInfo = ({profile, user_id}) => {
-    console.log(profile);
     const [personalInfo, setPersonalInfo] = useState({
         user_id,
         first_name: profile?.first_name ?? '',
@@ -35,29 +35,34 @@ const PersonalInfo = ({profile, user_id}) => {
         gender_id: profile?.gender ?? '',
         postal_code: profile?.postal_code ?? '',
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     const {data: countries} = useGetCountriesQuery();
     const {
-        isUpdateBasicProfileInfoLoading,
         isUpdateBasicProfileInfoError,
+        isUpdateBasicProfileInfoSuccess,
         updateBasicProfileInfo,
         updateBasicProfileInfoError,
 
-        isUpdateProfileAddressLoading,
         isUpdateProfileAddressSuccess,
         isUpdateProfileAddressError,
         updateProfileAddress,
         updateProfileAddressError
     } = useWorkerManger();
 
+    const navigate = useNavigate();
+
     const handleSave = async () => {
+        setIsLoading(true);
         await updateBasicProfileInfo(personalInfo);
         await updateProfileAddress(personalInfo);
+        setIsLoading(false);
     }
 
     useEffect(() => {
         if (isUpdateBasicProfileInfoError) {
             const {status} = updateBasicProfileInfoError;
+            setIsLoading(false);
             if (status === 400) {
                 toast.warning('Field is Required');
                 return;
@@ -67,18 +72,23 @@ const PersonalInfo = ({profile, user_id}) => {
     }, [isUpdateBasicProfileInfoError, updateBasicProfileInfoError]);
 
     useEffect(() => {
+        if (!isUpdateBasicProfileInfoSuccess) {
+            return;
+        }
         if (isUpdateProfileAddressSuccess) {
             toast.success('Updated Successfully.');
+            navigate('/profile');
         }
         if (isUpdateProfileAddressError) {
             const {status} = updateProfileAddressError;
+            setIsLoading(false);
             if (status === 400) {
                 toast.warning('Field is Required');
                 return;
             }
             toast.error('Something Went Wrong.');
         }
-    }, [isUpdateProfileAddressSuccess, isUpdateProfileAddressError, updateProfileAddressError]);
+    }, [isUpdateProfileAddressSuccess, isUpdateProfileAddressError, updateProfileAddressError, isUpdateBasicProfileInfoSuccess]);
 
     const handleJobAddressOptionChange = (e, selectedVal, key) => {
         if (!selectedVal) {
@@ -256,7 +266,7 @@ const PersonalInfo = ({profile, user_id}) => {
                 <Grid item md={12} mt={3}>
                     <SaveNCancel
                         handleSave={handleSave}
-                        isLoading={isUpdateBasicProfileInfoLoading || isUpdateProfileAddressLoading}
+                        isLoading={isLoading}
                     />
                 </Grid>
             </Grid>
