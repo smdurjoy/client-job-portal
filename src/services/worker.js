@@ -4,7 +4,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const workerApi = createApi({
     reducerPath: 'workerApi',
-    tagTypes: ['appliedJobs'],
+    tagTypes: ['appliedJobs', 'workerProfileDetails'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers, {getState}) => {
@@ -18,6 +18,7 @@ export const workerApi = createApi({
     endpoints: (builder) => ({
         getWorkerDetails: builder.query({
             query: (workerId) => `/worker/details/${workerId}/`,
+            providesTags: ['workerProfileDetails']
         }),
         getAppliedJobs: builder.query({
             query: (workerId) => `/worker/applied/job/${workerId}/`,
@@ -34,6 +35,60 @@ export const workerApi = createApi({
             }),
             invalidatesTags: ['appliedJobs'],
         }),
+        updateBasicProfileInfo: builder.mutation({
+            query: ({
+                        user_id,
+                        first_name,
+                        last_name,
+                        phone,
+                        email,
+                        passport_number,
+                        date_of_birth,
+                        gender_id
+                    }) => ({
+                url: `/auth/set/worker/basic/`,
+                method: 'POST',
+                body: {
+                    user_id,
+                    first_name,
+                    last_name,
+                    phone,
+                    email,
+                    passport_number,
+                    date_of_birth,
+                    gender_id,
+                },
+            }),
+            invalidatesTags: (_result, _error, arg) => [
+                { type: 'workerProfileDetails', id: arg.user_id },
+            ],
+        }),
+        updateProfileAddress: builder.mutation({
+            query: ({
+                        user_id,
+                        country_id,
+                        state_id,
+                        city_id,
+                        area_id,
+                        address_line1,
+                        postal_code,
+                        address_line2,
+                    }) => ({
+                url: `/auth/set/worker/address/`,
+                method: 'POST',
+                body: {
+                    user_id,
+                    country_id,
+                    state_id,
+                    city_id,
+                    area_id,
+                    address_line1,
+                    postal_code,
+                    address_line2,
+                },
+            }),
+            invalidatesTags: ['workerProfileDetails'],
+        }),
     }),
 })
 
@@ -41,4 +96,6 @@ export const {
     useApplyToJobMutation,
     useGetWorkerDetailsQuery,
     useGetAppliedJobsQuery,
+    useUpdateBasicProfileInfoMutation,
+    useUpdateProfileAddressMutation,
 } = workerApi

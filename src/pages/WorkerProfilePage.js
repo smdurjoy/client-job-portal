@@ -18,7 +18,7 @@ const HomePage = () => {
         <>
             <Navbar isForHomePage={false}/>
             <WorkerProfile
-                profile={profile}
+                profile={profile?.data}
                 isLoading={isLoading}
             />
             <Footer/>

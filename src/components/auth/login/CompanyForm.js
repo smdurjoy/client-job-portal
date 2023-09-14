@@ -59,12 +59,14 @@ const WorkerForm = () => {
                     placeholder='Enter Your Email *'
                     icon={<EmailOutlinedIcon/>}
                     handleChange={handleEmailChange}
+                    value={email}
                 />
                 <FormInput
                     placeholder='Enter Your Password *'
                     inputType='password'
                     icon={<LockOutlinedIcon/>}
                     handleChange={(e) => setPassword(e.target.value)}
+                    value={password}
                 />
                 <Button
                     className='primaryBtn'

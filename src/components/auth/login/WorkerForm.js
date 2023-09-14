@@ -12,17 +12,19 @@ import {WORKER_LOGIN} from "../../../helpers/Constants";
 
 const WorkerForm = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [phoneNumberWithCode, setPhoneNumberWithCode] = useState('');
     const navigate = useNavigate();
     const {isOtpSendLoading, isOtpSendSuccess, sendOtp} = useAuthManager();
     const dispatch = useAppDispatch();
 
     const handleLogin = () => {
-        sendOtp(phoneNumber);
+        sendOtp(phoneNumberWithCode);
     }
     const handleChange = (e) => {
         const phoneNumber = '+88' + e.target.value;
         dispatch(setUserPhone(phoneNumber))
-        setPhoneNumber(phoneNumber);
+        setPhoneNumberWithCode(phoneNumber);
+        setPhoneNumber(e.target.value);
     }
 
     useEffect(() => {
@@ -45,6 +47,7 @@ const WorkerForm = () => {
                     placeholder='Phone Number *'
                     icon={<LocalPhoneIcon/>}
                     handleChange={handleChange}
+                    value={phoneNumber}
                 />
                 <Button
                     className='primaryBtn'

@@ -57,6 +57,7 @@ const WorkerOTPForm = () => {
                     placeholder='Enter OTP *'
                     icon={<DialpadIcon/>}
                     handleChange={handleChange}
+                    value={otp}
                 />
                 <Button
                     className='primaryBtn'

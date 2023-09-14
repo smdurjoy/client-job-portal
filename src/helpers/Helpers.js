@@ -13,3 +13,9 @@ export const isAppliedToJob = (appliedJobs, jobId) => {
     }
     return isApplied;
 }
+
+export const formatDate = (newDate) => {
+    const day = newDate.$D.toString().padStart(2, '0');
+    const month = newDate.$M.toString().padStart(2, '0');
+    return `${newDate.$y}-${month}-${day}`
+}

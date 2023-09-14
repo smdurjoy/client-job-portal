@@ -14,6 +14,7 @@ import EducationNTraining from "./EducationNTraining";
 import Employment from "./Employment";
 import OtherInformation from "./OtherInformation";
 import ImageNVideo from "./ImageNVideo";
+import Loader from "../common/Loader";
 
 const Item = styled(Paper)(({theme}) => ({
     ...theme.typography.body2,
@@ -25,7 +26,7 @@ const Item = styled(Paper)(({theme}) => ({
     color: theme.palette.text.secondary,
 }));
 
-const Index = () => {
+const WorkerProfileUpdate = ({profile, isLoading, userId}) => {
     const [activeSection, setActiveSection] = useState(1);
     const [profileInOptions, setProfileInOptions] = useState([
         {
@@ -105,11 +106,17 @@ const Index = () => {
                 </Stack>
             </Box>
 
-            {activeSection === 1 && <PersonalInfo/>}
-            {activeSection === 2 && <EducationNTraining/>}
-            {activeSection === 3 && <Employment/>}
-            {activeSection === 4 && <OtherInformation/>}
-            {activeSection === 5 && <ImageNVideo/>}
+            {
+                isLoading ? <Loader/> : (
+                    <>
+                        {activeSection === 1 && <PersonalInfo profile={profile} user_id={userId}/>}
+                        {activeSection === 2 && <EducationNTraining profile={profile} user_id={userId}/>}
+                        {activeSection === 3 && <Employment profile={profile} user_id={userId}/>}
+                        {activeSection === 4 && <OtherInformation profile={profile} user_id={userId}/>}
+                        {activeSection === 5 && <ImageNVideo profile={profile} user_id={userId}/>}
+                    </>
+                )
+            }
 
             {/*<Grid container py={6} spacing={2} columnGap={2}>*/}
             {/*    {*/}
@@ -140,4 +147,4 @@ const Index = () => {
     );
 };
 
-export default Index;
+export default WorkerProfileUpdate;

@@ -11,10 +11,10 @@ import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import Button from "@mui/material/Button";
 import Textarea from "../common/Textarea";
 import AddressSelectArea from "../common/AddressSelectArea";
-import {cities, states} from "../../constants/Constant";
 import CommonDatePicker from "../common/CommonDatePicker";
+import {formatDate} from "../../helpers/Helpers";
 
-const CompanyCreate = ({
+const PostAJob = ({
                            jobCategories,
                            jobLevels,
                            jobTypes,
@@ -73,12 +73,10 @@ const CompanyCreate = ({
     }
 
     const handleDateChange = (newDate) => {
-        const day = newDate.$D.toString().padStart(2, '0');
-        const month = newDate.$M.toString().padStart(2, '0');
-        const date = `${newDate.$y}-${month}-${day}`
+        const formattedDate = formatDate(newDate);
         setJobBasics({
             ...jobBasics,
-            application_deadline: date,
+            application_deadline: formattedDate,
         });
     }
 
@@ -107,6 +105,7 @@ const CompanyCreate = ({
                             placeholder='Job Title'
                             icon={<WorkHistoryIcon/>}
                             handleChange={(e) => setJobBasics({...jobBasics, job_title: e.target.value})}
+                            value={jobBasics.job_title}
                         />
                     </Grid>
                     <Grid item md={6} xs={12} mt={4}>
@@ -134,6 +133,7 @@ const CompanyCreate = ({
                             placeholder='Vacancies'
                             icon={<GroupIcon/>}
                             handleChange={(e) => setJobBasics({...jobBasics, no_of_vacancies: e.target.value})}
+                            value={jobBasics.no_of_vacancies}
                         />
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
@@ -161,6 +161,7 @@ const CompanyCreate = ({
                             placeholder='Min Salary'
                             icon={<AttachMoneyIcon/>}
                             handleChange={(e) => setJobBasics({...jobBasics, min_salary: e.target.value})}
+                            value={jobBasics.min_salary}
                         />
                     </Grid>
                     <Grid item md={4} sm={12} xs={12}>
@@ -173,6 +174,7 @@ const CompanyCreate = ({
                             placeholder='Max Salary'
                             icon={<AttachMoneyIcon/>}
                             handleChange={(e) => setJobBasics({...jobBasics, max_salary: e.target.value})}
+                            value={jobBasics.max_salary}
                         />
                     </Grid>
                     <Grid item md={2} sm={12} xs={12}>
@@ -271,6 +273,7 @@ const CompanyCreate = ({
                                     ...jobRequirement,
                                     minimum_age: e.target.value
                                 })}
+                                value={jobRequirement.minimum_age}
                             />
                             <FormInput
                                 placeholder='Max'
@@ -279,6 +282,7 @@ const CompanyCreate = ({
                                     ...jobRequirement,
                                     maximum_age: e.target.value
                                 })}
+                                value={jobRequirement.maximum_age}
                             />
                         </Box>
                     </Grid>
@@ -361,13 +365,16 @@ const CompanyCreate = ({
                     </Grid>
                     <AddressSelectArea
                         countries={countries}
-                        cities={cities}
-                        states={states}
                         handleOptionChange={handleJobAddressOptionChange}
                         handleChange={(e) => setJobAddress({
                             ...jobAddress,
                             address: e.target.value
                         })}
+                        addressVal={jobAddress.address}
+                        country_id={jobAddress.country_id}
+                        state_id={jobAddress.state_id}
+                        city_id={jobAddress.city_id}
+                        area_id={jobAddress.area_id}
                     />
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
@@ -377,7 +384,7 @@ const CompanyCreate = ({
                         />
                         <Box mt={2}>
                             <CommonDatePicker
-                                label='MM/DD/YY*'
+                                label='MM/DD/YYYY*'
                                 handleDateChange={(val) => handleDateChange(val)}
                             />
                         </Box>
@@ -402,4 +409,4 @@ const CompanyCreate = ({
     );
 };
 
-export default CompanyCreate;
+export default PostAJob;

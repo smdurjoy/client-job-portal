@@ -62,7 +62,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/edit-profile",
-        element: <WorkerProfileUpdatePage/>
+        element: <PrivateRoute children={<WorkerProfileUpdatePage/>}/>
     },
     {
         path: "/bookmarks",

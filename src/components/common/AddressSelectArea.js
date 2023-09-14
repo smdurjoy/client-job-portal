@@ -5,8 +5,17 @@ import FormInput from "./FormInput";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import {useGetAreasByCountryQuery, useGetCitiesByCountryQuery, useGetStatesByCountryQuery} from "../../services/common";
 
-const AddressSelectArea = ({countries, handleOptionChange, handleChange}) => {
-    const [countryId, setCountryId] = useState(null);
+const AddressSelectArea = ({
+                               countries,
+                               handleOptionChange,
+                               handleChange,
+                               addressVal,
+                               country_id,
+                               state_id,
+                               city_id,
+                               area_id
+                           }) => {
+    const [countryId, setCountryId] = useState(country_id ?? null);
 
     const {data: states} = useGetStatesByCountryQuery(countryId, {
         skip: !countryId
@@ -19,6 +28,8 @@ const AddressSelectArea = ({countries, handleOptionChange, handleChange}) => {
     const {data: areas} = useGetAreasByCountryQuery(countryId, {
         skip: !countryId
     });
+
+    console.log({area_id})
 
     const handleCountryChange = (e, sv, key) => {
         handleOptionChange(e, sv, key);
@@ -37,38 +48,43 @@ const AddressSelectArea = ({countries, handleOptionChange, handleChange}) => {
                     placeholder='Enter Your Address'
                     icon={<LocationOnOutlinedIcon/>}
                     handleChange={handleChange}
+                    value={addressVal}
                 />
             </Grid>
             <Grid item md={6} sm={12} xs={12} mt={3}>
                 <Autocomplete
                     options={countries}
-                    getOptionLabel={(option) => option.country_name}
+                    getOptionLabel={(option) => (option && typeof option.country_name === 'string' ? option.country_name : '')}
                     onChange={(e, sv) => handleCountryChange(e, sv, 'country_id')}
                     renderInput={(params) => <TextField {...params} label="Select Country"/>}
+                    value={countries ? countries.find((option) => option.id === countryId) : null}
                 />
             </Grid>
             <Grid item md={6} sm={12} xs={12} mt={3}>
                 <Autocomplete
                     options={states ? states.states : []}
-                    getOptionLabel={(option) => option.state_name}
+                    getOptionLabel={(option) => (option && typeof option.state_name === 'string' ? option.state_name : '')}
                     onChange={(e, sv) => handleOptionChange(e, sv, 'state_id')}
                     renderInput={(params) => <TextField {...params} label="Select State"/>}
+                    value={states ? states.states.find((option) => option.id === state_id) : null}
                 />
             </Grid>
             <Grid item md={6} sm={12} xs={12} mt={3}>
                 <Autocomplete
                     options={cities ? cities.cities : []}
-                    getOptionLabel={(option) => option.city_name}
+                    getOptionLabel={(option) => (option && typeof option.city_name === 'string' ? option.city_name : '')}
                     onChange={(e, sv) => handleOptionChange(e, sv, 'city_id')}
                     renderInput={(params) => <TextField {...params} label="Select City"/>}
+                    value={cities ? cities.cities.find((option) => option.id === city_id) : null}
                 />
             </Grid>
             <Grid item md={6} sm={12} xs={12} mt={3}>
                 <Autocomplete
                     options={areas ? areas.areas : []}
-                    getOptionLabel={(option) => option.area_name}
+                    getOptionLabel={(option) => (option && typeof option.area_name === 'string' ? option.area_name : '')}
                     onChange={(e, sv) => handleOptionChange(e, sv, 'area_id')}
                     renderInput={(params) => <TextField {...params} label="Select Area"/>}
+                    value={areas ? areas.areas.find((option) => option.id === area_id) : null}
                 />
             </Grid>
         </>

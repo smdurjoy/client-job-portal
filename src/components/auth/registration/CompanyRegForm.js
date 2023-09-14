@@ -60,28 +60,33 @@ const CompanyRegForm = () => {
                     placeholder='Company Name *'
                     icon={<WarehouseOutlinedIcon/>}
                     handleChange={(e) => setCompanyName(e.target.value)}
+                    value={companyName}
                 />
                 <FormInput
                     placeholder='Enter Phone Number *'
                     icon={<LocalPhoneIcon/>}
                     handleChange={(e) => setCompanyPhone(e.target.value)}
+                    value={companyPhone}
                 />
                 <FormInput
                     placeholder='Enter Your Email *'
                     icon={<EmailOutlinedIcon/>}
                     handleChange={(e) => setEmail(e.target.value)}
+                    value={email}
                 />
                 <FormInput
                     placeholder='Enter Password *'
                     inputType='password'
                     icon={<LockOutlinedIcon/>}
                     handleChange={(e) => setPassword(e.target.value)}
+                    value={password}
                 />
                 <FormInput
                     placeholder='Re-Type Password *'
                     inputType='password'
                     icon={<LockOutlinedIcon/>}
                     handleChange={(e) => setRePassword(e.target.value)}
+                    value={rePassword}
                 />
                 <Button
                     className='primaryBtn'
@@ -89,7 +94,7 @@ const CompanyRegForm = () => {
                     onClick={handleRegister}
                     disabled={isCompanyRegisterLoading}
                 >
-                    Register
+                    {isCompanyRegisterLoading ? 'Registering...' : 'Register'}
                 </Button>
                 <Box textAlign="center" mt={2}>
                     <Box display="flex" justifyContent="center">
