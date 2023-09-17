@@ -2,7 +2,8 @@ import {
     useApplyToJobMutation,
     useUpdateBasicProfileInfoMutation,
     useUpdateProfileAddressMutation,
-    useUpdateProfileEducationMutation
+    useUpdateProfileEducationMutation,
+    useUpdateProfileExperienceMutation
 } from "../../services/worker";
 
 export default function useWorkerManger() {
@@ -46,6 +47,16 @@ export default function useWorkerManger() {
             data: updateProfileEducationResponse,
         },
     ] = useUpdateProfileEducationMutation();
+    const [
+        updateProfileExperienceFunc,
+        {
+            isLoading: isUpdateProfileExperienceLoading,
+            isSuccess: isUpdateProfileExperienceSuccess,
+            isError: isUpdateProfileExperienceError,
+            error: updateProfileExperienceError,
+            data: updateProfileExperienceResponse,
+        },
+    ] = useUpdateProfileExperienceMutation();
 
     const applyToJob = async (job_id, worker_id) => {
         await createApplyToJobFunc({job_id, worker_id});
@@ -61,6 +72,10 @@ export default function useWorkerManger() {
 
     const updateProfileEducation = async (educationInfo) => {
         await updateProfileEducationFunc(educationInfo);
+    };
+
+    const updateProfileExperience = async (experienceInfo) => {
+        await updateProfileExperienceFunc(experienceInfo);
     };
 
     return {
@@ -91,5 +106,12 @@ export default function useWorkerManger() {
         updateProfileEducationError,
         updateProfileEducation,
         updateProfileEducationResponse,
+
+        isUpdateProfileExperienceLoading,
+        isUpdateProfileExperienceSuccess,
+        isUpdateProfileExperienceError,
+        updateProfileExperienceError,
+        updateProfileExperience,
+        updateProfileExperienceResponse,
     };
 }

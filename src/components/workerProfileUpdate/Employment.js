@@ -1,17 +1,72 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Box from "@mui/material/Box";
 import H4 from "../Typography/H4";
-import {Checkbox, FormControlLabel, Grid} from "@mui/material";
-import H6 from "../Typography/H6";
-import FormInput from "../common/FormInput";
+import {Grid} from "@mui/material";
 import SaveNCancel from "../common/SaveNCancel";
 import Button from "@mui/material/Button";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-import CommonDatePicker from "../common/CommonDatePicker";
-import Textarea from "../common/Textarea";
+import useWorkerManger from "../../app/customHooks/useWorkerManger";
+import {useNavigate} from "react-router-dom";
+import EmploymentForm from "./EmploymentForm";
+import {toast} from "react-toastify";
 
-const PersonalInfo = () => {
+const emptyExperienceList = {
+    company_name: '',
+    designation: '',
+    start_at: null,
+    end_at: null,
+    end_date: null,
+    responsibilities: '',
+    is_currently_working: false,
+}
+
+const PersonalInfo = ({profile, user_id}) => {
+    const [experienceList, setExperienceList] = useState(profile?.employment_history?.length ? profile?.employment_history : [{...emptyExperienceList}]);
+
+    const {
+        isUpdateProfileExperienceLoading,
+        isUpdateProfileExperienceSuccess,
+        isUpdateProfileExperienceError,
+        updateProfileExperience,
+        updateProfileExperienceError
+    } = useWorkerManger();
+    const navigate = useNavigate();
+
+    const addNewExperience = () => {
+        setExperienceList([...experienceList, {...emptyExperienceList}]);
+    }
+
+    const removeExperience = (idx) => {
+        const updateExperienceList = [...experienceList];
+        updateExperienceList.splice(idx, 1);
+        setExperienceList(updateExperienceList);
+    }
+
+    const handleSave = async () => {
+        const experienceInfo = {
+            worker_id: user_id,
+            experience_list: experienceList
+        }
+        console.log({experienceInfo});
+        await updateProfileExperience(experienceInfo);
+    }
+
+    useEffect(() => {
+        if (isUpdateProfileExperienceSuccess) {
+            toast.success('Updated Successfully.');
+            navigate('/profile');
+        }
+
+        if (updateProfileExperienceError) {
+            const {status} = isUpdateProfileExperienceError;
+            if (status === 400) {
+                toast.warning('Field is Required');
+                return;
+            }
+            toast.error('Something Went Wrong.');
+        }
+    }, [isUpdateProfileExperienceSuccess, updateProfileExperienceError, isUpdateProfileExperienceError]);
+
     return (
         <Box mt={2}>
             <H4
@@ -21,59 +76,28 @@ const PersonalInfo = () => {
             />
 
             <Grid container spacing={2}>
-                <Grid item md={6} xs={12} mt={4}>
-                    <H6
-                        text='Company Name*'
-                        color='#F28A1F'
-                        mt={1}
-                    />
-                    <FormInput
-                        placeholder='Write Your Company Name'
-                        icon={<AssignmentIndOutlinedIcon/>}
-                    />
-                </Grid>
-                <Grid item md={6} xs={12} mt={4}>
-                    <H6
-                        text='Designtion*'
-                        color='#F28A1F'
-                        mt={1}
-                    />
-                    <FormInput
-                        placeholder='Write Your Designation'
-                        icon={<AssignmentIndOutlinedIcon/>}
-                    />
-                </Grid>
-                <Grid item md={6} sm={12} xs={12}>
-                    <CommonDatePicker
-                        label='From Date'
-                    />
-                </Grid>
-                <Grid item md={6} sm={12} xs={12}>
-                    <CommonDatePicker
-                        label='To Date'
-                    />
-                </Grid>
-                <Grid item md={6} sm={12} xs={12}>
-                    <FormControlLabel
-                        control={<Checkbox/>}
-                        label="Currently Working"
-                        sx={{color: '#A1A6AB'}}
-                    />
-                </Grid>
+                {
+                    experienceList?.map((experience, idx) => (
+                        <EmploymentForm
+                            key={idx}
+                            idx={idx}
+                            experience={experience}
+                            removeExperience={removeExperience}
+                            experienceList={experienceList}
+                            setExperienceList={setExperienceList}
+                        />
+                    ))
+                }
 
-                <Grid item md={12} sm={12} xs={12}>
-                    <Textarea
-                        placeholder="Responsibilities"
-                        row={4}
+                <Grid item md={12} mt={3}>
+                    <SaveNCancel
+                        handleSave={handleSave}
+                        isLoading={isUpdateProfileExperienceLoading}
                     />
                 </Grid>
 
                 <Grid item md={12} mt={3}>
-                    <SaveNCancel/>
-                </Grid>
-
-                <Grid item md={12} mt={3}>
-                    <Button size='large' variant='outlined' className='secondaryBtn'>
+                    <Button size='large' variant='outlined' className='secondaryBtn' onClick={addNewExperience}>
                         <AddOutlinedIcon/>
                         Add Experience (If Required)
                     </Button>

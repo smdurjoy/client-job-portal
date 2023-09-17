@@ -60,7 +60,7 @@ export const workerApi = createApi({
                 },
             }),
             invalidatesTags: (_result, _error, arg) => [
-                { type: 'workerProfileDetails', id: arg.user_id },
+                {type: 'workerProfileDetails', id: arg.user_id},
             ],
         }),
         updateProfileAddress: builder.mutation({
@@ -103,6 +103,20 @@ export const workerApi = createApi({
             }),
             invalidatesTags: ['workerProfileDetails'],
         }),
+        updateProfileExperience: builder.mutation({
+            query: ({
+                        worker_id,
+                        experience_list
+                    }) => ({
+                url: `/worker/set/experiences/`,
+                method: 'POST',
+                body: {
+                    worker_id,
+                    experience_list
+                },
+            }),
+            invalidatesTags: ['workerProfileDetails'],
+        }),
     }),
 })
 
@@ -113,4 +127,5 @@ export const {
     useUpdateBasicProfileInfoMutation,
     useUpdateProfileAddressMutation,
     useUpdateProfileEducationMutation,
+    useUpdateProfileExperienceMutation,
 } = workerApi

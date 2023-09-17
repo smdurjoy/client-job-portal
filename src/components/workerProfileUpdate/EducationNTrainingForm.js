@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Autocomplete, Checkbox, FormControlLabel, Grid, TextField} from "@mui/material";
 import H6 from "../Typography/H6";
 import FormInput from "../common/FormInput";
@@ -29,12 +29,6 @@ const EducationNTrainingForm = ({degree, idx, removeDegree, degrees, degreeList,
         updatedDegreeList[idx].passing_year = formattedDate;
         setDegreeList(updatedDegreeList);
     }
-
-    useEffect(() => {
-        if (degree?.id) {
-            degree.degree_id = degree.id;
-        }
-    }, [degree]);
 
     return (
         <>
