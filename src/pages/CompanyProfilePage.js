@@ -2,16 +2,14 @@ import React, {useEffect} from 'react';
 import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
 import CompanyDetails from "../components/companies/CompanyDetails";
-import {useGetAllJobsQuery} from "../services/jobs";
 import {useAppSelector} from "../app/hooks";
-import {useGetCompanyDetailsQuery} from "../services/company";
+import {useGetCompanyDetailsQuery, useGetCompanyJobsQuery} from "../services/company";
 import Loader from "../components/common/Loader";
 
 const CompanyProfilePage = () => {
-    const {data: jobs} = useGetAllJobsQuery();
     const {user_id} = useAppSelector((state) => state.app);
     const {data: company, isLoading} = useGetCompanyDetailsQuery(user_id);
-    console.log({company})
+    const {data: jobs} = useGetCompanyJobsQuery(user_id);
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -23,7 +21,7 @@ const CompanyProfilePage = () => {
             <Navbar isForHomePage={false}/>
             {isLoading ? <Loader/> : (
                 <CompanyDetails
-                    jobs={jobs?.jobs}
+                    jobs={jobs?.data}
                     company={company?.data}
                     profileMode={true}
                 />
