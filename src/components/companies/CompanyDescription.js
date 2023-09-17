@@ -7,22 +7,22 @@ import H6 from "../Typography/H6";
 import Divider from "@mui/material/Divider";
 import H3 from "../Typography/H3";
 
-const CompanyDescription = () => {
+const CompanyDescription = ({company}) => {
     const companyDetails = [
         {
             icon: <LanguageOutlinedIcon sx={{ fontSize: '40px', color: '#0D9CA4' }}/>,
             title: 'Website',
-            value: 'www.airbnb.com'
+            value: company?.company_website ? company.company_website : '--'
         },
         {
             icon: <RoomOutlinedIcon sx={{ fontSize: '40px', color: '#0D9CA4' }}/>,
             title: 'Location',
-            value: 'San Francisco, California, United States'
+            value: company?.company_address_line_1 ? company.company_address_line_1 : '--'
         },
         {
             icon: <AssignmentIndOutlinedIcon sx={{ fontSize: '40px', color: '#0D9CA4' }}/>,
             title: 'Company Size',
-            value: '10,000 Employes'
+            value: company?.company_size ? `${company.company_size} Employess` : '--'
         },
     ];
 
@@ -59,7 +59,7 @@ const CompanyDescription = () => {
             />
 
             <H6
-                text='Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie'
+                text={company?.about_company ? company.about_company : ''}
                 mt={3}
             />
         </>

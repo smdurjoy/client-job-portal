@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Box from "@mui/material/Box";
 import {Grid} from "@mui/material";
-import companyLogo from '../../assets/images/home/airBnb.png';
 import googleLogo from '../../assets/images/home/googleLogo.jpeg';
 import H3 from "../Typography/H3";
 import H5 from "../Typography/H5";
@@ -9,8 +8,11 @@ import Divider from "@mui/material/Divider";
 import CompanyDescription from "./CompanyDescription";
 import CompanyJobs from "./CompanyJobs";
 import CompanyHeader from "./CompanyHeader";
+import defaultImg from '../../assets/images/noImg.jpg';
+import Button from "@mui/material/Button";
+import {Link} from "react-router-dom";
 
-const CompanyDetails = ({jobs}) => {
+const CompanyDetails = ({jobs, company, profileMode = false}) => {
     const [activeItem, setActiveItem] = useState(1);
 
     return (
@@ -18,9 +20,9 @@ const CompanyDetails = ({jobs}) => {
             <Grid container px={2} spacing={3} my={5}>
                 <Grid item xs={12} md={8}>
                     <CompanyHeader
-                        image={companyLogo}
-                        companyName='Airbnb'
-                        category='Residential Construction'
+                        image={company?.company_logo ? company?.company_logo : defaultImg}
+                        companyName={company ? company?.company_name : 'Airbnb'}
+                        category='--'
                     />
 
                     <Box display='flex' mt={5}>
@@ -44,49 +46,60 @@ const CompanyDetails = ({jobs}) => {
                     </Box>
 
                     <Box mt={4}>
-                        {activeItem === 1 && <CompanyDescription/>}
+                        {activeItem === 1 && <CompanyDescription company={company}/>}
                         {activeItem === 2 && <CompanyJobs jobs={jobs}/>}
                     </Box>
                 </Grid>
+
                 <Grid item xs={12} md={4}>
-                    <Box bgcolor='#fafafa' p={3}>
-                        <H3
-                            text='Similar Companies'
-                        />
-
-                        <Box mt={3}>
-                            <CompanyHeader
-                                image={googleLogo}
-                                companyName='Google INC.'
-                                category='Software Company'
-                            />
-                        </Box>
+                    {profileMode ? (
                         <Box mt={2}>
-                            <Divider/>
+                            <Link to='/edit-profile'>
+                                <Button className='primaryBtnLessPadding'>
+                                    Edit Profile
+                                </Button>
+                            </Link>
                         </Box>
-
-                        <Box mt={3}>
-                            <CompanyHeader
-                                image={googleLogo}
-                                companyName='Google INC.'
-                                category='Software Company'
+                    ) : (
+                        <Box bgcolor='#fafafa' p={3}>
+                            <H3
+                                text='Similar Companies'
                             />
-                        </Box>
-                        <Box mt={2}>
-                            <Divider/>
-                        </Box>
 
-                        <Box mt={3}>
-                            <CompanyHeader
-                                image={googleLogo}
-                                companyName='Google INC.'
-                                category='Software Company'
-                            />
+                            <Box mt={3}>
+                                <CompanyHeader
+                                    image={googleLogo}
+                                    companyName='Google INC.'
+                                    category='Software Company'
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Divider/>
+                            </Box>
+
+                            <Box mt={3}>
+                                <CompanyHeader
+                                    image={googleLogo}
+                                    companyName='Google INC.'
+                                    category='Software Company'
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Divider/>
+                            </Box>
+
+                            <Box mt={3}>
+                                <CompanyHeader
+                                    image={googleLogo}
+                                    companyName='Google INC.'
+                                    category='Software Company'
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Divider/>
+                            </Box>
                         </Box>
-                        <Box mt={2}>
-                            <Divider/>
-                        </Box>
-                    </Box>
+                    )}
                 </Grid>
             </Grid>
         </Box>

@@ -15,7 +15,7 @@ const CompanyDetailsPage = () => {
     return (
         <>
             <Navbar isForHomePage={false}/>
-            <CompanyDetails jobs={jobs}/>
+            <CompanyDetails jobs={jobs?.jobs}/>
             <Footer/>
         </>
     );

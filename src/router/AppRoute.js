@@ -21,6 +21,7 @@ import CompanyPrivateRoute from "../components/CompanyPrivateRoute";
 import AppliedJobsPage from "../pages/AppliedJobsPage";
 import PrivateRoute from "../components/PrivateRoute";
 import JobsPage from "../pages/JobsPage";
+import PrivateRouteProfile from "../components/PrivateRouteProfile";
 
 const AppRoute = createBrowserRouter([
     {
@@ -58,7 +59,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/profile",
-        element: <PrivateRoute children={<WorkerProfilePage/>}/>
+        element: <PrivateRouteProfile children={<WorkerProfilePage/>}/>
     },
     {
         path: "/edit-profile",

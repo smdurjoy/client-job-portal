@@ -16,7 +16,7 @@ import Button from '@mui/material/Button';
 import logo from '../../assets/images/home/logo.svg';
 import {Link, useNavigate} from "react-router-dom";
 import {useAppSelector} from "../../app/hooks";
-import {COMPANY_LOGIN, COMPANY_MENU_ITEMS, WORKER_MENU_ITEMS} from "../../helpers/Constants";
+import {COMPANY_LOGIN, COMPANY_MENU_ITEMS, WORKER_LOGIN, WORKER_MENU_ITEMS} from "../../helpers/Constants";
 import {AddOutlined} from "@mui/icons-material";
 import {Avatar, Menu, MenuItem} from "@mui/material";
 import {useDispatch} from "react-redux";
@@ -161,9 +161,11 @@ function Navbar({window, isForHomePage = true}) {
                                                 <MenuItem onClick={() => navigate('/profile')}>
                                                     Profile
                                                 </MenuItem>
-                                                <MenuItem onClick={() => navigate('/applied-jobs')}>
-                                                    Applied Jobs
-                                                </MenuItem>
+                                                {user_type === WORKER_LOGIN && (
+                                                    <MenuItem onClick={() => navigate('/applied-jobs')}>
+                                                        Applied Jobs
+                                                    </MenuItem>
+                                                )}
                                                 <MenuItem onClick={handleLogout}>
                                                     Logout
                                                 </MenuItem>

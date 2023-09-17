@@ -8,6 +8,7 @@ import {authApi} from "../services/auth";
 import {authJobApi} from "../services/authJobs";
 import {workerApi} from "../services/worker";
 import {imageUpload} from "../services/imageUpload";
+import {companyApi} from "../services/company";
 
 const persistConfig = {
     key: 'root',
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     [authJobApi.reducerPath]: authJobApi.reducer,
     [workerApi.reducerPath]: workerApi.reducer,
     [imageUpload.reducerPath]: imageUpload.reducer,
+    [companyApi.reducerPath]: companyApi.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -38,6 +40,7 @@ export const store = configureStore({
             authJobApi.middleware,
             workerApi.middleware,
             imageUpload.middleware,
+            companyApi.middleware,
         ])
 })
 
