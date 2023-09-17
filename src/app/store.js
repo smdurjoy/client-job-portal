@@ -7,6 +7,7 @@ import appSliceReducer from '../services/app';
 import {authApi} from "../services/auth";
 import {authJobApi} from "../services/authJobs";
 import {workerApi} from "../services/worker";
+import {imageUpload} from "../services/imageUpload";
 
 const persistConfig = {
     key: 'root',
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     [jobApi.reducerPath]: jobApi.reducer,
     [authJobApi.reducerPath]: authJobApi.reducer,
     [workerApi.reducerPath]: workerApi.reducer,
+    [imageUpload.reducerPath]: imageUpload.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -35,6 +37,7 @@ export const store = configureStore({
             jobApi.middleware,
             authJobApi.middleware,
             workerApi.middleware,
+            imageUpload.middleware,
         ])
 })
 

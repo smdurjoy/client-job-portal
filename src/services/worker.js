@@ -90,10 +90,7 @@ export const workerApi = createApi({
             invalidatesTags: ['workerProfileDetails'],
         }),
         updateProfileEducation: builder.mutation({
-            query: ({
-                        user_id,
-                        degree_list
-                    }) => ({
+            query: ({user_id, degree_list}) => ({
                 url: `/auth/set/worker/education/`,
                 method: 'POST',
                 body: {
@@ -104,10 +101,7 @@ export const workerApi = createApi({
             invalidatesTags: ['workerProfileDetails'],
         }),
         updateProfileExperience: builder.mutation({
-            query: ({
-                        worker_id,
-                        experience_list
-                    }) => ({
+            query: ({worker_id, experience_list}) => ({
                 url: `/worker/set/experiences/`,
                 method: 'POST',
                 body: {
@@ -118,10 +112,7 @@ export const workerApi = createApi({
             invalidatesTags: ['workerProfileDetails'],
         }),
         updateProfileSkill: builder.mutation({
-            query: ({
-                        user_id,
-                        skill_list
-                    }) => ({
+            query: ({user_id, skill_list}) => ({
                 url: `/auth/set/worker/skill/`,
                 method: 'POST',
                 body: {

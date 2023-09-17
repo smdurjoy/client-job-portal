@@ -3,8 +3,10 @@ import {
     useUpdateBasicProfileInfoMutation,
     useUpdateProfileAddressMutation,
     useUpdateProfileEducationMutation,
-    useUpdateProfileExperienceMutation, useUpdateProfileSkillMutation
+    useUpdateProfileExperienceMutation,
+    useUpdateProfileSkillMutation
 } from "../../services/worker";
+import {useUpdateWorkerProfilePictureMutation} from "../../services/imageUpload";
 
 export default function useWorkerManger() {
     const [
@@ -67,6 +69,16 @@ export default function useWorkerManger() {
             data: updateProfileSkillResponse,
         },
     ] = useUpdateProfileSkillMutation();
+    const [
+        updateProfilePictureFunc,
+        {
+            isLoading: isUpdateProfilePictureLoading,
+            isSuccess: isUpdateProfilePictureSuccess,
+            isError: isUpdateProfilePictureError,
+            error: updateProfilePictureError,
+            data: updateProfilePictureResponse,
+        },
+    ] = useUpdateWorkerProfilePictureMutation();
 
     const applyToJob = async (job_id, worker_id) => {
         await createApplyToJobFunc({job_id, worker_id});
@@ -90,6 +102,11 @@ export default function useWorkerManger() {
 
     const updateProfileSkill = async (skillInfo) => {
         await updateProfileSkillFunc(skillInfo);
+    };
+
+    const updateProfilePicture = async (formData) => {
+        console.log(formData);
+        await updateProfilePictureFunc(formData);
     };
 
     return {
@@ -134,5 +151,12 @@ export default function useWorkerManger() {
         updateProfileSkillError,
         updateProfileSkill,
         updateProfileSkillResponse,
+
+        isUpdateProfilePictureLoading,
+        isUpdateProfilePictureSuccess,
+        isUpdateProfilePictureError,
+        updateProfilePictureError,
+        updateProfilePicture,
+        updateProfilePictureResponse,
     };
 }
