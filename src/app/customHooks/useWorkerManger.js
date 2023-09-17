@@ -3,7 +3,7 @@ import {
     useUpdateBasicProfileInfoMutation,
     useUpdateProfileAddressMutation,
     useUpdateProfileEducationMutation,
-    useUpdateProfileExperienceMutation
+    useUpdateProfileExperienceMutation, useUpdateProfileSkillMutation
 } from "../../services/worker";
 
 export default function useWorkerManger() {
@@ -57,6 +57,16 @@ export default function useWorkerManger() {
             data: updateProfileExperienceResponse,
         },
     ] = useUpdateProfileExperienceMutation();
+    const [
+        updateProfileSkillFunc,
+        {
+            isLoading: isUpdateProfileSkillLoading,
+            isSuccess: isUpdateProfileSkillSuccess,
+            isError: isUpdateProfileSkillError,
+            error: updateProfileSkillError,
+            data: updateProfileSkillResponse,
+        },
+    ] = useUpdateProfileSkillMutation();
 
     const applyToJob = async (job_id, worker_id) => {
         await createApplyToJobFunc({job_id, worker_id});
@@ -76,6 +86,10 @@ export default function useWorkerManger() {
 
     const updateProfileExperience = async (experienceInfo) => {
         await updateProfileExperienceFunc(experienceInfo);
+    };
+
+    const updateProfileSkill = async (skillInfo) => {
+        await updateProfileSkillFunc(skillInfo);
     };
 
     return {
@@ -113,5 +127,12 @@ export default function useWorkerManger() {
         updateProfileExperienceError,
         updateProfileExperience,
         updateProfileExperienceResponse,
+
+        isUpdateProfileSkillLoading,
+        isUpdateProfileSkillSuccess,
+        isUpdateProfileSkillError,
+        updateProfileSkillError,
+        updateProfileSkill,
+        updateProfileSkillResponse,
     };
 }
