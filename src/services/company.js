@@ -24,10 +24,45 @@ export const companyApi = createApi({
             query: (companyId) => `/company/jobs/${companyId}/`,
             providesTags: ['companyJobs']
         }),
+        updateCompanyProfile: builder.mutation({
+            query: ({
+                        user_id,
+                        industry_id,
+                        country_id,
+                        state_id,
+                        city_id,
+                        area_id,
+                        address,
+                        zip_code,
+                        contact_person_name,
+                        contact_person_position,
+                        contact_person_mobile,
+                        contact_person_email
+                    }) => ({
+                url: `/company/update/profile/`,
+                method: 'POST',
+                body: {
+                    user_id,
+                    industry_id,
+                    country_id,
+                    state_id,
+                    city_id,
+                    area_id,
+                    address,
+                    zip_code,
+                    contact_person_name,
+                    contact_person_position,
+                    contact_person_mobile,
+                    contact_person_email
+                },
+            }),
+            invalidatesTags: ['companyProfileDetails'],
+        }),
     }),
 })
 
 export const {
     useGetCompanyDetailsQuery,
     useGetCompanyJobsQuery,
+    useUpdateCompanyProfileMutation,
 } = companyApi

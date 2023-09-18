@@ -206,6 +206,7 @@ const PostAJob = ({
                         <Textarea
                             placeholder="About Job"
                             row={4}
+                            value={jobBasics.jobDescription}
                             handleChange={(e) => {
                                 setJobBasics({
                                     ...jobBasics,
