@@ -24,16 +24,21 @@ export const companyApi = createApi({
             query: (companyId) => `/company/jobs/${companyId}/`,
             providesTags: ['companyJobs']
         }),
+        getIndustries: builder.query({
+            query: () => `/company/all/industry/`,
+        }),
         updateCompanyProfile: builder.mutation({
             query: ({
                         user_id,
                         industry_id,
-                        country_id,
-                        state_id,
-                        city_id,
-                        area_id,
-                        address,
+                        company_address_line_1,
                         zip_code,
+                        company_name,
+                        company_email,
+                        company_website,
+                        company_contact_number,
+                        about_company,
+                        company_size,
                         contact_person_name,
                         contact_person_position,
                         contact_person_mobile,
@@ -44,12 +49,14 @@ export const companyApi = createApi({
                 body: {
                     user_id,
                     industry_id,
-                    country_id,
-                    state_id,
-                    city_id,
-                    area_id,
-                    address,
+                    company_address_line_1,
                     zip_code,
+                    company_name,
+                    company_email,
+                    company_website,
+                    company_contact_number,
+                    about_company,
+                    company_size,
                     contact_person_name,
                     contact_person_position,
                     contact_person_mobile,
@@ -64,5 +71,6 @@ export const companyApi = createApi({
 export const {
     useGetCompanyDetailsQuery,
     useGetCompanyJobsQuery,
+    useGetIndustriesQuery,
     useUpdateCompanyProfileMutation,
 } = companyApi

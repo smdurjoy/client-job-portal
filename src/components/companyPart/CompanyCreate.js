@@ -1,24 +1,23 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import H3 from "../Typography/H3";
-import {Grid} from "@mui/material";
+import {Autocomplete, Grid, TextField} from "@mui/material";
 import H6 from "../Typography/H6";
 import FormInput from "../common/FormInput";
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import FactoryIcon from '@mui/icons-material/Factory';
 import uploadImg from '../../assets/images/company/uploadImg.svg';
 import H4 from "../Typography/H4";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LanguageIcon from '@mui/icons-material/Language';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import AddressSelectArea from "../common/AddressSelectArea";
 import Textarea from "../common/Textarea";
 import SaveNCancel from "../common/SaveNCancel";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 
-const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave, isLoading}) => {
-    console.log({companyDetails})
-    const handleJobAddressOptionChange = (e, selectedVal, key) => {
+const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave, isLoading, industries}) => {
+    const handleOptionChange = (e, selectedVal, key) => {
         if (!selectedVal) {
             return;
         }
@@ -78,17 +77,15 @@ const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave
                             color='#F28A1F'
                             mt={1}
                         />
-                        <FormInput
-                            placeholder='Industry Type'
-                            icon={<FactoryIcon/>}
-                            value={companyDetails?.industry_type}
-                            handleChange={(e) => {
-                                setCompanyDetails({
-                                    ...companyDetails,
-                                    industry_type: e.target.value
-                                })
-                            }}
-                        />
+                        <Box mt={2}>
+                            <Autocomplete
+                                options={industries}
+                                getOptionLabel={(option) => option.industry_name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'industry_id')}
+                                renderInput={(params) => <TextField {...params} label="Select Industry"/>}
+                                value={industries ? industries.find((option) => option.id === companyDetails.industry_id) : null}
+                            />
+                        </Box>
                     </Grid>
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
@@ -126,19 +123,6 @@ const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave
                             }}
                         />
                     </Grid>
-                    <AddressSelectArea
-                        countries={countries}
-                        handleOptionChange={handleJobAddressOptionChange}
-                        handleChange={(e) => setCompanyDetails({
-                            ...companyDetails,
-                            address: e.target.value
-                        })}
-                        addressVal={companyDetails.address}
-                        country_id={companyDetails.country_id}
-                        state_id={companyDetails.state_id}
-                        city_id={companyDetails.city_id}
-                        area_id={companyDetails.area_id}
-                    />
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
                             text='Website*'
@@ -171,6 +155,42 @@ const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave
                                 setCompanyDetails({
                                     ...companyDetails,
                                     company_size: e.target.value
+                                })
+                            }}
+                        />
+                    </Grid>
+                    <Grid item md={6} sm={12} xs={12}>
+                        <H6
+                            text='Adress'
+                            color='#F28A1F'
+                            mt={3}
+                        />
+                        <FormInput
+                            placeholder='Company Adress'
+                            icon={<LocationOnOutlinedIcon/>}
+                            value={companyDetails?.company_address_line_1}
+                            handleChange={(e) => {
+                                setCompanyDetails({
+                                    ...companyDetails,
+                                    company_address_line_1: e.target.value
+                                })
+                            }}
+                        />
+                    </Grid>
+                    <Grid item md={6} sm={12} xs={12}>
+                        <H6
+                            text='Zipcode'
+                            color='#F28A1F'
+                            mt={3}
+                        />
+                        <FormInput
+                            placeholder='Type Zipcode'
+                            icon={<ConfirmationNumberOutlinedIcon/>}
+                            value={companyDetails?.zip_code}
+                            handleChange={(e) => {
+                                setCompanyDetails({
+                                    ...companyDetails,
+                                    zip_code: e.target.value
                                 })
                             }}
                         />
