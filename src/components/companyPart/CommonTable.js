@@ -9,6 +9,7 @@ import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import {Link} from "react-router-dom";
 
 const CommonTable = ({jobs, type = 1}) => {
     return (
@@ -94,14 +95,16 @@ const CommonTable = ({jobs, type = 1}) => {
                             <TableCell>
                                 {type === 1 ? (
                                     <Box display='flex' flexWrap='wrap'>
-                                        <Button className='primaryBtnLessPaddingBlue'>
-                                            <BorderColorOutlinedIcon fontSize='14px'/>
-                                            <H6
-                                                text='Edit'
-                                                color='#0D9CA4'
-                                                ml={1}
-                                            />
-                                        </Button>
+                                        <Link to={`/post-a-job?id=${row.id}`}>
+                                            <Button className='primaryBtnLessPaddingBlue'>
+                                                <BorderColorOutlinedIcon fontSize='14px'/>
+                                                <H6
+                                                    text='Edit'
+                                                    color='#0D9CA4'
+                                                    ml={1}
+                                                />
+                                            </Button>
+                                        </Link>
                                         <Button className='primaryBtnLessPadding' sx={{marginLeft: '7px'}}>
                                             <H6
                                                 text='Applicants'

@@ -36,7 +36,8 @@ const PostAJob = ({
                       setJobAddress,
 
                       handleSave,
-                      isLoading
+                      isLoading,
+                      isUpdateMode,
                   }) => {
 
     const handleOptionChange = (e, selectedVal, key) => {
@@ -77,7 +78,7 @@ const PostAJob = ({
             <Box py={6}>
                 <Box display='flex' justifyContent='space-between' flexWrap='wrap'>
                     <H3
-                        text='Post a New Job!'
+                        text={isUpdateMode ? 'Update Job Post' : 'Post a New Job!'}
                         fontWeight='bold'
                     />
                     <H3
@@ -112,6 +113,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.category_name}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'job_category_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Job Category"/>}
+                                value={jobCategories.find((option) => option.id === jobBasics.job_category_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -140,6 +142,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.type_name}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'job_type_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Job Type"/>}
+                                value={jobTypes.find((option) => option.id === jobBasics.job_type_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -155,7 +158,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.name}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'salary_type_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Salary Type"/>}
-                                value={salaryTypes ? salaryTypes.find((option) => option.id === jobBasics.salary_type_id) : null}
+                                value={salaryTypes.find((option) => option.id === jobBasics.salary_type_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -174,7 +177,7 @@ const PostAJob = ({
                     </Grid>
                     <Grid item md={4} sm={12} xs={12}>
                         <H6
-                            text='Salary To*'
+                            text='Salary To'
                             color='#F28A1F'
                             mt={3}
                         />
@@ -234,6 +237,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.status_name}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'employment_status_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Employment Status"/>}
+                                value={employmentStatus.find((option) => option.id === jobBasics.employment_status_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -249,6 +253,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.work_place}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'work_place_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Work Place"/>}
+                                value={jobPlaces.find((option) => option.id === jobBasics.work_place_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -264,6 +269,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.option_name}
                                 onChange={(e, sv) => handleOptionChange(e, sv, 'job_level_id')}
                                 renderInput={(params) => <TextField {...params} label="Select Experience Level"/>}
+                                value={jobLevels.find((option) => option.id === jobBasics.job_level_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -308,6 +314,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.value}
                                 onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'gender_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Gender"/>}
+                                value={genders.filter((option) => jobRequirement.gender_ids.includes(option.id)) || []}
                             />
                         </Box>
                     </Grid>
@@ -323,6 +330,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.degree_name}
                                 onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'degree_id')}
                                 renderInput={(params) => <TextField {...params} label="Select a Degree"/>}
+                                value={degrees.find((option) => option.id == jobRequirement.degree_id) || null}
                             />
                         </Box>
                     </Grid>
@@ -340,6 +348,7 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.skill_name}
                                 onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'skills_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Skills"/>}
+                                value={skills.filter((option) => jobRequirement.skills_ids.includes(option.id)) || []}
                             />
                         </Box>
                     </Grid>
@@ -357,12 +366,13 @@ const PostAJob = ({
                                 getOptionLabel={(option) => option.benefit_name}
                                 onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'benefit_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Benefits"/>}
+                                value={jobBenefits.filter((option) => jobRequirement.benefit_ids.includes(option.id)) || []}
                             />
                         </Box>
                     </Grid>
                     <Grid item md={12} sm={12} xs={12}>
                         <H6
-                            text='Job Responsibilities *'
+                            text='Job Responsibilities'
                             color='#F28A1F'
                             mt={3}
                         />
@@ -426,7 +436,11 @@ const PostAJob = ({
                     </Grid>
                     <Grid item md={6} sm={12} xs={12} mt={5}>
                         <Button size='large' className='primaryBtn' onClick={handleSave} disabled={isLoading}>
-                            {isLoading ? 'Posting...' : 'Post Now'}
+                            {isUpdateMode ? (
+                                isLoading ? 'Updating...' : 'Update Post'
+                            ) : (
+                                isLoading ? 'Posting...' : 'Post Now'
+                            )}
                         </Button>
                     </Grid>
                 </Grid>

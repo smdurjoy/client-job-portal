@@ -4,7 +4,7 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://www.kamla.xyz' 
 
 export const authJobApi = createApi({
     reducerPath: 'authJobApi',
-    tagTypes: ['companyJobs'],
+    tagTypes: ['companyJobs', 'jobDetails'],
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers, {getState}) => {
@@ -37,6 +37,10 @@ export const authJobApi = createApi({
         getCompanyJobs: builder.query({
             query: (companyId) => `/company/jobs/${companyId}/`,
             providesTags: ['companyJobs'],
+        }),
+        getJobDetails: builder.query({
+            query: (jobId) => `/job/details/${jobId}/`,
+            providesTags: ['jobDetails'],
         }),
         createJobBasics: builder.mutation({
             query: ({
@@ -114,8 +118,46 @@ export const authJobApi = createApi({
                     zip_code,
                 },
             }),
-            invalidatesTags: ['companyJobs'],
+            invalidatesTags: ['companyJobs', 'jobDetails'],
         }),
+        updateJobBasics: builder.mutation({
+            query: ({
+                        job_id,
+                        user_id,
+                        job_title,
+                        job_type_id,
+                        job_category_id,
+                        job_level_id,
+                        employment_status_id,
+                        work_place_id,
+                        salary_type_id,
+                        salary_range,
+                        no_of_vacancies,
+                        job_responsibility,
+                        application_deadline,
+                        job_description,
+                    }) => ({
+                url: `/job/update/basic/`,
+                method: 'POST',
+                body: {
+                    job_id,
+                    user_id,
+                    job_title,
+                    job_type_id,
+                    job_category_id,
+                    job_level_id,
+                    employment_status_id,
+                    work_place_id,
+                    salary_type_id,
+                    salary_range,
+                    no_of_vacancies,
+                    job_responsibility,
+                    application_deadline,
+                    job_description,
+                },
+            })
+        }),
+        invalidatesTags: ['jobDetails'],
     }),
 })
 
@@ -126,8 +168,10 @@ export const {
     useGetJobPlacesQuery,
     useGetJobSkillsQuery,
     useGetJobBenefitsQuery,
+    useGetJobDetailsQuery,
     useCreateJobBasicsMutation,
     useCreateJobRequirementsMutation,
     useCreateJobAddressMutation,
     useGetCompanyJobsQuery,
+    useUpdateJobBasicsMutation,
 } = authJobApi

@@ -1,7 +1,7 @@
 import {
     useCreateJobAddressMutation,
     useCreateJobBasicsMutation,
-    useCreateJobRequirementsMutation
+    useCreateJobRequirementsMutation, useUpdateJobBasicsMutation
 } from "../../services/authJobs";
 
 export default function useJobPostManger() {
@@ -38,6 +38,17 @@ export default function useJobPostManger() {
         },
     ] = useCreateJobAddressMutation();
 
+    const [
+        updateUpdateJobBasicFunc,
+        {
+            isLoading: isUpdateJobBasicLoading,
+            isSuccess: isUpdateJobBasicSuccess,
+            isError: isUpdateJobBasicError,
+            error: updateJobBasicError,
+            data: updateJobBasicResponse,
+        },
+    ] = useUpdateJobBasicsMutation();
+
     const createJobBasic = async (jobBasics) => {
         await createJobBasicFunc(jobBasics);
     };
@@ -48,6 +59,10 @@ export default function useJobPostManger() {
 
     const createJobAddress = async (joAddress) => {
         await createJobAddressFunc(joAddress);
+    };
+
+    const updateJobBasics = async (joAddress) => {
+        await updateUpdateJobBasicFunc(joAddress);
     };
 
     return {
@@ -71,5 +86,12 @@ export default function useJobPostManger() {
         jobAddressError,
         createJobAddress,
         jobAddressCreateResponse,
+
+        isUpdateJobBasicLoading,
+        isUpdateJobBasicSuccess,
+        isUpdateJobBasicError,
+        updateJobBasicError,
+        updateJobBasics,
+        updateJobBasicResponse,
     };
 }

@@ -11,42 +11,19 @@ import {
     useGetJobTypesQuery
 } from "../services/authJobs";
 import {useGetAllJobCategoriesQuery, useGetSalaryTypesQuery} from "../services/jobs";
+import {useGetJobDetailsQuery} from "../services/authJobs";
 import {useGetDegreesQuery} from "../services/common";
 import {useAppSelector} from "../app/hooks";
 import useJobPostManger from "../app/customHooks/useJobPostManger";
 import {toast} from "react-toastify";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
+import Loader from "../components/common/Loader";
 
 const PostAJobPage = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const {data: jobCategories} = useGetAllJobCategoriesQuery();
-    const {data: jobLevels} = useGetJobLevelsQuery();
-    const {data: jobTypes} = useGetJobTypesQuery();
-    const {data: employmentStatus} = useGetJobEmploymentStatusQuery();
-    const {data: jobPlaces} = useGetJobPlacesQuery();
-    const {data: skills} = useGetJobSkillsQuery();
-    const {data: degrees} = useGetDegreesQuery();
-    const {data: jobBenefits} = useGetJobBenefitsQuery();
-    const {data: salaryTypes} = useGetSalaryTypesQuery();
+    const [jobId, setJobId] = useState(null);
     const {user_id} = useAppSelector((state) => state.app);
-    const {
-        isJobBasicSuccess,
-        createJobBasic,
-        jobBasicCreateResponse,
-        isJobBasicError,
-        jobBasicError,
-
-        isJobRequirementSuccess,
-        createJobRequirement,
-        jobRequirementCreateResponse,
-
-        isJobAddressSuccess,
-        createJobAddress,
-        jobAddressCreateResponse,
-    } = useJobPostManger();
-
-    const navigate = useNavigate();
-
+    const [isJobBasicPosted, setIsJobBasicPosted] = useState(false);
     const [jobBasics, setJobBasics] = useState({
         user_id,
         job_title: null,
@@ -65,7 +42,6 @@ const PostAJobPage = () => {
         job_description: null,
         salary_type: null,
     });
-
     const [jobRequirement, setJobRequirement] = useState({
         job_id: null,
         minimum_age: null,
@@ -77,15 +53,77 @@ const PostAJobPage = () => {
         gender_ids: [],
         cv_receiving_ids: [],
     });
-
     const [jobAddress, setJobAddress] = useState({
         job_id: null,
         job_address: null,
         zip_code: null,
     });
 
+    const {data: jobCategories} = useGetAllJobCategoriesQuery();
+    const {data: jobLevels} = useGetJobLevelsQuery();
+    const {data: jobTypes} = useGetJobTypesQuery();
+    const {data: employmentStatus} = useGetJobEmploymentStatusQuery();
+    const {data: jobPlaces} = useGetJobPlacesQuery();
+    const {data: skills} = useGetJobSkillsQuery();
+    const {data: degrees} = useGetDegreesQuery();
+    const {data: jobBenefits} = useGetJobBenefitsQuery();
+    const {data: salaryTypes} = useGetSalaryTypesQuery();
+    const {
+        data: jobDetails,
+        isLoading: isJobFetchLoading,
+        isSuccess: isJobFetchSuccess
+    } = useGetJobDetailsQuery(jobId, {
+        skip: !jobId,
+    });
+    const {
+        isJobBasicSuccess,
+        createJobBasic,
+        jobBasicCreateResponse,
+        isJobBasicError,
+        jobBasicError,
+
+        isJobRequirementSuccess,
+        createJobRequirement,
+        jobRequirementCreateResponse,
+
+        isJobAddressSuccess,
+        createJobAddress,
+        jobAddressCreateResponse,
+
+        updateJobBasics,
+    } = useJobPostManger();
+
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        const id = searchParams.get("id");
+        if (id) {
+            setJobId(id);
+        }
+    }, [searchParams]);
+
+    useEffect(() => {
+        if (isJobFetchSuccess) {
+            const job = jobDetails?.job_details;
+            setJobBasicsData(job);
+            setJobRequirementData(job);
+            setJobAddress({
+                ...jobAddress,
+                job_id: jobId,
+                job_address: job?.job_address,
+                zip_code: job?.zip_code,
+            })
+        }
+    }, [isJobFetchSuccess]);
+
     const handleSave = async () => {
         setIsLoading(true);
+        if (jobId) {
+            await updateJobBasics(jobBasics);
+            setIsJobBasicPosted(true);
+            return;
+        }
         await createJobBasic(jobBasics);
     }
 
@@ -106,7 +144,6 @@ const PostAJobPage = () => {
                 setIsLoading(false);
                 return;
             }
-
             const {job_id} = jobBasicCreateResponse;
             setJobRequirement({
                 ...jobRequirement,
@@ -116,15 +153,16 @@ const PostAJobPage = () => {
                 ...jobAddress,
                 job_id,
             });
+            setIsJobBasicPosted(true);
         }
     }, [isJobBasicSuccess])
 
     useEffect(() => {
-        if (jobRequirement.job_id) {
+        if (isJobBasicPosted) {
             createJobRequirement(jobRequirement);
             createJobAddress(jobAddress);
         }
-    }, [jobRequirement.job_id])
+    }, [isJobBasicPosted])
 
     useEffect(() => {
         if (isJobBasicError) {
@@ -145,9 +183,6 @@ const PostAJobPage = () => {
                 setIsLoading(false);
             }
         }
-    }, [isJobBasicSuccess]);
-
-    useEffect(() => {
         if (isJobAddressSuccess) {
             const {status, message} = jobAddressCreateResponse;
             if (status === 0) {
@@ -155,12 +190,12 @@ const PostAJobPage = () => {
                 toast.warning(message);
             }
         }
-    }, [isJobAddressSuccess]);
+    }, [isJobBasicSuccess, isJobAddressSuccess]);
 
     useEffect(() => {
         if (isJobRequirementSuccess && isJobAddressSuccess) {
             setIsLoading(false);
-            toast.success('Job Posted Successfully.');
+            toast.success(jobId ? 'Updated Successfully.' : 'Job Posted Successfully.');
             navigate('/posted-jobs');
         }
     }, [isJobRequirementSuccess, isJobAddressSuccess]);
@@ -170,35 +205,74 @@ const PostAJobPage = () => {
         document.title = 'Post a Job - workersRUS';
     }, [])
 
+    const setJobBasicsData = (job) => {
+        setJobBasics({
+            ...jobBasics,
+            job_id: jobId,
+            job_title: job?.job_title,
+            job_type_id: job?.job_type_id,
+            job_category_id: job?.job_category_id,
+            job_level_id: job?.job_level_id,
+            employment_status_id: job?.employment_status_id,
+            work_place_id: job?.work_place_id,
+            salary_type_id: job?.salary_type_id,
+            min_salary: null,
+            max_salary: null,
+            salary_range: job?.salary_range,
+            no_of_vacancies: job?.no_of_vacancies,
+            job_responsibility: job?.job_responsibilities,
+            application_deadline: job?.application_deadline,
+            job_description: job?.job_description,
+        })
+    }
+    const setJobRequirementData = (job) => {
+        setJobRequirement({
+            ...jobRequirement,
+            job_id: jobId,
+            minimum_age: job?.age_require_minimum,
+            maximum_age: job?.age_require_maximum,
+            degree_id: job?.degree_id,
+            skills_ids: job?.skills_requirements.map(({id}) => id),
+            benefit_ids: job?.benefits.map(({id}) => id),
+            gender_ids: job?.gender_requirements.map(({id}) => id),
+            cv_receiving_ids: job?.cv_receiving_option.map(({id}) => id),
+        })
+    }
+
     return (
         <>
             <Navbar isForHomePage={false}/>
-            <PostAJob
-                jobCategories={jobCategories ? jobCategories?.job_categories : []}
-                jobLevels={jobLevels ? jobLevels?.data : []}
-                jobTypes={jobTypes ? jobTypes?.data : []}
-                employmentStatus={employmentStatus ? employmentStatus?.data : []}
-                jobPlaces={jobPlaces ? jobPlaces?.data : []}
-                skills={skills ? skills?.data : []}
-                degrees={degrees ? degrees?.areas : []}
-                jobBenefits={jobBenefits ? jobBenefits?.data : []}
-                salaryTypes={salaryTypes ? salaryTypes?.data : []}
+            {jobId && isJobFetchLoading ? (
+                <Loader/>
+            ) : (
+                <PostAJob
+                    jobCategories={jobCategories ? jobCategories?.job_categories : []}
+                    jobLevels={jobLevels ? jobLevels?.data : []}
+                    jobTypes={jobTypes ? jobTypes?.data : []}
+                    employmentStatus={employmentStatus ? employmentStatus?.data : []}
+                    jobPlaces={jobPlaces ? jobPlaces?.data : []}
+                    skills={skills ? skills?.data : []}
+                    degrees={degrees ? degrees?.areas : []}
+                    jobBenefits={jobBenefits ? jobBenefits?.data : []}
+                    salaryTypes={salaryTypes ? salaryTypes?.data : []}
 
-                jobBasics={jobBasics}
-                setJobBasics={setJobBasics}
+                    jobBasics={jobBasics}
+                    setJobBasics={setJobBasics}
 
-                jobRequirement={jobRequirement}
-                setJobRequirement={setJobRequirement}
+                    jobRequirement={jobRequirement}
+                    setJobRequirement={setJobRequirement}
 
-                jobAddress={jobAddress}
-                setJobAddress={setJobAddress}
+                    jobAddress={jobAddress}
+                    setJobAddress={setJobAddress}
 
-                handleSave={handleSave}
-                isLoading={isLoading}
-            />
+                    handleSave={handleSave}
+                    isLoading={isLoading}
+
+                    isUpdateMode={!!jobId}
+                />
+            )}
             <Footer/>
         </>
-    );
-};
-
+    )
+}
 export default PostAJobPage;

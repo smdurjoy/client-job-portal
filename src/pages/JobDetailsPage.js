@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Footer from "../components/common/Footer";
 import Navbar from "../components/common/Navbar";
 import JobDetails from "../components/Jobs/JobDetails";
-import {useGetJobDetailsQuery} from "../services/jobs";
+import {useGetJobDetailsQuery} from "../services/authJobs";
 import {useParams} from "react-router-dom";
 
 const HomePage = () => {
