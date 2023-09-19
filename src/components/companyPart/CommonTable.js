@@ -77,7 +77,7 @@ const CommonTable = ({jobs, type = 1}) => {
                             <TableCell>
                                 <TypoBadge
                                     icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                                    text={`${row.state}, ${row.city}`}
+                                    text={`${row.job_address}`}
                                     color='#0D9CA4'
                                     bgColor='#F3FAFA'
                                 />

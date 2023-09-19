@@ -16,7 +16,7 @@ import SaveNCancel from "../common/SaveNCancel";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 
-const CompanyCreate = ({companyDetails, setCompanyDetails, countries, handleSave, isLoading, industries}) => {
+const CompanyCreate = ({companyDetails, setCompanyDetails, handleSave, isLoading, industries}) => {
     const handleOptionChange = (e, selectedVal, key) => {
         if (!selectedVal) {
             return;

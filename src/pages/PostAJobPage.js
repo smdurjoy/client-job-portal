@@ -10,8 +10,8 @@ import {
     useGetJobSkillsQuery,
     useGetJobTypesQuery
 } from "../services/authJobs";
-import {useGetAllJobCategoriesQuery} from "../services/jobs";
-import {useGetCountriesQuery, useGetDegreesQuery} from "../services/common";
+import {useGetAllJobCategoriesQuery, useGetSalaryTypesQuery} from "../services/jobs";
+import {useGetDegreesQuery} from "../services/common";
 import {useAppSelector} from "../app/hooks";
 import useJobPostManger from "../app/customHooks/useJobPostManger";
 import {toast} from "react-toastify";
@@ -27,7 +27,7 @@ const PostAJobPage = () => {
     const {data: skills} = useGetJobSkillsQuery();
     const {data: degrees} = useGetDegreesQuery();
     const {data: jobBenefits} = useGetJobBenefitsQuery();
-    const {data: countries} = useGetCountriesQuery();
+    const {data: salaryTypes} = useGetSalaryTypesQuery();
     const {user_id} = useAppSelector((state) => state.app);
     const {
         isJobBasicSuccess,
@@ -55,6 +55,7 @@ const PostAJobPage = () => {
         job_level_id: null,
         employment_status_id: null,
         work_place_id: null,
+        salary_type_id: null,
         min_salary: null,
         max_salary: null,
         salary_range: null,
@@ -79,23 +80,23 @@ const PostAJobPage = () => {
 
     const [jobAddress, setJobAddress] = useState({
         job_id: null,
-        address: null,
-        country_id: null,
-        state_id: null,
-        city_id: null,
-        area_id: null,
+        job_address: null,
+        zip_code: null,
     });
 
     const handleSave = async () => {
         setIsLoading(true);
+        await createJobBasic(jobBasics);
+    }
+
+    useEffect(() => {
         if (jobBasics.min_salary && jobBasics.max_salary) {
             setJobBasics({
                 ...jobBasics,
                 salary_range: `${jobBasics.min_salary}-${jobBasics.max_salary}`
             })
         }
-        await createJobBasic(jobBasics);
-    }
+    }, [jobBasics.min_salary, jobBasics.max_salary])
 
     useEffect(() => {
         if (isJobBasicSuccess) {
@@ -181,7 +182,7 @@ const PostAJobPage = () => {
                 skills={skills ? skills?.data : []}
                 degrees={degrees ? degrees?.areas : []}
                 jobBenefits={jobBenefits ? jobBenefits?.data : []}
-                countries={countries ? countries?.counties : []}
+                salaryTypes={salaryTypes ? salaryTypes?.data : []}
 
                 jobBasics={jobBasics}
                 setJobBasics={setJobBasics}

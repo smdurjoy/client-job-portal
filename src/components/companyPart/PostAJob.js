@@ -10,32 +10,34 @@ import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
 import Button from "@mui/material/Button";
 import Textarea from "../common/Textarea";
-import AddressSelectArea from "../common/AddressSelectArea";
 import CommonDatePicker from "../common/CommonDatePicker";
 import {formatDate} from "../../helpers/Helpers";
+import {genders} from "../../constants/Constant";
+import ConfirmationNumberOutlinedIcon from "@mui/icons-material/ConfirmationNumberOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 
 const PostAJob = ({
-                           jobCategories,
-                           jobLevels,
-                           jobTypes,
-                           employmentStatus,
-                           jobPlaces,
-                           skills,
-                           degrees,
-                           jobBenefits,
-                           jobBasics,
-                           setJobBasics,
-                           countries,
+                      jobCategories,
+                      jobLevels,
+                      jobTypes,
+                      employmentStatus,
+                      jobPlaces,
+                      skills,
+                      degrees,
+                      jobBenefits,
+                      jobBasics,
+                      setJobBasics,
+                      salaryTypes,
 
-                           jobRequirement,
-                           setJobRequirement,
+                      jobRequirement,
+                      setJobRequirement,
 
-                           jobAddress,
-                           setJobAddress,
+                      jobAddress,
+                      setJobAddress,
 
-                           handleSave,
-                           isLoading
-                       }) => {
+                      handleSave,
+                      isLoading
+                  }) => {
 
     const handleOptionChange = (e, selectedVal, key) => {
         if (!selectedVal) {
@@ -59,16 +61,6 @@ const PostAJob = ({
         setJobRequirement({
             ...jobRequirement,
             [key]: selectedIds,
-        })
-    }
-
-    const handleJobAddressOptionChange = (e, selectedVal, key) => {
-        if (!selectedVal) {
-            return;
-        }
-        setJobAddress({
-            ...jobAddress,
-            [key]: selectedVal.id,
         })
     }
 
@@ -151,6 +143,22 @@ const PostAJob = ({
                             />
                         </Box>
                     </Grid>
+                    <Grid item md={3} sm={12} xs={12}>
+                        <H6
+                            text='Salary Type'
+                            color='#F28A1F'
+                            mt={3}
+                        />
+                        <Box mt={2}>
+                            <Autocomplete
+                                options={salaryTypes}
+                                getOptionLabel={(option) => option.name}
+                                onChange={(e, sv) => handleOptionChange(e, sv, 'salary_type_id')}
+                                renderInput={(params) => <TextField {...params} label="Select Salary Type"/>}
+                                value={salaryTypes ? salaryTypes.find((option) => option.id === jobBasics.salary_type_id) : null}
+                            />
+                        </Box>
+                    </Grid>
                     <Grid item md={4} sm={12} xs={12}>
                         <H6
                             text='Salary From'
@@ -177,7 +185,7 @@ const PostAJob = ({
                             value={jobBasics.max_salary}
                         />
                     </Grid>
-                    <Grid item md={2} sm={12} xs={12}>
+                    <Grid item md={1} sm={12} xs={12}>
                         <Box display='flex' alignItems='end' height='100%'>
                             <FormControlLabel
                                 control={
@@ -187,7 +195,6 @@ const PostAJob = ({
                                             setJobBasics({
                                                 ...jobBasics,
                                                 salary_range: e.target.checked ? 'Negotiable' : '',
-                                                salary_type: e.target.checked ? 'Negotiable' : ''
                                             });
                                         }}
                                     />
@@ -206,11 +213,11 @@ const PostAJob = ({
                         <Textarea
                             placeholder="About Job"
                             row={4}
-                            value={jobBasics.jobDescription}
+                            value={jobBasics.job_description}
                             handleChange={(e) => {
                                 setJobBasics({
                                     ...jobBasics,
-                                    jobDescription: e.target.value
+                                    job_description: e.target.value
                                 })
                             }}
                         />
@@ -295,7 +302,11 @@ const PostAJob = ({
                         />
                         <Box mt={2}>
                             <Autocomplete
-                                options={[]}
+                                multiple
+                                limitTags={3}
+                                options={genders}
+                                getOptionLabel={(option) => option.value}
+                                onChange={(e, sv) => handleJobRequirementsOptionChange(e, sv, 'gender_ids')}
                                 renderInput={(params) => <TextField {...params} label="Select Gender"/>}
                             />
                         </Box>
@@ -364,19 +375,32 @@ const PostAJob = ({
                             })}
                         />
                     </Grid>
-                    <AddressSelectArea
-                        countries={countries}
-                        handleOptionChange={handleJobAddressOptionChange}
-                        handleChange={(e) => setJobAddress({
-                            ...jobAddress,
-                            address: e.target.value
-                        })}
-                        addressVal={jobAddress.address}
-                        country_id={jobAddress.country_id}
-                        state_id={jobAddress.state_id}
-                        city_id={jobAddress.city_id}
-                        area_id={jobAddress.area_id}
-                    />
+                    <Grid item md={6} sm={12} xs={12}>
+                        <H6
+                            text='Job Address'
+                            color='#F28A1F'
+                            mt={3}
+                        />
+                        <FormInput
+                            placeholder='Job Address'
+                            icon={<LocationOnOutlinedIcon/>}
+                            handleChange={(e) => setJobAddress({...jobAddress, job_address: e.target.value})}
+                            value={jobAddress.job_address}
+                        />
+                    </Grid>
+                    <Grid item md={6} sm={12} xs={12}>
+                        <H6
+                            text='Zipcode'
+                            color='#F28A1F'
+                            mt={3}
+                        />
+                        <FormInput
+                            placeholder='Write Zipcode'
+                            icon={<ConfirmationNumberOutlinedIcon/>}
+                            handleChange={(e) => setJobAddress({...jobAddress, zip_code: e.target.value})}
+                            value={jobAddress.zip_code}
+                        />
+                    </Grid>
                     <Grid item md={6} sm={12} xs={12}>
                         <H6
                             text='Deadline*'
@@ -387,6 +411,7 @@ const PostAJob = ({
                             <CommonDatePicker
                                 label='MM/DD/YYYY*'
                                 handleDateChange={(val) => handleDateChange(val)}
+                                value={jobBasics.application_deadline}
                             />
                         </Box>
                     </Grid>
