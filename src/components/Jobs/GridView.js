@@ -45,7 +45,7 @@ const GridView = ({job, appliedJobs, handleJobApply, isApplyJobLoading, isApplie
                 <Box display='flex' mt={2}>
                     <TypoBadge
                         icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                        text={job ? `${job.city}, ${job.state}` : 'Berlyn'}
+                        text={job ? `${job.job_address}` : 'Berlyn'}
                         color='#0D9CA4'
                         bgColor='#F3FAFA'
                     />

@@ -29,7 +29,7 @@ const ListView = ({job, appliedJobs, handleJobApply, isApplyJobLoading}) => {
                         <Box display='flex' mt={2}>
                             <TypoBadge
                                 icon={<LocationOnOutlinedIcon fontSize='small'/>}
-                                text={job ? `${job.job_area}, ${job.city}` : 'Berlyn'}
+                                text={job ? `${job.job_address}` : 'Berlyn'}
                                 color='#0D9CA4'
                                 bgColor='#F3FAFA'
                             />
