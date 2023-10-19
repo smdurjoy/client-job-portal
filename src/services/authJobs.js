@@ -42,6 +42,9 @@ export const authJobApi = createApi({
             query: (jobId) => `/job/details/${jobId}/`,
             providesTags: ['jobDetails'],
         }),
+        getAppliedCandidates: builder.query({
+            query: ({companyId, jobId}) => `/company/job/applied/candidate/${companyId}/${jobId}`,
+        }),
         createJobBasics: builder.mutation({
             query: ({
                         user_id,
@@ -155,9 +158,9 @@ export const authJobApi = createApi({
                     application_deadline,
                     job_description,
                 },
-            })
+            }),
+            invalidatesTags: ['jobDetails'],
         }),
-        invalidatesTags: ['jobDetails'],
     }),
 })
 
@@ -169,6 +172,7 @@ export const {
     useGetJobSkillsQuery,
     useGetJobBenefitsQuery,
     useGetJobDetailsQuery,
+    useGetAppliedCandidatesQuery,
     useCreateJobBasicsMutation,
     useCreateJobRequirementsMutation,
     useCreateJobAddressMutation,

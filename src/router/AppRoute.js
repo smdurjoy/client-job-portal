@@ -83,11 +83,11 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <CompanyDashboardPage/>
+        element: <CompanyPrivateRoute children={<CompanyDashboardPage/>}/>
     },
     {
         path: "/posted-jobs",
-        element: <PostedJobsPage/>
+        element: <CompanyPrivateRoute children={<PostedJobsPage/>}/>
     },
     {
         path: "/get-a-plan",
@@ -95,7 +95,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/create-company",
-        element: <CreateCompanyPage/>
+        element: <CompanyPrivateRoute children={<CreateCompanyPage/>}/>
     },
     {
         path: "/post-a-job",
@@ -103,7 +103,7 @@ const AppRoute = createBrowserRouter([
     },
     {
         path: "/posted-job-details",
-        element: <PostedJobDetailsPage/>
+        element: <CompanyPrivateRoute children={<PostedJobDetailsPage/>}/>
     },
 ]);
 

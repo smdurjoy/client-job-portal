@@ -1,9 +1,13 @@
 import moment from "moment";
 
 export const diffInDays = (fromDate, toDate) => {
-    const fromDay = moment([fromDate]);
-    const toDay = moment([toDate]);
-    return fromDay.diff(toDay, 'days');
+    const fromDay = moment(fromDate);
+    const toDay = moment(toDate);
+    const difference = toDay.diff(fromDay, 'days') + 1;
+    if (difference < 0) {
+        return 0;
+    }
+    return difference;
 }
 
 export const isAppliedToJob = (appliedJobs, jobId) => {

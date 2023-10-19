@@ -105,12 +105,14 @@ const CommonTable = ({jobs, type = 1}) => {
                                                 />
                                             </Button>
                                         </Link>
-                                        <Button className='primaryBtnLessPadding' sx={{marginLeft: '7px'}}>
-                                            <H6
-                                                text='Applicants'
-                                                color='white'
-                                            />
-                                        </Button>
+                                        <Link to={`/posted-job-details?job_id=${row.id}`}>
+                                            <Button className='primaryBtnLessPadding' sx={{marginLeft: '7px'}}>
+                                                <H6
+                                                    text='Applicants'
+                                                    color='white'
+                                                />
+                                            </Button>
+                                        </Link>
                                     </Box>
                                 ) : (
                                     <Box display='flex' flexWrap='wrap'>

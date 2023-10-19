@@ -12,9 +12,12 @@ import VideoFileIcon from '@mui/icons-material/VideoFile';
 import ApplicantsWithProfile from "./ApplicantsWithProfile";
 import ApplicantsWithCV from "./ApplicantsWithCV";
 import ApplicantsWithVideo from "./ApplicantsWithVideo";
+import Typography from "@mui/material/Typography";
+import {diffInDays} from "../../../helpers/Helpers";
 
-const PostedJobDetails = () => {
+const PostedJobDetails = ({candidates, job}) => {
     const [activeItem, setActiveItem] = useState(1);
+    console.log(job)
     const applicants = [
         {
             name: 'John D Smith',
@@ -63,11 +66,11 @@ const PostedJobDetails = () => {
                     <Box>
                         <Box display='flex' flexWrap='wrap'>
                             <H3
-                                text='Senior Project Manager - '
+                                text={`${job?.job_title} -`}
                                 color='#0D9CA4'
                             />
                             <H3
-                                text='AB Construction'
+                                text={job?.company}
                                 ml={1}
                             />
                         </Box>
@@ -91,7 +94,7 @@ const PostedJobDetails = () => {
                                     mt={0}
                                 />
                                 <H6
-                                    text='148 days left to apply'
+                                    text={`${diffInDays(new Date().toJSON(), job?.application_deadline)} days left to apply`}
                                     color='#0D9CA4'
                                     ml={1}
                                 />
@@ -116,33 +119,37 @@ const PostedJobDetails = () => {
                     </Box>
                 </Box>
 
-                <Box mt={7}>
-                    <Box display='flex' flexWrap='wrap' columnGap={3} sx={{cursor: 'pointer'}}>
-                        {
-                            actionButtons.map((action, key) => (
-                                <Box
-                                    display='flex'
-                                    columnGap={1}
-                                    borderBottom={activeItem === action.id && '1px solid #0D9CA4'}
-                                    onClick={() => setActiveItem(action.id)}
-                                    key={key}
-                                >
-                                    {action.icon}
-                                    <H6
-                                        text={action.title}
-                                        color={activeItem === action.id ? '#0D9CA4' : '#A1A6AB'}
-                                    />
-                                </Box>
-                            ))
-                        }
-                    </Box>
-                </Box>
+                {candidates.length ? (
+                    <>
+                        <Box mt={7}>
+                            <Box display='flex' flexWrap='wrap' columnGap={3} sx={{cursor: 'pointer'}}>
+                                {
+                                    actionButtons.map((action, key) => (
+                                        <Box
+                                            display='flex'
+                                            columnGap={1}
+                                            borderBottom={activeItem === action.id && '1px solid #0D9CA4'}
+                                            onClick={() => setActiveItem(action.id)}
+                                            key={key}
+                                        >
+                                            {action.icon}
+                                            <H6
+                                                text={action.title}
+                                                color={activeItem === action.id ? '#0D9CA4' : '#A1A6AB'}
+                                            />
+                                        </Box>
+                                    ))
+                                }
+                            </Box>
+                        </Box>
 
-                <Box mt={7}>
-                    {activeItem === 1 && <ApplicantsWithProfile applicants={applicants}/>}
-                    {activeItem === 2 && <ApplicantsWithCV applicants={applicants}/>}
-                    {activeItem === 3 && <ApplicantsWithVideo applicants={applicants}/>}
-                </Box>
+                        <Box mt={7}>
+                            {activeItem === 1 && <ApplicantsWithProfile applicants={applicants}/>}
+                            {activeItem === 2 && <ApplicantsWithCV applicants={applicants}/>}
+                            {activeItem === 3 && <ApplicantsWithVideo applicants={applicants}/>}
+                        </Box>
+                    </>
+                ) : <Typography mt={5}>No Candidates Found!</Typography>}
             </Box>
         </Box>
     );
